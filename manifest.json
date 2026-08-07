@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "WhatsApp Web Refined",
-  "short_name": "Web Refined",
+  "name": "Refined WhatsApp™ Web",
+  "short_name": "Refined",
   "version": "1.1.0",
   "description": "Make WhatsApp Web calmer and more private with native-feeling layout controls, privacy blur, and keyboard shortcuts.",
   "icons": {
@@ -13,7 +13,7 @@
   "permissions": ["storage"],
   "host_permissions": ["https://web.whatsapp.com/*"],
   "action": {
-    "default_title": "WhatsApp Web Refined",
+    "default_title": "Refined WhatsApp™ Web",
     "default_icon": {
       "16": "icons/icon16.png",
       "32": "icons/icon32.png"

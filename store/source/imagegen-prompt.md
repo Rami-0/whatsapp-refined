@@ -58,8 +58,10 @@ screenshot, no watermark, no lens flare, no clutter in the left third.
 
 1. Generate the artwork at ≥ 2800×1120, save it over
    `whatsapp-web-refined-marketing-artwork.png`.
-2. Rebuild the store tiles:
-   `npm install --no-save playwright sharp && node store/build-assets.js`
+2. Rebuild only what you intend to replace — everything in `store/assets`
+   (screenshots and promo tiles) is hand-curated, so the script overwrites
+   nothing unless you pass `--promos` and/or `--screenshots` explicitly:
+   `npm install --no-save playwright sharp && node store/build-assets.js --promos`
 3. Delete `node_modules` afterwards to keep the repository lean.
 
 Screenshots are never generated — Chrome Web Store policy requires real UI, so

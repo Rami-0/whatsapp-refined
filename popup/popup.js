@@ -34,13 +34,22 @@
 
   function readSettings() {
     return new Promise((resolve) => {
-      if (!storage) return resolve(normalizeSettings({ ...DEFAULTS, ...previewSettings }));
-      storage.get(null, (values) => resolve(normalizeSettings(values)));
+      const fallback = () => resolve(normalizeSettings({ ...DEFAULTS, ...previewSettings }));
+      if (!storage) return fallback();
+      try {
+        storage.get(null, (values) => resolve(normalizeSettings(values)));
+      } catch (_error) {
+        fallback();
+      }
     });
   }
 
   function save(key, value) {
-    storage?.set({ [key]: value });
+    /* chrome.storage throws "Extension context invalidated" if the extension
+       was reloaded while this (possibly embedded) page stayed open. */
+    try {
+      storage?.set({ [key]: value });
+    } catch (_error) {}
   }
 
   function updateRange(input) {
@@ -93,8 +102,10 @@
   });
 
   document.querySelector("#resetSettings").addEventListener("click", () => {
-    if (storage) storage.set(DEFAULTS, () => render(DEFAULTS));
-    else render(DEFAULTS);
+    try {
+      if (storage) return storage.set(DEFAULTS, () => render(DEFAULTS));
+    } catch (_error) {}
+    render(DEFAULTS);
   });
 
   if (params.has("embedded")) document.body.classList.add("is-embedded");

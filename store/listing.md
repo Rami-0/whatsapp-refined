@@ -2,7 +2,7 @@
 
 ## Product name
 
-WhatsApp Web Refined
+Refined WhatsApp™ Web
 
 ## Summary
 
@@ -14,7 +14,7 @@ Productivity
 
 ## Detailed description
 
-WhatsApp Web Refined gives you thoughtful control over WhatsApp Web without making it feel like a different app.
+Refined WhatsApp™ Web gives you thoughtful control over WhatsApp Web without making it feel like a different app.
 
 Choose where chat filters live, resize the chat list to suit your screen, hide interface elements you do not use, and protect sensitive conversations with a configurable privacy blur. Every control follows the visual language and interaction patterns already used by WhatsApp Web.
 
@@ -30,9 +30,9 @@ Key features:
 
 Private by design:
 
-WhatsApp Web Refined contains no analytics, ads, tracking, or remote code. It does not collect or transmit messages, contacts, phone numbers, media, folder names, or usage data. Your preferences stay in local browser storage.
+Refined WhatsApp™ Web contains no analytics, ads, tracking, or remote code. It does not collect or transmit messages, contacts, phone numbers, media, folder names, or usage data. Your preferences stay in local browser storage.
 
-WhatsApp Web Refined is an independent extension and is not affiliated with, endorsed by, or sponsored by WhatsApp or Meta. WhatsApp is a trademark of WhatsApp LLC.
+Refined WhatsApp™ Web is an independent extension and is not affiliated with, endorsed by, or sponsored by WhatsApp or Meta. WhatsApp is a trademark of WhatsApp LLC.
 
 ## Screenshot captions
 
@@ -52,7 +52,7 @@ WhatsApp Web Refined is an independent extension and is not affiliated with, end
 
 **Remote code:** No.
 
-**Data collection:** None. WhatsApp Web Refined does not collect, sell, or transmit user data.
+**Data collection:** None. Refined WhatsApp™ Web does not collect, sell, or transmit user data.
 
 ## What's new (1.1.0)
 

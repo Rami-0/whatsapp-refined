@@ -39,9 +39,9 @@ async function buildPromoAssets() {
       </linearGradient>
     </defs>
     <rect width="1400" height="560" fill="url(#shade)"/>
-    <text class="copy" x="108" y="256" fill="#aebcb8" font-size="28">WhatsApp Web</text>
-    <text class="title" x="104" y="330" fill="#f4faf7" font-size="76">Refined</text>
-    <text class="copy" x="108" y="378" fill="#aebcb8" font-size="25">Your space. Your settings.</text>
+    <text class="title" x="104" y="290" fill="#f4faf7" font-size="76">Refined</text>
+    <text class="copy" x="108" y="336" fill="#aebcb8" font-size="28">WhatsApp™ Web</text>
+    <text class="copy" x="108" y="382" fill="#aebcb8" font-size="25">Your space. Your settings.</text>
     <rect x="108" y="416" width="52" height="4" rx="2" fill="#06cf9c"/>
     <text class="copy" x="108" y="464" fill="#d9fdd3" font-size="22">Layout · Privacy · Shortcuts</text>
   `);
@@ -64,8 +64,8 @@ async function buildPromoAssets() {
       </linearGradient>
     </defs>
     <rect width="440" height="280" fill="url(#shade)"/>
-    <text class="copy" x="40" y="198" fill="#b9c8c3" font-size="18">WhatsApp Web</text>
-    <text class="title" x="38" y="240" fill="#f4faf7" font-size="43">${escapeXml("Refined")}</text>
+    <text class="title" x="38" y="212" fill="#f4faf7" font-size="43">${escapeXml("Refined")}</text>
+    <text class="copy" x="40" y="242" fill="#b9c8c3" font-size="18">WhatsApp™ Web</text>
   `);
 
   await sharp(art)
@@ -109,9 +109,19 @@ async function buildScreenshots() {
 }
 
 (async () => {
-  await buildPromoAssets();
-  await buildScreenshots();
-  console.log("Built WhatsApp Web Refined Chrome Web Store assets in store/assets");
+  /* Everything in store/assets is hand-curated (real WhatsApp Web screenshots
+     and manually generated promo tiles). Regenerating overwrites that manual
+     work, so each output type requires an explicit opt-in flag. */
+  const promos = process.argv.includes("--promos");
+  const screenshots = process.argv.includes("--screenshots");
+  if (!promos && !screenshots) {
+    console.log("store/assets is hand-curated; nothing was overwritten.");
+    console.log("Pass --promos and/or --screenshots to rebuild those assets.");
+    return;
+  }
+  if (promos) await buildPromoAssets();
+  if (screenshots) await buildScreenshots();
+  console.log("Built Refined WhatsApp™ Web Chrome Web Store assets in store/assets");
 })().catch((error) => {
   console.error(error);
   process.exitCode = 1;

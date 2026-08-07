@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="icons/icon128.png" alt="WhatsApp Web Refined icon" width="96" height="96">
+<img src="icons/icon128.png" alt="Refined WhatsApp™ Web icon" width="96" height="96">
 
-# WhatsApp Web Refined
+# Refined WhatsApp™ Web
 
 **Native-feeling layout, privacy, and keyboard controls for WhatsApp Web.**
 
@@ -15,7 +15,7 @@
 
 </div>
 
-WhatsApp Web Refined is a focused Chrome extension that makes WhatsApp Web
+Refined WhatsApp™ Web is a focused Chrome extension that makes WhatsApp Web
 calmer and more private — without making it feel like a different app. Every
 control follows WhatsApp's own colors, spacing, shapes, and interaction
 patterns, in both light and dark themes.
@@ -66,7 +66,7 @@ extension.
 
 ## Privacy by design
 
-WhatsApp Web Refined has **no analytics, ads, background service, or network
+Refined WhatsApp™ Web has **no analytics, ads, background service, or network
 requests**. It does not collect or transmit messages, contacts, phone numbers,
 media, folder names, or usage data. The extension reads only the visible
 WhatsApp Web interface needed to apply the features you select, and asks for a
@@ -145,6 +145,6 @@ Web updates are especially helpful.
 
 [MIT](LICENSE) © 2026 Rami-0.
 
-WhatsApp Web Refined is an independent project and is not affiliated with,
+Refined WhatsApp™ Web is an independent project and is not affiliated with,
 endorsed by, or sponsored by WhatsApp or Meta. WhatsApp is a trademark of
 WhatsApp LLC.

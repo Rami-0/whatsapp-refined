@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to WhatsApp Web Refined are documented in this file.
+All notable changes to Refined WhatsApp™ Web are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Renamed the product to **Refined WhatsApp™ Web** across the manifest,
+  interface, documentation, and store copy.
 - Visual pass to match WhatsApp Web's current design language: WhatsApp green
   accents for active folders, sidebar actions, and the resize handle in both
   light and dark themes.
@@ -27,11 +29,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   (~120 KB) for loading as an unpacked extension without docs, store assets,
   or development files.
 
+### Fixed
+
+- No more "Extension context invalidated" console errors when the extension
+  is reloaded or updated while WhatsApp Web (or its embedded settings drawer)
+  stays open — every `chrome.storage` access is now guarded.
+
 ## [1.0.1] — 2026-08-07
 
 ### Fixed
 
-- Restored the WhatsApp Web Refined name across the manifest, popup, and
+- Restored the original extension name across the manifest, popup, and
   store copy.
 
 ## [1.0.0] — 2026-08-07

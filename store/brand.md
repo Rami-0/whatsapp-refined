@@ -1,14 +1,14 @@
-# WhatsApp Web Refined brand guide
+# Refined WhatsApp™ Web brand guide
 
 ## Positioning
 
-WhatsApp Web Refined is the quiet control layer for WhatsApp Web: useful, local, and visually at home. Its identity remains deliberately distinct from WhatsApp’s logo while its product UI follows the host application’s established tokens.
+Refined WhatsApp™ Web is the quiet control layer for WhatsApp Web: useful, local, and visually at home. Its identity remains deliberately distinct from WhatsApp’s logo while its product UI follows the host application’s established tokens.
 
 Voice: calm, direct, specific, and privacy-conscious. Avoid superlatives, fear-based privacy claims, or language that suggests an official partnership.
 
 ## Name and compatibility language
 
-- Product name: **WhatsApp Web Refined**
+- Product name: **Refined WhatsApp™ Web**
 - Compact interface reference: **Refined**
 - Descriptor: **Layout and privacy controls for WhatsApp Web**
 - Never shorten WhatsApp to “WA” in public copy.
@@ -46,7 +46,7 @@ Use `#25D366` only as a supporting bright green. Lead with `#00A884`, `#111B21`,
 
 ## Typography
 
-WhatsApp Web Refined uses the host-compatible system UI stack:
+Refined WhatsApp™ Web uses the host-compatible system UI stack:
 
 `-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif`
 

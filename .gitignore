@@ -3,4 +3,5 @@ node_modules/
 package-lock.json
 dist/unpacked/
 dist/*.zip
+!dist/refined-whatsapp-web-*.zip
 !dist/whatsapp-web-refined-*.zip

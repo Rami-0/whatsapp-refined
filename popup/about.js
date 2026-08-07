@@ -23,13 +23,19 @@
       render(enabled);
       return;
     }
-    storage.get(["enabled"], (values) => render(values.enabled ?? defaults.enabled));
+    try {
+      storage.get(["enabled"], (values) => render(values.enabled ?? defaults.enabled));
+    } catch (_error) {
+      render(enabled);
+    }
   }
 
   button.addEventListener("click", () => {
     const next = !enabled;
     render(next);
-    storage?.set({ enabled: next });
+    try {
+      storage?.set({ enabled: next });
+    } catch (_error) {}
   });
 
   globalThis.chrome?.storage?.onChanged?.addListener((changes, area) => {

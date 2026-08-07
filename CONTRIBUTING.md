@@ -1,6 +1,6 @@
-# Contributing to WhatsApp Web Refined
+# Contributing to Refined WhatsApp™ Web
 
-Thanks for your interest in improving WhatsApp Web Refined! This project is
+Thanks for your interest in improving Refined WhatsApp™ Web! This project is
 small on purpose: plain JavaScript and CSS, no build step, no runtime
 dependencies.
 

@@ -1,8 +1,8 @@
-(function initWhatsAppWebRefined() {
+(function initRefinedWhatsAppWeb() {
   "use strict";
 
-  if (window.top !== window || window.__whatsAppWebRefinedLoaded) return;
-  window.__whatsAppWebRefinedLoaded = true;
+  if (window.top !== window || window.__refinedWhatsAppWebLoaded) return;
+  window.__refinedWhatsAppWebLoaded = true;
 
   const utils = globalThis.WRUtils;
   const { DEFAULTS, normalizeSettings } = globalThis.WRSettings;
@@ -38,12 +38,20 @@
   function storageGet() {
     return new Promise((resolve) => {
       if (!globalThis.chrome?.storage?.local) return resolve({ ...DEFAULTS });
-      chrome.storage.local.get(null, (values) => resolve(normalizeSettings(values)));
+      try {
+        chrome.storage.local.get(null, (values) => resolve(normalizeSettings(values)));
+      } catch (_error) {
+        resolve({ ...DEFAULTS });
+      }
     });
   }
 
   function storageSet(values) {
-    if (globalThis.chrome?.storage?.local) chrome.storage.local.set(values);
+    /* After an extension reload this orphaned script can no longer reach
+       chrome.storage — calls throw "Extension context invalidated". */
+    try {
+      if (globalThis.chrome?.storage?.local) chrome.storage.local.set(values);
+    } catch (_error) {}
   }
 
   function iconMarkup(kind) {
@@ -136,7 +144,7 @@
 
     sidebarActions = document.createElement("div");
     sidebarActions.id = "wr-sidebar-actions";
-    sidebarActions.setAttribute("aria-label", "WhatsApp Web Refined tools");
+    sidebarActions.setAttribute("aria-label", "Refined WhatsApp™ Web tools");
 
     privacyAction = createButton("wr-sidebar-action wr-sidebar-action--privacy", "Toggle privacy mode", iconMarkup("privacy") + '<span>Privacy</span>');
     privacyAction.disabled = !settings.enabled;
@@ -153,7 +161,7 @@
   function createDrawer() {
     drawer = document.createElement("aside");
     drawer.id = "wr-settings-drawer";
-    drawer.setAttribute("aria-label", "WhatsApp Web Refined settings");
+    drawer.setAttribute("aria-label", "Refined WhatsApp™ Web settings");
     drawer.setAttribute("aria-hidden", "true");
 
     const close = createButton("wr-drawer-close", "Close Refined settings", '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17"/></svg>');
@@ -162,7 +170,7 @@
 
     const frame = document.createElement("iframe");
     frame.className = "wr-settings-frame";
-    frame.title = "WhatsApp Web Refined settings";
+    frame.title = "Refined WhatsApp™ Web settings";
     const dark = document.documentElement.classList.contains("dark") || document.body.classList.contains("dark");
     const settingsPage = globalThis.chrome?.runtime?.getURL ? chrome.runtime.getURL("popup/popup.html") : "../popup/popup.html";
     const previewSnapshot = location.protocol === "file:" ? `&previewSettings=${encodeURIComponent(JSON.stringify(settings))}` : "";
