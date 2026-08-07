@@ -1,8 +1,8 @@
-(function initWhatsAppRefined() {
+(function initPane() {
   "use strict";
 
-  if (window.top !== window || window.__whatsAppRefinedLoaded) return;
-  window.__whatsAppRefinedLoaded = true;
+  if (window.top !== window || window.__paneLoaded) return;
+  window.__paneLoaded = true;
 
   const utils = globalThis.WRUtils;
   const { DEFAULTS, normalizeSettings } = globalThis.WRSettings;
@@ -81,7 +81,7 @@
 
     sidebarActions = document.createElement("div");
     sidebarActions.id = "wr-sidebar-actions";
-    sidebarActions.setAttribute("aria-label", "WhatsApp Refined actions");
+    sidebarActions.setAttribute("aria-label", "Pane tools");
 
     privacyAction = createButton("wr-sidebar-action wr-sidebar-action--privacy", "Toggle privacy mode", iconMarkup("privacy") + '<span>Privacy</span>');
     privacyAction.disabled = !settings.enabled;
@@ -89,7 +89,7 @@
     privacyAction.setAttribute("aria-pressed", String(settings.privacyEnabled));
     privacyAction.addEventListener("click", togglePrivacy);
 
-    settingsAction = createButton("wr-sidebar-action", "Open WhatsApp Refined settings", iconMarkup("settings") + '<span>Settings</span>');
+    settingsAction = createButton("wr-sidebar-action", "Open Pane settings", iconMarkup("settings") + '<span>Settings</span>');
     settingsAction.setAttribute("aria-pressed", "false");
     settingsAction.addEventListener("click", () => toggleDrawer());
     sidebarActions.append(privacyAction, settingsAction);
@@ -98,18 +98,19 @@
   function createDrawer() {
     drawer = document.createElement("aside");
     drawer.id = "wr-settings-drawer";
-    drawer.setAttribute("aria-label", "WhatsApp Refined settings");
+    drawer.setAttribute("aria-label", "Pane settings");
     drawer.setAttribute("aria-hidden", "true");
 
-    const close = createButton("wr-drawer-close", "Close Refined settings", '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17"/></svg>');
+    const close = createButton("wr-drawer-close", "Close Pane settings", '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17"/></svg>');
     close.addEventListener("click", () => toggleDrawer(false));
 
     const frame = document.createElement("iframe");
     frame.className = "wr-settings-frame";
-    frame.title = "WhatsApp Refined settings";
+    frame.title = "Pane settings";
     const dark = document.documentElement.classList.contains("dark") || document.body.classList.contains("dark");
     const settingsPage = globalThis.chrome?.runtime?.getURL ? chrome.runtime.getURL("popup/popup.html") : "../popup/popup.html";
-    frame.src = `${settingsPage}?embedded=1&theme=${dark ? "dark" : "light"}`;
+    const previewSnapshot = location.protocol === "file:" ? `&previewSettings=${encodeURIComponent(JSON.stringify(settings))}` : "";
+    frame.src = `${settingsPage}?embedded=1&theme=${dark ? "dark" : "light"}${previewSnapshot}`;
     drawer.append(close, frame);
     document.body.append(drawer);
   }

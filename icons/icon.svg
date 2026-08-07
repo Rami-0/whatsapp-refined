@@ -1,17 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-  <defs>
-    <linearGradient id="bg" x1="18" y1="12" x2="112" y2="120" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#203346"/>
-      <stop offset="1" stop-color="#0d151d"/>
-    </linearGradient>
-    <linearGradient id="mark" x1="35" y1="33" x2="93" y2="91" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#72bbff"/>
-      <stop offset="1" stop-color="#368ddd"/>
-    </linearGradient>
-  </defs>
-  <rect x="5" y="5" width="118" height="118" rx="31" fill="url(#bg)"/>
-  <rect x="6.5" y="6.5" width="115" height="115" rx="29.5" fill="none" stroke="#6eb8fa" stroke-opacity=".26" stroke-width="3"/>
-  <path d="M35 39h58L82 52H38L35 39Z" fill="url(#mark)"/>
-  <path d="M40 58h44L73 71H43L40 58Z" fill="url(#mark)"/>
-  <path d="M46 77h28L63 90H49L46 77Z" fill="url(#mark)"/>
+  <rect x="16" y="16" width="96" height="96" rx="25" fill="#00A884"/>
+  <path d="M42 39.5A5.5 5.5 0 0 1 47.5 34h30C89.93 34 100 44.07 100 56.5S89.93 79 77.5 79H59v13.5a5.5 5.5 0 0 1-5.5 5.5h-6a5.5 5.5 0 0 1-5.5-5.5v-53Z" fill="#F7FCFA"/>
+  <path d="M59 50h17.5a6.5 6.5 0 1 1 0 13H59V50Z" fill="#008069"/>
+  <path d="M59 50v13" stroke="#D9FDD3" stroke-width="2" stroke-linecap="round" opacity=".7"/>
 </svg>

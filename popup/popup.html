@@ -3,18 +3,18 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>WhatsApp Refined</title>
+    <title>Pane settings</title>
     <link rel="stylesheet" href="popup.css">
   </head>
   <body>
     <main>
       <header class="app-header">
-        <div class="mark" aria-hidden="true">WR</div>
+        <img class="mark" src="../icons/icon.svg" alt="">
         <div class="title-block">
-          <h1>Refined</h1>
-          <p>WhatsApp, with better controls.</p>
+          <h1>Pane</h1>
+          <p>Make your workspace feel like yours.</p>
         </div>
-        <label class="toggle master-toggle" title="Enable WhatsApp Refined">
+        <label class="toggle master-toggle" title="Enable Pane">
           <input id="enabled" data-setting="enabled" type="checkbox">
           <span aria-hidden="true"></span>
         </label>
@@ -83,14 +83,14 @@
             <span><b id="platformName">macOS shortcuts</b><small id="platformHelp">Uses Command and Option</small></span>
           </div>
 
-          <label class="switch-row standalone-switch" for="keyboardShortcuts"><span><b>Refined shortcuts</b><small>Active while the WhatsApp tab is focused</small></span><input id="keyboardShortcuts" data-setting="keyboardShortcuts" type="checkbox"><i aria-hidden="true"></i></label>
+          <label class="switch-row standalone-switch" for="keyboardShortcuts"><span><b>Pane shortcuts</b><small>Active while the WhatsApp tab is focused</small></span><input id="keyboardShortcuts" data-setting="keyboardShortcuts" type="checkbox"><i aria-hidden="true"></i></label>
 
           <div class="shortcut-list" aria-label="Available keyboard shortcuts">
             <div class="shortcut-row"><span><b>Focus search</b><small>Jump to WhatsApp search</small></span><span class="shortcut-keys" data-mac="⌥|⌘|K" data-other="Ctrl|Alt|K"></span></div>
             <div class="shortcut-row"><span><b>New chat</b><small>Open WhatsApp’s native new-chat panel</small></span><span class="shortcut-keys" data-mac="⌥|⌘|N" data-other="Ctrl|Alt|N"></span></div>
             <div class="shortcut-row"><span><b>Previous / next folder</b><small>Cycles native tabs or sidebar folders</small></span><span class="shortcut-keys" data-mac="⌥|⌘|← / →" data-other="Ctrl|Alt|← / →"></span></div>
             <div class="shortcut-row"><span><b>Privacy mode</b><small>Blur or reveal protected content</small></span><span class="shortcut-keys" data-mac="⌥|⌘|P" data-other="Ctrl|Alt|P"></span></div>
-            <div class="shortcut-row"><span><b>Refined settings</b><small>Open or close this drawer</small></span><span class="shortcut-keys" data-mac="⌥|⌘|," data-other="Ctrl|Alt|,"></span></div>
+            <div class="shortcut-row"><span><b>Pane settings</b><small>Open or close this drawer</small></span><span class="shortcut-keys" data-mac="⌥|⌘|," data-other="Ctrl|Alt|,"></span></div>
           </div>
 
           <p class="shortcut-note">WhatsApp’s own keyboard shortcuts continue to work unchanged. Press Escape to close the settings drawer.</p>
@@ -98,7 +98,7 @@
       </div>
 
       <footer>
-        <span><i aria-hidden="true"></i>Settings stay on this browser</span>
+        <span><i aria-hidden="true"></i>Saved locally on this browser</span>
         <button id="resetSettings" type="button">Reset defaults</button>
       </footer>
     </main>

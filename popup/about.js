@@ -9,11 +9,11 @@
   function render(value) {
     enabled = Boolean(value);
     document.body.classList.toggle("is-paused", !enabled);
-    document.querySelector("#activationTitle").textContent = enabled ? "Refined is active" : "Refined is paused";
+    document.querySelector("#activationTitle").textContent = enabled ? "Pane is active" : "Pane is paused";
     document.querySelector("#activationHelp").textContent = enabled
       ? "Your layout and privacy preferences are applied."
       : "Activate it to restore your saved interface preferences.";
-    button.textContent = enabled ? "Pause Refined" : "Activate Refined";
+    button.textContent = enabled ? "Pause Pane" : "Activate Pane";
     button.setAttribute("aria-pressed", String(enabled));
     document.querySelector("#stateDot").title = enabled ? "Active" : "Paused";
   }

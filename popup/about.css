@@ -7,112 +7,95 @@
   --muted: #8696a0;
   --line: rgba(134, 150, 160, .2);
   --accent: #00a884;
+  --accent-bright: #06cf9c;
   --accent-soft: rgba(0, 168, 132, .14);
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
 * { box-sizing: border-box; }
 
 body {
-  width: 332px;
+  width: 348px;
   margin: 0;
   color: var(--text);
   background: var(--bg);
-  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-family: var(--font);
+  font-size: 14px;
   -webkit-font-smoothing: antialiased;
 }
 
-main { padding: 16px; }
+main { padding: 18px; }
 
 header {
   display: grid;
-  grid-template-columns: 42px 1fr auto;
+  grid-template-columns: 44px 1fr auto;
   align-items: center;
-  gap: 11px;
+  gap: 12px;
 }
 
-.mark {
-  width: 40px;
-  height: 40px;
-  display: grid;
-  place-items: center;
-  color: var(--accent);
-  border: 1px solid currentColor;
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: 750;
-}
-
-h1,
-h2,
-p { margin: 0; }
+.mark { width: 44px; height: 44px; display: block; }
+h1, h2, p { margin: 0; }
 
 h1 {
-  font-size: 18px;
-  line-height: 1.05;
-  font-weight: 680;
-  letter-spacing: -.02em;
+  font-size: 20px;
+  line-height: 1.1;
+  font-weight: 650;
+  letter-spacing: -.015em;
 }
 
 .identity p,
 .activation p,
-footer p {
-  color: var(--muted);
-  font-size: 10px;
-  line-height: 1.45;
-}
-
+footer p { color: var(--muted); font-size: 11px; line-height: 1.45; }
 .identity p { margin-top: 3px; }
 
 .state-dot {
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: var(--accent);
+  background: var(--accent-bright);
   box-shadow: 0 0 0 4px var(--accent-soft);
 }
 
 .activation {
-  margin-top: 17px;
-  padding: 15px;
+  margin-top: 18px;
+  padding: 16px;
   border: 1px solid var(--line);
-  border-radius: 13px;
+  border-radius: 12px;
   background: var(--surface);
 }
 
 .eyebrow {
   display: block;
-  margin-bottom: 5px;
-  color: var(--accent);
-  font-size: 8px;
-  font-weight: 750;
-  letter-spacing: .08em;
+  margin-bottom: 6px;
+  color: var(--accent-bright);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .07em;
   text-transform: uppercase;
 }
 
-h2 {
-  font-size: 14px;
-  font-weight: 650;
-}
-
-.activation p { margin-top: 4px; }
+h2 { font-size: 15px; font-weight: 650; }
+.activation p { margin-top: 5px; }
 
 #activationButton {
   width: 100%;
-  min-height: 38px;
-  margin-top: 14px;
+  min-height: 40px;
+  margin-top: 15px;
   border: 1px solid transparent;
-  border-radius: 9px;
-  color: #071b16;
-  background: var(--accent);
-  font: 650 11px/1 "Avenir Next", "Segoe UI", sans-serif;
+  border-radius: 8px;
+  color: #06251e;
+  background: var(--accent-bright);
+  font: 650 13px/1 var(--font);
   cursor: pointer;
+  transition: filter 140ms ease, transform 140ms ease;
 }
 
-#activationButton:hover { filter: brightness(1.07); }
+#activationButton:hover { filter: brightness(1.05); }
+#activationButton:active { transform: scale(.99); }
 #activationButton:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
 
 .details {
-  margin-top: 12px;
+  margin-top: 13px;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 11px;
@@ -120,8 +103,8 @@ h2 {
 }
 
 .detail-row {
-  min-height: 42px;
-  padding: 0 13px;
+  min-height: 44px;
+  padding: 0 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -130,33 +113,24 @@ h2 {
 }
 
 .detail-row:last-child { border-bottom: 0; }
-.detail-row span { color: var(--muted); font-size: 10px; }
+.detail-row span { color: var(--muted); font-size: 11px; }
 .detail-row strong { color: var(--text); font-size: 11px; font-weight: 600; }
 
 footer {
-  margin-top: 13px;
+  margin-top: 14px;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 16px;
 }
 
-footer p { max-width: 235px; }
-#version { flex: 0 0 auto; color: var(--muted); font-size: 8px; }
+footer p { max-width: 255px; }
+#version { flex: 0 0 auto; color: var(--muted); font-size: 10px; }
 
-body.is-paused .state-dot {
-  background: var(--muted);
-  box-shadow: 0 0 0 4px rgba(134, 150, 160, .12);
-}
-
+body.is-paused .state-dot { background: var(--muted); box-shadow: 0 0 0 4px rgba(134, 150, 160, .12); }
 body.is-paused .activation { background: var(--surface-strong); }
 body.is-paused .eyebrow { color: var(--muted); }
-
-body.is-paused #activationButton {
-  color: var(--text);
-  background: transparent;
-  border-color: var(--accent);
-}
+body.is-paused #activationButton { color: var(--text); background: transparent; border-color: var(--accent); }
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -167,8 +141,11 @@ body.is-paused #activationButton {
     --text: #111b21;
     --muted: #667781;
     --line: rgba(84, 101, 111, .18);
+    --accent-bright: #008069;
     --accent-soft: rgba(0, 168, 132, .1);
   }
+
+  #activationButton { color: #fff; }
 }
 
 @media (prefers-reduced-motion: reduce) {

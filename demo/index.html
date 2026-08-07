@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>WhatsApp Refined — local preview</title>
+    <title>Pane — local preview</title>
     <link rel="stylesheet" href="../src/content.css">
     <style>
       :root { --app-background:#161717; --primary:#fafafa; --secondary:rgba(255,255,255,.6); --secondary-rgb:102,119,129; --icon:rgba(255,255,255,.6); --icon-high-emphasis:#00a884; }
@@ -27,6 +27,8 @@
       .demo-chat-header button { border:0; color:var(--icon); background:none; font-size:21px; }
       #side { flex:1; min-height:0; display:flex; flex-direction:column; background:#161717; }
       .search { margin:8px 12px; padding:10px 14px; color:var(--secondary); background:#202c33; border-radius:8px; }
+      .notification { margin:0 12px 5px; padding:9px 11px; display:flex; align-items:center; gap:9px; color:var(--secondary); background:#182229; border-radius:8px; font-size:12px; }
+      .notification button { width:22px; height:22px; border:0; border-radius:50%; color:var(--secondary); background:#2a3942; }
       [role="tablist"] { height:42px; padding:4px 12px 7px; display:flex; gap:7px; }
       [role="tablist"] button { padding:6px 12px; color:var(--secondary); background:transparent; border:1px solid #3b4a54; border-radius:99px; }
       [role="tablist"] button[aria-selected="true"] { color:#d9fdd3; background:#103529; border-color:transparent; }
@@ -84,7 +86,7 @@
           <div class="notification"><button aria-label="Close">×</button> Notifications are off</div>
           <div id="pane-side">
             <div role="grid" aria-label="Chat list">
-              <div role="row" data-testid="list-item-0"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Design team</div><div data-testid="cell-frame-secondary">Maya: The final screens are ready <img alt="👍"></div></div><time>10:42</time></div></div>
+              <div role="row" data-testid="list-item-0"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Design team</div><div data-testid="cell-frame-secondary">Maya: The final screens are ready <span role="img" aria-label="thumbs up">👍</span></div></div><time>10:42</time></div></div>
               <div role="row" data-testid="list-item-1"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Weekend plans</div><div data-testid="cell-frame-secondary">You: I’ll book the table</div></div><time>09:18</time></div></div>
               <div role="row" data-testid="list-item-2"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Product sync</div><div data-testid="cell-frame-secondary">Three new messages</div></div><time>Tue</time></div></div>
               <div role="row" data-testid="list-item-3"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Family</div><div data-testid="cell-frame-secondary">Photo</div></div><time>Mon</time></div></div>
@@ -94,7 +96,7 @@
       </div>
       <section id="main">
         <header><span class="demo-avatar">W</span><span class="demo-title" data-testid="conversation-info-header-chat-title">Weekend plans</span></header>
-        <div class="conversation"><div data-testid="msg-container">I found a quieter place by the water. <img alt="🌊"></div><div data-testid="msg-container" class="mine">Perfect. Send me the location?</div></div>
+        <div class="conversation"><div data-testid="msg-container">I found a quieter place by the water. <span role="img" aria-label="water wave">🌊</span></div><div data-testid="msg-container" class="mine">Perfect. Send me the location?</div></div>
         <div class="composer">Message</div>
       </section>
     </div>
@@ -151,5 +153,19 @@
     <script src="../src/utils.js"></script>
     <script src="../src/settings.js"></script>
     <script src="../src/content.js"></script>
+    <script>
+      if (previewQuery.has("settings")) {
+        window.setTimeout(() => {
+          document.querySelector('button[aria-label="Open Pane settings"]')?.click();
+          const frame = document.querySelector(".wr-settings-frame");
+          const openRequestedPanel = () => {
+            const target = previewQuery.get("panel") || "layout";
+            frame?.contentDocument?.querySelector(`[data-panel-target="${target}"]`)?.click();
+          };
+          frame?.addEventListener("load", openRequestedPanel, { once: true });
+          openRequestedPanel();
+        }, 500);
+      }
+    </script>
   </body>
 </html>

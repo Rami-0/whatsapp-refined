@@ -4,6 +4,16 @@
   const { DEFAULTS, normalizeSettings } = globalThis.WRSettings;
   const storage = globalThis.chrome?.storage?.local;
   const numericSettings = new Set(["sidebarWidth", "blurStrength"]);
+  const params = new URLSearchParams(location.search);
+  let previewSettings = {};
+
+  if (params.has("previewSettings")) {
+    try {
+      previewSettings = JSON.parse(params.get("previewSettings")) || {};
+    } catch (_error) {
+      previewSettings = {};
+    }
+  }
 
   function renderPlatform() {
     const platform = globalThis.WRUtils.desktopPlatform(navigator);
@@ -24,7 +34,7 @@
 
   function readSettings() {
     return new Promise((resolve) => {
-      if (!storage) return resolve({ ...DEFAULTS });
+      if (!storage) return resolve(normalizeSettings({ ...DEFAULTS, ...previewSettings }));
       storage.get(null, (values) => resolve(normalizeSettings(values)));
     });
   }
@@ -87,7 +97,6 @@
     else render(DEFAULTS);
   });
 
-  const params = new URLSearchParams(location.search);
   if (params.has("embedded")) document.body.classList.add("is-embedded");
   if (["dark", "light"].includes(params.get("theme"))) document.documentElement.dataset.theme = params.get("theme");
   renderPlatform();
