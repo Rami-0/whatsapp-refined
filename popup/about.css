@@ -60,7 +60,7 @@ footer p { color: var(--muted); font-size: 11px; line-height: 1.45; }
   margin-top: 18px;
   padding: 16px;
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: 14px;
   background: var(--surface);
 }
 
@@ -82,7 +82,7 @@ h2 { font-size: 15px; font-weight: 650; }
   min-height: 40px;
   margin-top: 15px;
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: 999px;
   color: #06251e;
   background: var(--accent-bright);
   font: 650 13px/1 var(--font);
@@ -98,7 +98,7 @@ h2 { font-size: 15px; font-weight: 650; }
   margin-top: 13px;
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 11px;
+  border-radius: 14px;
   background: var(--surface);
 }
 

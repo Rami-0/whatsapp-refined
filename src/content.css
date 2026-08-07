@@ -1,7 +1,19 @@
 :root {
   --wr-sidebar-width: 432px;
-  --wr-row-radius: 0px;
   --wr-privacy-blur: 8px;
+  /* WhatsApp light-theme accents; WhatsApp's own tokens win when present. */
+  --wr-accent: #008069;
+  --wr-active-pill: rgba(0, 168, 132, .12);
+  --wr-badge-background: #25d366;
+  --wr-badge-text: #fff;
+}
+
+html.dark,
+body.dark {
+  --wr-accent: #00a884;
+  --wr-active-pill: rgba(0, 168, 132, .16);
+  --wr-badge-background: #00a884;
+  --wr-badge-text: #111b21;
 }
 
 html[data-wr-enabled="true"][data-wr-ready="true"] .wr-chat-shell {
@@ -110,7 +122,7 @@ html[data-wr-ready="true"] #wr-sidebar-actions {
   align-items: center;
   justify-content: center;
   gap: 3px;
-  border-radius: 8px;
+  border-radius: 999px;
 }
 
 .wr-folder-button:hover,
@@ -125,8 +137,8 @@ html[data-wr-ready="true"] #wr-sidebar-actions {
 
 .wr-folder-button[aria-current="page"],
 .wr-sidebar-action[aria-pressed="true"] {
-  color: var(--primary);
-  background: rgba(var(--secondary-rgb), .14);
+  color: var(--wr-accent);
+  background: var(--wr-active-pill);
 }
 
 .wr-folder-button[aria-current="page"]::before {
@@ -136,7 +148,7 @@ html[data-wr-ready="true"] #wr-sidebar-actions {
   left: -12px;
   width: 3px;
   border-radius: 0 3px 3px 0;
-  background: var(--icon-high-emphasis);
+  background: var(--wr-accent);
 }
 
 .wr-folder-icon {
@@ -164,7 +176,7 @@ html[data-wr-ready="true"] #wr-sidebar-actions {
 }
 
 .wr-folder-icon .wr-icon-fill {
-  fill: var(--icon-high-emphasis);
+  fill: var(--unread-marker-background, var(--wr-badge-background));
   stroke: var(--app-background);
 }
 
@@ -192,7 +204,7 @@ html[data-wr-ready="true"] #wr-sidebar-actions {
 
 .wr-folder-button[aria-current="page"] .wr-folder-label,
 .wr-sidebar-action[aria-pressed="true"] span {
-  color: var(--primary);
+  color: var(--wr-accent);
 }
 
 .wr-folder-badge {
@@ -208,10 +220,9 @@ html[data-wr-ready="true"] #wr-sidebar-actions {
   display: grid;
   place-items: center;
   overflow: hidden;
-  color: var(--app-background);
-  background: var(--icon-high-emphasis);
-  border: 1px solid rgba(var(--secondary-rgb), .24);
-  border-radius: 99px;
+  color: var(--wr-badge-text);
+  background: var(--unread-marker-background, var(--wr-badge-background));
+  border-radius: 999px;
   font-size: 8.5px;
   font-weight: 750;
   line-height: 1;
@@ -222,7 +233,7 @@ html[data-wr-ready="true"] #wr-sidebar-actions {
 .wr-folder-button--action {
   margin-top: 3px;
   border-top: 1px solid rgba(var(--secondary-rgb), .14);
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 999px 999px;
 }
 
 html[data-wr-enabled="true"][data-wr-folder-layout="sidebar"] .wr-native-filter-strip {
@@ -320,11 +331,11 @@ html[data-wr-enabled="true"][data-wr-ready="true"][data-wr-custom-width="true"] 
 html[data-wr-resizing="true"] #wr-sidebar-resizer span {
   opacity: 1;
   transform: scaleY(1);
-  background: var(--icon-high-emphasis);
+  background: var(--wr-accent);
 }
 
 #wr-sidebar-resizer:focus-visible span {
-  box-shadow: 0 0 0 3px rgba(var(--secondary-rgb), .16);
+  box-shadow: 0 0 0 3px var(--wr-active-pill);
 }
 
 html[data-wr-resizing="true"],
@@ -341,7 +352,8 @@ html[data-wr-resizing="true"] * {
   box-sizing: border-box;
   background: var(--app-background);
   border-left: 1px solid rgba(var(--secondary-rgb), .2);
-  box-shadow: -12px 0 30px rgba(0, 0, 0, .16);
+  border-radius: 16px 0 0 16px;
+  box-shadow: -12px 0 30px rgba(11, 20, 26, .16);
   transform: translateX(102%);
   visibility: hidden;
   transition: transform 180ms ease, visibility 180ms ease;
@@ -356,6 +368,7 @@ html[data-wr-resizing="true"] * {
   width: 100%;
   height: 100%;
   border: 0;
+  border-radius: inherit;
   background: transparent;
 }
 
@@ -373,6 +386,37 @@ html[data-wr-resizing="true"] * {
   background: var(--app-background);
   border: 1px solid rgba(var(--secondary-rgb), .2);
   border-radius: 50%;
+}
+
+/* Single fixed-position tooltip, placed by the content script so it never
+   gets clipped by the folder rail's scroll container. Matches WhatsApp's own
+   nav tooltip: a white rounded card with near-black text in both themes. */
+#wr-tooltip {
+  position: fixed;
+  z-index: 2000;
+  max-width: 260px;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  color: #111b21;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(11, 20, 26, .3);
+  font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(.96);
+  transition: opacity 120ms ease, transform 120ms ease;
+}
+
+#wr-tooltip[data-visible="true"] {
+  opacity: 1;
+  transform: scale(1);
 }
 
 html[data-wr-enabled="true"][data-wr-ready="true"] #pane-side {
@@ -435,5 +479,6 @@ html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="tr
 @media (prefers-reduced-motion: reduce) {
   #wr-settings-drawer,
   #wr-sidebar-resizer span,
+  #wr-tooltip,
   [data-testid="msg-container"] { transition: none !important; }
 }

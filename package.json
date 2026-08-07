@@ -1,9 +1,10 @@
 {
   "name": "whatsapp-web-refined",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "private": true,
   "description": "Native-feeling layout, privacy, and shortcut controls for WhatsApp Web.",
   "scripts": {
-    "test": "node --test tests/*.test.js"
+    "test": "node --test tests/*.test.js",
+    "package": "rm -rf dist/unpacked dist/whatsapp-web-refined-$npm_package_version.zip && mkdir -p dist/unpacked && cp -R manifest.json icons popup src dist/unpacked/ && find dist/unpacked -name '.DS_Store' -delete && cd dist/unpacked && zip -rX ../whatsapp-web-refined-$npm_package_version.zip ."
   }
 }

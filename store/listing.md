@@ -54,6 +54,12 @@ WhatsApp Web Refined is an independent extension and is not affiliated with, end
 
 **Data collection:** None. WhatsApp Web Refined does not collect, sell, or transmit user data.
 
+## What's new (1.1.0)
+
+Refined now matches WhatsApp Web's design language even more closely: WhatsApp
+green accents and unread badges, fully rounded controls, and WhatsApp-style
+tooltips on the folder rail — in both light and dark themes.
+
 ## Reviewer test instructions
 
 1. Install the unpacked extension and open `https://web.whatsapp.com/`.

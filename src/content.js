@@ -54,10 +54,65 @@
     const button = document.createElement("button");
     button.type = "button";
     button.className = className;
-    button.title = label;
+    button.dataset.wrTooltip = label;
     button.setAttribute("aria-label", label);
     button.innerHTML = icon;
     return button;
+  }
+
+  const TOOLTIP_DELAY_MS = 380;
+  let tooltip = null;
+  let tooltipTimer = null;
+  let tooltipTarget = null;
+
+  function hideTooltip() {
+    window.clearTimeout(tooltipTimer);
+    tooltipTimer = null;
+    tooltipTarget = null;
+    if (tooltip) tooltip.dataset.visible = "false";
+  }
+
+  function showTooltip(target) {
+    const label = target.dataset.wrTooltip;
+    if (!label || !target.isConnected) return;
+    if (!tooltip?.isConnected) {
+      tooltip = document.createElement("div");
+      tooltip.id = "wr-tooltip";
+      tooltip.setAttribute("role", "tooltip");
+      document.body.append(tooltip);
+    }
+    tooltip.textContent = label;
+    const rect = target.getBoundingClientRect();
+    const size = tooltip.getBoundingClientRect();
+    let left = rect.right + 10;
+    let top = rect.top + (rect.height - size.height) / 2;
+    if (target.dataset.wrTooltipPosition === "below") {
+      left = rect.left + (rect.width - size.width) / 2;
+      top = rect.bottom + 8;
+    }
+    tooltip.style.left = `${Math.round(Math.max(8, Math.min(window.innerWidth - size.width - 8, left)))}px`;
+    tooltip.style.top = `${Math.round(Math.max(8, Math.min(window.innerHeight - size.height - 8, top)))}px`;
+    tooltip.dataset.visible = "true";
+  }
+
+  function onTooltipOver(event) {
+    const target = event.target.closest?.("[data-wr-tooltip]");
+    if (!target || target === tooltipTarget) return;
+    hideTooltip();
+    tooltipTarget = target;
+    tooltipTimer = window.setTimeout(() => showTooltip(target), TOOLTIP_DELAY_MS);
+  }
+
+  function onTooltipOut(event) {
+    if (tooltipTarget && !tooltipTarget.contains(event.relatedTarget)) hideTooltip();
+  }
+
+  function onTooltipFocus(event) {
+    const target = event.target.closest?.("[data-wr-tooltip]");
+    if (!target || !target.matches(":focus-visible")) return;
+    hideTooltip();
+    tooltipTarget = target;
+    showTooltip(target);
   }
 
   function togglePrivacy() {
@@ -102,6 +157,7 @@
     drawer.setAttribute("aria-hidden", "true");
 
     const close = createButton("wr-drawer-close", "Close Refined settings", '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17"/></svg>');
+    close.dataset.wrTooltipPosition = "below";
     close.addEventListener("click", () => toggleDrawer(false));
 
     const frame = document.createElement("iframe");
@@ -345,6 +401,7 @@
     const signature = folders.map((folder) => `${folder.label}:${folder.count}:${folder.selected}`).join("|");
     if (!folderNav || signature === lastFolderSignature) return;
     lastFolderSignature = signature;
+    hideTooltip();
     folderNav.replaceChildren();
 
     folders.forEach((folder, index) => {
@@ -352,7 +409,7 @@
       button.type = "button";
       button.className = "wr-folder-button";
       if (folder.action) button.classList.add("wr-folder-button--action");
-      button.title = folder.label;
+      button.dataset.wrTooltip = folder.label;
       button.setAttribute("aria-label", folder.action ? "Open lists menu" : folder.count ? `${folder.label}, ${folder.count} unread` : folder.label);
       button.setAttribute("aria-current", !folder.action && (folder.selected || (!folders.some((item) => item.selected) && index === 0)) ? "page" : "false");
 
@@ -476,6 +533,12 @@
     refresh();
     startFolderSyncBurst();
     document.addEventListener("keydown", onShortcut, true);
+    document.addEventListener("pointerover", onTooltipOver, true);
+    document.addEventListener("pointerout", onTooltipOut, true);
+    document.addEventListener("focusin", onTooltipFocus, true);
+    document.addEventListener("focusout", onTooltipOut, true);
+    document.addEventListener("pointerdown", hideTooltip, true);
+    document.addEventListener("scroll", hideTooltip, { capture: true, passive: true });
     document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") startFolderSyncBurst(); });
     window.addEventListener("focus", startFolderSyncBurst);
     window.addEventListener("resize", scheduleRefresh, { passive: true });

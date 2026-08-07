@@ -1,3 +1,6 @@
+// Regenerates the Chrome Web Store assets in store/assets from the demo page.
+// One-off tooling, not a runtime dependency:
+//   npm install --no-save playwright sharp && node store/build-assets.js
 const { chromium } = require("playwright");
 const sharp = require("sharp");
 const path = require("node:path");

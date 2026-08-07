@@ -60,11 +60,15 @@ WhatsApp Web Refined uses the host-compatible system UI stack:
 
 - Base spacing unit: 4 px
 - Drawer horizontal padding: 20 px
-- Group corner radius: 11–12 px
+- Grouped card corner radius: 14 px
+- Buttons, chips, badges, and tooltips: fully rounded (999 px pill)
 - Setting row minimum height: 62 px
 - Switch: 40 × 24 px with an 18 px thumb
 - Icon touch target: 40 × 40 px minimum
 - Focus ring: 2 px bright accent with 2 px offset
+- Tooltips: match WhatsApp's native nav tooltip — white card, `#111B21` text,
+  8 px radius, 14 px medium text, soft shadow — in both themes; shown after a
+  short delay and on keyboard focus
 
 ## Store assets
 
