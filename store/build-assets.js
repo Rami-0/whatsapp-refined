@@ -24,7 +24,7 @@ function svgOverlay(width, height, content) {
 }
 
 async function buildPromoAssets() {
-  const art = path.join(__dirname, "source", "pane-marketing-artwork.png");
+  const art = path.join(__dirname, "source", "whatsapp-web-refined-marketing-artwork.png");
   const icon = path.join(root, "icons", "icon128.png");
 
   const marqueeText = svgOverlay(1400, 560, `
@@ -36,10 +36,11 @@ async function buildPromoAssets() {
       </linearGradient>
     </defs>
     <rect width="1400" height="560" fill="url(#shade)"/>
-    <text class="title" x="104" y="288" fill="#f4faf7" font-size="76">Pane</text>
-    <text class="copy" x="108" y="344" fill="#aebcb8" font-size="27">Your space. Your settings.</text>
-    <rect x="108" y="384" width="52" height="4" rx="2" fill="#06cf9c"/>
-    <text class="copy" x="108" y="434" fill="#d9fdd3" font-size="22">Layout · Privacy · Shortcuts</text>
+    <text class="copy" x="108" y="256" fill="#aebcb8" font-size="28">WhatsApp Web</text>
+    <text class="title" x="104" y="330" fill="#f4faf7" font-size="76">Refined</text>
+    <text class="copy" x="108" y="378" fill="#aebcb8" font-size="25">Your space. Your settings.</text>
+    <rect x="108" y="416" width="52" height="4" rx="2" fill="#06cf9c"/>
+    <text class="copy" x="108" y="464" fill="#d9fdd3" font-size="22">Layout · Privacy · Shortcuts</text>
   `);
 
   await sharp(art)
@@ -60,8 +61,8 @@ async function buildPromoAssets() {
       </linearGradient>
     </defs>
     <rect width="440" height="280" fill="url(#shade)"/>
-    <text class="title" x="38" y="202" fill="#f4faf7" font-size="43">${escapeXml("Pane")}</text>
-    <text class="copy" x="40" y="234" fill="#b9c8c3" font-size="16">Layout and privacy, naturally.</text>
+    <text class="copy" x="40" y="198" fill="#b9c8c3" font-size="18">WhatsApp Web</text>
+    <text class="title" x="38" y="240" fill="#f4faf7" font-size="43">${escapeXml("Refined")}</text>
   `);
 
   await sharp(art)
@@ -107,7 +108,7 @@ async function buildScreenshots() {
 (async () => {
   await buildPromoAssets();
   await buildScreenshots();
-  console.log("Built Pane Chrome Web Store assets in store/assets");
+  console.log("Built WhatsApp Web Refined Chrome Web Store assets in store/assets");
 })().catch((error) => {
   console.error(error);
   process.exitCode = 1;

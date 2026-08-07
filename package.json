@@ -1,6 +1,6 @@
 {
-  "name": "pane-extension",
-  "version": "1.0.0",
+  "name": "whatsapp-web-refined",
+  "version": "1.0.1",
   "private": true,
   "description": "Native-feeling layout, privacy, and shortcut controls for WhatsApp Web.",
   "scripts": {

@@ -1,22 +1,23 @@
-# Pane brand guide
+# WhatsApp Web Refined brand guide
 
 ## Positioning
 
-Pane is the quiet control layer for WhatsApp Web: useful, local, and visually at home. Its identity is deliberately distinct from WhatsApp’s logo while its product UI follows the host application’s established tokens.
+WhatsApp Web Refined is the quiet control layer for WhatsApp Web: useful, local, and visually at home. Its identity remains deliberately distinct from WhatsApp’s logo while its product UI follows the host application’s established tokens.
 
 Voice: calm, direct, specific, and privacy-conscious. Avoid superlatives, fear-based privacy claims, or language that suggests an official partnership.
 
 ## Name and compatibility language
 
-- Product name: **Pane**
+- Product name: **WhatsApp Web Refined**
+- Compact interface reference: **Refined**
 - Descriptor: **Layout and privacy controls for WhatsApp Web**
 - Never shorten WhatsApp to “WA” in public copy.
 - Always include the independent-product disclaimer in long-form store or website copy.
-- Do not combine Pane’s mark with the WhatsApp name or logo.
+- Do not combine the Refined mark with the WhatsApp logo.
 
 ## Mark
 
-The Pane mark is a white geometric “P” constructed from a primary pane and a smaller inset pane on a green rounded square. It represents width, focus, and an adjustable workspace. It intentionally avoids WhatsApp’s handset and speech-bubble silhouette.
+The Refined mark is a white geometric “R” constructed from a primary pane, a smaller inset pane, and a forward leg on a green rounded square. It represents width, focus, and an adjustable workspace. It intentionally avoids WhatsApp’s handset and speech-bubble silhouette.
 
 - Master artwork: `../icons/icon.svg`
 - Extension raster sizes: 16, 32, 48, and 128 px
@@ -45,7 +46,7 @@ Use `#25D366` only as a supporting bright green. Lead with `#00A884`, `#111B21`,
 
 ## Typography
 
-Pane uses the host-compatible system UI stack:
+WhatsApp Web Refined uses the host-compatible system UI stack:
 
 `-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif`
 
@@ -72,4 +73,4 @@ Pane uses the host-compatible system UI stack:
 - Small promo tile: 440 × 280 PNG
 - Marquee promo tile: 1400 × 560 PNG
 
-Keep store graphics concise, saturated, and readable at half size. Screenshots must show the actual extension experience; promotional tiles may use the abstract Pane artwork.
+Keep store graphics concise, saturated, and readable at half size. Screenshots must show the actual extension experience; promotional tiles may use the abstract Refined artwork.

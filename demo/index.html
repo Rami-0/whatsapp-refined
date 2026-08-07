@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pane — local preview</title>
+    <title>WhatsApp Web Refined — local preview</title>
     <link rel="stylesheet" href="../src/content.css">
     <style>
       :root { --app-background:#161717; --primary:#fafafa; --secondary:rgba(255,255,255,.6); --secondary-rgb:102,119,129; --icon:rgba(255,255,255,.6); --icon-high-emphasis:#00a884; }
@@ -156,7 +156,7 @@
     <script>
       if (previewQuery.has("settings")) {
         window.setTimeout(() => {
-          document.querySelector('button[aria-label="Open Pane settings"]')?.click();
+          document.querySelector('button[aria-label="Open Refined settings"]')?.click();
           const frame = document.querySelector(".wr-settings-frame");
           const openRequestedPanel = () => {
             const target = previewQuery.get("panel") || "layout";
