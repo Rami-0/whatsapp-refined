@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "WhatsApp Refined",
+  "version": "0.6.3",
+  "description": "Useful, customizable UI and privacy controls for WhatsApp Web.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["storage"],
+  "host_permissions": ["https://web.whatsapp.com/*"],
+  "action": {
+    "default_title": "WhatsApp Refined",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    },
+    "default_popup": "popup/about.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://web.whatsapp.com/*"],
+      "css": ["src/content.css"],
+      "js": ["src/utils.js", "src/settings.js", "src/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["popup/popup.html", "popup/popup.css", "popup/popup.js", "src/settings.js", "src/utils.js"],
+      "matches": ["https://web.whatsapp.com/*"]
+    }
+  ]
+}

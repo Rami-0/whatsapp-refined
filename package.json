@@ -1,0 +1,9 @@
+{
+  "name": "whatsapp-refined",
+  "version": "0.6.3",
+  "private": true,
+  "description": "Customizable UI and privacy controls for WhatsApp Web.",
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  }
+}

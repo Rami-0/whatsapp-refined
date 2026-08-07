@@ -1,0 +1,439 @@
+:root {
+  --wr-sidebar-width: 432px;
+  --wr-row-radius: 0px;
+  --wr-privacy-blur: 8px;
+}
+
+html[data-wr-enabled="true"][data-wr-ready="true"] .wr-chat-shell {
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+html[data-wr-enabled="true"][data-wr-ready="true"][data-wr-custom-width="true"] .wr-chat-shell {
+  flex: 0 0 var(--wr-sidebar-width) !important;
+  width: var(--wr-sidebar-width) !important;
+  min-width: 360px !important;
+  max-width: 620px !important;
+}
+
+html[data-wr-enabled="true"][data-wr-ready="true"][data-wr-custom-width="true"] [data-testid="drawer-left"] {
+  flex: 0 0 var(--wr-sidebar-width) !important;
+  width: var(--wr-sidebar-width) !important;
+  max-width: var(--wr-sidebar-width) !important;
+}
+
+html[data-wr-enabled="true"][data-wr-ready="true"] .wr-chat-shell > #side,
+html[data-wr-enabled="true"][data-wr-ready="true"] .wr-chat-shell > header {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
+}
+
+.wr-native-navigation {
+  position: relative !important;
+}
+
+.wr-native-folder-host {
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.wr-native-folder-host > :first-child {
+  flex: 0 0 auto;
+}
+
+#wr-folder-sidebar {
+  width: 40px;
+  min-height: 0;
+  flex: 1 1 auto;
+  padding: 7px 0 4px;
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 3px;
+  overflow-x: visible;
+  overflow-y: auto;
+  border-top: 1px solid rgba(var(--secondary-rgb), .14);
+  scrollbar-width: none;
+  direction: ltr;
+}
+
+#wr-folder-sidebar::-webkit-scrollbar { display: none; }
+
+html[data-wr-enabled="true"][data-wr-ready="true"][data-wr-folder-layout="sidebar"] #wr-folder-sidebar {
+  display: flex;
+}
+
+/* WhatsApp keeps its own divider above the Meta AI slot. When that slot is
+   hidden, retain the native divider and make ours invisible to avoid a double
+   rule without causing a one-pixel layout shift. */
+html[data-wr-enabled="true"][data-wr-ready="true"][data-wr-folder-layout="sidebar"][data-wr-hide-meta-ai="true"] #wr-folder-sidebar {
+  border-top-color: transparent;
+}
+
+#wr-sidebar-actions {
+  width: 40px;
+  padding: 4px 0;
+  display: none;
+  grid-template-columns: 40px;
+  gap: 3px;
+  border-block: 1px solid rgba(var(--secondary-rgb), .14);
+  direction: ltr;
+}
+
+html[data-wr-ready="true"] #wr-sidebar-actions {
+  display: grid;
+}
+
+.wr-folder-button,
+.wr-sidebar-action,
+.wr-drawer-close {
+  border: 0;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wr-folder-button,
+.wr-sidebar-action {
+  position: relative;
+  width: 40px;
+  min-height: 53px;
+  padding: 5px 1px;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  border-radius: 8px;
+}
+
+.wr-folder-button:hover,
+.wr-sidebar-action:hover {
+  background: rgba(var(--secondary-rgb), .10);
+}
+
+.wr-sidebar-action:disabled {
+  opacity: .42;
+  cursor: default;
+}
+
+.wr-folder-button[aria-current="page"],
+.wr-sidebar-action[aria-pressed="true"] {
+  color: var(--primary);
+  background: rgba(var(--secondary-rgb), .14);
+}
+
+.wr-folder-button[aria-current="page"]::before {
+  content: "";
+  position: absolute;
+  inset-block: 10px;
+  left: -12px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--icon-high-emphasis);
+}
+
+.wr-folder-icon {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+}
+
+.wr-folder-icon > svg,
+.wr-sidebar-action > svg,
+.wr-drawer-close > svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.wr-folder-icon > svg,
+.wr-sidebar-action > svg {
+  width: 22px;
+  height: 22px;
+}
+
+.wr-folder-icon .wr-icon-fill {
+  fill: var(--icon-high-emphasis);
+  stroke: var(--app-background);
+}
+
+.wr-folder-icon b {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.wr-folder-label,
+.wr-sidebar-action span {
+  width: 100%;
+  overflow: hidden;
+  color: var(--secondary);
+  font-size: 7.5px;
+  line-height: 1.2;
+  font-weight: 550;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wr-folder-button[aria-current="page"] .wr-folder-label,
+.wr-sidebar-action[aria-pressed="true"] span {
+  color: var(--primary);
+}
+
+.wr-folder-badge {
+  position: absolute;
+  z-index: 2;
+  top: 2px;
+  right: 0;
+  min-width: 18px;
+  max-width: 32px;
+  height: 18px;
+  padding: 0 4px;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: var(--app-background);
+  background: var(--icon-high-emphasis);
+  border: 1px solid rgba(var(--secondary-rgb), .24);
+  border-radius: 99px;
+  font-size: 8.5px;
+  font-weight: 750;
+  line-height: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wr-folder-button--action {
+  margin-top: 3px;
+  border-top: 1px solid rgba(var(--secondary-rgb), .14);
+  border-radius: 0 0 8px 8px;
+}
+
+html[data-wr-enabled="true"][data-wr-folder-layout="sidebar"] .wr-native-filter-strip {
+  position: fixed !important;
+  z-index: -1 !important;
+  top: 0 !important;
+  left: -10000px !important;
+  width: 640px !important;
+  height: 42px !important;
+  display: flex !important;
+  overflow: visible !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+html[data-wr-enabled="true"][data-wr-folder-layout="sidebar"] .wr-native-filter-strip.wr-native-action-anchor {
+  position: fixed !important;
+  z-index: 0 !important;
+  top: var(--wr-action-top) !important;
+  left: var(--wr-action-left) !important;
+  width: 40px !important;
+  height: 40px !important;
+  padding: 0 !important;
+  display: block !important;
+  overflow: visible !important;
+  opacity: 0 !important;
+  visibility: visible !important;
+  pointer-events: none !important;
+}
+
+.wr-native-action-anchor > [role="tab"] {
+  display: none !important;
+}
+
+.wr-native-action-anchor > .wr-native-action-tab {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: block !important;
+}
+
+/* The menu is portalled by WhatsApp. Keep it out of the first paint until its
+   fixed coordinates are installed, preventing a native-anchor position flash. */
+html[data-wr-positioning-lists="true"] [role="menu"] {
+  visibility: hidden !important;
+}
+
+.wr-lists-menu-positioner {
+  position: fixed !important;
+  z-index: 1002 !important;
+  top: var(--wr-lists-menu-top) !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: var(--wr-lists-menu-left) !important;
+  transform: none !important;
+}
+
+html[data-wr-enabled="true"] .wr-hidden-nav-slot,
+html[data-wr-enabled="true"][data-wr-hide-notification="true"] .wr-notification-banner {
+  display: none !important;
+}
+
+#wr-sidebar-resizer {
+  position: absolute;
+  z-index: 40;
+  top: 0;
+  right: -5px;
+  bottom: 0;
+  width: 10px;
+  display: none;
+  place-items: center;
+  cursor: col-resize;
+  touch-action: none;
+  outline: 0;
+}
+
+html[data-wr-enabled="true"][data-wr-ready="true"][data-wr-custom-width="true"] #wr-sidebar-resizer {
+  display: grid;
+}
+
+#wr-sidebar-resizer span {
+  width: 2px;
+  height: 44px;
+  border-radius: 4px;
+  background: rgba(var(--secondary-rgb), .22);
+  opacity: 0;
+  transform: scaleY(.72);
+  transition: opacity 140ms ease, transform 140ms ease, background 140ms ease;
+}
+
+#wr-sidebar-resizer:hover span,
+#wr-sidebar-resizer:focus-visible span,
+html[data-wr-resizing="true"] #wr-sidebar-resizer span {
+  opacity: 1;
+  transform: scaleY(1);
+  background: var(--icon-high-emphasis);
+}
+
+#wr-sidebar-resizer:focus-visible span {
+  box-shadow: 0 0 0 3px rgba(var(--secondary-rgb), .16);
+}
+
+html[data-wr-resizing="true"],
+html[data-wr-resizing="true"] * {
+  cursor: col-resize !important;
+  user-select: none !important;
+}
+
+#wr-settings-drawer {
+  position: fixed;
+  z-index: 1001;
+  inset: 0 0 0 auto;
+  width: min(420px, calc(100vw - 80px));
+  box-sizing: border-box;
+  background: var(--app-background);
+  border-left: 1px solid rgba(var(--secondary-rgb), .2);
+  box-shadow: -12px 0 30px rgba(0, 0, 0, .16);
+  transform: translateX(102%);
+  visibility: hidden;
+  transition: transform 180ms ease, visibility 180ms ease;
+}
+
+#wr-settings-drawer[aria-hidden="false"] {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.wr-settings-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+}
+
+.wr-drawer-close {
+  position: absolute;
+  z-index: 2;
+  top: 14px;
+  left: -42px;
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  display: grid;
+  place-items: center;
+  color: var(--icon);
+  background: var(--app-background);
+  border: 1px solid rgba(var(--secondary-rgb), .2);
+  border-radius: 50%;
+}
+
+html[data-wr-enabled="true"][data-wr-ready="true"] #pane-side {
+  scrollbar-color: rgba(var(--secondary-rgb), .28) transparent;
+}
+
+html[data-wr-enabled="true"][data-wr-show-previews="false"] #pane-side [data-testid="cell-frame-secondary"] {
+  display: none !important;
+}
+
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-previews="true"] #pane-side [data-testid="cell-frame-secondary"],
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-messages="true"] [data-testid="msg-container"],
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-names="true"] #pane-side [data-testid="cell-frame-title"],
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-names="true"] [data-testid="conversation-info-header-chat-title"],
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-avatars="true"] #pane-side [role="row"] img[alt=""][width="48"][height="48"],
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-avatars="true"] #main header img[alt=""],
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-images="true"] [data-testid="msg-container"] img:not([alt]),
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-images="true"] [data-testid="msg-container"] img[alt=""],
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-images="true"] [data-testid="media-viewer"] img,
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-videos="true"] [data-testid="msg-container"] video,
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-videos="true"] [data-testid="msg-container"] canvas,
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-videos="true"] [data-testid="media-viewer"] video {
+  filter: blur(var(--wr-privacy-blur)) !important;
+  transition: filter 120ms ease !important;
+}
+
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="true"] #pane-side [data-testid="cell-frame-secondary"]:hover,
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="true"] [data-testid="msg-container"]:hover,
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="true"] #pane-side [data-testid="cell-frame-title"]:hover,
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="true"] [data-testid="conversation-info-header-chat-title"]:hover,
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="true"] #pane-side [role="row"] img[alt=""][width="48"][height="48"]:hover,
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="true"] #main header img[alt=""]:hover,
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="true"] [data-testid="msg-container"] img:not([alt]):hover,
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="true"] [data-testid="msg-container"] img[alt=""]:hover,
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="true"] [data-testid="msg-container"] video:hover,
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="true"] [data-testid="media-viewer"] img:hover,
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="true"] [data-testid="media-viewer"] video:hover {
+  filter: none !important;
+}
+
+@media (max-height: 620px) {
+  .wr-folder-button,
+  .wr-sidebar-action { min-height: 43px; }
+  .wr-folder-label,
+  .wr-sidebar-action span { display: none; }
+  .wr-folder-button[aria-current="page"]::before { inset-block: 8px; }
+}
+
+@media (max-width: 640px) {
+  #wr-folder-sidebar,
+  #wr-sidebar-resizer { display: none !important; }
+
+  html[data-wr-enabled="true"][data-wr-ready="true"] .wr-chat-shell {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #wr-settings-drawer,
+  #wr-sidebar-resizer span,
+  [data-testid="msg-container"] { transition: none !important; }
+}

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WhatsApp Refined — local preview</title>
+    <link rel="stylesheet" href="../src/content.css">
+    <style>
+      :root { --app-background:#161717; --primary:#fafafa; --secondary:rgba(255,255,255,.6); --secondary-rgb:102,119,129; --icon:rgba(255,255,255,.6); --icon-high-emphasis:#00a884; }
+      * { box-sizing: border-box; }
+      html, body, #app { width:100%; height:100%; margin:0; }
+      body { overflow:hidden; color:var(--primary); background:#1d1f1f; font:14px "Avenir Next",sans-serif; }
+      #app { display:flex; }
+      header[data-testid="chatlist-header"] { background:#202c33; }
+      .demo-global-nav { position:relative; width:64px; flex:0 0 64px; padding:10px 12px; }
+      .demo-nav-stack { width:40px; height:100%; display:flex; flex-direction:column; }
+      [data-testid="navbar-primary-section"] { flex:1; min-height:0; }
+      [data-testid="navbar-primary-section"] > div,
+      [data-testid="navbar-footer-section"] > div { display:flex; flex-direction:column; gap:4px; }
+      .demo-nav-slot { width:40px; height:40px; }
+      .demo-nav-slot button { width:40px; height:40px; color:var(--icon); border:0; border-radius:50%; background:transparent; font-size:18px; }
+      .demo-nav-divider { width:40px; margin:8px 0; border:0; border-top:1px solid #3b4a54; }
+      .demo-chat-shell { width:432px; flex:0 0 432px; display:flex; flex-direction:column; }
+      .demo-chat-header { height:64px; padding:12px 16px; display:flex; align-items:center; gap:11px; }
+      .demo-avatar { width:40px; height:40px; flex:0 0 40px; display:grid; place-items:center; border-radius:50%; background:#3b4a54; font-weight:700; }
+      .demo-title { flex:1; font-size:19px; font-weight:650; }
+      .demo-chat-header button { border:0; color:var(--icon); background:none; font-size:21px; }
+      #side { flex:1; min-height:0; display:flex; flex-direction:column; background:#161717; }
+      .search { margin:8px 12px; padding:10px 14px; color:var(--secondary); background:#202c33; border-radius:8px; }
+      [role="tablist"] { height:42px; padding:4px 12px 7px; display:flex; gap:7px; }
+      [role="tablist"] button { padding:6px 12px; color:var(--secondary); background:transparent; border:1px solid #3b4a54; border-radius:99px; }
+      [role="tablist"] button[aria-selected="true"] { color:#d9fdd3; background:#103529; border-color:transparent; }
+      #pane-side { flex:1; min-height:0; overflow:auto; }
+      [role="grid"] { padding-top:4px; }
+      [role="row"] { height:76px; }
+      [role="row"] > [role="gridcell"] { height:100%; padding:8px 12px; display:grid; grid-template-columns:50px 1fr auto; align-items:center; gap:10px; }
+      [role="row"]:nth-child(2) > [role="gridcell"] { background:#2a3942; }
+      [role="row"] img[alt=""] { width:48px; height:48px; border-radius:50%; background:#3b4a54; }
+      [data-testid="cell-frame-container"] { min-width:0; }
+      [data-testid="cell-frame-title"] { margin-bottom:4px; font-size:15px; font-weight:600; }
+      [data-testid="cell-frame-secondary"], time { color:var(--secondary); font-size:12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+      #main { flex:1; min-width:0; display:flex; flex-direction:column; background:#0b141a; }
+      #main header { height:64px; padding:12px 16px; display:flex; align-items:center; gap:11px; background:#202c33; }
+      .conversation { flex:1; padding:36px 7%; display:flex; flex-direction:column; justify-content:flex-end; gap:12px; }
+      [data-testid="msg-container"] { width:fit-content; max-width:62%; padding:10px 13px; border-radius:8px; background:#202c33; }
+      [data-testid="msg-container"].mine { align-self:flex-end; background:#144d37; }
+      .composer { margin:10px; padding:14px 18px; color:var(--secondary); background:#202c33; border-radius:9px; }
+      .demo-list-menu { position:fixed; z-index:2000; width:160px; padding:5px; color:var(--primary); background:#202c33; border:1px solid #3b4a54; border-radius:8px; box-shadow:0 8px 24px rgba(0,0,0,.28); }
+      .demo-list-menu button { width:100%; padding:9px 10px; border:0; color:inherit; background:transparent; text-align:left; border-radius:5px; }
+      .demo-drawer-overlay { position:fixed; inset:0 0 0 64px; display:flex; opacity:0; pointer-events:none; }
+      .demo-drawer-overlay [data-testid="drawer-left"] { flex:0 0 40%; }
+      .demo-drawer-overlay [data-testid="drawer-middle"] { flex:1 1 auto; }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <header class="demo-global-nav" data-testid="chatlist-header">
+        <div class="demo-nav-stack">
+          <div data-testid="navbar-primary-section"><div>
+            <div class="demo-nav-slot"><button aria-label="Chats">◉</button></div>
+            <div class="demo-nav-slot"><button aria-label="Status">◌</button></div>
+            <div class="demo-nav-slot"><button aria-label="Channels">◫</button></div>
+            <div class="demo-nav-slot"><button aria-label="Communities">♧</button></div>
+            <hr class="demo-nav-divider">
+            <div class="demo-nav-slot"><button aria-label="Meta AI">✦</button></div>
+          </div></div>
+          <div data-testid="navbar-footer-section"><div>
+            <div class="demo-nav-slot"><button aria-label="Media">▧</button></div>
+            <div class="demo-nav-slot"><button aria-label="You">●</button></div>
+          </div></div>
+        </div>
+      </header>
+      <div class="demo-chat-shell">
+        <header class="demo-chat-header" data-testid="chatlist-header"><span class="demo-avatar">R</span><span class="demo-title">Chats</span><button aria-label="New chat">＋</button></header>
+        <section id="side">
+          <div class="search">Search or start a new chat</div>
+          <div role="tablist" aria-label="chat-list-filters">
+            <button role="tab" aria-selected="true"><span><span>All</span></span></button>
+            <button role="tab" aria-selected="false"><span><span>Unread</span></span><span><span>4</span></span></button>
+            <button role="tab" aria-selected="false"><span><span>Favourites</span></span><span><span>1</span></span></button>
+            <button role="tab" aria-selected="false"><span><span>Groups</span></span><span><span>8</span></span></button>
+            <button role="tab" aria-selected="false"><span aria-hidden="true"><svg><title>ic-arrow-drop-down</title></svg></span></button>
+          </div>
+          <div class="notification"><button aria-label="Close">×</button> Notifications are off</div>
+          <div id="pane-side">
+            <div role="grid" aria-label="Chat list">
+              <div role="row" data-testid="list-item-0"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Design team</div><div data-testid="cell-frame-secondary">Maya: The final screens are ready <img alt="👍"></div></div><time>10:42</time></div></div>
+              <div role="row" data-testid="list-item-1"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Weekend plans</div><div data-testid="cell-frame-secondary">You: I’ll book the table</div></div><time>09:18</time></div></div>
+              <div role="row" data-testid="list-item-2"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Product sync</div><div data-testid="cell-frame-secondary">Three new messages</div></div><time>Tue</time></div></div>
+              <div role="row" data-testid="list-item-3"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Family</div><div data-testid="cell-frame-secondary">Photo</div></div><time>Mon</time></div></div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <section id="main">
+        <header><span class="demo-avatar">W</span><span class="demo-title" data-testid="conversation-info-header-chat-title">Weekend plans</span></header>
+        <div class="conversation"><div data-testid="msg-container">I found a quieter place by the water. <img alt="🌊"></div><div data-testid="msg-container" class="mine">Perfect. Send me the location?</div></div>
+        <div class="composer">Message</div>
+      </section>
+    </div>
+    <div class="demo-drawer-overlay" data-testid="drawer-fullscreen" aria-hidden="true"><div data-testid="drawer-left"></div><div data-testid="drawer-middle"></div></div>
+    <script>
+      const demoTabs = Array.from(document.querySelectorAll('[role="tab"]'));
+      demoTabs.forEach((button) => button.addEventListener("click", () => demoTabs.forEach((item) => item.setAttribute("aria-selected", String(item === button)))));
+      demoTabs.at(-1).addEventListener("click", () => {
+        document.querySelector(".demo-list-menu")?.remove();
+        const menu = document.createElement("div");
+        menu.className = "demo-list-menu";
+        menu.setAttribute("role", "menu");
+        const rect = demoTabs.at(-1).getBoundingClientRect();
+        menu.style.left = `${Math.max(8, rect.right + 6)}px`;
+        menu.style.top = `${Math.max(8, rect.top)}px`;
+        menu.innerHTML = '<button type="button" role="menuitem">New list</button>';
+        menu.querySelector("button").addEventListener("click", () => menu.remove());
+        document.body.append(menu);
+      });
+      const previewQuery = new URLSearchParams(location.search);
+      if (previewQuery.has("delayed")) {
+        const delayedGroupTab = demoTabs[3];
+        delayedGroupTab.remove();
+        window.setTimeout(() => demoTabs.at(-1).before(delayedGroupTab), 700);
+      }
+      const previewSettings = previewQuery.has("sidebar") ? {
+        enabled: !previewQuery.has("paused"),
+        folderLayout: "sidebar",
+        customSidebarWidth: previewQuery.has("wide"),
+        sidebarWidth: 520,
+        hideMetaAI: previewQuery.has("hide-ai"),
+        hideChannels: previewQuery.has("hide-channels"),
+        privacyEnabled: previewQuery.has("privacy"),
+        blurNames: previewQuery.has("privacy"),
+        blurAvatars: previewQuery.has("privacy")
+      } : {};
+      const previewListeners = [];
+      window.chrome = {
+        runtime: { getURL: (path) => `../${path}` },
+        storage: {
+          local: {
+            get: (_keys, callback) => callback({ ...previewSettings }),
+            set: (values, callback) => {
+              Object.assign(previewSettings, values);
+              const changes = Object.fromEntries(Object.entries(values).map(([key, value]) => [key, { newValue: value }]));
+              previewListeners.forEach((listener) => listener(changes, "local"));
+              if (callback) callback();
+            }
+          },
+          onChanged: { addListener: (listener) => previewListeners.push(listener) }
+        }
+      };
+    </script>
+    <script src="../src/utils.js"></script>
+    <script src="../src/settings.js"></script>
+    <script src="../src/content.js"></script>
+  </body>
+</html>
