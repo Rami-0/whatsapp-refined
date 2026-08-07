@@ -19,7 +19,7 @@ Voice: calm, direct, specific, and privacy-conscious. Avoid superlatives, fear-b
 
 The Refined mark is a white geometric “R” constructed from a primary pane, a smaller inset pane, and a forward leg on a green rounded square. It represents width, focus, and an adjustable workspace. It intentionally avoids WhatsApp’s handset and speech-bubble silhouette.
 
-- Master artwork: `../icons/icon.svg`
+- Master artwork: `assets/icon-128.png`
 - Extension raster sizes: 16, 32, 48, and 128 px
 - Store icon: 128 × 128 px, with a 96 × 96 px mark and 16 px transparent padding
 - Clear space in other contexts: at least one quarter of the mark’s visible width

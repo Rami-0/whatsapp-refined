@@ -121,7 +121,7 @@ policy, brand guidance, and promotional assets live in [`store/`](store/).
 manifest.json      Manifest V3 definition
 src/               Content script, stylesheet, settings, shared utils
 popup/             Settings drawer UI and toolbar popup
-icons/             Extension mark (SVG + rasters)
+icons/             Extension mark (PNG sizes)
 demo/              Offline mock of WhatsApp Web for development
 store/             Chrome Web Store listing, privacy policy, brand guide, assets
 tests/             Node test-runner unit tests
