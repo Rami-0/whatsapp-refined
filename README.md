@@ -79,15 +79,22 @@ The full [privacy policy](store/privacy-policy.md) is in this repository.
 
 ### From the Chrome Web Store
 
-Coming soon — the packaged release in [`dist/`](dist/) is submitted for
-review.
+Coming soon.
+
+### From a tagged release
+
+Every version tag has a packaged ZIP and SHA-256 checksum on the
+[GitHub Releases page](https://github.com/Rami-0/whatsapp-refined/releases).
+Download and extract the ZIP, enable **Developer mode** at
+`chrome://extensions`, then choose **Load unpacked** and select the extracted
+folder.
 
 ### From source
 
 1. Clone or download this repository.
 2. Run `npm run package` to produce a minimal build (~120 KB) in
-   `dist/unpacked/` — only the manifest, icons, popup, and scripts, none of
-   the docs or store assets.
+   the ignored `dist/unpacked/` directory — only the manifest, icons, popup,
+   and scripts, none of the docs or store assets.
 3. Open `chrome://extensions` in Chrome (or any Chromium browser).
 4. Enable **Developer mode**.
 5. Choose **Load unpacked** and select the `dist/unpacked` folder.
@@ -107,8 +114,13 @@ loads directly as an unpacked extension.
 
 ```sh
 npm test        # unit tests for the parsing/normalization logic (Node ≥ 18)
-npm run package # build a store-ready zip into dist/
+npm run package # build a local ZIP and unpacked extension in ignored dist/
 ```
+
+Release archives are never committed to the repository. Pushing a SemVer tag
+such as `1.1.0` runs the tests, verifies that the tag matches both version
+files and the changelog, builds the archive, and publishes it with a checksum
+as a GitHub Release asset.
 
 Open [`demo/index.html`](demo/index.html) in a browser for a self-contained
 mock of WhatsApp Web's DOM that runs the real content script — useful for

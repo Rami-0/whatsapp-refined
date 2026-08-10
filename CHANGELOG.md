@@ -28,6 +28,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `npm run package` now also produces a minimal `dist/unpacked/` build
   (~120 KB) for loading as an unpacked extension without docs, store assets,
   or development files.
+- Version tags now publish the packaged ZIP and its SHA-256 checksum as GitHub
+  Release assets; generated `dist/` files are no longer stored in Git.
 
 ### Fixed
 
