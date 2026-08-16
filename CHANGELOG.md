@@ -4,6 +4,24 @@ All notable changes to Refined WhatsApp™ Web are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1] — 2026-08-16
+
+### Fixed
+
+- **Hide Channels** left the unread dot behind after a WhatsApp Web update.
+  WhatsApp now renders the unread badge as a sibling of the nav button, which
+  the old slot lookup stopped short of, so only the icon disappeared. Rail
+  entries are now resolved by containment rather than by wrapper shape, and are
+  matched on WhatsApp's icon names as well as the accessibility label, so a
+  renamed or recounted label ("Channels, 3 unread") no longer breaks hiding.
+- Spacing around the Meta AI entry when it is visible. WhatsApp's own divider
+  sat above it while the folder rail's divider sat below, boxing the entry
+  between two rules with uneven margins. The rail's divider is now the single
+  separator in both states and the Meta AI entry follows the same rhythm as
+  the rest of the rail.
+- **Hide Meta AI** now also finds the entry if WhatsApp moves it into the
+  rail's footer section.
+
 ## [1.1.0] — 2026-08-07
 
 ### Changed

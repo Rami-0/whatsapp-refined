@@ -17,8 +17,12 @@
       [data-testid="navbar-primary-section"] { flex:1; min-height:0; }
       [data-testid="navbar-primary-section"] > div,
       [data-testid="navbar-footer-section"] > div { display:flex; flex-direction:column; gap:4px; }
-      .demo-nav-slot { width:40px; height:40px; }
+      .demo-nav-slot { position:relative; width:40px; height:40px; }
       .demo-nav-slot button { width:40px; height:40px; color:var(--icon); border:0; border-radius:50%; background:transparent; font-size:18px; }
+      /* WhatsApp renders the unread dot as a sibling of the nav button, and gives
+         the Meta AI slot its own vertical margins. Both are reproduced here. */
+      .demo-nav-dot { position:absolute; top:1px; right:1px; width:9px; height:9px; border-radius:50%; background:#21c063; }
+      .demo-nav-slot.demo-meta-ai { margin:7px 0 11px; }
       .demo-nav-divider { width:40px; margin:8px 0; border:0; border-top:1px solid #3b4a54; }
       .demo-chat-shell { width:432px; flex:0 0 432px; display:flex; flex-direction:column; }
       .demo-chat-header { height:64px; padding:12px 16px; display:flex; align-items:center; gap:11px; }
@@ -60,11 +64,11 @@
         <div class="demo-nav-stack">
           <div data-testid="navbar-primary-section"><div>
             <div class="demo-nav-slot"><button aria-label="Chats">◉</button></div>
-            <div class="demo-nav-slot"><button aria-label="Status">◌</button></div>
-            <div class="demo-nav-slot"><button aria-label="Channels">◫</button></div>
+            <div class="demo-nav-slot"><button aria-label="Status">◌</button><span class="demo-nav-dot"></span></div>
+            <div class="demo-nav-slot"><button aria-label="Channels, 3 unread"><span data-icon="newsletter-outline">◫</span></button><span class="demo-nav-dot"></span></div>
             <div class="demo-nav-slot"><button aria-label="Communities">♧</button></div>
             <hr class="demo-nav-divider">
-            <div class="demo-nav-slot"><button aria-label="Meta AI">✦</button></div>
+            <div class="demo-nav-slot demo-meta-ai"><button aria-label="Meta AI"><span data-icon="meta-ai-logo">✦</span></button></div>
           </div></div>
           <div data-testid="navbar-footer-section"><div>
             <div class="demo-nav-slot"><button aria-label="Media">▧</button></div>

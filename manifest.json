@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Refined WhatsApp™ Web",
   "short_name": "Refined",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Make WhatsApp Web calmer and more private with native-feeling layout controls, privacy blur, and keyboard shortcuts.",
   "homepage_url": "https://github.com/Rami-0/whatsapp-refined",
   "icons": {

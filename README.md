@@ -6,7 +6,7 @@
 
 **Native-feeling layout, privacy, and keyboard controls for WhatsApp Web.**
 
-[![Version](https://img.shields.io/badge/version-1.1.0-00a884)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.1.1-00a884)](CHANGELOG.md)
 [![Manifest V3](https://img.shields.io/badge/manifest-v3-blue)](manifest.json)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![No tracking](https://img.shields.io/badge/tracking-none-lightgrey)](#privacy-by-design)

@@ -233,21 +233,74 @@
     resizer.addEventListener("dblclick", () => setSidebarWidth(DEFAULTS.sidebarWidth, true));
   }
 
-  function findNativeNavSlot(button) {
+  /* Labels carry unread counts ("Channels, 3 unread") and get renamed between
+     WhatsApp releases, so each entry also matches on WhatsApp's icon names. */
+  const NAV_TARGETS = Object.freeze([
+    { key: "metaAI", label: /^(?:ask )?meta ai\b/i, icon: /meta-?ai/i, slotClass: "wr-meta-ai-slot" },
+    { key: "channels", label: /^(?:channels|updates)\b/i, icon: /newsletter|channel/i, slotClass: "wr-channels-slot" }
+  ]);
+
+  const NAV_SLOT_CLASSES = ["wr-hidden-nav-slot", "wr-native-nav-divider", ...NAV_TARGETS.map((target) => target.slotClass)];
+  /* Anything a rail entry can be made of. A divider is what is left over: a
+     rule element, or a wrapper holding neither text nor any of this. */
+  const NAV_CONTENT = 'a, button, input, svg, img, canvas, [role="button"], [role="link"], [data-icon]';
+
+  function nativeNavButtons(section) {
+    return Array.from(section.querySelectorAll('button, [role="button"]')).filter((button) => !folderNav?.contains(button) && !sidebarActions?.contains(button));
+  }
+
+  /* WhatsApp wraps each rail entry in its own row, but the depth varies and a
+     row can hold siblings of the button (the unread badge). Walk up while the
+     ancestor still wraps this one entry so those siblings travel with it. */
+  function findNativeNavSlot(button, buttons, section) {
     let slot = button;
-    while (slot.parentElement && slot.parentElement.children.length === 1 && !slot.parentElement.matches('[data-testid="navbar-primary-section"]')) {
+    while (slot.parentElement && slot.parentElement !== section && buttons.filter((item) => slot.parentElement.contains(item)).length === 1) {
       slot = slot.parentElement;
     }
     return slot;
   }
 
+  function navIconSignature(button) {
+    const icons = Array.from(button.querySelectorAll("[data-icon]"), (node) => node.getAttribute("data-icon") || "");
+    const titles = Array.from(button.querySelectorAll("title"), (node) => node.textContent || "");
+    return [...icons, ...titles].join(" ");
+  }
+
+  function matchesNavTarget(button, target) {
+    const label = (button.getAttribute("aria-label") || button.getAttribute("title") || "").trim();
+    return target.label.test(label) || target.icon.test(navIconSignature(button));
+  }
+
   function syncNativeNavSlots() {
-    document.querySelectorAll(".wr-hidden-nav-slot").forEach((slot) => slot.classList.remove("wr-hidden-nav-slot"));
-    if (!settings.enabled) return;
-    [["Meta AI", settings.hideMetaAI], ["Channels", settings.hideChannels]].forEach(([label, hidden]) => {
-      if (!hidden) return;
-      const button = document.querySelector(`button[aria-label="${label}"]`);
-      if (button) findNativeNavSlot(button).classList.add("wr-hidden-nav-slot");
+    document.querySelectorAll(`.${NAV_SLOT_CLASSES.join(", .")}`).forEach((node) => node.classList.remove(...NAV_SLOT_CLASSES));
+    const primary = document.querySelector('[data-testid="navbar-primary-section"]');
+    if (!primary || !settings.enabled) return;
+
+    const hidden = { metaAI: settings.hideMetaAI, channels: settings.hideChannels };
+    const slots = new Set();
+
+    /* Meta AI has moved between the rail's sections across releases, so look
+       for the entries in both rather than assuming where they live. */
+    [primary, document.querySelector('[data-testid="navbar-footer-section"]')].forEach((section) => {
+      if (!section) return;
+      const sectionButtons = nativeNavButtons(section);
+      sectionButtons.forEach((button) => {
+        const target = NAV_TARGETS.find((entry) => matchesNavTarget(button, entry));
+        if (!target) return;
+        const slot = findNativeNavSlot(button, sectionButtons, section);
+        slots.add(slot);
+        slot.classList.add(hidden[target.key] ? "wr-hidden-nav-slot" : target.slotClass);
+      });
+    });
+
+    /* The rail draws its own rule above the folder list, so WhatsApp's divider
+       would leave whatever follows it (Meta AI) boxed between two lines. */
+    const buttons = nativeNavButtons(primary);
+    const host = buttons.length ? findNativeNavSlot(buttons[0], buttons, primary).parentElement : null;
+    if (!host) return;
+    Array.from(host.children).forEach((child) => {
+      if (slots.has(child) || child === folderNav || child.querySelector(NAV_CONTENT)) return;
+      if (child.matches('hr, [role="separator"]') || !child.textContent.trim()) child.classList.add("wr-native-nav-divider");
     });
   }
 

@@ -78,11 +78,19 @@ html[data-wr-enabled="true"][data-wr-ready="true"][data-wr-folder-layout="sideba
   display: flex;
 }
 
-/* WhatsApp keeps its own divider above the Meta AI slot. When that slot is
-   hidden, retain the native divider and make ours invisible to avoid a double
-   rule without causing a one-pixel layout shift. */
-html[data-wr-enabled="true"][data-wr-ready="true"][data-wr-folder-layout="sidebar"][data-wr-hide-meta-ai="true"] #wr-folder-sidebar {
-  border-top-color: transparent;
+/* WhatsApp draws its own rule above the Meta AI slot. With the folder rail
+   mounted underneath it, that rule boxes Meta AI between two lines and its
+   slot brings margins the rail does not use. Suppress the native rule so the
+   rail's own border-top is the single separator in either state, and put the
+   Meta AI slot on the same rhythm as the rest of the rail. */
+html[data-wr-enabled="true"][data-wr-ready="true"][data-wr-folder-layout="sidebar"] .wr-native-nav-divider {
+  display: none !important;
+}
+
+html[data-wr-enabled="true"][data-wr-ready="true"][data-wr-folder-layout="sidebar"] .wr-meta-ai-slot {
+  flex: 0 0 auto !important;
+  margin-block: 0 !important;
+  align-self: center !important;
 }
 
 #wr-sidebar-actions {
