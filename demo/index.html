@@ -45,6 +45,10 @@
       [data-testid="cell-frame-container"] { min-width:0; }
       [data-testid="cell-frame-title"] { margin-bottom:4px; font-size:15px; font-weight:600; }
       [data-testid="cell-frame-secondary"], time { color:var(--secondary); font-size:12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+      [data-testid="cell-frame-secondary"] { display:flex; align-items:center; gap:6px; }
+      .demo-preview { min-width:0; flex:1 1 auto; overflow:hidden; text-overflow:ellipsis; }
+      .demo-row-meta { flex:0 0 auto; display:flex; align-items:center; gap:5px; }
+      .demo-unread { min-width:18px; padding:0 5px; color:#111b21; background:#25d366; border-radius:9px; font-size:11px; font-weight:600; line-height:18px; text-align:center; }
       #main { flex:1; min-width:0; display:flex; flex-direction:column; background:#0b141a; }
       #main header { height:64px; padding:12px 16px; display:flex; align-items:center; gap:11px; background:#202c33; }
       .conversation { flex:1; padding:36px 7%; display:flex; flex-direction:column; justify-content:flex-end; gap:12px; }
@@ -90,10 +94,10 @@
           <div class="notification"><button aria-label="Close">×</button> Notifications are off</div>
           <div id="pane-side">
             <div role="grid" aria-label="Chat list">
-              <div role="row" data-testid="list-item-0"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Design team</div><div data-testid="cell-frame-secondary">Maya: The final screens are ready <span role="img" aria-label="thumbs up">👍</span></div></div><time>10:42</time></div></div>
-              <div role="row" data-testid="list-item-1"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Weekend plans</div><div data-testid="cell-frame-secondary">You: I’ll book the table</div></div><time>09:18</time></div></div>
-              <div role="row" data-testid="list-item-2"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Product sync</div><div data-testid="cell-frame-secondary">Three new messages</div></div><time>Tue</time></div></div>
-              <div role="row" data-testid="list-item-3"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Family</div><div data-testid="cell-frame-secondary">Photo</div></div><time>Mon</time></div></div>
+              <div role="row" data-testid="list-item-0"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Design team</div><div data-testid="cell-frame-secondary"><div class="demo-preview"><span dir="ltr">Maya: The final screens are ready <span role="img" aria-label="thumbs up">👍</span></span></div><div class="demo-row-meta"><span class="demo-unread" aria-label="3 unread messages">3</span></div></div></div><time>10:42</time></div></div>
+              <div role="row" data-testid="list-item-1"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Weekend plans</div><div data-testid="cell-frame-secondary"><div class="demo-preview"><span data-icon="status-dblcheck" aria-hidden="true">✓✓</span> <span dir="ltr">You: I’ll book the table</span></div></div></div><time>09:18</time></div></div>
+              <div role="row" data-testid="list-item-2"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Product sync</div><div data-testid="cell-frame-secondary"><div class="demo-preview"><span dir="ltr">Three new messages</span></div><div class="demo-row-meta"><span data-icon="muted" aria-label="Muted">🔕</span><span class="demo-unread" aria-label="12 unread messages">12</span></div></div></div><time>Tue</time></div></div>
+              <div role="row" data-testid="list-item-3"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Family</div><div data-testid="cell-frame-secondary"><div class="demo-preview"><span dir="ltr">Photo</span></div><div class="demo-row-meta"><span data-icon="pinned2" aria-label="Pinned">📌</span></div></div></div><time>Mon</time></div></div>
             </div>
           </div>
         </section>
