@@ -40,10 +40,12 @@
   });
 
   globalThis.chrome?.storage?.onChanged?.addListener((changes, area) => {
-    if (area === "local" && changes.enabled) render(changes.enabled.newValue ?? defaults.enabled);
+    if (area !== "local") return;
+    if (changes.language) return location.reload();
+    if (changes.enabled) render(changes.enabled.newValue ?? defaults.enabled);
   });
 
   const version = globalThis.chrome?.runtime?.getManifest?.().version;
   if (version) document.querySelector("#version").textContent = `v${version}`;
-  read();
+  (globalThis.WRLocaleReady || Promise.resolve()).then(read);
 })();

@@ -504,6 +504,33 @@
     });
   }
 
+  function applyLocaleStrings() {
+    folderNav?.setAttribute("aria-label", t("navFoldersAria", "WhatsApp chat folders"));
+    sidebarActions?.setAttribute("aria-label", t("toolsAria", "Refined WhatsApp™ Web tools"));
+    const relabel = (button, label) => {
+      button.dataset.wrTooltip = label;
+      button.setAttribute("aria-label", label);
+    };
+    if (privacyAction) {
+      relabel(privacyAction, t("togglePrivacyAria", "Toggle privacy mode"));
+      privacyAction.querySelector("span").textContent = t("privacyLabel", "Privacy");
+    }
+    if (settingsAction) {
+      relabel(settingsAction, t("openSettingsAria", "Open Refined settings"));
+      settingsAction.querySelector("span").textContent = t("settingsLabel", "Settings");
+    }
+    if (drawer) {
+      drawer.setAttribute("aria-label", t("settingsTitle", "Refined WhatsApp™ Web settings"));
+      const close = drawer.querySelector(".wr-drawer-close");
+      if (close) relabel(close, t("closeSettingsAria", "Close Refined settings"));
+      const frame = drawer.querySelector(".wr-settings-frame");
+      if (frame) frame.title = t("settingsTitle", "Refined WhatsApp™ Web settings");
+    }
+    resizer?.setAttribute("aria-label", t("resizePanelAria", "Resize chat panel"));
+    lastFolderSignature = "";
+    scheduleRefresh();
+  }
+
   function applySettings() {
     settings = normalizeSettings(settings);
     const root = document.documentElement;
@@ -598,6 +625,7 @@
 
   async function start() {
     settings = await storageGet();
+    await utils.loadLocaleOverride(settings.language);
     applySettings();
     refresh();
     startFolderSyncBurst();
@@ -630,6 +658,7 @@
       applySettings();
       scheduleRefresh();
       if (changes.folderLayout || changes.enabled) startFolderSyncBurst();
+      if (changes.language) utils.loadLocaleOverride(settings.language).then(applyLocaleStrings);
     });
   }
 

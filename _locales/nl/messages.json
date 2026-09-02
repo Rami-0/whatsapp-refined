@@ -1,102 +1,414 @@
 {
-  "appName": { "message": "Refined WhatsApp™ Web", "description": "Extension name shown in the browser. Brand name — keep untranslated." },
-  "appShortName": { "message": "Refined", "description": "Short extension name. Brand name — keep untranslated." },
-  "appDesc": { "message": "Maak WhatsApp Web rustiger en meer privé: native lay-outopties, privacyvervaging en sneltoetsen.", "description": "Store/extension description. Must stay under 132 characters." },
-
-  "settingsTitle": { "message": "Instellingen van Refined WhatsApp™ Web", "description": "Title of the settings page and drawer." },
-
-  "aboutTagline": { "message": "Een rustigere werkplek voor WhatsApp Web.", "description": "Tagline under the extension name in the toolbar popup." },
-  "extensionStatus": { "message": "Status van de extensie", "description": "Eyebrow label above the activation state." },
-  "activeTitle": { "message": "Refined is actief", "description": "Heading when the extension is enabled. 'Refined' is the brand name." },
-  "pausedTitle": { "message": "Refined is gepauzeerd", "description": "Heading when the extension is disabled." },
-  "activeHelp": { "message": "Je lay-out- en privacyvoorkeuren zijn toegepast.", "description": "Help text when enabled." },
-  "pausedHelp": { "message": "Activeer om je opgeslagen interfacevoorkeuren te herstellen.", "description": "Help text when disabled." },
-  "pauseButton": { "message": "Refined pauzeren", "description": "Button that disables the extension." },
-  "activateButton": { "message": "Refined activeren", "description": "Button that enables the extension." },
-  "stateActive": { "message": "Actief", "description": "Tooltip on the state dot when enabled." },
-  "statePaused": { "message": "Gepauzeerd", "description": "Tooltip on the state dot when disabled." },
-  "privacySummaryAria": { "message": "Privacyoverzicht", "description": "Accessible label for the privacy details section." },
-  "dataLabel": { "message": "Gegevens", "description": "Label in privacy summary row." },
-  "dataValue": { "message": "Blijven op je apparaat", "description": "Value in privacy summary row about data." },
-  "accessLabel": { "message": "Toegang", "description": "Label in privacy summary row." },
-  "accessValue": { "message": "Alleen WhatsApp Web", "description": "Value in privacy summary row about site access." },
-  "aboutFooter": { "message": "Open Refined via de knop Instellingen in de zijbalk van WhatsApp.", "description": "Footer hint in the toolbar popup." },
-
-  "headerTagline": { "message": "Maak je werkplek echt van jou.", "description": "Tagline in the settings drawer header." },
-  "masterToggleTitle": { "message": "Refined WhatsApp™ Web inschakelen", "description": "Tooltip on the master on/off toggle." },
-  "tabsAria": { "message": "Instellingensecties", "description": "Accessible label for the settings tab bar." },
-  "tabLayout": { "message": "Lay-out", "description": "Settings tab name." },
-  "tabPrivacy": { "message": "Privacy", "description": "Settings tab name." },
-  "tabShortcuts": { "message": "Sneltoetsen", "description": "Settings tab name (keyboard shortcuts)." },
-  "layoutPanelAria": { "message": "Lay-outinstellingen", "description": "Accessible label for the layout panel." },
-  "chatFolders": { "message": "Chatmappen", "description": "Setting group title." },
-  "chatFoldersHelp": { "message": "Houd de WhatsApp-tabbladen of verplaats ze naar de zijbalk", "description": "Help text for the chat folders setting." },
-  "folderLayoutAria": { "message": "Indeling van chatmappen", "description": "Accessible label for the folder layout choice." },
-  "nativeTabs": { "message": "Native tabbladen", "description": "Folder layout option: WhatsApp's own tabs." },
-  "whatsappSidebar": { "message": "WhatsApp-zijbalk", "description": "Folder layout option: vertical sidebar." },
-  "resizablePanel": { "message": "Verstelbaar chatpaneel", "description": "Setting title." },
-  "resizablePanelHelp": { "message": "Sleep de rechterrand wanneer je wilt; pijltjestoetsen werken op de greep", "description": "Help text for the resizable panel setting." },
-  "panelWidth": { "message": "Breedte van het chatpaneel", "description": "Setting title for the width slider." },
-  "pxValue": { "message": "$VALUE$ px", "description": "Pixel value shown next to sliders. Keep the $VALUE$ placeholder.", "placeholders": { "value": { "content": "$1", "example": "432" } } },
-  "interfaceOptionsAria": { "message": "Interfaceopties", "description": "Accessible label for the interface switches list." },
-  "messagePreviews": { "message": "Berichtvoorbeelden", "description": "Setting title." },
-  "messagePreviewsHelp": { "message": "Toon het laatste bericht in chatrijen", "description": "Help text." },
-  "hideNotification": { "message": "Meldingsverzoek verbergen", "description": "Setting title." },
-  "hideNotificationHelp": { "message": "Verwijder de banner ‘meldingen inschakelen’", "description": "Help text." },
-  "hideMetaAI": { "message": "Meta AI verbergen", "description": "Setting title. 'Meta AI' is a product name — keep untranslated." },
-  "hideMetaAIHelp": { "message": "Verwijder de snelkoppeling uit de navigatie", "description": "Help text." },
-  "hideChannels": { "message": "Kanalen verbergen", "description": "Setting title. 'Channels' is WhatsApp's feature — use WhatsApp's official localized term." },
-  "hideChannelsHelp": { "message": "Verwijder de snelkoppeling uit de navigatie", "description": "Help text." },
-  "privacyPanelAria": { "message": "Privacyinstellingen", "description": "Accessible label for the privacy panel." },
-  "privacyMode": { "message": "Privacymodus", "description": "Master privacy toggle title; also used as a shortcut row label." },
-  "privacyModeHelp": { "message": "Gebruik de sneltoets voor jouw platform onder Sneltoetsen", "description": "Help text for the privacy mode toggle." },
-  "privacyBlurAria": { "message": "Opties voor privacyvervaging", "description": "Accessible label for the blur switches list." },
-  "blurPreviews": { "message": "Chatvoorbeelden vervagen", "description": "Setting title." },
-  "blurPreviewsHelp": { "message": "Bescherm de tekst van recente berichten", "description": "Help text." },
-  "blurMessages": { "message": "Geopende berichten vervagen", "description": "Setting title." },
-  "blurMessagesHelp": { "message": "Verberg gespreksballonnen", "description": "Help text." },
-  "blurImages": { "message": "Afbeeldingen vervagen", "description": "Setting title." },
-  "blurImagesHelp": { "message": "Foto’s, stickers en linkminiaturen; geen emoji of pictogrammen", "description": "Help text." },
-  "blurVideos": { "message": "Video’s en gifs vervagen", "description": "Setting title." },
-  "blurVideosHelp": { "message": "Videovlakken blijven onscherp", "description": "Help text." },
-  "blurNames": { "message": "Namen vervagen", "description": "Setting title." },
-  "blurNamesHelp": { "message": "Titels van chats en gesprekken", "description": "Help text." },
-  "blurAvatars": { "message": "Profielfoto’s vervagen", "description": "Setting title." },
-  "blurAvatarsHelp": { "message": "Alleen avatars; emoji in tekst blijven zichtbaar", "description": "Help text." },
-  "revealOnHover": { "message": "Tonen bij aanwijzen", "description": "Setting title." },
-  "revealOnHoverHelp": { "message": "Toon tijdelijk alleen waar je op wijst", "description": "Help text." },
-  "blurStrength": { "message": "Vervagingssterkte", "description": "Setting title for the blur slider." },
-  "shortcutsPanelAria": { "message": "Sneltoetsen", "description": "Accessible label for the shortcuts panel." },
-  "platformMac": { "message": "macOS-sneltoetsen", "description": "Platform card title on macOS." },
-  "platformWindows": { "message": "Windows-sneltoetsen", "description": "Platform card title on Windows." },
-  "platformLinux": { "message": "Linux-sneltoetsen", "description": "Platform card title on Linux." },
-  "platformOther": { "message": "Desktopsneltoetsen", "description": "Platform card title on other platforms." },
-  "platformHelpMac": { "message": "Gebruikt Command (⌘) en Option (⌥)", "description": "Platform card help on macOS. Keep key symbols." },
-  "platformHelpOther": { "message": "Gebruikt Ctrl en Alt", "description": "Platform card help on non-macOS. Keep key names Ctrl/Alt." },
-  "refinedShortcuts": { "message": "Refined-sneltoetsen", "description": "Toggle title for the extension's shortcuts. 'Refined' is the brand name." },
-  "refinedShortcutsHelp": { "message": "Actief zolang het WhatsApp-tabblad focus heeft", "description": "Help text." },
-  "shortcutListAria": { "message": "Beschikbare sneltoetsen", "description": "Accessible label for the shortcut list." },
-  "focusSearch": { "message": "Zoekveld focussen", "description": "Shortcut row title." },
-  "focusSearchHelp": { "message": "Spring naar de zoekfunctie van WhatsApp", "description": "Help text." },
-  "newChat": { "message": "Nieuwe chat", "description": "Shortcut row title." },
-  "newChatHelp": { "message": "Open het native nieuwe-chatpaneel van WhatsApp", "description": "Help text." },
-  "folderCycle": { "message": "Vorige / volgende map", "description": "Shortcut row title." },
-  "folderCycleHelp": { "message": "Wisselt tussen native tabbladen of zijbalkmappen", "description": "Help text." },
-  "privacyShortcutHelp": { "message": "Beschermde inhoud vervagen of tonen", "description": "Help text for the privacy mode shortcut row." },
-  "refinedSettings": { "message": "Refined-instellingen", "description": "Shortcut row title; opens this settings drawer. 'Refined' is the brand name." },
-  "refinedSettingsHelp": { "message": "Open of sluit dit paneel", "description": "Help text." },
-  "shortcutNote": { "message": "De eigen sneltoetsen van WhatsApp blijven gewoon werken. Druk op Escape om het instellingenpaneel te sluiten.", "description": "Note under the shortcut list. Keep the key name Escape." },
-  "footerSaved": { "message": "Lokaal opgeslagen in deze browser", "description": "Footer note about where settings are stored." },
-  "resetDefaults": { "message": "Standaardwaarden herstellen", "description": "Button that restores default settings." },
-
-  "navFoldersAria": { "message": "WhatsApp-chatmappen", "description": "Accessible label for the injected folder sidebar." },
-  "toolsAria": { "message": "Refined WhatsApp™ Web-tools", "description": "Accessible label for the injected action buttons. Brand name — keep untranslated." },
-  "togglePrivacyAria": { "message": "Privacymodus in- of uitschakelen", "description": "Label/tooltip for the privacy button in WhatsApp's sidebar." },
-  "privacyLabel": { "message": "Privacy", "description": "Short caption under the privacy button." },
-  "openSettingsAria": { "message": "Refined-instellingen openen", "description": "Label/tooltip for the settings button in WhatsApp's sidebar." },
-  "settingsLabel": { "message": "Instellingen", "description": "Short caption under the settings button." },
-  "closeSettingsAria": { "message": "Refined-instellingen sluiten", "description": "Label for the drawer close button." },
-  "resizePanelAria": { "message": "Chatpaneel vergroten of verkleinen", "description": "Accessible label for the drag handle that resizes the chat panel." },
-  "openListsMenu": { "message": "Lijstenmenu openen", "description": "Accessible label for the folder overflow/action button." },
-  "folderUnread": { "message": "$FOLDER$, $COUNT$ ongelezen", "description": "Accessible label for a folder with unread chats. Keep both placeholders.", "placeholders": { "folder": { "content": "$1", "example": "Groups" }, "count": { "content": "$2", "example": "3" } } }
+  "appName": {
+    "message": "Refined WhatsApp™ Web",
+    "description": "Extension name shown in the browser. Brand name — keep untranslated."
+  },
+  "appShortName": {
+    "message": "Refined",
+    "description": "Short extension name. Brand name — keep untranslated."
+  },
+  "appDesc": {
+    "message": "Maak WhatsApp Web rustiger en meer privé: native lay-outopties, privacyvervaging en sneltoetsen.",
+    "description": "Store/extension description. Must stay under 132 characters."
+  },
+  "settingsTitle": {
+    "message": "Instellingen van Refined WhatsApp™ Web",
+    "description": "Title of the settings page and drawer."
+  },
+  "aboutTagline": {
+    "message": "Een rustigere werkplek voor WhatsApp Web.",
+    "description": "Tagline under the extension name in the toolbar popup."
+  },
+  "extensionStatus": {
+    "message": "Status van de extensie",
+    "description": "Eyebrow label above the activation state."
+  },
+  "activeTitle": {
+    "message": "Refined is actief",
+    "description": "Heading when the extension is enabled. 'Refined' is the brand name."
+  },
+  "pausedTitle": {
+    "message": "Refined is gepauzeerd",
+    "description": "Heading when the extension is disabled."
+  },
+  "activeHelp": {
+    "message": "Je lay-out- en privacyvoorkeuren zijn toegepast.",
+    "description": "Help text when enabled."
+  },
+  "pausedHelp": {
+    "message": "Activeer om je opgeslagen interfacevoorkeuren te herstellen.",
+    "description": "Help text when disabled."
+  },
+  "pauseButton": {
+    "message": "Refined pauzeren",
+    "description": "Button that disables the extension."
+  },
+  "activateButton": {
+    "message": "Refined activeren",
+    "description": "Button that enables the extension."
+  },
+  "stateActive": {
+    "message": "Actief",
+    "description": "Tooltip on the state dot when enabled."
+  },
+  "statePaused": {
+    "message": "Gepauzeerd",
+    "description": "Tooltip on the state dot when disabled."
+  },
+  "privacySummaryAria": {
+    "message": "Privacyoverzicht",
+    "description": "Accessible label for the privacy details section."
+  },
+  "dataLabel": {
+    "message": "Gegevens",
+    "description": "Label in privacy summary row."
+  },
+  "dataValue": {
+    "message": "Blijven op je apparaat",
+    "description": "Value in privacy summary row about data."
+  },
+  "accessLabel": {
+    "message": "Toegang",
+    "description": "Label in privacy summary row."
+  },
+  "accessValue": {
+    "message": "Alleen WhatsApp Web",
+    "description": "Value in privacy summary row about site access."
+  },
+  "aboutFooter": {
+    "message": "Open Refined via de knop Instellingen in de zijbalk van WhatsApp.",
+    "description": "Footer hint in the toolbar popup."
+  },
+  "headerTagline": {
+    "message": "Maak je werkplek echt van jou.",
+    "description": "Tagline in the settings drawer header."
+  },
+  "masterToggleTitle": {
+    "message": "Refined WhatsApp™ Web inschakelen",
+    "description": "Tooltip on the master on/off toggle."
+  },
+  "tabsAria": {
+    "message": "Instellingensecties",
+    "description": "Accessible label for the settings tab bar."
+  },
+  "tabLayout": {
+    "message": "Lay-out",
+    "description": "Settings tab name."
+  },
+  "tabPrivacy": {
+    "message": "Privacy",
+    "description": "Settings tab name."
+  },
+  "tabShortcuts": {
+    "message": "Sneltoetsen",
+    "description": "Settings tab name (keyboard shortcuts)."
+  },
+  "layoutPanelAria": {
+    "message": "Lay-outinstellingen",
+    "description": "Accessible label for the layout panel."
+  },
+  "chatFolders": {
+    "message": "Chatmappen",
+    "description": "Setting group title."
+  },
+  "chatFoldersHelp": {
+    "message": "Houd de WhatsApp-tabbladen of verplaats ze naar de zijbalk",
+    "description": "Help text for the chat folders setting."
+  },
+  "folderLayoutAria": {
+    "message": "Indeling van chatmappen",
+    "description": "Accessible label for the folder layout choice."
+  },
+  "nativeTabs": {
+    "message": "Native tabbladen",
+    "description": "Folder layout option: WhatsApp's own tabs."
+  },
+  "whatsappSidebar": {
+    "message": "WhatsApp-zijbalk",
+    "description": "Folder layout option: vertical sidebar."
+  },
+  "resizablePanel": {
+    "message": "Verstelbaar chatpaneel",
+    "description": "Setting title."
+  },
+  "resizablePanelHelp": {
+    "message": "Sleep de rechterrand wanneer je wilt; pijltjestoetsen werken op de greep",
+    "description": "Help text for the resizable panel setting."
+  },
+  "panelWidth": {
+    "message": "Breedte van het chatpaneel",
+    "description": "Setting title for the width slider."
+  },
+  "pxValue": {
+    "message": "$VALUE$ px",
+    "description": "Pixel value shown next to sliders. Keep the $VALUE$ placeholder.",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "432"
+      }
+    }
+  },
+  "interfaceOptionsAria": {
+    "message": "Interfaceopties",
+    "description": "Accessible label for the interface switches list."
+  },
+  "messagePreviews": {
+    "message": "Berichtvoorbeelden",
+    "description": "Setting title."
+  },
+  "messagePreviewsHelp": {
+    "message": "Toon het laatste bericht in chatrijen",
+    "description": "Help text."
+  },
+  "hideNotification": {
+    "message": "Meldingsverzoek verbergen",
+    "description": "Setting title."
+  },
+  "hideNotificationHelp": {
+    "message": "Verwijder de banner ‘meldingen inschakelen’",
+    "description": "Help text."
+  },
+  "hideMetaAI": {
+    "message": "Meta AI verbergen",
+    "description": "Setting title. 'Meta AI' is a product name — keep untranslated."
+  },
+  "hideMetaAIHelp": {
+    "message": "Verwijder de snelkoppeling uit de navigatie",
+    "description": "Help text."
+  },
+  "hideChannels": {
+    "message": "Kanalen verbergen",
+    "description": "Setting title. 'Channels' is WhatsApp's feature — use WhatsApp's official localized term."
+  },
+  "hideChannelsHelp": {
+    "message": "Verwijder de snelkoppeling uit de navigatie",
+    "description": "Help text."
+  },
+  "privacyPanelAria": {
+    "message": "Privacyinstellingen",
+    "description": "Accessible label for the privacy panel."
+  },
+  "privacyMode": {
+    "message": "Privacymodus",
+    "description": "Master privacy toggle title; also used as a shortcut row label."
+  },
+  "privacyModeHelp": {
+    "message": "Gebruik de sneltoets voor jouw platform onder Sneltoetsen",
+    "description": "Help text for the privacy mode toggle."
+  },
+  "privacyBlurAria": {
+    "message": "Opties voor privacyvervaging",
+    "description": "Accessible label for the blur switches list."
+  },
+  "blurPreviews": {
+    "message": "Chatvoorbeelden vervagen",
+    "description": "Setting title."
+  },
+  "blurPreviewsHelp": {
+    "message": "Bescherm de tekst van recente berichten",
+    "description": "Help text."
+  },
+  "blurMessages": {
+    "message": "Geopende berichten vervagen",
+    "description": "Setting title."
+  },
+  "blurMessagesHelp": {
+    "message": "Verberg gespreksballonnen",
+    "description": "Help text."
+  },
+  "blurImages": {
+    "message": "Afbeeldingen vervagen",
+    "description": "Setting title."
+  },
+  "blurImagesHelp": {
+    "message": "Foto’s, stickers en linkminiaturen; geen emoji of pictogrammen",
+    "description": "Help text."
+  },
+  "blurVideos": {
+    "message": "Video’s en gifs vervagen",
+    "description": "Setting title."
+  },
+  "blurVideosHelp": {
+    "message": "Videovlakken blijven onscherp",
+    "description": "Help text."
+  },
+  "blurNames": {
+    "message": "Namen vervagen",
+    "description": "Setting title."
+  },
+  "blurNamesHelp": {
+    "message": "Titels van chats en gesprekken",
+    "description": "Help text."
+  },
+  "blurAvatars": {
+    "message": "Profielfoto’s vervagen",
+    "description": "Setting title."
+  },
+  "blurAvatarsHelp": {
+    "message": "Alleen avatars; emoji in tekst blijven zichtbaar",
+    "description": "Help text."
+  },
+  "revealOnHover": {
+    "message": "Tonen bij aanwijzen",
+    "description": "Setting title."
+  },
+  "revealOnHoverHelp": {
+    "message": "Toon tijdelijk alleen waar je op wijst",
+    "description": "Help text."
+  },
+  "blurStrength": {
+    "message": "Vervagingssterkte",
+    "description": "Setting title for the blur slider."
+  },
+  "shortcutsPanelAria": {
+    "message": "Sneltoetsen",
+    "description": "Accessible label for the shortcuts panel."
+  },
+  "platformMac": {
+    "message": "macOS-sneltoetsen",
+    "description": "Platform card title on macOS."
+  },
+  "platformWindows": {
+    "message": "Windows-sneltoetsen",
+    "description": "Platform card title on Windows."
+  },
+  "platformLinux": {
+    "message": "Linux-sneltoetsen",
+    "description": "Platform card title on Linux."
+  },
+  "platformOther": {
+    "message": "Desktopsneltoetsen",
+    "description": "Platform card title on other platforms."
+  },
+  "platformHelpMac": {
+    "message": "Gebruikt Command (⌘) en Option (⌥)",
+    "description": "Platform card help on macOS. Keep key symbols."
+  },
+  "platformHelpOther": {
+    "message": "Gebruikt Ctrl en Alt",
+    "description": "Platform card help on non-macOS. Keep key names Ctrl/Alt."
+  },
+  "refinedShortcuts": {
+    "message": "Refined-sneltoetsen",
+    "description": "Toggle title for the extension's shortcuts. 'Refined' is the brand name."
+  },
+  "refinedShortcutsHelp": {
+    "message": "Actief zolang het WhatsApp-tabblad focus heeft",
+    "description": "Help text."
+  },
+  "shortcutListAria": {
+    "message": "Beschikbare sneltoetsen",
+    "description": "Accessible label for the shortcut list."
+  },
+  "focusSearch": {
+    "message": "Zoekveld focussen",
+    "description": "Shortcut row title."
+  },
+  "focusSearchHelp": {
+    "message": "Spring naar de zoekfunctie van WhatsApp",
+    "description": "Help text."
+  },
+  "newChat": {
+    "message": "Nieuwe chat",
+    "description": "Shortcut row title."
+  },
+  "newChatHelp": {
+    "message": "Open het native nieuwe-chatpaneel van WhatsApp",
+    "description": "Help text."
+  },
+  "folderCycle": {
+    "message": "Vorige / volgende map",
+    "description": "Shortcut row title."
+  },
+  "folderCycleHelp": {
+    "message": "Wisselt tussen native tabbladen of zijbalkmappen",
+    "description": "Help text."
+  },
+  "privacyShortcutHelp": {
+    "message": "Beschermde inhoud vervagen of tonen",
+    "description": "Help text for the privacy mode shortcut row."
+  },
+  "refinedSettings": {
+    "message": "Refined-instellingen",
+    "description": "Shortcut row title; opens this settings drawer. 'Refined' is the brand name."
+  },
+  "refinedSettingsHelp": {
+    "message": "Open of sluit dit paneel",
+    "description": "Help text."
+  },
+  "shortcutNote": {
+    "message": "De eigen sneltoetsen van WhatsApp blijven gewoon werken. Druk op Escape om het instellingenpaneel te sluiten.",
+    "description": "Note under the shortcut list. Keep the key name Escape."
+  },
+  "footerSaved": {
+    "message": "Lokaal opgeslagen in deze browser",
+    "description": "Footer note about where settings are stored."
+  },
+  "resetDefaults": {
+    "message": "Standaardwaarden herstellen",
+    "description": "Button that restores default settings."
+  },
+  "language": {
+    "message": "Taal",
+    "description": "Setting title for the manual language picker."
+  },
+  "languageHelp": {
+    "message": "Volgt je browser tenzij je zelf een taal kiest",
+    "description": "Help text for the language picker."
+  },
+  "languageAuto": {
+    "message": "Automatisch",
+    "description": "First picker option: follow the browser's UI language."
+  },
+  "navFoldersAria": {
+    "message": "WhatsApp-chatmappen",
+    "description": "Accessible label for the injected folder sidebar."
+  },
+  "toolsAria": {
+    "message": "Refined WhatsApp™ Web-tools",
+    "description": "Accessible label for the injected action buttons. Brand name — keep untranslated."
+  },
+  "togglePrivacyAria": {
+    "message": "Privacymodus in- of uitschakelen",
+    "description": "Label/tooltip for the privacy button in WhatsApp's sidebar."
+  },
+  "privacyLabel": {
+    "message": "Privacy",
+    "description": "Short caption under the privacy button."
+  },
+  "openSettingsAria": {
+    "message": "Refined-instellingen openen",
+    "description": "Label/tooltip for the settings button in WhatsApp's sidebar."
+  },
+  "settingsLabel": {
+    "message": "Instellingen",
+    "description": "Short caption under the settings button."
+  },
+  "closeSettingsAria": {
+    "message": "Refined-instellingen sluiten",
+    "description": "Label for the drawer close button."
+  },
+  "resizePanelAria": {
+    "message": "Chatpaneel vergroten of verkleinen",
+    "description": "Accessible label for the drag handle that resizes the chat panel."
+  },
+  "openListsMenu": {
+    "message": "Lijstenmenu openen",
+    "description": "Accessible label for the folder overflow/action button."
+  },
+  "folderUnread": {
+    "message": "$FOLDER$, $COUNT$ ongelezen",
+    "description": "Accessible label for a folder with unread chats. Keep both placeholders.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Groups"
+      },
+      "count": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  }
 }

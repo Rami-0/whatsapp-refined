@@ -58,8 +58,9 @@ Linux (`⌘`/`Ctrl` + `⌥`/`Alt` + key):
 
 Everything is configured from a settings drawer inside WhatsApp Web that
 follows the host app's design, plus a toolbar popup to pause or resume the
-extension. The interface is available in 19 languages and follows your
-browser's UI language automatically.
+extension. The interface is available in 19 languages: it follows your
+browser's UI language automatically, or you can pick one manually from the
+Language setting on the Layout tab.
 
 <div align="center">
 <img src="store/assets/screenshot-2-privacy-1280x800.png" alt="Privacy blur settings" width="720">

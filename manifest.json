@@ -32,7 +32,7 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["popup/popup.html", "popup/popup.css", "popup/popup.js", "popup/i18n.js", "src/settings.js", "src/utils.js"],
+      "resources": ["popup/popup.html", "popup/popup.css", "popup/popup.js", "popup/i18n.js", "src/settings.js", "src/utils.js", "_locales/*/messages.json"],
       "matches": ["https://web.whatsapp.com/*"]
     }
   ]

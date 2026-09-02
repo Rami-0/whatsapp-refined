@@ -15,6 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   browser's UI language and falls back to English. Brand names stay
   untranslated; the settings drawer switches to right-to-left layout for
   Arabic.
+- A **Language** picker on the Layout tab. It defaults to following the
+  browser, but any of the 19 languages can be chosen manually — for example
+  Arabic on an English browser — and the whole interface, including the
+  buttons injected into WhatsApp's sidebar, switches immediately.
 
 ## [1.1.1] — 2026-08-16
 

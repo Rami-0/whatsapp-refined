@@ -1,102 +1,414 @@
 {
-  "appName": { "message": "Refined WhatsApp™ Web", "description": "Extension name shown in the browser. Brand name — keep untranslated." },
-  "appShortName": { "message": "Refined", "description": "Short extension name. Brand name — keep untranslated." },
-  "appDesc": { "message": "레이아웃 제어, 프라이버시 블러, 키보드 단축키로 WhatsApp Web을 더 차분하고 프라이빗하게 만들어요.", "description": "Store/extension description. Must stay under 132 characters." },
-
-  "settingsTitle": { "message": "Refined WhatsApp™ Web 설정", "description": "Title of the settings page and drawer." },
-
-  "aboutTagline": { "message": "WhatsApp Web을 위한 더 차분한 작업 공간.", "description": "Tagline under the extension name in the toolbar popup." },
-  "extensionStatus": { "message": "확장 프로그램 상태", "description": "Eyebrow label above the activation state." },
-  "activeTitle": { "message": "Refined 사용 중", "description": "Heading when the extension is enabled. 'Refined' is the brand name." },
-  "pausedTitle": { "message": "Refined 일시중지됨", "description": "Heading when the extension is disabled." },
-  "activeHelp": { "message": "레이아웃과 프라이버시 설정이 적용되어 있어요.", "description": "Help text when enabled." },
-  "pausedHelp": { "message": "활성화하면 저장된 인터페이스 설정이 복원돼요.", "description": "Help text when disabled." },
-  "pauseButton": { "message": "Refined 일시중지", "description": "Button that disables the extension." },
-  "activateButton": { "message": "Refined 활성화", "description": "Button that enables the extension." },
-  "stateActive": { "message": "사용 중", "description": "Tooltip on the state dot when enabled." },
-  "statePaused": { "message": "일시중지됨", "description": "Tooltip on the state dot when disabled." },
-  "privacySummaryAria": { "message": "프라이버시 요약", "description": "Accessible label for the privacy details section." },
-  "dataLabel": { "message": "데이터", "description": "Label in privacy summary row." },
-  "dataValue": { "message": "내 기기에만 저장", "description": "Value in privacy summary row about data." },
-  "accessLabel": { "message": "접근 범위", "description": "Label in privacy summary row." },
-  "accessValue": { "message": "WhatsApp Web만", "description": "Value in privacy summary row about site access." },
-  "aboutFooter": { "message": "WhatsApp 사이드바의 설정 버튼에서 Refined를 열 수 있어요.", "description": "Footer hint in the toolbar popup." },
-
-  "headerTagline": { "message": "나만의 작업 공간으로 만들어 보세요.", "description": "Tagline in the settings drawer header." },
-  "masterToggleTitle": { "message": "Refined WhatsApp™ Web 사용", "description": "Tooltip on the master on/off toggle." },
-  "tabsAria": { "message": "설정 섹션", "description": "Accessible label for the settings tab bar." },
-  "tabLayout": { "message": "레이아웃", "description": "Settings tab name." },
-  "tabPrivacy": { "message": "프라이버시", "description": "Settings tab name." },
-  "tabShortcuts": { "message": "단축키", "description": "Settings tab name (keyboard shortcuts)." },
-  "layoutPanelAria": { "message": "레이아웃 설정", "description": "Accessible label for the layout panel." },
-  "chatFolders": { "message": "채팅 폴더", "description": "Setting group title." },
-  "chatFoldersHelp": { "message": "WhatsApp 탭을 유지하거나 사이드바로 옮겨요", "description": "Help text for the chat folders setting." },
-  "folderLayoutAria": { "message": "채팅 폴더 레이아웃", "description": "Accessible label for the folder layout choice." },
-  "nativeTabs": { "message": "기본 탭", "description": "Folder layout option: WhatsApp's own tabs." },
-  "whatsappSidebar": { "message": "WhatsApp 사이드바", "description": "Folder layout option: vertical sidebar." },
-  "resizablePanel": { "message": "채팅 패널 크기 조절", "description": "Setting title." },
-  "resizablePanelHelp": { "message": "오른쪽 가장자리를 언제든 드래그하세요. 핸들에서 방향키도 사용돼요", "description": "Help text for the resizable panel setting." },
-  "panelWidth": { "message": "채팅 패널 너비", "description": "Setting title for the width slider." },
-  "pxValue": { "message": "$VALUE$ px", "description": "Pixel value shown next to sliders. Keep the $VALUE$ placeholder.", "placeholders": { "value": { "content": "$1", "example": "432" } } },
-  "interfaceOptionsAria": { "message": "인터페이스 옵션", "description": "Accessible label for the interface switches list." },
-  "messagePreviews": { "message": "메시지 미리보기", "description": "Setting title." },
-  "messagePreviewsHelp": { "message": "채팅 목록에 마지막 메시지를 표시해요", "description": "Help text." },
-  "hideNotification": { "message": "알림 안내 숨기기", "description": "Setting title." },
-  "hideNotificationHelp": { "message": "“알림 켜기” 배너를 제거해요", "description": "Help text." },
-  "hideMetaAI": { "message": "Meta AI 숨기기", "description": "Setting title. 'Meta AI' is a product name — keep untranslated." },
-  "hideMetaAIHelp": { "message": "탐색 바로가기를 제거해요", "description": "Help text." },
-  "hideChannels": { "message": "채널 숨기기", "description": "Setting title. 'Channels' is WhatsApp's feature — use WhatsApp's official localized term." },
-  "hideChannelsHelp": { "message": "탐색 바로가기를 제거해요", "description": "Help text." },
-  "privacyPanelAria": { "message": "프라이버시 설정", "description": "Accessible label for the privacy panel." },
-  "privacyMode": { "message": "프라이버시 모드", "description": "Master privacy toggle title; also used as a shortcut row label." },
-  "privacyModeHelp": { "message": "단축키 탭에 표시된 플랫폼별 단축키를 사용할 수 있어요", "description": "Help text for the privacy mode toggle." },
-  "privacyBlurAria": { "message": "프라이버시 블러 옵션", "description": "Accessible label for the blur switches list." },
-  "blurPreviews": { "message": "채팅 미리보기 블러", "description": "Setting title." },
-  "blurPreviewsHelp": { "message": "최근 메시지 내용을 보호해요", "description": "Help text." },
-  "blurMessages": { "message": "열린 메시지 블러", "description": "Setting title." },
-  "blurMessagesHelp": { "message": "대화 말풍선을 가려요", "description": "Help text." },
-  "blurImages": { "message": "이미지 블러", "description": "Setting title." },
-  "blurImagesHelp": { "message": "사진, 스티커, 링크 섬네일에 적용돼요. 이모티콘과 아이콘은 제외", "description": "Help text." },
-  "blurVideos": { "message": "동영상 및 GIF 블러", "description": "Setting title." },
-  "blurVideosHelp": { "message": "동영상 화면을 계속 가려요", "description": "Help text." },
-  "blurNames": { "message": "이름 블러", "description": "Setting title." },
-  "blurNamesHelp": { "message": "채팅 및 대화 제목", "description": "Help text." },
-  "blurAvatars": { "message": "프로필 사진 블러", "description": "Setting title." },
-  "blurAvatarsHelp": { "message": "아바타만 가려요. 본문 이모티콘은 그대로 보여요", "description": "Help text." },
-  "revealOnHover": { "message": "마우스를 올리면 표시", "description": "Setting title." },
-  "revealOnHoverHelp": { "message": "가리킨 부분만 잠시 보여줘요", "description": "Help text." },
-  "blurStrength": { "message": "블러 강도", "description": "Setting title for the blur slider." },
-  "shortcutsPanelAria": { "message": "키보드 단축키", "description": "Accessible label for the shortcuts panel." },
-  "platformMac": { "message": "macOS 단축키", "description": "Platform card title on macOS." },
-  "platformWindows": { "message": "Windows 단축키", "description": "Platform card title on Windows." },
-  "platformLinux": { "message": "Linux 단축키", "description": "Platform card title on Linux." },
-  "platformOther": { "message": "데스크톱 단축키", "description": "Platform card title on other platforms." },
-  "platformHelpMac": { "message": "Command (⌘)와 Option (⌥)을 사용해요", "description": "Platform card help on macOS. Keep key symbols." },
-  "platformHelpOther": { "message": "Ctrl과 Alt를 사용해요", "description": "Platform card help on non-macOS. Keep key names Ctrl/Alt." },
-  "refinedShortcuts": { "message": "Refined 단축키", "description": "Toggle title for the extension's shortcuts. 'Refined' is the brand name." },
-  "refinedShortcutsHelp": { "message": "WhatsApp 탭에 포커스가 있을 때 작동해요", "description": "Help text." },
-  "shortcutListAria": { "message": "사용 가능한 키보드 단축키", "description": "Accessible label for the shortcut list." },
-  "focusSearch": { "message": "검색으로 이동", "description": "Shortcut row title." },
-  "focusSearchHelp": { "message": "WhatsApp 검색으로 바로 이동해요", "description": "Help text." },
-  "newChat": { "message": "새 채팅", "description": "Shortcut row title." },
-  "newChatHelp": { "message": "WhatsApp 기본 새 채팅 패널을 열어요", "description": "Help text." },
-  "folderCycle": { "message": "이전 / 다음 폴더", "description": "Shortcut row title." },
-  "folderCycleHelp": { "message": "기본 탭 또는 사이드바 폴더를 차례로 이동해요", "description": "Help text." },
-  "privacyShortcutHelp": { "message": "보호된 콘텐츠를 가리거나 표시해요", "description": "Help text for the privacy mode shortcut row." },
-  "refinedSettings": { "message": "Refined 설정", "description": "Shortcut row title; opens this settings drawer. 'Refined' is the brand name." },
-  "refinedSettingsHelp": { "message": "이 설정 창을 열거나 닫아요", "description": "Help text." },
-  "shortcutNote": { "message": "WhatsApp 자체 키보드 단축키는 그대로 작동해요. Escape 키를 누르면 설정 창이 닫혀요.", "description": "Note under the shortcut list. Keep the key name Escape." },
-  "footerSaved": { "message": "이 브라우저에만 로컬로 저장돼요", "description": "Footer note about where settings are stored." },
-  "resetDefaults": { "message": "기본값으로 재설정", "description": "Button that restores default settings." },
-
-  "navFoldersAria": { "message": "WhatsApp 채팅 폴더", "description": "Accessible label for the injected folder sidebar." },
-  "toolsAria": { "message": "Refined WhatsApp™ Web 도구", "description": "Accessible label for the injected action buttons. Brand name — keep untranslated." },
-  "togglePrivacyAria": { "message": "프라이버시 모드 전환", "description": "Label/tooltip for the privacy button in WhatsApp's sidebar." },
-  "privacyLabel": { "message": "프라이버시", "description": "Short caption under the privacy button." },
-  "openSettingsAria": { "message": "Refined 설정 열기", "description": "Label/tooltip for the settings button in WhatsApp's sidebar." },
-  "settingsLabel": { "message": "설정", "description": "Short caption under the settings button." },
-  "closeSettingsAria": { "message": "Refined 설정 닫기", "description": "Label for the drawer close button." },
-  "resizePanelAria": { "message": "채팅 패널 크기 조절", "description": "Accessible label for the drag handle that resizes the chat panel." },
-  "openListsMenu": { "message": "목록 메뉴 열기", "description": "Accessible label for the folder overflow/action button." },
-  "folderUnread": { "message": "$FOLDER$, 읽지 않음 $COUNT$개", "description": "Accessible label for a folder with unread chats. Keep both placeholders.", "placeholders": { "folder": { "content": "$1", "example": "Groups" }, "count": { "content": "$2", "example": "3" } } }
+  "appName": {
+    "message": "Refined WhatsApp™ Web",
+    "description": "Extension name shown in the browser. Brand name — keep untranslated."
+  },
+  "appShortName": {
+    "message": "Refined",
+    "description": "Short extension name. Brand name — keep untranslated."
+  },
+  "appDesc": {
+    "message": "레이아웃 제어, 프라이버시 블러, 키보드 단축키로 WhatsApp Web을 더 차분하고 프라이빗하게 만들어요.",
+    "description": "Store/extension description. Must stay under 132 characters."
+  },
+  "settingsTitle": {
+    "message": "Refined WhatsApp™ Web 설정",
+    "description": "Title of the settings page and drawer."
+  },
+  "aboutTagline": {
+    "message": "WhatsApp Web을 위한 더 차분한 작업 공간.",
+    "description": "Tagline under the extension name in the toolbar popup."
+  },
+  "extensionStatus": {
+    "message": "확장 프로그램 상태",
+    "description": "Eyebrow label above the activation state."
+  },
+  "activeTitle": {
+    "message": "Refined 사용 중",
+    "description": "Heading when the extension is enabled. 'Refined' is the brand name."
+  },
+  "pausedTitle": {
+    "message": "Refined 일시중지됨",
+    "description": "Heading when the extension is disabled."
+  },
+  "activeHelp": {
+    "message": "레이아웃과 프라이버시 설정이 적용되어 있어요.",
+    "description": "Help text when enabled."
+  },
+  "pausedHelp": {
+    "message": "활성화하면 저장된 인터페이스 설정이 복원돼요.",
+    "description": "Help text when disabled."
+  },
+  "pauseButton": {
+    "message": "Refined 일시중지",
+    "description": "Button that disables the extension."
+  },
+  "activateButton": {
+    "message": "Refined 활성화",
+    "description": "Button that enables the extension."
+  },
+  "stateActive": {
+    "message": "사용 중",
+    "description": "Tooltip on the state dot when enabled."
+  },
+  "statePaused": {
+    "message": "일시중지됨",
+    "description": "Tooltip on the state dot when disabled."
+  },
+  "privacySummaryAria": {
+    "message": "프라이버시 요약",
+    "description": "Accessible label for the privacy details section."
+  },
+  "dataLabel": {
+    "message": "데이터",
+    "description": "Label in privacy summary row."
+  },
+  "dataValue": {
+    "message": "내 기기에만 저장",
+    "description": "Value in privacy summary row about data."
+  },
+  "accessLabel": {
+    "message": "접근 범위",
+    "description": "Label in privacy summary row."
+  },
+  "accessValue": {
+    "message": "WhatsApp Web만",
+    "description": "Value in privacy summary row about site access."
+  },
+  "aboutFooter": {
+    "message": "WhatsApp 사이드바의 설정 버튼에서 Refined를 열 수 있어요.",
+    "description": "Footer hint in the toolbar popup."
+  },
+  "headerTagline": {
+    "message": "나만의 작업 공간으로 만들어 보세요.",
+    "description": "Tagline in the settings drawer header."
+  },
+  "masterToggleTitle": {
+    "message": "Refined WhatsApp™ Web 사용",
+    "description": "Tooltip on the master on/off toggle."
+  },
+  "tabsAria": {
+    "message": "설정 섹션",
+    "description": "Accessible label for the settings tab bar."
+  },
+  "tabLayout": {
+    "message": "레이아웃",
+    "description": "Settings tab name."
+  },
+  "tabPrivacy": {
+    "message": "프라이버시",
+    "description": "Settings tab name."
+  },
+  "tabShortcuts": {
+    "message": "단축키",
+    "description": "Settings tab name (keyboard shortcuts)."
+  },
+  "layoutPanelAria": {
+    "message": "레이아웃 설정",
+    "description": "Accessible label for the layout panel."
+  },
+  "chatFolders": {
+    "message": "채팅 폴더",
+    "description": "Setting group title."
+  },
+  "chatFoldersHelp": {
+    "message": "WhatsApp 탭을 유지하거나 사이드바로 옮겨요",
+    "description": "Help text for the chat folders setting."
+  },
+  "folderLayoutAria": {
+    "message": "채팅 폴더 레이아웃",
+    "description": "Accessible label for the folder layout choice."
+  },
+  "nativeTabs": {
+    "message": "기본 탭",
+    "description": "Folder layout option: WhatsApp's own tabs."
+  },
+  "whatsappSidebar": {
+    "message": "WhatsApp 사이드바",
+    "description": "Folder layout option: vertical sidebar."
+  },
+  "resizablePanel": {
+    "message": "채팅 패널 크기 조절",
+    "description": "Setting title."
+  },
+  "resizablePanelHelp": {
+    "message": "오른쪽 가장자리를 언제든 드래그하세요. 핸들에서 방향키도 사용돼요",
+    "description": "Help text for the resizable panel setting."
+  },
+  "panelWidth": {
+    "message": "채팅 패널 너비",
+    "description": "Setting title for the width slider."
+  },
+  "pxValue": {
+    "message": "$VALUE$ px",
+    "description": "Pixel value shown next to sliders. Keep the $VALUE$ placeholder.",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "432"
+      }
+    }
+  },
+  "interfaceOptionsAria": {
+    "message": "인터페이스 옵션",
+    "description": "Accessible label for the interface switches list."
+  },
+  "messagePreviews": {
+    "message": "메시지 미리보기",
+    "description": "Setting title."
+  },
+  "messagePreviewsHelp": {
+    "message": "채팅 목록에 마지막 메시지를 표시해요",
+    "description": "Help text."
+  },
+  "hideNotification": {
+    "message": "알림 안내 숨기기",
+    "description": "Setting title."
+  },
+  "hideNotificationHelp": {
+    "message": "“알림 켜기” 배너를 제거해요",
+    "description": "Help text."
+  },
+  "hideMetaAI": {
+    "message": "Meta AI 숨기기",
+    "description": "Setting title. 'Meta AI' is a product name — keep untranslated."
+  },
+  "hideMetaAIHelp": {
+    "message": "탐색 바로가기를 제거해요",
+    "description": "Help text."
+  },
+  "hideChannels": {
+    "message": "채널 숨기기",
+    "description": "Setting title. 'Channels' is WhatsApp's feature — use WhatsApp's official localized term."
+  },
+  "hideChannelsHelp": {
+    "message": "탐색 바로가기를 제거해요",
+    "description": "Help text."
+  },
+  "privacyPanelAria": {
+    "message": "프라이버시 설정",
+    "description": "Accessible label for the privacy panel."
+  },
+  "privacyMode": {
+    "message": "프라이버시 모드",
+    "description": "Master privacy toggle title; also used as a shortcut row label."
+  },
+  "privacyModeHelp": {
+    "message": "단축키 탭에 표시된 플랫폼별 단축키를 사용할 수 있어요",
+    "description": "Help text for the privacy mode toggle."
+  },
+  "privacyBlurAria": {
+    "message": "프라이버시 블러 옵션",
+    "description": "Accessible label for the blur switches list."
+  },
+  "blurPreviews": {
+    "message": "채팅 미리보기 블러",
+    "description": "Setting title."
+  },
+  "blurPreviewsHelp": {
+    "message": "최근 메시지 내용을 보호해요",
+    "description": "Help text."
+  },
+  "blurMessages": {
+    "message": "열린 메시지 블러",
+    "description": "Setting title."
+  },
+  "blurMessagesHelp": {
+    "message": "대화 말풍선을 가려요",
+    "description": "Help text."
+  },
+  "blurImages": {
+    "message": "이미지 블러",
+    "description": "Setting title."
+  },
+  "blurImagesHelp": {
+    "message": "사진, 스티커, 링크 섬네일에 적용돼요. 이모티콘과 아이콘은 제외",
+    "description": "Help text."
+  },
+  "blurVideos": {
+    "message": "동영상 및 GIF 블러",
+    "description": "Setting title."
+  },
+  "blurVideosHelp": {
+    "message": "동영상 화면을 계속 가려요",
+    "description": "Help text."
+  },
+  "blurNames": {
+    "message": "이름 블러",
+    "description": "Setting title."
+  },
+  "blurNamesHelp": {
+    "message": "채팅 및 대화 제목",
+    "description": "Help text."
+  },
+  "blurAvatars": {
+    "message": "프로필 사진 블러",
+    "description": "Setting title."
+  },
+  "blurAvatarsHelp": {
+    "message": "아바타만 가려요. 본문 이모티콘은 그대로 보여요",
+    "description": "Help text."
+  },
+  "revealOnHover": {
+    "message": "마우스를 올리면 표시",
+    "description": "Setting title."
+  },
+  "revealOnHoverHelp": {
+    "message": "가리킨 부분만 잠시 보여줘요",
+    "description": "Help text."
+  },
+  "blurStrength": {
+    "message": "블러 강도",
+    "description": "Setting title for the blur slider."
+  },
+  "shortcutsPanelAria": {
+    "message": "키보드 단축키",
+    "description": "Accessible label for the shortcuts panel."
+  },
+  "platformMac": {
+    "message": "macOS 단축키",
+    "description": "Platform card title on macOS."
+  },
+  "platformWindows": {
+    "message": "Windows 단축키",
+    "description": "Platform card title on Windows."
+  },
+  "platformLinux": {
+    "message": "Linux 단축키",
+    "description": "Platform card title on Linux."
+  },
+  "platformOther": {
+    "message": "데스크톱 단축키",
+    "description": "Platform card title on other platforms."
+  },
+  "platformHelpMac": {
+    "message": "Command (⌘)와 Option (⌥)을 사용해요",
+    "description": "Platform card help on macOS. Keep key symbols."
+  },
+  "platformHelpOther": {
+    "message": "Ctrl과 Alt를 사용해요",
+    "description": "Platform card help on non-macOS. Keep key names Ctrl/Alt."
+  },
+  "refinedShortcuts": {
+    "message": "Refined 단축키",
+    "description": "Toggle title for the extension's shortcuts. 'Refined' is the brand name."
+  },
+  "refinedShortcutsHelp": {
+    "message": "WhatsApp 탭에 포커스가 있을 때 작동해요",
+    "description": "Help text."
+  },
+  "shortcutListAria": {
+    "message": "사용 가능한 키보드 단축키",
+    "description": "Accessible label for the shortcut list."
+  },
+  "focusSearch": {
+    "message": "검색으로 이동",
+    "description": "Shortcut row title."
+  },
+  "focusSearchHelp": {
+    "message": "WhatsApp 검색으로 바로 이동해요",
+    "description": "Help text."
+  },
+  "newChat": {
+    "message": "새 채팅",
+    "description": "Shortcut row title."
+  },
+  "newChatHelp": {
+    "message": "WhatsApp 기본 새 채팅 패널을 열어요",
+    "description": "Help text."
+  },
+  "folderCycle": {
+    "message": "이전 / 다음 폴더",
+    "description": "Shortcut row title."
+  },
+  "folderCycleHelp": {
+    "message": "기본 탭 또는 사이드바 폴더를 차례로 이동해요",
+    "description": "Help text."
+  },
+  "privacyShortcutHelp": {
+    "message": "보호된 콘텐츠를 가리거나 표시해요",
+    "description": "Help text for the privacy mode shortcut row."
+  },
+  "refinedSettings": {
+    "message": "Refined 설정",
+    "description": "Shortcut row title; opens this settings drawer. 'Refined' is the brand name."
+  },
+  "refinedSettingsHelp": {
+    "message": "이 설정 창을 열거나 닫아요",
+    "description": "Help text."
+  },
+  "shortcutNote": {
+    "message": "WhatsApp 자체 키보드 단축키는 그대로 작동해요. Escape 키를 누르면 설정 창이 닫혀요.",
+    "description": "Note under the shortcut list. Keep the key name Escape."
+  },
+  "footerSaved": {
+    "message": "이 브라우저에만 로컬로 저장돼요",
+    "description": "Footer note about where settings are stored."
+  },
+  "resetDefaults": {
+    "message": "기본값으로 재설정",
+    "description": "Button that restores default settings."
+  },
+  "language": {
+    "message": "언어",
+    "description": "Setting title for the manual language picker."
+  },
+  "languageHelp": {
+    "message": "직접 선택하지 않으면 브라우저 언어를 따릅니다",
+    "description": "Help text for the language picker."
+  },
+  "languageAuto": {
+    "message": "자동",
+    "description": "First picker option: follow the browser's UI language."
+  },
+  "navFoldersAria": {
+    "message": "WhatsApp 채팅 폴더",
+    "description": "Accessible label for the injected folder sidebar."
+  },
+  "toolsAria": {
+    "message": "Refined WhatsApp™ Web 도구",
+    "description": "Accessible label for the injected action buttons. Brand name — keep untranslated."
+  },
+  "togglePrivacyAria": {
+    "message": "프라이버시 모드 전환",
+    "description": "Label/tooltip for the privacy button in WhatsApp's sidebar."
+  },
+  "privacyLabel": {
+    "message": "프라이버시",
+    "description": "Short caption under the privacy button."
+  },
+  "openSettingsAria": {
+    "message": "Refined 설정 열기",
+    "description": "Label/tooltip for the settings button in WhatsApp's sidebar."
+  },
+  "settingsLabel": {
+    "message": "설정",
+    "description": "Short caption under the settings button."
+  },
+  "closeSettingsAria": {
+    "message": "Refined 설정 닫기",
+    "description": "Label for the drawer close button."
+  },
+  "resizePanelAria": {
+    "message": "채팅 패널 크기 조절",
+    "description": "Accessible label for the drag handle that resizes the chat panel."
+  },
+  "openListsMenu": {
+    "message": "목록 메뉴 열기",
+    "description": "Accessible label for the folder overflow/action button."
+  },
+  "folderUnread": {
+    "message": "$FOLDER$, 읽지 않음 $COUNT$개",
+    "description": "Accessible label for a folder with unread chats. Keep both placeholders.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Groups"
+      },
+      "count": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  }
 }

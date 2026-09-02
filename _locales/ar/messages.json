@@ -1,102 +1,414 @@
 {
-  "appName": { "message": "Refined WhatsApp™ Web", "description": "Extension name shown in the browser. Brand name — keep untranslated." },
-  "appShortName": { "message": "Refined", "description": "Short extension name. Brand name — keep untranslated." },
-  "appDesc": { "message": "اجعل واتساب ويب أهدأ وأكثر خصوصية مع عناصر تحكم بالتخطيط وتمويه للخصوصية واختصارات لوحة المفاتيح.", "description": "Store/extension description. Must stay under 132 characters." },
-
-  "settingsTitle": { "message": "إعدادات Refined WhatsApp™ Web", "description": "Title of the settings page and drawer." },
-
-  "aboutTagline": { "message": "مساحة عمل أهدأ لواتساب ويب.", "description": "Tagline under the extension name in the toolbar popup." },
-  "extensionStatus": { "message": "حالة الإضافة", "description": "Eyebrow label above the activation state." },
-  "activeTitle": { "message": "Refined مفعّل", "description": "Heading when the extension is enabled. 'Refined' is the brand name." },
-  "pausedTitle": { "message": "Refined متوقف مؤقتًا", "description": "Heading when the extension is disabled." },
-  "activeHelp": { "message": "تفضيلات التخطيط والخصوصية لديك مطبّقة.", "description": "Help text when enabled." },
-  "pausedHelp": { "message": "فعّله لاستعادة تفضيلات الواجهة المحفوظة.", "description": "Help text when disabled." },
-  "pauseButton": { "message": "إيقاف Refined مؤقتًا", "description": "Button that disables the extension." },
-  "activateButton": { "message": "تفعيل Refined", "description": "Button that enables the extension." },
-  "stateActive": { "message": "مفعّل", "description": "Tooltip on the state dot when enabled." },
-  "statePaused": { "message": "متوقف مؤقتًا", "description": "Tooltip on the state dot when disabled." },
-  "privacySummaryAria": { "message": "ملخص الخصوصية", "description": "Accessible label for the privacy details section." },
-  "dataLabel": { "message": "البيانات", "description": "Label in privacy summary row." },
-  "dataValue": { "message": "تبقى على جهازك", "description": "Value in privacy summary row about data." },
-  "accessLabel": { "message": "الوصول", "description": "Label in privacy summary row." },
-  "accessValue": { "message": "واتساب ويب فقط", "description": "Value in privacy summary row about site access." },
-  "aboutFooter": { "message": "افتح Refined من زر الإعدادات في الشريط الجانبي لواتساب.", "description": "Footer hint in the toolbar popup." },
-
-  "headerTagline": { "message": "اجعل مساحة عملك تشبهك.", "description": "Tagline in the settings drawer header." },
-  "masterToggleTitle": { "message": "تفعيل Refined WhatsApp™ Web", "description": "Tooltip on the master on/off toggle." },
-  "tabsAria": { "message": "أقسام الإعدادات", "description": "Accessible label for the settings tab bar." },
-  "tabLayout": { "message": "التخطيط", "description": "Settings tab name." },
-  "tabPrivacy": { "message": "الخصوصية", "description": "Settings tab name." },
-  "tabShortcuts": { "message": "الاختصارات", "description": "Settings tab name (keyboard shortcuts)." },
-  "layoutPanelAria": { "message": "إعدادات التخطيط", "description": "Accessible label for the layout panel." },
-  "chatFolders": { "message": "مجلدات الدردشة", "description": "Setting group title." },
-  "chatFoldersHelp": { "message": "أبقِ علامات تبويب واتساب أو انقلها إلى شريطه الجانبي", "description": "Help text for the chat folders setting." },
-  "folderLayoutAria": { "message": "تخطيط مجلدات الدردشة", "description": "Accessible label for the folder layout choice." },
-  "nativeTabs": { "message": "علامات التبويب الأصلية", "description": "Folder layout option: WhatsApp's own tabs." },
-  "whatsappSidebar": { "message": "الشريط الجانبي لواتساب", "description": "Folder layout option: vertical sidebar." },
-  "resizablePanel": { "message": "لوحة دردشة قابلة لتغيير الحجم", "description": "Setting title." },
-  "resizablePanelHelp": { "message": "اسحب حافتها اليمنى في أي وقت؛ وتعمل مفاتيح الأسهم على المقبض", "description": "Help text for the resizable panel setting." },
-  "panelWidth": { "message": "عرض لوحة الدردشة", "description": "Setting title for the width slider." },
-  "pxValue": { "message": "$VALUE$ بكسل", "description": "Pixel value shown next to sliders. Keep the $VALUE$ placeholder.", "placeholders": { "value": { "content": "$1", "example": "432" } } },
-  "interfaceOptionsAria": { "message": "خيارات الواجهة", "description": "Accessible label for the interface switches list." },
-  "messagePreviews": { "message": "معاينات الرسائل", "description": "Setting title." },
-  "messagePreviewsHelp": { "message": "إظهار آخر رسالة في صفوف الدردشات", "description": "Help text." },
-  "hideNotification": { "message": "إخفاء طلب الإشعارات", "description": "Setting title." },
-  "hideNotificationHelp": { "message": "إزالة شريط «تفعيل الإشعارات»", "description": "Help text." },
-  "hideMetaAI": { "message": "إخفاء Meta AI", "description": "Setting title. 'Meta AI' is a product name — keep untranslated." },
-  "hideMetaAIHelp": { "message": "إزالة اختصاره من شريط التنقل", "description": "Help text." },
-  "hideChannels": { "message": "إخفاء القنوات", "description": "Setting title. 'Channels' is WhatsApp's feature — use WhatsApp's official localized term." },
-  "hideChannelsHelp": { "message": "إزالة اختصارها من شريط التنقل", "description": "Help text." },
-  "privacyPanelAria": { "message": "إعدادات الخصوصية", "description": "Accessible label for the privacy panel." },
-  "privacyMode": { "message": "وضع الخصوصية", "description": "Master privacy toggle title; also used as a shortcut row label." },
-  "privacyModeHelp": { "message": "استخدم الاختصار المناسب لنظامك الموضح في قسم الاختصارات", "description": "Help text for the privacy mode toggle." },
-  "privacyBlurAria": { "message": "خيارات تمويه الخصوصية", "description": "Accessible label for the blur switches list." },
-  "blurPreviews": { "message": "تمويه معاينات الدردشة", "description": "Setting title." },
-  "blurPreviewsHelp": { "message": "حماية نص آخر الرسائل", "description": "Help text." },
-  "blurMessages": { "message": "تمويه الرسائل المفتوحة", "description": "Setting title." },
-  "blurMessagesHelp": { "message": "إخفاء فقاعات المحادثة", "description": "Help text." },
-  "blurImages": { "message": "تمويه الصور", "description": "Setting title." },
-  "blurImagesHelp": { "message": "الصور والملصقات ومصغرات الروابط؛ دون الرموز التعبيرية أو الأيقونات", "description": "Help text." },
-  "blurVideos": { "message": "تمويه الفيديو وملفات GIF", "description": "Setting title." },
-  "blurVideosHelp": { "message": "تبقى مقاطع الفيديو مموّهة", "description": "Help text." },
-  "blurNames": { "message": "تمويه الأسماء", "description": "Setting title." },
-  "blurNamesHelp": { "message": "عناوين الدردشات والمحادثات", "description": "Help text." },
-  "blurAvatars": { "message": "تمويه الصور الشخصية", "description": "Setting title." },
-  "blurAvatarsHelp": { "message": "الصور الرمزية فقط؛ تبقى الرموز التعبيرية ظاهرة", "description": "Help text." },
-  "revealOnHover": { "message": "الكشف عند التمرير", "description": "Setting title." },
-  "revealOnHoverHelp": { "message": "إظهار ما تشير إليه فقط بشكل مؤقت", "description": "Help text." },
-  "blurStrength": { "message": "قوة التمويه", "description": "Setting title for the blur slider." },
-  "shortcutsPanelAria": { "message": "اختصارات لوحة المفاتيح", "description": "Accessible label for the shortcuts panel." },
-  "platformMac": { "message": "اختصارات macOS", "description": "Platform card title on macOS." },
-  "platformWindows": { "message": "اختصارات Windows", "description": "Platform card title on Windows." },
-  "platformLinux": { "message": "اختصارات Linux", "description": "Platform card title on Linux." },
-  "platformOther": { "message": "اختصارات سطح المكتب", "description": "Platform card title on other platforms." },
-  "platformHelpMac": { "message": "يستخدم Command (⌘) وOption (⌥)", "description": "Platform card help on macOS. Keep key symbols." },
-  "platformHelpOther": { "message": "يستخدم Ctrl وAlt", "description": "Platform card help on non-macOS. Keep key names Ctrl/Alt." },
-  "refinedShortcuts": { "message": "اختصارات Refined", "description": "Toggle title for the extension's shortcuts. 'Refined' is the brand name." },
-  "refinedShortcutsHelp": { "message": "تعمل عندما تكون علامة تبويب واتساب نشطة", "description": "Help text." },
-  "shortcutListAria": { "message": "اختصارات لوحة المفاتيح المتاحة", "description": "Accessible label for the shortcut list." },
-  "focusSearch": { "message": "التركيز على البحث", "description": "Shortcut row title." },
-  "focusSearchHelp": { "message": "الانتقال إلى بحث واتساب", "description": "Help text." },
-  "newChat": { "message": "دردشة جديدة", "description": "Shortcut row title." },
-  "newChatHelp": { "message": "فتح لوحة الدردشة الجديدة الأصلية في واتساب", "description": "Help text." },
-  "folderCycle": { "message": "المجلد السابق / التالي", "description": "Shortcut row title." },
-  "folderCycleHelp": { "message": "يتنقل بين علامات التبويب الأصلية أو مجلدات الشريط الجانبي", "description": "Help text." },
-  "privacyShortcutHelp": { "message": "تمويه المحتوى المحمي أو كشفه", "description": "Help text for the privacy mode shortcut row." },
-  "refinedSettings": { "message": "إعدادات Refined", "description": "Shortcut row title; opens this settings drawer. 'Refined' is the brand name." },
-  "refinedSettingsHelp": { "message": "فتح هذه اللوحة أو إغلاقها", "description": "Help text." },
-  "shortcutNote": { "message": "تستمر اختصارات واتساب الأصلية في العمل دون تغيير. اضغط Escape لإغلاق لوحة الإعدادات.", "description": "Note under the shortcut list. Keep the key name Escape." },
-  "footerSaved": { "message": "محفوظة محليًا على هذا المتصفح", "description": "Footer note about where settings are stored." },
-  "resetDefaults": { "message": "استعادة الافتراضيات", "description": "Button that restores default settings." },
-
-  "navFoldersAria": { "message": "مجلدات دردشة واتساب", "description": "Accessible label for the injected folder sidebar." },
-  "toolsAria": { "message": "أدوات Refined WhatsApp™ Web", "description": "Accessible label for the injected action buttons. Brand name — keep untranslated." },
-  "togglePrivacyAria": { "message": "تبديل وضع الخصوصية", "description": "Label/tooltip for the privacy button in WhatsApp's sidebar." },
-  "privacyLabel": { "message": "الخصوصية", "description": "Short caption under the privacy button." },
-  "openSettingsAria": { "message": "فتح إعدادات Refined", "description": "Label/tooltip for the settings button in WhatsApp's sidebar." },
-  "settingsLabel": { "message": "الإعدادات", "description": "Short caption under the settings button." },
-  "closeSettingsAria": { "message": "إغلاق إعدادات Refined", "description": "Label for the drawer close button." },
-  "resizePanelAria": { "message": "تغيير حجم لوحة الدردشة", "description": "Accessible label for the drag handle that resizes the chat panel." },
-  "openListsMenu": { "message": "فتح قائمة القوائم", "description": "Accessible label for the folder overflow/action button." },
-  "folderUnread": { "message": "$FOLDER$، $COUNT$ غير مقروءة", "description": "Accessible label for a folder with unread chats. Keep both placeholders.", "placeholders": { "folder": { "content": "$1", "example": "Groups" }, "count": { "content": "$2", "example": "3" } } }
+  "appName": {
+    "message": "Refined WhatsApp™ Web",
+    "description": "Extension name shown in the browser. Brand name — keep untranslated."
+  },
+  "appShortName": {
+    "message": "Refined",
+    "description": "Short extension name. Brand name — keep untranslated."
+  },
+  "appDesc": {
+    "message": "اجعل واتساب ويب أهدأ وأكثر خصوصية مع عناصر تحكم بالتخطيط وتمويه للخصوصية واختصارات لوحة المفاتيح.",
+    "description": "Store/extension description. Must stay under 132 characters."
+  },
+  "settingsTitle": {
+    "message": "إعدادات Refined WhatsApp™ Web",
+    "description": "Title of the settings page and drawer."
+  },
+  "aboutTagline": {
+    "message": "مساحة عمل أهدأ لواتساب ويب.",
+    "description": "Tagline under the extension name in the toolbar popup."
+  },
+  "extensionStatus": {
+    "message": "حالة الإضافة",
+    "description": "Eyebrow label above the activation state."
+  },
+  "activeTitle": {
+    "message": "Refined مفعّل",
+    "description": "Heading when the extension is enabled. 'Refined' is the brand name."
+  },
+  "pausedTitle": {
+    "message": "Refined متوقف مؤقتًا",
+    "description": "Heading when the extension is disabled."
+  },
+  "activeHelp": {
+    "message": "تفضيلات التخطيط والخصوصية لديك مطبّقة.",
+    "description": "Help text when enabled."
+  },
+  "pausedHelp": {
+    "message": "فعّله لاستعادة تفضيلات الواجهة المحفوظة.",
+    "description": "Help text when disabled."
+  },
+  "pauseButton": {
+    "message": "إيقاف Refined مؤقتًا",
+    "description": "Button that disables the extension."
+  },
+  "activateButton": {
+    "message": "تفعيل Refined",
+    "description": "Button that enables the extension."
+  },
+  "stateActive": {
+    "message": "مفعّل",
+    "description": "Tooltip on the state dot when enabled."
+  },
+  "statePaused": {
+    "message": "متوقف مؤقتًا",
+    "description": "Tooltip on the state dot when disabled."
+  },
+  "privacySummaryAria": {
+    "message": "ملخص الخصوصية",
+    "description": "Accessible label for the privacy details section."
+  },
+  "dataLabel": {
+    "message": "البيانات",
+    "description": "Label in privacy summary row."
+  },
+  "dataValue": {
+    "message": "تبقى على جهازك",
+    "description": "Value in privacy summary row about data."
+  },
+  "accessLabel": {
+    "message": "الوصول",
+    "description": "Label in privacy summary row."
+  },
+  "accessValue": {
+    "message": "واتساب ويب فقط",
+    "description": "Value in privacy summary row about site access."
+  },
+  "aboutFooter": {
+    "message": "افتح Refined من زر الإعدادات في الشريط الجانبي لواتساب.",
+    "description": "Footer hint in the toolbar popup."
+  },
+  "headerTagline": {
+    "message": "اجعل مساحة عملك تشبهك.",
+    "description": "Tagline in the settings drawer header."
+  },
+  "masterToggleTitle": {
+    "message": "تفعيل Refined WhatsApp™ Web",
+    "description": "Tooltip on the master on/off toggle."
+  },
+  "tabsAria": {
+    "message": "أقسام الإعدادات",
+    "description": "Accessible label for the settings tab bar."
+  },
+  "tabLayout": {
+    "message": "التخطيط",
+    "description": "Settings tab name."
+  },
+  "tabPrivacy": {
+    "message": "الخصوصية",
+    "description": "Settings tab name."
+  },
+  "tabShortcuts": {
+    "message": "الاختصارات",
+    "description": "Settings tab name (keyboard shortcuts)."
+  },
+  "layoutPanelAria": {
+    "message": "إعدادات التخطيط",
+    "description": "Accessible label for the layout panel."
+  },
+  "chatFolders": {
+    "message": "مجلدات الدردشة",
+    "description": "Setting group title."
+  },
+  "chatFoldersHelp": {
+    "message": "أبقِ علامات تبويب واتساب أو انقلها إلى شريطه الجانبي",
+    "description": "Help text for the chat folders setting."
+  },
+  "folderLayoutAria": {
+    "message": "تخطيط مجلدات الدردشة",
+    "description": "Accessible label for the folder layout choice."
+  },
+  "nativeTabs": {
+    "message": "علامات التبويب الأصلية",
+    "description": "Folder layout option: WhatsApp's own tabs."
+  },
+  "whatsappSidebar": {
+    "message": "الشريط الجانبي لواتساب",
+    "description": "Folder layout option: vertical sidebar."
+  },
+  "resizablePanel": {
+    "message": "لوحة دردشة قابلة لتغيير الحجم",
+    "description": "Setting title."
+  },
+  "resizablePanelHelp": {
+    "message": "اسحب حافتها اليمنى في أي وقت؛ وتعمل مفاتيح الأسهم على المقبض",
+    "description": "Help text for the resizable panel setting."
+  },
+  "panelWidth": {
+    "message": "عرض لوحة الدردشة",
+    "description": "Setting title for the width slider."
+  },
+  "pxValue": {
+    "message": "$VALUE$ بكسل",
+    "description": "Pixel value shown next to sliders. Keep the $VALUE$ placeholder.",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "432"
+      }
+    }
+  },
+  "interfaceOptionsAria": {
+    "message": "خيارات الواجهة",
+    "description": "Accessible label for the interface switches list."
+  },
+  "messagePreviews": {
+    "message": "معاينات الرسائل",
+    "description": "Setting title."
+  },
+  "messagePreviewsHelp": {
+    "message": "إظهار آخر رسالة في صفوف الدردشات",
+    "description": "Help text."
+  },
+  "hideNotification": {
+    "message": "إخفاء طلب الإشعارات",
+    "description": "Setting title."
+  },
+  "hideNotificationHelp": {
+    "message": "إزالة شريط «تفعيل الإشعارات»",
+    "description": "Help text."
+  },
+  "hideMetaAI": {
+    "message": "إخفاء Meta AI",
+    "description": "Setting title. 'Meta AI' is a product name — keep untranslated."
+  },
+  "hideMetaAIHelp": {
+    "message": "إزالة اختصاره من شريط التنقل",
+    "description": "Help text."
+  },
+  "hideChannels": {
+    "message": "إخفاء القنوات",
+    "description": "Setting title. 'Channels' is WhatsApp's feature — use WhatsApp's official localized term."
+  },
+  "hideChannelsHelp": {
+    "message": "إزالة اختصارها من شريط التنقل",
+    "description": "Help text."
+  },
+  "privacyPanelAria": {
+    "message": "إعدادات الخصوصية",
+    "description": "Accessible label for the privacy panel."
+  },
+  "privacyMode": {
+    "message": "وضع الخصوصية",
+    "description": "Master privacy toggle title; also used as a shortcut row label."
+  },
+  "privacyModeHelp": {
+    "message": "استخدم الاختصار المناسب لنظامك الموضح في قسم الاختصارات",
+    "description": "Help text for the privacy mode toggle."
+  },
+  "privacyBlurAria": {
+    "message": "خيارات تمويه الخصوصية",
+    "description": "Accessible label for the blur switches list."
+  },
+  "blurPreviews": {
+    "message": "تمويه معاينات الدردشة",
+    "description": "Setting title."
+  },
+  "blurPreviewsHelp": {
+    "message": "حماية نص آخر الرسائل",
+    "description": "Help text."
+  },
+  "blurMessages": {
+    "message": "تمويه الرسائل المفتوحة",
+    "description": "Setting title."
+  },
+  "blurMessagesHelp": {
+    "message": "إخفاء فقاعات المحادثة",
+    "description": "Help text."
+  },
+  "blurImages": {
+    "message": "تمويه الصور",
+    "description": "Setting title."
+  },
+  "blurImagesHelp": {
+    "message": "الصور والملصقات ومصغرات الروابط؛ دون الرموز التعبيرية أو الأيقونات",
+    "description": "Help text."
+  },
+  "blurVideos": {
+    "message": "تمويه الفيديو وملفات GIF",
+    "description": "Setting title."
+  },
+  "blurVideosHelp": {
+    "message": "تبقى مقاطع الفيديو مموّهة",
+    "description": "Help text."
+  },
+  "blurNames": {
+    "message": "تمويه الأسماء",
+    "description": "Setting title."
+  },
+  "blurNamesHelp": {
+    "message": "عناوين الدردشات والمحادثات",
+    "description": "Help text."
+  },
+  "blurAvatars": {
+    "message": "تمويه الصور الشخصية",
+    "description": "Setting title."
+  },
+  "blurAvatarsHelp": {
+    "message": "الصور الرمزية فقط؛ تبقى الرموز التعبيرية ظاهرة",
+    "description": "Help text."
+  },
+  "revealOnHover": {
+    "message": "الكشف عند التمرير",
+    "description": "Setting title."
+  },
+  "revealOnHoverHelp": {
+    "message": "إظهار ما تشير إليه فقط بشكل مؤقت",
+    "description": "Help text."
+  },
+  "blurStrength": {
+    "message": "قوة التمويه",
+    "description": "Setting title for the blur slider."
+  },
+  "shortcutsPanelAria": {
+    "message": "اختصارات لوحة المفاتيح",
+    "description": "Accessible label for the shortcuts panel."
+  },
+  "platformMac": {
+    "message": "اختصارات macOS",
+    "description": "Platform card title on macOS."
+  },
+  "platformWindows": {
+    "message": "اختصارات Windows",
+    "description": "Platform card title on Windows."
+  },
+  "platformLinux": {
+    "message": "اختصارات Linux",
+    "description": "Platform card title on Linux."
+  },
+  "platformOther": {
+    "message": "اختصارات سطح المكتب",
+    "description": "Platform card title on other platforms."
+  },
+  "platformHelpMac": {
+    "message": "يستخدم Command (⌘) وOption (⌥)",
+    "description": "Platform card help on macOS. Keep key symbols."
+  },
+  "platformHelpOther": {
+    "message": "يستخدم Ctrl وAlt",
+    "description": "Platform card help on non-macOS. Keep key names Ctrl/Alt."
+  },
+  "refinedShortcuts": {
+    "message": "اختصارات Refined",
+    "description": "Toggle title for the extension's shortcuts. 'Refined' is the brand name."
+  },
+  "refinedShortcutsHelp": {
+    "message": "تعمل عندما تكون علامة تبويب واتساب نشطة",
+    "description": "Help text."
+  },
+  "shortcutListAria": {
+    "message": "اختصارات لوحة المفاتيح المتاحة",
+    "description": "Accessible label for the shortcut list."
+  },
+  "focusSearch": {
+    "message": "التركيز على البحث",
+    "description": "Shortcut row title."
+  },
+  "focusSearchHelp": {
+    "message": "الانتقال إلى بحث واتساب",
+    "description": "Help text."
+  },
+  "newChat": {
+    "message": "دردشة جديدة",
+    "description": "Shortcut row title."
+  },
+  "newChatHelp": {
+    "message": "فتح لوحة الدردشة الجديدة الأصلية في واتساب",
+    "description": "Help text."
+  },
+  "folderCycle": {
+    "message": "المجلد السابق / التالي",
+    "description": "Shortcut row title."
+  },
+  "folderCycleHelp": {
+    "message": "يتنقل بين علامات التبويب الأصلية أو مجلدات الشريط الجانبي",
+    "description": "Help text."
+  },
+  "privacyShortcutHelp": {
+    "message": "تمويه المحتوى المحمي أو كشفه",
+    "description": "Help text for the privacy mode shortcut row."
+  },
+  "refinedSettings": {
+    "message": "إعدادات Refined",
+    "description": "Shortcut row title; opens this settings drawer. 'Refined' is the brand name."
+  },
+  "refinedSettingsHelp": {
+    "message": "فتح هذه اللوحة أو إغلاقها",
+    "description": "Help text."
+  },
+  "shortcutNote": {
+    "message": "تستمر اختصارات واتساب الأصلية في العمل دون تغيير. اضغط Escape لإغلاق لوحة الإعدادات.",
+    "description": "Note under the shortcut list. Keep the key name Escape."
+  },
+  "footerSaved": {
+    "message": "محفوظة محليًا على هذا المتصفح",
+    "description": "Footer note about where settings are stored."
+  },
+  "resetDefaults": {
+    "message": "استعادة الافتراضيات",
+    "description": "Button that restores default settings."
+  },
+  "language": {
+    "message": "اللغة",
+    "description": "Setting title for the manual language picker."
+  },
+  "languageHelp": {
+    "message": "تتبع لغة المتصفح ما لم تختر لغة أخرى",
+    "description": "Help text for the language picker."
+  },
+  "languageAuto": {
+    "message": "تلقائي",
+    "description": "First picker option: follow the browser's UI language."
+  },
+  "navFoldersAria": {
+    "message": "مجلدات دردشة واتساب",
+    "description": "Accessible label for the injected folder sidebar."
+  },
+  "toolsAria": {
+    "message": "أدوات Refined WhatsApp™ Web",
+    "description": "Accessible label for the injected action buttons. Brand name — keep untranslated."
+  },
+  "togglePrivacyAria": {
+    "message": "تبديل وضع الخصوصية",
+    "description": "Label/tooltip for the privacy button in WhatsApp's sidebar."
+  },
+  "privacyLabel": {
+    "message": "الخصوصية",
+    "description": "Short caption under the privacy button."
+  },
+  "openSettingsAria": {
+    "message": "فتح إعدادات Refined",
+    "description": "Label/tooltip for the settings button in WhatsApp's sidebar."
+  },
+  "settingsLabel": {
+    "message": "الإعدادات",
+    "description": "Short caption under the settings button."
+  },
+  "closeSettingsAria": {
+    "message": "إغلاق إعدادات Refined",
+    "description": "Label for the drawer close button."
+  },
+  "resizePanelAria": {
+    "message": "تغيير حجم لوحة الدردشة",
+    "description": "Accessible label for the drag handle that resizes the chat panel."
+  },
+  "openListsMenu": {
+    "message": "فتح قائمة القوائم",
+    "description": "Accessible label for the folder overflow/action button."
+  },
+  "folderUnread": {
+    "message": "$FOLDER$، $COUNT$ غير مقروءة",
+    "description": "Accessible label for a folder with unread chats. Keep both placeholders.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Groups"
+      },
+      "count": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  }
 }

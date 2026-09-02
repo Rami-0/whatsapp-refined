@@ -1,102 +1,414 @@
 {
-  "appName": { "message": "Refined WhatsApp™ Web", "description": "Extension name shown in the browser. Brand name — keep untranslated." },
-  "appShortName": { "message": "Refined", "description": "Short extension name. Brand name — keep untranslated." },
-  "appDesc": { "message": "通过原生风格的布局控制、隐私模糊和键盘快捷键，让 WhatsApp Web 更清爽、更私密。", "description": "Store/extension description. Must stay under 132 characters." },
-
-  "settingsTitle": { "message": "Refined WhatsApp™ Web 设置", "description": "Title of the settings page and drawer." },
-
-  "aboutTagline": { "message": "更安静的 WhatsApp Web 工作空间。", "description": "Tagline under the extension name in the toolbar popup." },
-  "extensionStatus": { "message": "扩展状态", "description": "Eyebrow label above the activation state." },
-  "activeTitle": { "message": "Refined 已启用", "description": "Heading when the extension is enabled. 'Refined' is the brand name." },
-  "pausedTitle": { "message": "Refined 已暂停", "description": "Heading when the extension is disabled." },
-  "activeHelp": { "message": "已应用你的布局和隐私偏好设置。", "description": "Help text when enabled." },
-  "pausedHelp": { "message": "启用后即可恢复你保存的界面偏好设置。", "description": "Help text when disabled." },
-  "pauseButton": { "message": "暂停 Refined", "description": "Button that disables the extension." },
-  "activateButton": { "message": "启用 Refined", "description": "Button that enables the extension." },
-  "stateActive": { "message": "已启用", "description": "Tooltip on the state dot when enabled." },
-  "statePaused": { "message": "已暂停", "description": "Tooltip on the state dot when disabled." },
-  "privacySummaryAria": { "message": "隐私摘要", "description": "Accessible label for the privacy details section." },
-  "dataLabel": { "message": "数据", "description": "Label in privacy summary row." },
-  "dataValue": { "message": "仅保存在你的设备上", "description": "Value in privacy summary row about data." },
-  "accessLabel": { "message": "访问权限", "description": "Label in privacy summary row." },
-  "accessValue": { "message": "仅限 WhatsApp Web", "description": "Value in privacy summary row about site access." },
-  "aboutFooter": { "message": "在 WhatsApp 侧边栏中点击“设置”按钮即可打开 Refined。", "description": "Footer hint in the toolbar popup." },
-
-  "headerTagline": { "message": "让工作空间更合你心意。", "description": "Tagline in the settings drawer header." },
-  "masterToggleTitle": { "message": "启用 Refined WhatsApp™ Web", "description": "Tooltip on the master on/off toggle." },
-  "tabsAria": { "message": "设置分区", "description": "Accessible label for the settings tab bar." },
-  "tabLayout": { "message": "布局", "description": "Settings tab name." },
-  "tabPrivacy": { "message": "隐私", "description": "Settings tab name." },
-  "tabShortcuts": { "message": "快捷键", "description": "Settings tab name (keyboard shortcuts)." },
-  "layoutPanelAria": { "message": "布局设置", "description": "Accessible label for the layout panel." },
-  "chatFolders": { "message": "聊天文件夹", "description": "Setting group title." },
-  "chatFoldersHelp": { "message": "保留 WhatsApp 标签页，或将其移入侧边栏", "description": "Help text for the chat folders setting." },
-  "folderLayoutAria": { "message": "聊天文件夹布局", "description": "Accessible label for the folder layout choice." },
-  "nativeTabs": { "message": "原生标签页", "description": "Folder layout option: WhatsApp's own tabs." },
-  "whatsappSidebar": { "message": "WhatsApp 侧边栏", "description": "Folder layout option: vertical sidebar." },
-  "resizablePanel": { "message": "可调宽度的聊天面板", "description": "Setting title." },
-  "resizablePanelHelp": { "message": "随时拖动其右边缘；也可在手柄上使用方向键", "description": "Help text for the resizable panel setting." },
-  "panelWidth": { "message": "聊天面板宽度", "description": "Setting title for the width slider." },
-  "pxValue": { "message": "$VALUE$ px", "description": "Pixel value shown next to sliders. Keep the $VALUE$ placeholder.", "placeholders": { "value": { "content": "$1", "example": "432" } } },
-  "interfaceOptionsAria": { "message": "界面选项", "description": "Accessible label for the interface switches list." },
-  "messagePreviews": { "message": "消息预览", "description": "Setting title." },
-  "messagePreviewsHelp": { "message": "在聊天列表中显示最后一条消息", "description": "Help text." },
-  "hideNotification": { "message": "隐藏通知提示", "description": "Setting title." },
-  "hideNotificationHelp": { "message": "移除“开启通知”横幅", "description": "Help text." },
-  "hideMetaAI": { "message": "隐藏 Meta AI", "description": "Setting title. 'Meta AI' is a product name — keep untranslated." },
-  "hideMetaAIHelp": { "message": "移除其导航入口", "description": "Help text." },
-  "hideChannels": { "message": "隐藏频道", "description": "Setting title. 'Channels' is WhatsApp's feature — use WhatsApp's official localized term." },
-  "hideChannelsHelp": { "message": "移除其导航入口", "description": "Help text." },
-  "privacyPanelAria": { "message": "隐私设置", "description": "Accessible label for the privacy panel." },
-  "privacyMode": { "message": "隐私模式", "description": "Master privacy toggle title; also used as a shortcut row label." },
-  "privacyModeHelp": { "message": "使用“快捷键”中显示的平台专属快捷键", "description": "Help text for the privacy mode toggle." },
-  "privacyBlurAria": { "message": "隐私模糊选项", "description": "Accessible label for the blur switches list." },
-  "blurPreviews": { "message": "模糊聊天预览", "description": "Setting title." },
-  "blurPreviewsHelp": { "message": "保护最近消息的文本", "description": "Help text." },
-  "blurMessages": { "message": "模糊已打开的消息", "description": "Setting title." },
-  "blurMessagesHelp": { "message": "隐藏对话气泡", "description": "Help text." },
-  "blurImages": { "message": "模糊图片", "description": "Setting title." },
-  "blurImagesHelp": { "message": "照片、贴纸和链接缩略图；不含表情符号和图标", "description": "Help text." },
-  "blurVideos": { "message": "模糊视频和 GIF", "description": "Setting title." },
-  "blurVideosHelp": { "message": "视频画面保持模糊", "description": "Help text." },
-  "blurNames": { "message": "模糊名称", "description": "Setting title." },
-  "blurNamesHelp": { "message": "聊天和会话标题", "description": "Help text." },
-  "blurAvatars": { "message": "模糊头像", "description": "Setting title." },
-  "blurAvatarsHelp": { "message": "仅头像；行内表情符号仍然可见", "description": "Help text." },
-  "revealOnHover": { "message": "悬停时显示", "description": "Setting title." },
-  "revealOnHoverHelp": { "message": "仅临时显示鼠标指向的内容", "description": "Help text." },
-  "blurStrength": { "message": "模糊强度", "description": "Setting title for the blur slider." },
-  "shortcutsPanelAria": { "message": "键盘快捷键", "description": "Accessible label for the shortcuts panel." },
-  "platformMac": { "message": "macOS 快捷键", "description": "Platform card title on macOS." },
-  "platformWindows": { "message": "Windows 快捷键", "description": "Platform card title on Windows." },
-  "platformLinux": { "message": "Linux 快捷键", "description": "Platform card title on Linux." },
-  "platformOther": { "message": "桌面快捷键", "description": "Platform card title on other platforms." },
-  "platformHelpMac": { "message": "使用 Command (⌘) 和 Option (⌥)", "description": "Platform card help on macOS. Keep key symbols." },
-  "platformHelpOther": { "message": "使用 Ctrl 和 Alt", "description": "Platform card help on non-macOS. Keep key names Ctrl/Alt." },
-  "refinedShortcuts": { "message": "Refined 快捷键", "description": "Toggle title for the extension's shortcuts. 'Refined' is the brand name." },
-  "refinedShortcutsHelp": { "message": "在 WhatsApp 标签页处于焦点时生效", "description": "Help text." },
-  "shortcutListAria": { "message": "可用的键盘快捷键", "description": "Accessible label for the shortcut list." },
-  "focusSearch": { "message": "聚焦搜索", "description": "Shortcut row title." },
-  "focusSearchHelp": { "message": "跳转到 WhatsApp 搜索", "description": "Help text." },
-  "newChat": { "message": "新建聊天", "description": "Shortcut row title." },
-  "newChatHelp": { "message": "打开 WhatsApp 原生的新建聊天面板", "description": "Help text." },
-  "folderCycle": { "message": "上一个 / 下一个文件夹", "description": "Shortcut row title." },
-  "folderCycleHelp": { "message": "在原生标签页或侧边栏文件夹间循环切换", "description": "Help text." },
-  "privacyShortcutHelp": { "message": "模糊或显示受保护的内容", "description": "Help text for the privacy mode shortcut row." },
-  "refinedSettings": { "message": "Refined 设置", "description": "Shortcut row title; opens this settings drawer. 'Refined' is the brand name." },
-  "refinedSettingsHelp": { "message": "打开或关闭此设置面板", "description": "Help text." },
-  "shortcutNote": { "message": "WhatsApp 自带的键盘快捷键不受影响。按 Escape 可关闭设置面板。", "description": "Note under the shortcut list. Keep the key name Escape." },
-  "footerSaved": { "message": "仅保存在此浏览器本地", "description": "Footer note about where settings are stored." },
-  "resetDefaults": { "message": "恢复默认设置", "description": "Button that restores default settings." },
-
-  "navFoldersAria": { "message": "WhatsApp 聊天文件夹", "description": "Accessible label for the injected folder sidebar." },
-  "toolsAria": { "message": "Refined WhatsApp™ Web 工具", "description": "Accessible label for the injected action buttons. Brand name — keep untranslated." },
-  "togglePrivacyAria": { "message": "切换隐私模式", "description": "Label/tooltip for the privacy button in WhatsApp's sidebar." },
-  "privacyLabel": { "message": "隐私", "description": "Short caption under the privacy button." },
-  "openSettingsAria": { "message": "打开 Refined 设置", "description": "Label/tooltip for the settings button in WhatsApp's sidebar." },
-  "settingsLabel": { "message": "设置", "description": "Short caption under the settings button." },
-  "closeSettingsAria": { "message": "关闭 Refined 设置", "description": "Label for the drawer close button." },
-  "resizePanelAria": { "message": "调整聊天面板宽度", "description": "Accessible label for the drag handle that resizes the chat panel." },
-  "openListsMenu": { "message": "打开列表菜单", "description": "Accessible label for the folder overflow/action button." },
-  "folderUnread": { "message": "$FOLDER$，$COUNT$ 条未读", "description": "Accessible label for a folder with unread chats. Keep both placeholders.", "placeholders": { "folder": { "content": "$1", "example": "Groups" }, "count": { "content": "$2", "example": "3" } } }
+  "appName": {
+    "message": "Refined WhatsApp™ Web",
+    "description": "Extension name shown in the browser. Brand name — keep untranslated."
+  },
+  "appShortName": {
+    "message": "Refined",
+    "description": "Short extension name. Brand name — keep untranslated."
+  },
+  "appDesc": {
+    "message": "通过原生风格的布局控制、隐私模糊和键盘快捷键，让 WhatsApp Web 更清爽、更私密。",
+    "description": "Store/extension description. Must stay under 132 characters."
+  },
+  "settingsTitle": {
+    "message": "Refined WhatsApp™ Web 设置",
+    "description": "Title of the settings page and drawer."
+  },
+  "aboutTagline": {
+    "message": "更安静的 WhatsApp Web 工作空间。",
+    "description": "Tagline under the extension name in the toolbar popup."
+  },
+  "extensionStatus": {
+    "message": "扩展状态",
+    "description": "Eyebrow label above the activation state."
+  },
+  "activeTitle": {
+    "message": "Refined 已启用",
+    "description": "Heading when the extension is enabled. 'Refined' is the brand name."
+  },
+  "pausedTitle": {
+    "message": "Refined 已暂停",
+    "description": "Heading when the extension is disabled."
+  },
+  "activeHelp": {
+    "message": "已应用你的布局和隐私偏好设置。",
+    "description": "Help text when enabled."
+  },
+  "pausedHelp": {
+    "message": "启用后即可恢复你保存的界面偏好设置。",
+    "description": "Help text when disabled."
+  },
+  "pauseButton": {
+    "message": "暂停 Refined",
+    "description": "Button that disables the extension."
+  },
+  "activateButton": {
+    "message": "启用 Refined",
+    "description": "Button that enables the extension."
+  },
+  "stateActive": {
+    "message": "已启用",
+    "description": "Tooltip on the state dot when enabled."
+  },
+  "statePaused": {
+    "message": "已暂停",
+    "description": "Tooltip on the state dot when disabled."
+  },
+  "privacySummaryAria": {
+    "message": "隐私摘要",
+    "description": "Accessible label for the privacy details section."
+  },
+  "dataLabel": {
+    "message": "数据",
+    "description": "Label in privacy summary row."
+  },
+  "dataValue": {
+    "message": "仅保存在你的设备上",
+    "description": "Value in privacy summary row about data."
+  },
+  "accessLabel": {
+    "message": "访问权限",
+    "description": "Label in privacy summary row."
+  },
+  "accessValue": {
+    "message": "仅限 WhatsApp Web",
+    "description": "Value in privacy summary row about site access."
+  },
+  "aboutFooter": {
+    "message": "在 WhatsApp 侧边栏中点击“设置”按钮即可打开 Refined。",
+    "description": "Footer hint in the toolbar popup."
+  },
+  "headerTagline": {
+    "message": "让工作空间更合你心意。",
+    "description": "Tagline in the settings drawer header."
+  },
+  "masterToggleTitle": {
+    "message": "启用 Refined WhatsApp™ Web",
+    "description": "Tooltip on the master on/off toggle."
+  },
+  "tabsAria": {
+    "message": "设置分区",
+    "description": "Accessible label for the settings tab bar."
+  },
+  "tabLayout": {
+    "message": "布局",
+    "description": "Settings tab name."
+  },
+  "tabPrivacy": {
+    "message": "隐私",
+    "description": "Settings tab name."
+  },
+  "tabShortcuts": {
+    "message": "快捷键",
+    "description": "Settings tab name (keyboard shortcuts)."
+  },
+  "layoutPanelAria": {
+    "message": "布局设置",
+    "description": "Accessible label for the layout panel."
+  },
+  "chatFolders": {
+    "message": "聊天文件夹",
+    "description": "Setting group title."
+  },
+  "chatFoldersHelp": {
+    "message": "保留 WhatsApp 标签页，或将其移入侧边栏",
+    "description": "Help text for the chat folders setting."
+  },
+  "folderLayoutAria": {
+    "message": "聊天文件夹布局",
+    "description": "Accessible label for the folder layout choice."
+  },
+  "nativeTabs": {
+    "message": "原生标签页",
+    "description": "Folder layout option: WhatsApp's own tabs."
+  },
+  "whatsappSidebar": {
+    "message": "WhatsApp 侧边栏",
+    "description": "Folder layout option: vertical sidebar."
+  },
+  "resizablePanel": {
+    "message": "可调宽度的聊天面板",
+    "description": "Setting title."
+  },
+  "resizablePanelHelp": {
+    "message": "随时拖动其右边缘；也可在手柄上使用方向键",
+    "description": "Help text for the resizable panel setting."
+  },
+  "panelWidth": {
+    "message": "聊天面板宽度",
+    "description": "Setting title for the width slider."
+  },
+  "pxValue": {
+    "message": "$VALUE$ px",
+    "description": "Pixel value shown next to sliders. Keep the $VALUE$ placeholder.",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "432"
+      }
+    }
+  },
+  "interfaceOptionsAria": {
+    "message": "界面选项",
+    "description": "Accessible label for the interface switches list."
+  },
+  "messagePreviews": {
+    "message": "消息预览",
+    "description": "Setting title."
+  },
+  "messagePreviewsHelp": {
+    "message": "在聊天列表中显示最后一条消息",
+    "description": "Help text."
+  },
+  "hideNotification": {
+    "message": "隐藏通知提示",
+    "description": "Setting title."
+  },
+  "hideNotificationHelp": {
+    "message": "移除“开启通知”横幅",
+    "description": "Help text."
+  },
+  "hideMetaAI": {
+    "message": "隐藏 Meta AI",
+    "description": "Setting title. 'Meta AI' is a product name — keep untranslated."
+  },
+  "hideMetaAIHelp": {
+    "message": "移除其导航入口",
+    "description": "Help text."
+  },
+  "hideChannels": {
+    "message": "隐藏频道",
+    "description": "Setting title. 'Channels' is WhatsApp's feature — use WhatsApp's official localized term."
+  },
+  "hideChannelsHelp": {
+    "message": "移除其导航入口",
+    "description": "Help text."
+  },
+  "privacyPanelAria": {
+    "message": "隐私设置",
+    "description": "Accessible label for the privacy panel."
+  },
+  "privacyMode": {
+    "message": "隐私模式",
+    "description": "Master privacy toggle title; also used as a shortcut row label."
+  },
+  "privacyModeHelp": {
+    "message": "使用“快捷键”中显示的平台专属快捷键",
+    "description": "Help text for the privacy mode toggle."
+  },
+  "privacyBlurAria": {
+    "message": "隐私模糊选项",
+    "description": "Accessible label for the blur switches list."
+  },
+  "blurPreviews": {
+    "message": "模糊聊天预览",
+    "description": "Setting title."
+  },
+  "blurPreviewsHelp": {
+    "message": "保护最近消息的文本",
+    "description": "Help text."
+  },
+  "blurMessages": {
+    "message": "模糊已打开的消息",
+    "description": "Setting title."
+  },
+  "blurMessagesHelp": {
+    "message": "隐藏对话气泡",
+    "description": "Help text."
+  },
+  "blurImages": {
+    "message": "模糊图片",
+    "description": "Setting title."
+  },
+  "blurImagesHelp": {
+    "message": "照片、贴纸和链接缩略图；不含表情符号和图标",
+    "description": "Help text."
+  },
+  "blurVideos": {
+    "message": "模糊视频和 GIF",
+    "description": "Setting title."
+  },
+  "blurVideosHelp": {
+    "message": "视频画面保持模糊",
+    "description": "Help text."
+  },
+  "blurNames": {
+    "message": "模糊名称",
+    "description": "Setting title."
+  },
+  "blurNamesHelp": {
+    "message": "聊天和会话标题",
+    "description": "Help text."
+  },
+  "blurAvatars": {
+    "message": "模糊头像",
+    "description": "Setting title."
+  },
+  "blurAvatarsHelp": {
+    "message": "仅头像；行内表情符号仍然可见",
+    "description": "Help text."
+  },
+  "revealOnHover": {
+    "message": "悬停时显示",
+    "description": "Setting title."
+  },
+  "revealOnHoverHelp": {
+    "message": "仅临时显示鼠标指向的内容",
+    "description": "Help text."
+  },
+  "blurStrength": {
+    "message": "模糊强度",
+    "description": "Setting title for the blur slider."
+  },
+  "shortcutsPanelAria": {
+    "message": "键盘快捷键",
+    "description": "Accessible label for the shortcuts panel."
+  },
+  "platformMac": {
+    "message": "macOS 快捷键",
+    "description": "Platform card title on macOS."
+  },
+  "platformWindows": {
+    "message": "Windows 快捷键",
+    "description": "Platform card title on Windows."
+  },
+  "platformLinux": {
+    "message": "Linux 快捷键",
+    "description": "Platform card title on Linux."
+  },
+  "platformOther": {
+    "message": "桌面快捷键",
+    "description": "Platform card title on other platforms."
+  },
+  "platformHelpMac": {
+    "message": "使用 Command (⌘) 和 Option (⌥)",
+    "description": "Platform card help on macOS. Keep key symbols."
+  },
+  "platformHelpOther": {
+    "message": "使用 Ctrl 和 Alt",
+    "description": "Platform card help on non-macOS. Keep key names Ctrl/Alt."
+  },
+  "refinedShortcuts": {
+    "message": "Refined 快捷键",
+    "description": "Toggle title for the extension's shortcuts. 'Refined' is the brand name."
+  },
+  "refinedShortcutsHelp": {
+    "message": "在 WhatsApp 标签页处于焦点时生效",
+    "description": "Help text."
+  },
+  "shortcutListAria": {
+    "message": "可用的键盘快捷键",
+    "description": "Accessible label for the shortcut list."
+  },
+  "focusSearch": {
+    "message": "聚焦搜索",
+    "description": "Shortcut row title."
+  },
+  "focusSearchHelp": {
+    "message": "跳转到 WhatsApp 搜索",
+    "description": "Help text."
+  },
+  "newChat": {
+    "message": "新建聊天",
+    "description": "Shortcut row title."
+  },
+  "newChatHelp": {
+    "message": "打开 WhatsApp 原生的新建聊天面板",
+    "description": "Help text."
+  },
+  "folderCycle": {
+    "message": "上一个 / 下一个文件夹",
+    "description": "Shortcut row title."
+  },
+  "folderCycleHelp": {
+    "message": "在原生标签页或侧边栏文件夹间循环切换",
+    "description": "Help text."
+  },
+  "privacyShortcutHelp": {
+    "message": "模糊或显示受保护的内容",
+    "description": "Help text for the privacy mode shortcut row."
+  },
+  "refinedSettings": {
+    "message": "Refined 设置",
+    "description": "Shortcut row title; opens this settings drawer. 'Refined' is the brand name."
+  },
+  "refinedSettingsHelp": {
+    "message": "打开或关闭此设置面板",
+    "description": "Help text."
+  },
+  "shortcutNote": {
+    "message": "WhatsApp 自带的键盘快捷键不受影响。按 Escape 可关闭设置面板。",
+    "description": "Note under the shortcut list. Keep the key name Escape."
+  },
+  "footerSaved": {
+    "message": "仅保存在此浏览器本地",
+    "description": "Footer note about where settings are stored."
+  },
+  "resetDefaults": {
+    "message": "恢复默认设置",
+    "description": "Button that restores default settings."
+  },
+  "language": {
+    "message": "语言",
+    "description": "Setting title for the manual language picker."
+  },
+  "languageHelp": {
+    "message": "未选择时跟随浏览器语言",
+    "description": "Help text for the language picker."
+  },
+  "languageAuto": {
+    "message": "自动",
+    "description": "First picker option: follow the browser's UI language."
+  },
+  "navFoldersAria": {
+    "message": "WhatsApp 聊天文件夹",
+    "description": "Accessible label for the injected folder sidebar."
+  },
+  "toolsAria": {
+    "message": "Refined WhatsApp™ Web 工具",
+    "description": "Accessible label for the injected action buttons. Brand name — keep untranslated."
+  },
+  "togglePrivacyAria": {
+    "message": "切换隐私模式",
+    "description": "Label/tooltip for the privacy button in WhatsApp's sidebar."
+  },
+  "privacyLabel": {
+    "message": "隐私",
+    "description": "Short caption under the privacy button."
+  },
+  "openSettingsAria": {
+    "message": "打开 Refined 设置",
+    "description": "Label/tooltip for the settings button in WhatsApp's sidebar."
+  },
+  "settingsLabel": {
+    "message": "设置",
+    "description": "Short caption under the settings button."
+  },
+  "closeSettingsAria": {
+    "message": "关闭 Refined 设置",
+    "description": "Label for the drawer close button."
+  },
+  "resizePanelAria": {
+    "message": "调整聊天面板宽度",
+    "description": "Accessible label for the drag handle that resizes the chat panel."
+  },
+  "openListsMenu": {
+    "message": "打开列表菜单",
+    "description": "Accessible label for the folder overflow/action button."
+  },
+  "folderUnread": {
+    "message": "$FOLDER$，$COUNT$ 条未读",
+    "description": "Accessible label for a folder with unread chats. Keep both placeholders.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Groups"
+      },
+      "count": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  }
 }

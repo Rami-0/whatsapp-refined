@@ -116,9 +116,14 @@
 
   if (params.has("embedded")) document.body.classList.add("is-embedded");
   if (["dark", "light"].includes(params.get("theme"))) document.documentElement.dataset.theme = params.get("theme");
-  renderPlatform();
-  readSettings().then(render);
-  globalThis.chrome?.storage?.onChanged?.addListener((_changes, area) => {
-    if (area === "local") readSettings().then(render);
+  (globalThis.WRLocaleReady || Promise.resolve()).then(() => {
+    renderPlatform();
+    readSettings().then(render);
+  });
+  globalThis.chrome?.storage?.onChanged?.addListener((changes, area) => {
+    if (area !== "local") return;
+    /* Reload so i18n.js re-resolves the whole page in the new language. */
+    if (changes.language) return location.reload();
+    readSettings().then(render);
   });
 })();

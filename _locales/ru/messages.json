@@ -1,102 +1,414 @@
 {
-  "appName": { "message": "Refined WhatsApp™ Web", "description": "Extension name shown in the browser. Brand name — keep untranslated." },
-  "appShortName": { "message": "Refined", "description": "Short extension name. Brand name — keep untranslated." },
-  "appDesc": { "message": "Спокойный и более приватный WhatsApp Web: управление макетом, размытие для приватности и горячие клавиши.", "description": "Store/extension description. Must stay under 132 characters." },
-
-  "settingsTitle": { "message": "Настройки Refined WhatsApp™ Web", "description": "Title of the settings page and drawer." },
-
-  "aboutTagline": { "message": "Более спокойное пространство для WhatsApp Web.", "description": "Tagline under the extension name in the toolbar popup." },
-  "extensionStatus": { "message": "Состояние расширения", "description": "Eyebrow label above the activation state." },
-  "activeTitle": { "message": "Refined работает", "description": "Heading when the extension is enabled. 'Refined' is the brand name." },
-  "pausedTitle": { "message": "Refined приостановлен", "description": "Heading when the extension is disabled." },
-  "activeHelp": { "message": "Ваши настройки макета и приватности применены.", "description": "Help text when enabled." },
-  "pausedHelp": { "message": "Включите, чтобы восстановить сохранённые настройки интерфейса.", "description": "Help text when disabled." },
-  "pauseButton": { "message": "Приостановить Refined", "description": "Button that disables the extension." },
-  "activateButton": { "message": "Включить Refined", "description": "Button that enables the extension." },
-  "stateActive": { "message": "Включено", "description": "Tooltip on the state dot when enabled." },
-  "statePaused": { "message": "Приостановлено", "description": "Tooltip on the state dot when disabled." },
-  "privacySummaryAria": { "message": "Сводка о конфиденциальности", "description": "Accessible label for the privacy details section." },
-  "dataLabel": { "message": "Данные", "description": "Label in privacy summary row." },
-  "dataValue": { "message": "Остаются на вашем устройстве", "description": "Value in privacy summary row about data." },
-  "accessLabel": { "message": "Доступ", "description": "Label in privacy summary row." },
-  "accessValue": { "message": "Только WhatsApp Web", "description": "Value in privacy summary row about site access." },
-  "aboutFooter": { "message": "Откройте Refined с помощью кнопки настроек в боковой панели WhatsApp.", "description": "Footer hint in the toolbar popup." },
-
-  "headerTagline": { "message": "Настройте рабочее пространство под себя.", "description": "Tagline in the settings drawer header." },
-  "masterToggleTitle": { "message": "Включить Refined WhatsApp™ Web", "description": "Tooltip on the master on/off toggle." },
-  "tabsAria": { "message": "Разделы настроек", "description": "Accessible label for the settings tab bar." },
-  "tabLayout": { "message": "Макет", "description": "Settings tab name." },
-  "tabPrivacy": { "message": "Приватность", "description": "Settings tab name." },
-  "tabShortcuts": { "message": "Клавиши", "description": "Settings tab name (keyboard shortcuts)." },
-  "layoutPanelAria": { "message": "Настройки макета", "description": "Accessible label for the layout panel." },
-  "chatFolders": { "message": "Папки чатов", "description": "Setting group title." },
-  "chatFoldersHelp": { "message": "Оставьте вкладки WhatsApp или перенесите их в боковую панель", "description": "Help text for the chat folders setting." },
-  "folderLayoutAria": { "message": "Расположение папок чатов", "description": "Accessible label for the folder layout choice." },
-  "nativeTabs": { "message": "Стандартные вкладки", "description": "Folder layout option: WhatsApp's own tabs." },
-  "whatsappSidebar": { "message": "Боковая панель WhatsApp", "description": "Folder layout option: vertical sidebar." },
-  "resizablePanel": { "message": "Изменяемый размер панели чатов", "description": "Setting title." },
-  "resizablePanelHelp": { "message": "Перетаскивайте правый край в любой момент; на ручке работают клавиши со стрелками", "description": "Help text for the resizable panel setting." },
-  "panelWidth": { "message": "Ширина панели чатов", "description": "Setting title for the width slider." },
-  "pxValue": { "message": "$VALUE$ px", "description": "Pixel value shown next to sliders. Keep the $VALUE$ placeholder.", "placeholders": { "value": { "content": "$1", "example": "432" } } },
-  "interfaceOptionsAria": { "message": "Параметры интерфейса", "description": "Accessible label for the interface switches list." },
-  "messagePreviews": { "message": "Предпросмотр сообщений", "description": "Setting title." },
-  "messagePreviewsHelp": { "message": "Показывать последнее сообщение в списке чатов", "description": "Help text." },
-  "hideNotification": { "message": "Скрыть запрос уведомлений", "description": "Setting title." },
-  "hideNotificationHelp": { "message": "Убрать баннер «Включить уведомления»", "description": "Help text." },
-  "hideMetaAI": { "message": "Скрыть Meta AI", "description": "Setting title. 'Meta AI' is a product name — keep untranslated." },
-  "hideMetaAIHelp": { "message": "Убрать его ярлык из панели навигации", "description": "Help text." },
-  "hideChannels": { "message": "Скрыть Каналы", "description": "Setting title. 'Channels' is WhatsApp's feature — use WhatsApp's official localized term." },
-  "hideChannelsHelp": { "message": "Убрать их ярлык из панели навигации", "description": "Help text." },
-  "privacyPanelAria": { "message": "Настройки приватности", "description": "Accessible label for the privacy panel." },
-  "privacyMode": { "message": "Режим приватности", "description": "Master privacy toggle title; also used as a shortcut row label." },
-  "privacyModeHelp": { "message": "Используйте сочетание клавиш из раздела «Клавиши»", "description": "Help text for the privacy mode toggle." },
-  "privacyBlurAria": { "message": "Параметры размытия", "description": "Accessible label for the blur switches list." },
-  "blurPreviews": { "message": "Размывать предпросмотр чатов", "description": "Setting title." },
-  "blurPreviewsHelp": { "message": "Защищает текст последних сообщений", "description": "Help text." },
-  "blurMessages": { "message": "Размывать открытые сообщения", "description": "Setting title." },
-  "blurMessagesHelp": { "message": "Скрывает сообщения в открытом чате", "description": "Help text." },
-  "blurImages": { "message": "Размывать изображения", "description": "Setting title." },
-  "blurImagesHelp": { "message": "Фото, стикеры и миниатюры ссылок; эмодзи и значки не затрагиваются", "description": "Help text." },
-  "blurVideos": { "message": "Размывать видео и GIF", "description": "Setting title." },
-  "blurVideosHelp": { "message": "Видео остаются скрытыми", "description": "Help text." },
-  "blurNames": { "message": "Размывать имена", "description": "Setting title." },
-  "blurNamesHelp": { "message": "Названия чатов и переписок", "description": "Help text." },
-  "blurAvatars": { "message": "Размывать фото профиля", "description": "Setting title." },
-  "blurAvatarsHelp": { "message": "Только аватары; эмодзи в тексте остаются видимыми", "description": "Help text." },
-  "revealOnHover": { "message": "Показывать при наведении", "description": "Setting title." },
-  "revealOnHoverHelp": { "message": "Временно показывает только то, на что наведён курсор", "description": "Help text." },
-  "blurStrength": { "message": "Сила размытия", "description": "Setting title for the blur slider." },
-  "shortcutsPanelAria": { "message": "Горячие клавиши", "description": "Accessible label for the shortcuts panel." },
-  "platformMac": { "message": "Сочетания для macOS", "description": "Platform card title on macOS." },
-  "platformWindows": { "message": "Сочетания для Windows", "description": "Platform card title on Windows." },
-  "platformLinux": { "message": "Сочетания для Linux", "description": "Platform card title on Linux." },
-  "platformOther": { "message": "Сочетания для компьютера", "description": "Platform card title on other platforms." },
-  "platformHelpMac": { "message": "Используются Command (⌘) и Option (⌥)", "description": "Platform card help on macOS. Keep key symbols." },
-  "platformHelpOther": { "message": "Используются Ctrl и Alt", "description": "Platform card help on non-macOS. Keep key names Ctrl/Alt." },
-  "refinedShortcuts": { "message": "Сочетания Refined", "description": "Toggle title for the extension's shortcuts. 'Refined' is the brand name." },
-  "refinedShortcutsHelp": { "message": "Работают, пока активна вкладка WhatsApp", "description": "Help text." },
-  "shortcutListAria": { "message": "Доступные горячие клавиши", "description": "Accessible label for the shortcut list." },
-  "focusSearch": { "message": "Перейти к поиску", "description": "Shortcut row title." },
-  "focusSearchHelp": { "message": "Переход к поиску WhatsApp", "description": "Help text." },
-  "newChat": { "message": "Новый чат", "description": "Shortcut row title." },
-  "newChatHelp": { "message": "Открывает стандартную панель нового чата WhatsApp", "description": "Help text." },
-  "folderCycle": { "message": "Предыдущая / следующая папка", "description": "Shortcut row title." },
-  "folderCycleHelp": { "message": "Переключает вкладки или папки боковой панели", "description": "Help text." },
-  "privacyShortcutHelp": { "message": "Размыть или показать защищённый контент", "description": "Help text for the privacy mode shortcut row." },
-  "refinedSettings": { "message": "Настройки Refined", "description": "Shortcut row title; opens this settings drawer. 'Refined' is the brand name." },
-  "refinedSettingsHelp": { "message": "Открыть или закрыть эту панель", "description": "Help text." },
-  "shortcutNote": { "message": "Собственные сочетания клавиш WhatsApp продолжают работать без изменений. Нажмите Escape, чтобы закрыть панель настроек.", "description": "Note under the shortcut list. Keep the key name Escape." },
-  "footerSaved": { "message": "Сохраняется локально в этом браузере", "description": "Footer note about where settings are stored." },
-  "resetDefaults": { "message": "Сбросить настройки", "description": "Button that restores default settings." },
-
-  "navFoldersAria": { "message": "Папки чатов WhatsApp", "description": "Accessible label for the injected folder sidebar." },
-  "toolsAria": { "message": "Инструменты Refined WhatsApp™ Web", "description": "Accessible label for the injected action buttons. Brand name — keep untranslated." },
-  "togglePrivacyAria": { "message": "Переключить режим приватности", "description": "Label/tooltip for the privacy button in WhatsApp's sidebar." },
-  "privacyLabel": { "message": "Приватность", "description": "Short caption under the privacy button." },
-  "openSettingsAria": { "message": "Открыть настройки Refined", "description": "Label/tooltip for the settings button in WhatsApp's sidebar." },
-  "settingsLabel": { "message": "Настройки", "description": "Short caption under the settings button." },
-  "closeSettingsAria": { "message": "Закрыть настройки Refined", "description": "Label for the drawer close button." },
-  "resizePanelAria": { "message": "Изменить ширину панели чатов", "description": "Accessible label for the drag handle that resizes the chat panel." },
-  "openListsMenu": { "message": "Открыть меню списков", "description": "Accessible label for the folder overflow/action button." },
-  "folderUnread": { "message": "$FOLDER$, непрочитанных: $COUNT$", "description": "Accessible label for a folder with unread chats. Keep both placeholders.", "placeholders": { "folder": { "content": "$1", "example": "Groups" }, "count": { "content": "$2", "example": "3" } } }
+  "appName": {
+    "message": "Refined WhatsApp™ Web",
+    "description": "Extension name shown in the browser. Brand name — keep untranslated."
+  },
+  "appShortName": {
+    "message": "Refined",
+    "description": "Short extension name. Brand name — keep untranslated."
+  },
+  "appDesc": {
+    "message": "Спокойный и более приватный WhatsApp Web: управление макетом, размытие для приватности и горячие клавиши.",
+    "description": "Store/extension description. Must stay under 132 characters."
+  },
+  "settingsTitle": {
+    "message": "Настройки Refined WhatsApp™ Web",
+    "description": "Title of the settings page and drawer."
+  },
+  "aboutTagline": {
+    "message": "Более спокойное пространство для WhatsApp Web.",
+    "description": "Tagline under the extension name in the toolbar popup."
+  },
+  "extensionStatus": {
+    "message": "Состояние расширения",
+    "description": "Eyebrow label above the activation state."
+  },
+  "activeTitle": {
+    "message": "Refined работает",
+    "description": "Heading when the extension is enabled. 'Refined' is the brand name."
+  },
+  "pausedTitle": {
+    "message": "Refined приостановлен",
+    "description": "Heading when the extension is disabled."
+  },
+  "activeHelp": {
+    "message": "Ваши настройки макета и приватности применены.",
+    "description": "Help text when enabled."
+  },
+  "pausedHelp": {
+    "message": "Включите, чтобы восстановить сохранённые настройки интерфейса.",
+    "description": "Help text when disabled."
+  },
+  "pauseButton": {
+    "message": "Приостановить Refined",
+    "description": "Button that disables the extension."
+  },
+  "activateButton": {
+    "message": "Включить Refined",
+    "description": "Button that enables the extension."
+  },
+  "stateActive": {
+    "message": "Включено",
+    "description": "Tooltip on the state dot when enabled."
+  },
+  "statePaused": {
+    "message": "Приостановлено",
+    "description": "Tooltip on the state dot when disabled."
+  },
+  "privacySummaryAria": {
+    "message": "Сводка о конфиденциальности",
+    "description": "Accessible label for the privacy details section."
+  },
+  "dataLabel": {
+    "message": "Данные",
+    "description": "Label in privacy summary row."
+  },
+  "dataValue": {
+    "message": "Остаются на вашем устройстве",
+    "description": "Value in privacy summary row about data."
+  },
+  "accessLabel": {
+    "message": "Доступ",
+    "description": "Label in privacy summary row."
+  },
+  "accessValue": {
+    "message": "Только WhatsApp Web",
+    "description": "Value in privacy summary row about site access."
+  },
+  "aboutFooter": {
+    "message": "Откройте Refined с помощью кнопки настроек в боковой панели WhatsApp.",
+    "description": "Footer hint in the toolbar popup."
+  },
+  "headerTagline": {
+    "message": "Настройте рабочее пространство под себя.",
+    "description": "Tagline in the settings drawer header."
+  },
+  "masterToggleTitle": {
+    "message": "Включить Refined WhatsApp™ Web",
+    "description": "Tooltip on the master on/off toggle."
+  },
+  "tabsAria": {
+    "message": "Разделы настроек",
+    "description": "Accessible label for the settings tab bar."
+  },
+  "tabLayout": {
+    "message": "Макет",
+    "description": "Settings tab name."
+  },
+  "tabPrivacy": {
+    "message": "Приватность",
+    "description": "Settings tab name."
+  },
+  "tabShortcuts": {
+    "message": "Клавиши",
+    "description": "Settings tab name (keyboard shortcuts)."
+  },
+  "layoutPanelAria": {
+    "message": "Настройки макета",
+    "description": "Accessible label for the layout panel."
+  },
+  "chatFolders": {
+    "message": "Папки чатов",
+    "description": "Setting group title."
+  },
+  "chatFoldersHelp": {
+    "message": "Оставьте вкладки WhatsApp или перенесите их в боковую панель",
+    "description": "Help text for the chat folders setting."
+  },
+  "folderLayoutAria": {
+    "message": "Расположение папок чатов",
+    "description": "Accessible label for the folder layout choice."
+  },
+  "nativeTabs": {
+    "message": "Стандартные вкладки",
+    "description": "Folder layout option: WhatsApp's own tabs."
+  },
+  "whatsappSidebar": {
+    "message": "Боковая панель WhatsApp",
+    "description": "Folder layout option: vertical sidebar."
+  },
+  "resizablePanel": {
+    "message": "Изменяемый размер панели чатов",
+    "description": "Setting title."
+  },
+  "resizablePanelHelp": {
+    "message": "Перетаскивайте правый край в любой момент; на ручке работают клавиши со стрелками",
+    "description": "Help text for the resizable panel setting."
+  },
+  "panelWidth": {
+    "message": "Ширина панели чатов",
+    "description": "Setting title for the width slider."
+  },
+  "pxValue": {
+    "message": "$VALUE$ px",
+    "description": "Pixel value shown next to sliders. Keep the $VALUE$ placeholder.",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "432"
+      }
+    }
+  },
+  "interfaceOptionsAria": {
+    "message": "Параметры интерфейса",
+    "description": "Accessible label for the interface switches list."
+  },
+  "messagePreviews": {
+    "message": "Предпросмотр сообщений",
+    "description": "Setting title."
+  },
+  "messagePreviewsHelp": {
+    "message": "Показывать последнее сообщение в списке чатов",
+    "description": "Help text."
+  },
+  "hideNotification": {
+    "message": "Скрыть запрос уведомлений",
+    "description": "Setting title."
+  },
+  "hideNotificationHelp": {
+    "message": "Убрать баннер «Включить уведомления»",
+    "description": "Help text."
+  },
+  "hideMetaAI": {
+    "message": "Скрыть Meta AI",
+    "description": "Setting title. 'Meta AI' is a product name — keep untranslated."
+  },
+  "hideMetaAIHelp": {
+    "message": "Убрать его ярлык из панели навигации",
+    "description": "Help text."
+  },
+  "hideChannels": {
+    "message": "Скрыть Каналы",
+    "description": "Setting title. 'Channels' is WhatsApp's feature — use WhatsApp's official localized term."
+  },
+  "hideChannelsHelp": {
+    "message": "Убрать их ярлык из панели навигации",
+    "description": "Help text."
+  },
+  "privacyPanelAria": {
+    "message": "Настройки приватности",
+    "description": "Accessible label for the privacy panel."
+  },
+  "privacyMode": {
+    "message": "Режим приватности",
+    "description": "Master privacy toggle title; also used as a shortcut row label."
+  },
+  "privacyModeHelp": {
+    "message": "Используйте сочетание клавиш из раздела «Клавиши»",
+    "description": "Help text for the privacy mode toggle."
+  },
+  "privacyBlurAria": {
+    "message": "Параметры размытия",
+    "description": "Accessible label for the blur switches list."
+  },
+  "blurPreviews": {
+    "message": "Размывать предпросмотр чатов",
+    "description": "Setting title."
+  },
+  "blurPreviewsHelp": {
+    "message": "Защищает текст последних сообщений",
+    "description": "Help text."
+  },
+  "blurMessages": {
+    "message": "Размывать открытые сообщения",
+    "description": "Setting title."
+  },
+  "blurMessagesHelp": {
+    "message": "Скрывает сообщения в открытом чате",
+    "description": "Help text."
+  },
+  "blurImages": {
+    "message": "Размывать изображения",
+    "description": "Setting title."
+  },
+  "blurImagesHelp": {
+    "message": "Фото, стикеры и миниатюры ссылок; эмодзи и значки не затрагиваются",
+    "description": "Help text."
+  },
+  "blurVideos": {
+    "message": "Размывать видео и GIF",
+    "description": "Setting title."
+  },
+  "blurVideosHelp": {
+    "message": "Видео остаются скрытыми",
+    "description": "Help text."
+  },
+  "blurNames": {
+    "message": "Размывать имена",
+    "description": "Setting title."
+  },
+  "blurNamesHelp": {
+    "message": "Названия чатов и переписок",
+    "description": "Help text."
+  },
+  "blurAvatars": {
+    "message": "Размывать фото профиля",
+    "description": "Setting title."
+  },
+  "blurAvatarsHelp": {
+    "message": "Только аватары; эмодзи в тексте остаются видимыми",
+    "description": "Help text."
+  },
+  "revealOnHover": {
+    "message": "Показывать при наведении",
+    "description": "Setting title."
+  },
+  "revealOnHoverHelp": {
+    "message": "Временно показывает только то, на что наведён курсор",
+    "description": "Help text."
+  },
+  "blurStrength": {
+    "message": "Сила размытия",
+    "description": "Setting title for the blur slider."
+  },
+  "shortcutsPanelAria": {
+    "message": "Горячие клавиши",
+    "description": "Accessible label for the shortcuts panel."
+  },
+  "platformMac": {
+    "message": "Сочетания для macOS",
+    "description": "Platform card title on macOS."
+  },
+  "platformWindows": {
+    "message": "Сочетания для Windows",
+    "description": "Platform card title on Windows."
+  },
+  "platformLinux": {
+    "message": "Сочетания для Linux",
+    "description": "Platform card title on Linux."
+  },
+  "platformOther": {
+    "message": "Сочетания для компьютера",
+    "description": "Platform card title on other platforms."
+  },
+  "platformHelpMac": {
+    "message": "Используются Command (⌘) и Option (⌥)",
+    "description": "Platform card help on macOS. Keep key symbols."
+  },
+  "platformHelpOther": {
+    "message": "Используются Ctrl и Alt",
+    "description": "Platform card help on non-macOS. Keep key names Ctrl/Alt."
+  },
+  "refinedShortcuts": {
+    "message": "Сочетания Refined",
+    "description": "Toggle title for the extension's shortcuts. 'Refined' is the brand name."
+  },
+  "refinedShortcutsHelp": {
+    "message": "Работают, пока активна вкладка WhatsApp",
+    "description": "Help text."
+  },
+  "shortcutListAria": {
+    "message": "Доступные горячие клавиши",
+    "description": "Accessible label for the shortcut list."
+  },
+  "focusSearch": {
+    "message": "Перейти к поиску",
+    "description": "Shortcut row title."
+  },
+  "focusSearchHelp": {
+    "message": "Переход к поиску WhatsApp",
+    "description": "Help text."
+  },
+  "newChat": {
+    "message": "Новый чат",
+    "description": "Shortcut row title."
+  },
+  "newChatHelp": {
+    "message": "Открывает стандартную панель нового чата WhatsApp",
+    "description": "Help text."
+  },
+  "folderCycle": {
+    "message": "Предыдущая / следующая папка",
+    "description": "Shortcut row title."
+  },
+  "folderCycleHelp": {
+    "message": "Переключает вкладки или папки боковой панели",
+    "description": "Help text."
+  },
+  "privacyShortcutHelp": {
+    "message": "Размыть или показать защищённый контент",
+    "description": "Help text for the privacy mode shortcut row."
+  },
+  "refinedSettings": {
+    "message": "Настройки Refined",
+    "description": "Shortcut row title; opens this settings drawer. 'Refined' is the brand name."
+  },
+  "refinedSettingsHelp": {
+    "message": "Открыть или закрыть эту панель",
+    "description": "Help text."
+  },
+  "shortcutNote": {
+    "message": "Собственные сочетания клавиш WhatsApp продолжают работать без изменений. Нажмите Escape, чтобы закрыть панель настроек.",
+    "description": "Note under the shortcut list. Keep the key name Escape."
+  },
+  "footerSaved": {
+    "message": "Сохраняется локально в этом браузере",
+    "description": "Footer note about where settings are stored."
+  },
+  "resetDefaults": {
+    "message": "Сбросить настройки",
+    "description": "Button that restores default settings."
+  },
+  "language": {
+    "message": "Язык",
+    "description": "Setting title for the manual language picker."
+  },
+  "languageHelp": {
+    "message": "Следует языку браузера, если не выбран другой",
+    "description": "Help text for the language picker."
+  },
+  "languageAuto": {
+    "message": "Автоматически",
+    "description": "First picker option: follow the browser's UI language."
+  },
+  "navFoldersAria": {
+    "message": "Папки чатов WhatsApp",
+    "description": "Accessible label for the injected folder sidebar."
+  },
+  "toolsAria": {
+    "message": "Инструменты Refined WhatsApp™ Web",
+    "description": "Accessible label for the injected action buttons. Brand name — keep untranslated."
+  },
+  "togglePrivacyAria": {
+    "message": "Переключить режим приватности",
+    "description": "Label/tooltip for the privacy button in WhatsApp's sidebar."
+  },
+  "privacyLabel": {
+    "message": "Приватность",
+    "description": "Short caption under the privacy button."
+  },
+  "openSettingsAria": {
+    "message": "Открыть настройки Refined",
+    "description": "Label/tooltip for the settings button in WhatsApp's sidebar."
+  },
+  "settingsLabel": {
+    "message": "Настройки",
+    "description": "Short caption under the settings button."
+  },
+  "closeSettingsAria": {
+    "message": "Закрыть настройки Refined",
+    "description": "Label for the drawer close button."
+  },
+  "resizePanelAria": {
+    "message": "Изменить ширину панели чатов",
+    "description": "Accessible label for the drag handle that resizes the chat panel."
+  },
+  "openListsMenu": {
+    "message": "Открыть меню списков",
+    "description": "Accessible label for the folder overflow/action button."
+  },
+  "folderUnread": {
+    "message": "$FOLDER$, непрочитанных: $COUNT$",
+    "description": "Accessible label for a folder with unread chats. Keep both placeholders.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Groups"
+      },
+      "count": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  }
 }

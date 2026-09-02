@@ -71,9 +71,25 @@
     return "other";
   }
 
+  const RTL_LANGUAGES = Object.freeze(["ar"]);
+  let localeOverride = null;
+
+  function applyPlaceholders(entry, substitutions) {
+    let message = entry.message;
+    const subs = Array.isArray(substitutions) ? substitutions : substitutions == null ? [] : [substitutions];
+    for (const [name, definition] of Object.entries(entry.placeholders || {})) {
+      const index = Number(String(definition?.content || "").replace("$", "")) - 1;
+      message = message.replace(new RegExp(`\\$${name}\\$`, "gi"), String(subs[index] ?? ""));
+    }
+    return message;
+  }
+
   function i18n(key, fallback, substitutions) {
-    /* chrome.i18n is missing on the demo page and in Node tests; the English
-       fallback keeps the UI usable there. */
+    /* A manually chosen language (the `language` setting) overrides the
+       browser locale; chrome.i18n is missing on the demo page and in Node
+       tests, where the English fallback keeps the UI usable. */
+    const entry = localeOverride?.[key];
+    if (entry?.message) return applyPlaceholders(entry, substitutions);
     try {
       const message = global.chrome?.i18n?.getMessage?.(key, substitutions);
       if (message) return message;
@@ -81,7 +97,27 @@
     return fallback;
   }
 
-  const api = Object.freeze({ FOLDER_ALIASES, normalizeLabel, folderKind, folderInitial, uniqueFolders, parseFolderTab, desktopPlatform, i18n });
+  async function loadLocaleOverride(language) {
+    if (!language || language === "auto") {
+      localeOverride = null;
+      return false;
+    }
+    try {
+      const url = global.chrome?.runtime?.getURL?.(`_locales/${language}/messages.json`);
+      if (!url) return false;
+      localeOverride = await (await fetch(url)).json();
+      return true;
+    } catch (_error) {
+      localeOverride = null;
+      return false;
+    }
+  }
+
+  function localeDirection(language) {
+    return RTL_LANGUAGES.includes(language) ? "rtl" : "ltr";
+  }
+
+  const api = Object.freeze({ FOLDER_ALIASES, normalizeLabel, folderKind, folderInitial, uniqueFolders, parseFolderTab, desktopPlatform, i18n, loadLocaleOverride, localeDirection });
   global.WRUtils = api;
 
   if (typeof module !== "undefined" && module.exports) module.exports = api;

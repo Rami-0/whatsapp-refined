@@ -184,6 +184,34 @@ h1 {
   border: 0;
 }
 
+.select-row {
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.select-row > span { min-width: 0; }
+
+.select-row select {
+  flex: 0 0 auto;
+  max-width: 168px;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+
+.select-row select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
 .range-setting.is-setting-disabled { opacity: .4; }
 
 .setting-heading,
@@ -197,6 +225,7 @@ h1 {
 .setting-heading b,
 .range-setting b,
 .switch-row b,
+.select-row b,
 .privacy-master b,
 .platform-card b,
 .shortcut-row b {
@@ -209,6 +238,7 @@ h1 {
 
 .setting-heading small,
 .switch-row small,
+.select-row small,
 .privacy-master small,
 .platform-card small,
 .shortcut-row small {

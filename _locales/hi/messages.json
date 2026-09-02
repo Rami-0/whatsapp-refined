@@ -1,102 +1,414 @@
 {
-  "appName": { "message": "Refined WhatsApp™ Web", "description": "Extension name shown in the browser. Brand name — keep untranslated." },
-  "appShortName": { "message": "Refined", "description": "Short extension name. Brand name — keep untranslated." },
-  "appDesc": { "message": "WhatsApp Web को शांत और अधिक निजी बनाएँ: लेआउट नियंत्रण, प्राइवेसी ब्लर और कीबोर्ड शॉर्टकट।", "description": "Store/extension description. Must stay under 132 characters." },
-
-  "settingsTitle": { "message": "Refined WhatsApp™ Web सेटिंग्स", "description": "Title of the settings page and drawer." },
-
-  "aboutTagline": { "message": "WhatsApp Web के लिए एक शांत वर्कस्पेस।", "description": "Tagline under the extension name in the toolbar popup." },
-  "extensionStatus": { "message": "एक्सटेंशन की स्थिति", "description": "Eyebrow label above the activation state." },
-  "activeTitle": { "message": "Refined सक्रिय है", "description": "Heading when the extension is enabled. 'Refined' is the brand name." },
-  "pausedTitle": { "message": "Refined रोका गया है", "description": "Heading when the extension is disabled." },
-  "activeHelp": { "message": "आपकी लेआउट और प्राइवेसी प्राथमिकताएँ लागू हैं।", "description": "Help text when enabled." },
-  "pausedHelp": { "message": "सहेजी गई इंटरफ़ेस प्राथमिकताएँ वापस पाने के लिए इसे सक्रिय करें।", "description": "Help text when disabled." },
-  "pauseButton": { "message": "Refined रोकें", "description": "Button that disables the extension." },
-  "activateButton": { "message": "Refined सक्रिय करें", "description": "Button that enables the extension." },
-  "stateActive": { "message": "सक्रिय", "description": "Tooltip on the state dot when enabled." },
-  "statePaused": { "message": "रोका गया", "description": "Tooltip on the state dot when disabled." },
-  "privacySummaryAria": { "message": "प्राइवेसी सारांश", "description": "Accessible label for the privacy details section." },
-  "dataLabel": { "message": "डेटा", "description": "Label in privacy summary row." },
-  "dataValue": { "message": "आपके डिवाइस पर ही रहता है", "description": "Value in privacy summary row about data." },
-  "accessLabel": { "message": "एक्सेस", "description": "Label in privacy summary row." },
-  "accessValue": { "message": "केवल WhatsApp Web", "description": "Value in privacy summary row about site access." },
-  "aboutFooter": { "message": "WhatsApp के साइडबार में सेटिंग्स बटन से Refined खोलें।", "description": "Footer hint in the toolbar popup." },
-
-  "headerTagline": { "message": "अपने वर्कस्पेस को अपना बनाएँ।", "description": "Tagline in the settings drawer header." },
-  "masterToggleTitle": { "message": "Refined WhatsApp™ Web चालू करें", "description": "Tooltip on the master on/off toggle." },
-  "tabsAria": { "message": "सेटिंग्स अनुभाग", "description": "Accessible label for the settings tab bar." },
-  "tabLayout": { "message": "लेआउट", "description": "Settings tab name." },
-  "tabPrivacy": { "message": "प्राइवेसी", "description": "Settings tab name." },
-  "tabShortcuts": { "message": "शॉर्टकट", "description": "Settings tab name (keyboard shortcuts)." },
-  "layoutPanelAria": { "message": "लेआउट सेटिंग्स", "description": "Accessible label for the layout panel." },
-  "chatFolders": { "message": "चैट फ़ोल्डर", "description": "Setting group title." },
-  "chatFoldersHelp": { "message": "WhatsApp के टैब रखें या उन्हें साइडबार में ले जाएँ", "description": "Help text for the chat folders setting." },
-  "folderLayoutAria": { "message": "चैट फ़ोल्डर लेआउट", "description": "Accessible label for the folder layout choice." },
-  "nativeTabs": { "message": "नेटिव टैब", "description": "Folder layout option: WhatsApp's own tabs." },
-  "whatsappSidebar": { "message": "WhatsApp साइडबार", "description": "Folder layout option: vertical sidebar." },
-  "resizablePanel": { "message": "आकार बदलने योग्य चैट पैनल", "description": "Setting title." },
-  "resizablePanelHelp": { "message": "इसका दायाँ किनारा कभी भी खींचें; हैंडल पर ऐरो कुंजियाँ भी काम करती हैं", "description": "Help text for the resizable panel setting." },
-  "panelWidth": { "message": "चैट पैनल की चौड़ाई", "description": "Setting title for the width slider." },
-  "pxValue": { "message": "$VALUE$ px", "description": "Pixel value shown next to sliders. Keep the $VALUE$ placeholder.", "placeholders": { "value": { "content": "$1", "example": "432" } } },
-  "interfaceOptionsAria": { "message": "इंटरफ़ेस विकल्प", "description": "Accessible label for the interface switches list." },
-  "messagePreviews": { "message": "मैसेज प्रीव्यू", "description": "Setting title." },
-  "messagePreviewsHelp": { "message": "चैट सूची में आख़िरी मैसेज दिखाएँ", "description": "Help text." },
-  "hideNotification": { "message": "नोटिफ़िकेशन प्रॉम्प्ट छिपाएँ", "description": "Setting title." },
-  "hideNotificationHelp": { "message": "“नोटिफ़िकेशन चालू करें” बैनर हटाएँ", "description": "Help text." },
-  "hideMetaAI": { "message": "Meta AI छिपाएँ", "description": "Setting title. 'Meta AI' is a product name — keep untranslated." },
-  "hideMetaAIHelp": { "message": "इसका नेविगेशन शॉर्टकट हटाएँ", "description": "Help text." },
-  "hideChannels": { "message": "चैनल छिपाएँ", "description": "Setting title. 'Channels' is WhatsApp's feature — use WhatsApp's official localized term." },
-  "hideChannelsHelp": { "message": "इसका नेविगेशन शॉर्टकट हटाएँ", "description": "Help text." },
-  "privacyPanelAria": { "message": "प्राइवेसी सेटिंग्स", "description": "Accessible label for the privacy panel." },
-  "privacyMode": { "message": "प्राइवेसी मोड", "description": "Master privacy toggle title; also used as a shortcut row label." },
-  "privacyModeHelp": { "message": "शॉर्टकट अनुभाग में दिखाया गया आपके प्लैटफ़ॉर्म का शॉर्टकट इस्तेमाल करें", "description": "Help text for the privacy mode toggle." },
-  "privacyBlurAria": { "message": "प्राइवेसी ब्लर विकल्प", "description": "Accessible label for the blur switches list." },
-  "blurPreviews": { "message": "चैट प्रीव्यू धुंधले करें", "description": "Setting title." },
-  "blurPreviewsHelp": { "message": "हाल के मैसेज का टेक्स्ट सुरक्षित रखें", "description": "Help text." },
-  "blurMessages": { "message": "खुले मैसेज धुंधले करें", "description": "Setting title." },
-  "blurMessagesHelp": { "message": "बातचीत के बबल छिपाएँ", "description": "Help text." },
-  "blurImages": { "message": "इमेज धुंधली करें", "description": "Setting title." },
-  "blurImagesHelp": { "message": "फ़ोटो, स्टिकर और लिंक थंबनेल; इमोजी या आइकॉन नहीं", "description": "Help text." },
-  "blurVideos": { "message": "वीडियो और GIF धुंधले करें", "description": "Setting title." },
-  "blurVideosHelp": { "message": "वीडियो ढके रहते हैं", "description": "Help text." },
-  "blurNames": { "message": "नाम धुंधले करें", "description": "Setting title." },
-  "blurNamesHelp": { "message": "चैट और बातचीत के शीर्षक", "description": "Help text." },
-  "blurAvatars": { "message": "प्रोफ़ाइल फ़ोटो धुंधली करें", "description": "Setting title." },
-  "blurAvatarsHelp": { "message": "केवल अवतार; टेक्स्ट में इमोजी दिखते रहते हैं", "description": "Help text." },
-  "revealOnHover": { "message": "होवर पर दिखाएँ", "description": "Setting title." },
-  "revealOnHoverHelp": { "message": "केवल वही अस्थायी रूप से दिखाएँ जिस पर कर्सर हो", "description": "Help text." },
-  "blurStrength": { "message": "ब्लर की तीव्रता", "description": "Setting title for the blur slider." },
-  "shortcutsPanelAria": { "message": "कीबोर्ड शॉर्टकट", "description": "Accessible label for the shortcuts panel." },
-  "platformMac": { "message": "macOS शॉर्टकट", "description": "Platform card title on macOS." },
-  "platformWindows": { "message": "Windows शॉर्टकट", "description": "Platform card title on Windows." },
-  "platformLinux": { "message": "Linux शॉर्टकट", "description": "Platform card title on Linux." },
-  "platformOther": { "message": "डेस्कटॉप शॉर्टकट", "description": "Platform card title on other platforms." },
-  "platformHelpMac": { "message": "Command (⌘) और Option (⌥) का उपयोग करता है", "description": "Platform card help on macOS. Keep key symbols." },
-  "platformHelpOther": { "message": "Ctrl और Alt का उपयोग करता है", "description": "Platform card help on non-macOS. Keep key names Ctrl/Alt." },
-  "refinedShortcuts": { "message": "Refined शॉर्टकट", "description": "Toggle title for the extension's shortcuts. 'Refined' is the brand name." },
-  "refinedShortcutsHelp": { "message": "WhatsApp टैब फ़ोकस में रहने पर सक्रिय", "description": "Help text." },
-  "shortcutListAria": { "message": "उपलब्ध कीबोर्ड शॉर्टकट", "description": "Accessible label for the shortcut list." },
-  "focusSearch": { "message": "खोज पर फ़ोकस करें", "description": "Shortcut row title." },
-  "focusSearchHelp": { "message": "WhatsApp खोज पर जाएँ", "description": "Help text." },
-  "newChat": { "message": "नई चैट", "description": "Shortcut row title." },
-  "newChatHelp": { "message": "WhatsApp का नेटिव नई-चैट पैनल खोलें", "description": "Help text." },
-  "folderCycle": { "message": "पिछला / अगला फ़ोल्डर", "description": "Shortcut row title." },
-  "folderCycleHelp": { "message": "नेटिव टैब या साइडबार फ़ोल्डर के बीच बदलता है", "description": "Help text." },
-  "privacyShortcutHelp": { "message": "सुरक्षित सामग्री धुंधली करें या दिखाएँ", "description": "Help text for the privacy mode shortcut row." },
-  "refinedSettings": { "message": "Refined सेटिंग्स", "description": "Shortcut row title; opens this settings drawer. 'Refined' is the brand name." },
-  "refinedSettingsHelp": { "message": "यह पैनल खोलें या बंद करें", "description": "Help text." },
-  "shortcutNote": { "message": "WhatsApp के अपने कीबोर्ड शॉर्टकट पहले की तरह काम करते रहेंगे। सेटिंग्स पैनल बंद करने के लिए Escape दबाएँ।", "description": "Note under the shortcut list. Keep the key name Escape." },
-  "footerSaved": { "message": "इस ब्राउज़र पर स्थानीय रूप से सहेजा गया", "description": "Footer note about where settings are stored." },
-  "resetDefaults": { "message": "डिफ़ॉल्ट पर रीसेट करें", "description": "Button that restores default settings." },
-
-  "navFoldersAria": { "message": "WhatsApp चैट फ़ोल्डर", "description": "Accessible label for the injected folder sidebar." },
-  "toolsAria": { "message": "Refined WhatsApp™ Web टूल", "description": "Accessible label for the injected action buttons. Brand name — keep untranslated." },
-  "togglePrivacyAria": { "message": "प्राइवेसी मोड टॉगल करें", "description": "Label/tooltip for the privacy button in WhatsApp's sidebar." },
-  "privacyLabel": { "message": "प्राइवेसी", "description": "Short caption under the privacy button." },
-  "openSettingsAria": { "message": "Refined सेटिंग्स खोलें", "description": "Label/tooltip for the settings button in WhatsApp's sidebar." },
-  "settingsLabel": { "message": "सेटिंग्स", "description": "Short caption under the settings button." },
-  "closeSettingsAria": { "message": "Refined सेटिंग्स बंद करें", "description": "Label for the drawer close button." },
-  "resizePanelAria": { "message": "चैट पैनल का आकार बदलें", "description": "Accessible label for the drag handle that resizes the chat panel." },
-  "openListsMenu": { "message": "सूची मेनू खोलें", "description": "Accessible label for the folder overflow/action button." },
-  "folderUnread": { "message": "$FOLDER$, $COUNT$ अपठित", "description": "Accessible label for a folder with unread chats. Keep both placeholders.", "placeholders": { "folder": { "content": "$1", "example": "Groups" }, "count": { "content": "$2", "example": "3" } } }
+  "appName": {
+    "message": "Refined WhatsApp™ Web",
+    "description": "Extension name shown in the browser. Brand name — keep untranslated."
+  },
+  "appShortName": {
+    "message": "Refined",
+    "description": "Short extension name. Brand name — keep untranslated."
+  },
+  "appDesc": {
+    "message": "WhatsApp Web को शांत और अधिक निजी बनाएँ: लेआउट नियंत्रण, प्राइवेसी ब्लर और कीबोर्ड शॉर्टकट।",
+    "description": "Store/extension description. Must stay under 132 characters."
+  },
+  "settingsTitle": {
+    "message": "Refined WhatsApp™ Web सेटिंग्स",
+    "description": "Title of the settings page and drawer."
+  },
+  "aboutTagline": {
+    "message": "WhatsApp Web के लिए एक शांत वर्कस्पेस।",
+    "description": "Tagline under the extension name in the toolbar popup."
+  },
+  "extensionStatus": {
+    "message": "एक्सटेंशन की स्थिति",
+    "description": "Eyebrow label above the activation state."
+  },
+  "activeTitle": {
+    "message": "Refined सक्रिय है",
+    "description": "Heading when the extension is enabled. 'Refined' is the brand name."
+  },
+  "pausedTitle": {
+    "message": "Refined रोका गया है",
+    "description": "Heading when the extension is disabled."
+  },
+  "activeHelp": {
+    "message": "आपकी लेआउट और प्राइवेसी प्राथमिकताएँ लागू हैं।",
+    "description": "Help text when enabled."
+  },
+  "pausedHelp": {
+    "message": "सहेजी गई इंटरफ़ेस प्राथमिकताएँ वापस पाने के लिए इसे सक्रिय करें।",
+    "description": "Help text when disabled."
+  },
+  "pauseButton": {
+    "message": "Refined रोकें",
+    "description": "Button that disables the extension."
+  },
+  "activateButton": {
+    "message": "Refined सक्रिय करें",
+    "description": "Button that enables the extension."
+  },
+  "stateActive": {
+    "message": "सक्रिय",
+    "description": "Tooltip on the state dot when enabled."
+  },
+  "statePaused": {
+    "message": "रोका गया",
+    "description": "Tooltip on the state dot when disabled."
+  },
+  "privacySummaryAria": {
+    "message": "प्राइवेसी सारांश",
+    "description": "Accessible label for the privacy details section."
+  },
+  "dataLabel": {
+    "message": "डेटा",
+    "description": "Label in privacy summary row."
+  },
+  "dataValue": {
+    "message": "आपके डिवाइस पर ही रहता है",
+    "description": "Value in privacy summary row about data."
+  },
+  "accessLabel": {
+    "message": "एक्सेस",
+    "description": "Label in privacy summary row."
+  },
+  "accessValue": {
+    "message": "केवल WhatsApp Web",
+    "description": "Value in privacy summary row about site access."
+  },
+  "aboutFooter": {
+    "message": "WhatsApp के साइडबार में सेटिंग्स बटन से Refined खोलें।",
+    "description": "Footer hint in the toolbar popup."
+  },
+  "headerTagline": {
+    "message": "अपने वर्कस्पेस को अपना बनाएँ।",
+    "description": "Tagline in the settings drawer header."
+  },
+  "masterToggleTitle": {
+    "message": "Refined WhatsApp™ Web चालू करें",
+    "description": "Tooltip on the master on/off toggle."
+  },
+  "tabsAria": {
+    "message": "सेटिंग्स अनुभाग",
+    "description": "Accessible label for the settings tab bar."
+  },
+  "tabLayout": {
+    "message": "लेआउट",
+    "description": "Settings tab name."
+  },
+  "tabPrivacy": {
+    "message": "प्राइवेसी",
+    "description": "Settings tab name."
+  },
+  "tabShortcuts": {
+    "message": "शॉर्टकट",
+    "description": "Settings tab name (keyboard shortcuts)."
+  },
+  "layoutPanelAria": {
+    "message": "लेआउट सेटिंग्स",
+    "description": "Accessible label for the layout panel."
+  },
+  "chatFolders": {
+    "message": "चैट फ़ोल्डर",
+    "description": "Setting group title."
+  },
+  "chatFoldersHelp": {
+    "message": "WhatsApp के टैब रखें या उन्हें साइडबार में ले जाएँ",
+    "description": "Help text for the chat folders setting."
+  },
+  "folderLayoutAria": {
+    "message": "चैट फ़ोल्डर लेआउट",
+    "description": "Accessible label for the folder layout choice."
+  },
+  "nativeTabs": {
+    "message": "नेटिव टैब",
+    "description": "Folder layout option: WhatsApp's own tabs."
+  },
+  "whatsappSidebar": {
+    "message": "WhatsApp साइडबार",
+    "description": "Folder layout option: vertical sidebar."
+  },
+  "resizablePanel": {
+    "message": "आकार बदलने योग्य चैट पैनल",
+    "description": "Setting title."
+  },
+  "resizablePanelHelp": {
+    "message": "इसका दायाँ किनारा कभी भी खींचें; हैंडल पर ऐरो कुंजियाँ भी काम करती हैं",
+    "description": "Help text for the resizable panel setting."
+  },
+  "panelWidth": {
+    "message": "चैट पैनल की चौड़ाई",
+    "description": "Setting title for the width slider."
+  },
+  "pxValue": {
+    "message": "$VALUE$ px",
+    "description": "Pixel value shown next to sliders. Keep the $VALUE$ placeholder.",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "432"
+      }
+    }
+  },
+  "interfaceOptionsAria": {
+    "message": "इंटरफ़ेस विकल्प",
+    "description": "Accessible label for the interface switches list."
+  },
+  "messagePreviews": {
+    "message": "मैसेज प्रीव्यू",
+    "description": "Setting title."
+  },
+  "messagePreviewsHelp": {
+    "message": "चैट सूची में आख़िरी मैसेज दिखाएँ",
+    "description": "Help text."
+  },
+  "hideNotification": {
+    "message": "नोटिफ़िकेशन प्रॉम्प्ट छिपाएँ",
+    "description": "Setting title."
+  },
+  "hideNotificationHelp": {
+    "message": "“नोटिफ़िकेशन चालू करें” बैनर हटाएँ",
+    "description": "Help text."
+  },
+  "hideMetaAI": {
+    "message": "Meta AI छिपाएँ",
+    "description": "Setting title. 'Meta AI' is a product name — keep untranslated."
+  },
+  "hideMetaAIHelp": {
+    "message": "इसका नेविगेशन शॉर्टकट हटाएँ",
+    "description": "Help text."
+  },
+  "hideChannels": {
+    "message": "चैनल छिपाएँ",
+    "description": "Setting title. 'Channels' is WhatsApp's feature — use WhatsApp's official localized term."
+  },
+  "hideChannelsHelp": {
+    "message": "इसका नेविगेशन शॉर्टकट हटाएँ",
+    "description": "Help text."
+  },
+  "privacyPanelAria": {
+    "message": "प्राइवेसी सेटिंग्स",
+    "description": "Accessible label for the privacy panel."
+  },
+  "privacyMode": {
+    "message": "प्राइवेसी मोड",
+    "description": "Master privacy toggle title; also used as a shortcut row label."
+  },
+  "privacyModeHelp": {
+    "message": "शॉर्टकट अनुभाग में दिखाया गया आपके प्लैटफ़ॉर्म का शॉर्टकट इस्तेमाल करें",
+    "description": "Help text for the privacy mode toggle."
+  },
+  "privacyBlurAria": {
+    "message": "प्राइवेसी ब्लर विकल्प",
+    "description": "Accessible label for the blur switches list."
+  },
+  "blurPreviews": {
+    "message": "चैट प्रीव्यू धुंधले करें",
+    "description": "Setting title."
+  },
+  "blurPreviewsHelp": {
+    "message": "हाल के मैसेज का टेक्स्ट सुरक्षित रखें",
+    "description": "Help text."
+  },
+  "blurMessages": {
+    "message": "खुले मैसेज धुंधले करें",
+    "description": "Setting title."
+  },
+  "blurMessagesHelp": {
+    "message": "बातचीत के बबल छिपाएँ",
+    "description": "Help text."
+  },
+  "blurImages": {
+    "message": "इमेज धुंधली करें",
+    "description": "Setting title."
+  },
+  "blurImagesHelp": {
+    "message": "फ़ोटो, स्टिकर और लिंक थंबनेल; इमोजी या आइकॉन नहीं",
+    "description": "Help text."
+  },
+  "blurVideos": {
+    "message": "वीडियो और GIF धुंधले करें",
+    "description": "Setting title."
+  },
+  "blurVideosHelp": {
+    "message": "वीडियो ढके रहते हैं",
+    "description": "Help text."
+  },
+  "blurNames": {
+    "message": "नाम धुंधले करें",
+    "description": "Setting title."
+  },
+  "blurNamesHelp": {
+    "message": "चैट और बातचीत के शीर्षक",
+    "description": "Help text."
+  },
+  "blurAvatars": {
+    "message": "प्रोफ़ाइल फ़ोटो धुंधली करें",
+    "description": "Setting title."
+  },
+  "blurAvatarsHelp": {
+    "message": "केवल अवतार; टेक्स्ट में इमोजी दिखते रहते हैं",
+    "description": "Help text."
+  },
+  "revealOnHover": {
+    "message": "होवर पर दिखाएँ",
+    "description": "Setting title."
+  },
+  "revealOnHoverHelp": {
+    "message": "केवल वही अस्थायी रूप से दिखाएँ जिस पर कर्सर हो",
+    "description": "Help text."
+  },
+  "blurStrength": {
+    "message": "ब्लर की तीव्रता",
+    "description": "Setting title for the blur slider."
+  },
+  "shortcutsPanelAria": {
+    "message": "कीबोर्ड शॉर्टकट",
+    "description": "Accessible label for the shortcuts panel."
+  },
+  "platformMac": {
+    "message": "macOS शॉर्टकट",
+    "description": "Platform card title on macOS."
+  },
+  "platformWindows": {
+    "message": "Windows शॉर्टकट",
+    "description": "Platform card title on Windows."
+  },
+  "platformLinux": {
+    "message": "Linux शॉर्टकट",
+    "description": "Platform card title on Linux."
+  },
+  "platformOther": {
+    "message": "डेस्कटॉप शॉर्टकट",
+    "description": "Platform card title on other platforms."
+  },
+  "platformHelpMac": {
+    "message": "Command (⌘) और Option (⌥) का उपयोग करता है",
+    "description": "Platform card help on macOS. Keep key symbols."
+  },
+  "platformHelpOther": {
+    "message": "Ctrl और Alt का उपयोग करता है",
+    "description": "Platform card help on non-macOS. Keep key names Ctrl/Alt."
+  },
+  "refinedShortcuts": {
+    "message": "Refined शॉर्टकट",
+    "description": "Toggle title for the extension's shortcuts. 'Refined' is the brand name."
+  },
+  "refinedShortcutsHelp": {
+    "message": "WhatsApp टैब फ़ोकस में रहने पर सक्रिय",
+    "description": "Help text."
+  },
+  "shortcutListAria": {
+    "message": "उपलब्ध कीबोर्ड शॉर्टकट",
+    "description": "Accessible label for the shortcut list."
+  },
+  "focusSearch": {
+    "message": "खोज पर फ़ोकस करें",
+    "description": "Shortcut row title."
+  },
+  "focusSearchHelp": {
+    "message": "WhatsApp खोज पर जाएँ",
+    "description": "Help text."
+  },
+  "newChat": {
+    "message": "नई चैट",
+    "description": "Shortcut row title."
+  },
+  "newChatHelp": {
+    "message": "WhatsApp का नेटिव नई-चैट पैनल खोलें",
+    "description": "Help text."
+  },
+  "folderCycle": {
+    "message": "पिछला / अगला फ़ोल्डर",
+    "description": "Shortcut row title."
+  },
+  "folderCycleHelp": {
+    "message": "नेटिव टैब या साइडबार फ़ोल्डर के बीच बदलता है",
+    "description": "Help text."
+  },
+  "privacyShortcutHelp": {
+    "message": "सुरक्षित सामग्री धुंधली करें या दिखाएँ",
+    "description": "Help text for the privacy mode shortcut row."
+  },
+  "refinedSettings": {
+    "message": "Refined सेटिंग्स",
+    "description": "Shortcut row title; opens this settings drawer. 'Refined' is the brand name."
+  },
+  "refinedSettingsHelp": {
+    "message": "यह पैनल खोलें या बंद करें",
+    "description": "Help text."
+  },
+  "shortcutNote": {
+    "message": "WhatsApp के अपने कीबोर्ड शॉर्टकट पहले की तरह काम करते रहेंगे। सेटिंग्स पैनल बंद करने के लिए Escape दबाएँ।",
+    "description": "Note under the shortcut list. Keep the key name Escape."
+  },
+  "footerSaved": {
+    "message": "इस ब्राउज़र पर स्थानीय रूप से सहेजा गया",
+    "description": "Footer note about where settings are stored."
+  },
+  "resetDefaults": {
+    "message": "डिफ़ॉल्ट पर रीसेट करें",
+    "description": "Button that restores default settings."
+  },
+  "language": {
+    "message": "भाषा",
+    "description": "Setting title for the manual language picker."
+  },
+  "languageHelp": {
+    "message": "जब तक आप कोई भाषा नहीं चुनते, ब्राउज़र की भाषा लागू रहती है",
+    "description": "Help text for the language picker."
+  },
+  "languageAuto": {
+    "message": "स्वचालित",
+    "description": "First picker option: follow the browser's UI language."
+  },
+  "navFoldersAria": {
+    "message": "WhatsApp चैट फ़ोल्डर",
+    "description": "Accessible label for the injected folder sidebar."
+  },
+  "toolsAria": {
+    "message": "Refined WhatsApp™ Web टूल",
+    "description": "Accessible label for the injected action buttons. Brand name — keep untranslated."
+  },
+  "togglePrivacyAria": {
+    "message": "प्राइवेसी मोड टॉगल करें",
+    "description": "Label/tooltip for the privacy button in WhatsApp's sidebar."
+  },
+  "privacyLabel": {
+    "message": "प्राइवेसी",
+    "description": "Short caption under the privacy button."
+  },
+  "openSettingsAria": {
+    "message": "Refined सेटिंग्स खोलें",
+    "description": "Label/tooltip for the settings button in WhatsApp's sidebar."
+  },
+  "settingsLabel": {
+    "message": "सेटिंग्स",
+    "description": "Short caption under the settings button."
+  },
+  "closeSettingsAria": {
+    "message": "Refined सेटिंग्स बंद करें",
+    "description": "Label for the drawer close button."
+  },
+  "resizePanelAria": {
+    "message": "चैट पैनल का आकार बदलें",
+    "description": "Accessible label for the drag handle that resizes the chat panel."
+  },
+  "openListsMenu": {
+    "message": "सूची मेनू खोलें",
+    "description": "Accessible label for the folder overflow/action button."
+  },
+  "folderUnread": {
+    "message": "$FOLDER$, $COUNT$ अपठित",
+    "description": "Accessible label for a folder with unread chats. Keep both placeholders.",
+    "placeholders": {
+      "folder": {
+        "content": "$1",
+        "example": "Groups"
+      },
+      "count": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  }
 }
