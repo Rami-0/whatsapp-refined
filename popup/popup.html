@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Refined WhatsApp™ Web settings</title>
+    <title data-i18n="settingsTitle">Refined WhatsApp™ Web settings</title>
     <link rel="stylesheet" href="popup.css">
   </head>
   <body>
@@ -12,98 +12,125 @@
         <img class="mark" src="../icons/icon128.png" alt="">
         <div class="title-block">
           <h1>Refined WhatsApp™ Web</h1>
-          <p>Make your workspace feel like yours.</p>
+          <p data-i18n="headerTagline">Make your workspace feel like yours.</p>
         </div>
-        <label class="toggle master-toggle" title="Enable Refined WhatsApp™ Web">
+        <label class="toggle master-toggle" title="Enable Refined WhatsApp™ Web" data-i18n-title="masterToggleTitle">
           <input id="enabled" data-setting="enabled" type="checkbox">
           <span aria-hidden="true"></span>
         </label>
       </header>
 
-      <nav class="tabs" aria-label="Settings sections">
-        <button type="button" data-panel-target="layout" aria-selected="true">Layout</button>
-        <button type="button" data-panel-target="privacy" aria-selected="false">Privacy</button>
-        <button type="button" data-panel-target="shortcuts" aria-selected="false">Shortcuts</button>
+      <nav class="tabs" aria-label="Settings sections" data-i18n-aria-label="tabsAria">
+        <button type="button" data-panel-target="layout" aria-selected="true" data-i18n="tabLayout">Layout</button>
+        <button type="button" data-panel-target="privacy" aria-selected="false" data-i18n="tabPrivacy">Privacy</button>
+        <button type="button" data-panel-target="shortcuts" aria-selected="false" data-i18n="tabShortcuts">Shortcuts</button>
       </nav>
 
       <div class="panels">
-        <section class="panel" data-panel="layout" aria-label="Layout settings">
+        <section class="panel" data-panel="layout" aria-label="Layout settings" data-i18n-aria-label="layoutPanelAria">
           <div class="setting-block">
             <div class="setting-heading">
-              <div><b>Chat folders</b><small>Keep WhatsApp tabs or move them into its sidebar</small></div>
+              <div><b data-i18n="chatFolders">Chat folders</b><small data-i18n="chatFoldersHelp">Keep WhatsApp tabs or move them into its sidebar</small></div>
             </div>
-            <div class="choice-grid choice-grid--two" role="group" aria-label="Chat folder layout">
-              <label><input type="radio" name="folderLayout" value="native" data-setting="folderLayout"><span><i class="layout-icon layout-icon--native"></i>Native tabs</span></label>
-              <label><input type="radio" name="folderLayout" value="sidebar" data-setting="folderLayout"><span><i class="layout-icon layout-icon--sidebar"></i>WhatsApp sidebar</span></label>
+            <div class="choice-grid choice-grid--two" role="group" aria-label="Chat folder layout" data-i18n-aria-label="folderLayoutAria">
+              <label><input type="radio" name="folderLayout" value="native" data-setting="folderLayout"><span data-i18n="nativeTabs"><i class="layout-icon layout-icon--native"></i>Native tabs</span></label>
+              <label><input type="radio" name="folderLayout" value="sidebar" data-setting="folderLayout"><span data-i18n="whatsappSidebar"><i class="layout-icon layout-icon--sidebar"></i>WhatsApp sidebar</span></label>
             </div>
           </div>
 
-          <label class="switch-row standalone-switch" for="customSidebarWidth"><span><b>Resizable chat panel</b><small>Drag its right edge anytime; arrow keys work on the handle</small></span><input id="customSidebarWidth" data-setting="customSidebarWidth" type="checkbox"><i aria-hidden="true"></i></label>
+          <label class="switch-row standalone-switch" for="customSidebarWidth"><span><b data-i18n="resizablePanel">Resizable chat panel</b><small data-i18n="resizablePanelHelp">Drag its right edge anytime; arrow keys work on the handle</small></span><input id="customSidebarWidth" data-setting="customSidebarWidth" type="checkbox"><i aria-hidden="true"></i></label>
 
           <label class="range-setting" for="sidebarWidth" id="sidebarWidthSetting">
-            <span><b>Chat panel width</b><output id="sidebarWidthValue" for="sidebarWidth">432 px</output></span>
+            <span><b data-i18n="panelWidth">Chat panel width</b><output id="sidebarWidthValue" for="sidebarWidth">432 px</output></span>
             <input id="sidebarWidth" data-setting="sidebarWidth" type="range" min="360" max="620" step="4">
           </label>
 
-          <div class="switch-list" aria-label="Interface options">
-            <label class="switch-row" for="showPreviews"><span><b>Message previews</b><small>Show the last message in chat rows</small></span><input id="showPreviews" data-setting="showPreviews" type="checkbox"><i aria-hidden="true"></i></label>
-            <label class="switch-row" for="hideNotificationBanner"><span><b>Hide notification prompt</b><small>Remove the “turn on notifications” banner</small></span><input id="hideNotificationBanner" data-setting="hideNotificationBanner" type="checkbox"><i aria-hidden="true"></i></label>
-            <label class="switch-row" for="hideMetaAI"><span><b>Hide Meta AI</b><small>Remove its navigation shortcut</small></span><input id="hideMetaAI" data-setting="hideMetaAI" type="checkbox"><i aria-hidden="true"></i></label>
-            <label class="switch-row" for="hideChannels"><span><b>Hide Channels</b><small>Remove its navigation shortcut</small></span><input id="hideChannels" data-setting="hideChannels" type="checkbox"><i aria-hidden="true"></i></label>
+          <div class="switch-list" aria-label="Interface options" data-i18n-aria-label="interfaceOptionsAria">
+            <label class="switch-row" for="showPreviews"><span><b data-i18n="messagePreviews">Message previews</b><small data-i18n="messagePreviewsHelp">Show the last message in chat rows</small></span><input id="showPreviews" data-setting="showPreviews" type="checkbox"><i aria-hidden="true"></i></label>
+            <label class="switch-row" for="hideNotificationBanner"><span><b data-i18n="hideNotification">Hide notification prompt</b><small data-i18n="hideNotificationHelp">Remove the “turn on notifications” banner</small></span><input id="hideNotificationBanner" data-setting="hideNotificationBanner" type="checkbox"><i aria-hidden="true"></i></label>
+            <label class="switch-row" for="hideMetaAI"><span><b data-i18n="hideMetaAI">Hide Meta AI</b><small data-i18n="hideMetaAIHelp">Remove its navigation shortcut</small></span><input id="hideMetaAI" data-setting="hideMetaAI" type="checkbox"><i aria-hidden="true"></i></label>
+            <label class="switch-row" for="hideChannels"><span><b data-i18n="hideChannels">Hide Channels</b><small data-i18n="hideChannelsHelp">Remove its navigation shortcut</small></span><input id="hideChannels" data-setting="hideChannels" type="checkbox"><i aria-hidden="true"></i></label>
           </div>
+
+          <label class="select-row" for="language">
+            <span><b data-i18n="language">Language</b><small data-i18n="languageHelp">Follows your browser unless you pick one</small></span>
+            <select id="language" data-setting="language">
+              <option value="auto" data-i18n="languageAuto">Automatic</option>
+              <option value="ar">العربية</option>
+              <option value="de">Deutsch</option>
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+              <option value="hi">हिन्दी</option>
+              <option value="id">Bahasa Indonesia</option>
+              <option value="it">Italiano</option>
+              <option value="ja">日本語</option>
+              <option value="ko">한국어</option>
+              <option value="nl">Nederlands</option>
+              <option value="pl">Polski</option>
+              <option value="pt_BR">Português (Brasil)</option>
+              <option value="pt_PT">Português (Portugal)</option>
+              <option value="ru">Русский</option>
+              <option value="tr">Türkçe</option>
+              <option value="vi">Tiếng Việt</option>
+              <option value="zh_CN">简体中文</option>
+              <option value="zh_TW">繁體中文</option>
+            </select>
+          </label>
         </section>
 
-        <section class="panel" data-panel="privacy" aria-label="Privacy settings" hidden>
+        <section class="panel" data-panel="privacy" aria-label="Privacy settings" data-i18n-aria-label="privacyPanelAria" hidden>
           <label class="privacy-master" for="privacyEnabled">
             <span class="shield" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.2c0 4.7 3 8.2 7.5 9.8 4.5-1.6 7.5-5.1 7.5-9.8V6L12 3Z"/><path d="m8 12 2.4 2.4L16.5 8"/></svg></span>
-            <span><b>Privacy mode</b><small>Use the platform-aware shortcut shown under Shortcuts</small></span>
+            <span><b data-i18n="privacyMode">Privacy mode</b><small data-i18n="privacyModeHelp">Use the platform-aware shortcut shown under Shortcuts</small></span>
             <input id="privacyEnabled" data-setting="privacyEnabled" type="checkbox">
             <i aria-hidden="true"></i>
           </label>
 
-          <div class="switch-list" aria-label="Privacy blur options">
-            <label class="switch-row" for="blurPreviews"><span><b>Blur chat previews</b><small>Protect recent-message text</small></span><input id="blurPreviews" data-setting="blurPreviews" type="checkbox"><i aria-hidden="true"></i></label>
-            <label class="switch-row" for="blurMessages"><span><b>Blur opened messages</b><small>Hide conversation bubbles</small></span><input id="blurMessages" data-setting="blurMessages" type="checkbox"><i aria-hidden="true"></i></label>
-            <label class="switch-row" for="blurImages"><span><b>Blur images</b><small>Photos, stickers and link thumbnails; not emoji or icons</small></span><input id="blurImages" data-setting="blurImages" type="checkbox"><i aria-hidden="true"></i></label>
-            <label class="switch-row" for="blurVideos"><span><b>Blur video & GIFs</b><small>Video surfaces stay obscured</small></span><input id="blurVideos" data-setting="blurVideos" type="checkbox"><i aria-hidden="true"></i></label>
-            <label class="switch-row" for="blurNames"><span><b>Blur names</b><small>Chat and conversation titles</small></span><input id="blurNames" data-setting="blurNames" type="checkbox"><i aria-hidden="true"></i></label>
-            <label class="switch-row" for="blurAvatars"><span><b>Blur profile photos</b><small>Avatars only; inline emoji stay visible</small></span><input id="blurAvatars" data-setting="blurAvatars" type="checkbox"><i aria-hidden="true"></i></label>
-            <label class="switch-row" for="revealOnHover"><span><b>Reveal on hover</b><small>Temporarily show only what you point at</small></span><input id="revealOnHover" data-setting="revealOnHover" type="checkbox"><i aria-hidden="true"></i></label>
+          <div class="switch-list" aria-label="Privacy blur options" data-i18n-aria-label="privacyBlurAria">
+            <label class="switch-row" for="blurPreviews"><span><b data-i18n="blurPreviews">Blur chat previews</b><small data-i18n="blurPreviewsHelp">Protect recent-message text</small></span><input id="blurPreviews" data-setting="blurPreviews" type="checkbox"><i aria-hidden="true"></i></label>
+            <label class="switch-row" for="blurMessages"><span><b data-i18n="blurMessages">Blur opened messages</b><small data-i18n="blurMessagesHelp">Hide conversation bubbles</small></span><input id="blurMessages" data-setting="blurMessages" type="checkbox"><i aria-hidden="true"></i></label>
+            <label class="switch-row" for="blurImages"><span><b data-i18n="blurImages">Blur images</b><small data-i18n="blurImagesHelp">Photos, stickers and link thumbnails; not emoji or icons</small></span><input id="blurImages" data-setting="blurImages" type="checkbox"><i aria-hidden="true"></i></label>
+            <label class="switch-row" for="blurVideos"><span><b data-i18n="blurVideos">Blur video &amp; GIFs</b><small data-i18n="blurVideosHelp">Video surfaces stay obscured</small></span><input id="blurVideos" data-setting="blurVideos" type="checkbox"><i aria-hidden="true"></i></label>
+            <label class="switch-row" for="blurNames"><span><b data-i18n="blurNames">Blur names</b><small data-i18n="blurNamesHelp">Chat and conversation titles</small></span><input id="blurNames" data-setting="blurNames" type="checkbox"><i aria-hidden="true"></i></label>
+            <label class="switch-row" for="blurAvatars"><span><b data-i18n="blurAvatars">Blur profile photos</b><small data-i18n="blurAvatarsHelp">Avatars only; inline emoji stay visible</small></span><input id="blurAvatars" data-setting="blurAvatars" type="checkbox"><i aria-hidden="true"></i></label>
+            <label class="switch-row" for="revealOnHover"><span><b data-i18n="revealOnHover">Reveal on hover</b><small data-i18n="revealOnHoverHelp">Temporarily show only what you point at</small></span><input id="revealOnHover" data-setting="revealOnHover" type="checkbox"><i aria-hidden="true"></i></label>
           </div>
 
           <label class="range-setting" for="blurStrength">
-            <span><b>Blur strength</b><output id="blurStrengthValue" for="blurStrength">8 px</output></span>
+            <span><b data-i18n="blurStrength">Blur strength</b><output id="blurStrengthValue" for="blurStrength">8 px</output></span>
             <input id="blurStrength" data-setting="blurStrength" type="range" min="3" max="16" step="1">
           </label>
         </section>
 
-        <section class="panel" data-panel="shortcuts" aria-label="Keyboard shortcuts" hidden>
+        <section class="panel" data-panel="shortcuts" aria-label="Keyboard shortcuts" data-i18n-aria-label="shortcutsPanelAria" hidden>
           <div class="platform-card">
             <span class="platform-symbol" id="platformSymbol" aria-hidden="true">⌘</span>
             <span><b id="platformName">macOS shortcuts</b><small id="platformHelp">Uses Command and Option</small></span>
           </div>
 
-          <label class="switch-row standalone-switch" for="keyboardShortcuts"><span><b>Refined shortcuts</b><small>Active while the WhatsApp tab is focused</small></span><input id="keyboardShortcuts" data-setting="keyboardShortcuts" type="checkbox"><i aria-hidden="true"></i></label>
+          <label class="switch-row standalone-switch" for="keyboardShortcuts"><span><b data-i18n="refinedShortcuts">Refined shortcuts</b><small data-i18n="refinedShortcutsHelp">Active while the WhatsApp tab is focused</small></span><input id="keyboardShortcuts" data-setting="keyboardShortcuts" type="checkbox"><i aria-hidden="true"></i></label>
 
-          <div class="shortcut-list" aria-label="Available keyboard shortcuts">
-            <div class="shortcut-row"><span><b>Focus search</b><small>Jump to WhatsApp search</small></span><span class="shortcut-keys" data-mac="⌥|⌘|K" data-other="Ctrl|Alt|K"></span></div>
-            <div class="shortcut-row"><span><b>New chat</b><small>Open WhatsApp’s native new-chat panel</small></span><span class="shortcut-keys" data-mac="⌥|⌘|N" data-other="Ctrl|Alt|N"></span></div>
-            <div class="shortcut-row"><span><b>Previous / next folder</b><small>Cycles native tabs or sidebar folders</small></span><span class="shortcut-keys" data-mac="⌥|⌘|← / →" data-other="Ctrl|Alt|← / →"></span></div>
-            <div class="shortcut-row"><span><b>Privacy mode</b><small>Blur or reveal protected content</small></span><span class="shortcut-keys" data-mac="⌥|⌘|P" data-other="Ctrl|Alt|P"></span></div>
-            <div class="shortcut-row"><span><b>Refined settings</b><small>Open or close this drawer</small></span><span class="shortcut-keys" data-mac="⌥|⌘|," data-other="Ctrl|Alt|,"></span></div>
+          <div class="shortcut-list" aria-label="Available keyboard shortcuts" data-i18n-aria-label="shortcutListAria">
+            <div class="shortcut-row"><span><b data-i18n="focusSearch">Focus search</b><small data-i18n="focusSearchHelp">Jump to WhatsApp search</small></span><span class="shortcut-keys" data-mac="⌥|⌘|K" data-other="Ctrl|Alt|K"></span></div>
+            <div class="shortcut-row"><span><b data-i18n="newChat">New chat</b><small data-i18n="newChatHelp">Open WhatsApp’s native new-chat panel</small></span><span class="shortcut-keys" data-mac="⌥|⌘|N" data-other="Ctrl|Alt|N"></span></div>
+            <div class="shortcut-row"><span><b data-i18n="folderCycle">Previous / next folder</b><small data-i18n="folderCycleHelp">Cycles native tabs or sidebar folders</small></span><span class="shortcut-keys" data-mac="⌥|⌘|← / →" data-other="Ctrl|Alt|← / →"></span></div>
+            <div class="shortcut-row"><span><b data-i18n="privacyMode">Privacy mode</b><small data-i18n="privacyShortcutHelp">Blur or reveal protected content</small></span><span class="shortcut-keys" data-mac="⌥|⌘|P" data-other="Ctrl|Alt|P"></span></div>
+            <div class="shortcut-row"><span><b data-i18n="refinedSettings">Refined settings</b><small data-i18n="refinedSettingsHelp">Open or close this drawer</small></span><span class="shortcut-keys" data-mac="⌥|⌘|," data-other="Ctrl|Alt|,"></span></div>
           </div>
 
-          <p class="shortcut-note">WhatsApp’s own keyboard shortcuts continue to work unchanged. Press Escape to close the settings drawer.</p>
+          <p class="shortcut-note" data-i18n="shortcutNote">WhatsApp’s own keyboard shortcuts continue to work unchanged. Press Escape to close the settings drawer.</p>
         </section>
       </div>
 
       <footer>
-        <span><i aria-hidden="true"></i>Saved locally on this browser</span>
-        <button id="resetSettings" type="button">Reset defaults</button>
+        <span data-i18n="footerSaved"><i aria-hidden="true"></i>Saved locally on this browser</span>
+        <button id="resetSettings" type="button" data-i18n="resetDefaults">Reset defaults</button>
       </footer>
     </main>
     <script src="../src/utils.js"></script>
     <script src="../src/settings.js"></script>
+    <script src="i18n.js"></script>
     <script src="popup.js"></script>
   </body>
 </html>

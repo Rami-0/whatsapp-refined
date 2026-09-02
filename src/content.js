@@ -5,6 +5,7 @@
   window.__refinedWhatsAppWebLoaded = true;
 
   const utils = globalThis.WRUtils;
+  const t = utils.i18n;
   const { DEFAULTS, normalizeSettings } = globalThis.WRSettings;
   const MIN_SIDEBAR_WIDTH = 360;
   const MAX_SIDEBAR_WIDTH = 620;
@@ -56,6 +57,13 @@
 
   function iconMarkup(kind) {
     return ICONS[kind] || ICONS.custom;
+  }
+
+  function escapeHTML(value) {
+    /* Translated labels are interpolated into innerHTML markup. */
+    const container = document.createElement("div");
+    container.textContent = String(value);
+    return container.innerHTML;
   }
 
   function createButton(className, label, icon) {
@@ -140,19 +148,19 @@
   function createSidebarUI() {
     folderNav = document.createElement("nav");
     folderNav.id = "wr-folder-sidebar";
-    folderNav.setAttribute("aria-label", "WhatsApp chat folders");
+    folderNav.setAttribute("aria-label", t("navFoldersAria", "WhatsApp chat folders"));
 
     sidebarActions = document.createElement("div");
     sidebarActions.id = "wr-sidebar-actions";
-    sidebarActions.setAttribute("aria-label", "Refined WhatsApp™ Web tools");
+    sidebarActions.setAttribute("aria-label", t("toolsAria", "Refined WhatsApp™ Web tools"));
 
-    privacyAction = createButton("wr-sidebar-action wr-sidebar-action--privacy", "Toggle privacy mode", iconMarkup("privacy") + '<span>Privacy</span>');
+    privacyAction = createButton("wr-sidebar-action wr-sidebar-action--privacy", t("togglePrivacyAria", "Toggle privacy mode"), iconMarkup("privacy") + `<span>${escapeHTML(t("privacyLabel", "Privacy"))}</span>`);
     privacyAction.disabled = !settings.enabled;
     privacyAction.setAttribute("aria-disabled", String(!settings.enabled));
     privacyAction.setAttribute("aria-pressed", String(settings.privacyEnabled));
     privacyAction.addEventListener("click", togglePrivacy);
 
-    settingsAction = createButton("wr-sidebar-action", "Open Refined settings", iconMarkup("settings") + '<span>Settings</span>');
+    settingsAction = createButton("wr-sidebar-action", t("openSettingsAria", "Open Refined settings"), iconMarkup("settings") + `<span>${escapeHTML(t("settingsLabel", "Settings"))}</span>`);
     settingsAction.setAttribute("aria-pressed", "false");
     settingsAction.addEventListener("click", () => toggleDrawer());
     sidebarActions.append(privacyAction, settingsAction);
@@ -161,16 +169,16 @@
   function createDrawer() {
     drawer = document.createElement("aside");
     drawer.id = "wr-settings-drawer";
-    drawer.setAttribute("aria-label", "Refined WhatsApp™ Web settings");
+    drawer.setAttribute("aria-label", t("settingsTitle", "Refined WhatsApp™ Web settings"));
     drawer.setAttribute("aria-hidden", "true");
 
-    const close = createButton("wr-drawer-close", "Close Refined settings", '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17"/></svg>');
+    const close = createButton("wr-drawer-close", t("closeSettingsAria", "Close Refined settings"), '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17"/></svg>');
     close.dataset.wrTooltipPosition = "below";
     close.addEventListener("click", () => toggleDrawer(false));
 
     const frame = document.createElement("iframe");
     frame.className = "wr-settings-frame";
-    frame.title = "Refined WhatsApp™ Web settings";
+    frame.title = t("settingsTitle", "Refined WhatsApp™ Web settings");
     const dark = document.documentElement.classList.contains("dark") || document.body.classList.contains("dark");
     const settingsPage = globalThis.chrome?.runtime?.getURL ? chrome.runtime.getURL("popup/popup.html") : "../popup/popup.html";
     const previewSnapshot = location.protocol === "file:" ? `&previewSettings=${encodeURIComponent(JSON.stringify(settings))}` : "";
@@ -192,7 +200,7 @@
     resizer.tabIndex = 0;
     resizer.setAttribute("role", "separator");
     resizer.setAttribute("aria-orientation", "vertical");
-    resizer.setAttribute("aria-label", "Resize chat panel");
+    resizer.setAttribute("aria-label", t("resizePanelAria", "Resize chat panel"));
     resizer.setAttribute("aria-valuemin", String(MIN_SIDEBAR_WIDTH));
     resizer.setAttribute("aria-valuemax", String(MAX_SIDEBAR_WIDTH));
     resizer.setAttribute("aria-valuenow", String(settings.sidebarWidth));
@@ -471,7 +479,7 @@
       button.className = "wr-folder-button";
       if (folder.action) button.classList.add("wr-folder-button--action");
       button.dataset.wrTooltip = folder.label;
-      button.setAttribute("aria-label", folder.action ? "Open lists menu" : folder.count ? `${folder.label}, ${folder.count} unread` : folder.label);
+      button.setAttribute("aria-label", folder.action ? t("openListsMenu", "Open lists menu") : folder.count ? t("folderUnread", `${folder.label}, ${folder.count} unread`, [folder.label, String(folder.count)]) : folder.label);
       button.setAttribute("aria-current", !folder.action && (folder.selected || (!folders.some((item) => item.selected) && index === 0)) ? "page" : "false");
 
       const label = document.createElement("span");
@@ -494,6 +502,33 @@
       });
       folderNav.append(button);
     });
+  }
+
+  function applyLocaleStrings() {
+    folderNav?.setAttribute("aria-label", t("navFoldersAria", "WhatsApp chat folders"));
+    sidebarActions?.setAttribute("aria-label", t("toolsAria", "Refined WhatsApp™ Web tools"));
+    const relabel = (button, label) => {
+      button.dataset.wrTooltip = label;
+      button.setAttribute("aria-label", label);
+    };
+    if (privacyAction) {
+      relabel(privacyAction, t("togglePrivacyAria", "Toggle privacy mode"));
+      privacyAction.querySelector("span").textContent = t("privacyLabel", "Privacy");
+    }
+    if (settingsAction) {
+      relabel(settingsAction, t("openSettingsAria", "Open Refined settings"));
+      settingsAction.querySelector("span").textContent = t("settingsLabel", "Settings");
+    }
+    if (drawer) {
+      drawer.setAttribute("aria-label", t("settingsTitle", "Refined WhatsApp™ Web settings"));
+      const close = drawer.querySelector(".wr-drawer-close");
+      if (close) relabel(close, t("closeSettingsAria", "Close Refined settings"));
+      const frame = drawer.querySelector(".wr-settings-frame");
+      if (frame) frame.title = t("settingsTitle", "Refined WhatsApp™ Web settings");
+    }
+    resizer?.setAttribute("aria-label", t("resizePanelAria", "Resize chat panel"));
+    lastFolderSignature = "";
+    scheduleRefresh();
   }
 
   function applySettings() {
@@ -590,6 +625,7 @@
 
   async function start() {
     settings = await storageGet();
+    await utils.loadLocaleOverride(settings.language);
     applySettings();
     refresh();
     startFolderSyncBurst();
@@ -622,6 +658,7 @@
       applySettings();
       scheduleRefresh();
       if (changes.folderLayout || changes.enabled) startFolderSyncBurst();
+      if (changes.language) utils.loadLocaleOverride(settings.language).then(applyLocaleStrings);
     });
   }
 

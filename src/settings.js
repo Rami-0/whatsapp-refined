@@ -19,10 +19,12 @@
     blurNames: false,
     blurAvatars: false,
     revealOnHover: true,
-    blurStrength: 8
+    blurStrength: 8,
+    language: "auto"
   });
 
-  const ENUMS = Object.freeze({ folderLayout: ["native", "sidebar"] });
+  const LANGUAGES = Object.freeze(["auto", "ar", "de", "en", "es", "fr", "hi", "id", "it", "ja", "ko", "nl", "pl", "pt_BR", "pt_PT", "ru", "tr", "vi", "zh_CN", "zh_TW"]);
+  const ENUMS = Object.freeze({ folderLayout: ["native", "sidebar"], language: LANGUAGES });
 
   function clamp(value, min, max, fallback) {
     const number = Number(value);
@@ -54,7 +56,7 @@
     return normalized;
   }
 
-  const api = Object.freeze({ DEFAULTS, ENUMS, normalizeSettings });
+  const api = Object.freeze({ DEFAULTS, ENUMS, LANGUAGES, normalizeSettings });
   global.WRSettings = api;
   if (typeof module !== "undefined" && module.exports) module.exports = api;
 })(typeof globalThis !== "undefined" ? globalThis : this);

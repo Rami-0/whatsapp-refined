@@ -4,6 +4,22 @@ All notable changes to Refined WhatsApp™ Web are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- Localization into 18 languages (Arabic, German, Spanish, French, Hindi,
+  Indonesian, Italian, Japanese, Korean, Dutch, Polish, Brazilian and European
+  Portuguese, Russian, Turkish, Vietnamese, Simplified and Traditional
+  Chinese) via Chrome's `_locales` i18n system. The extension follows the
+  browser's UI language and falls back to English. Brand names stay
+  untranslated; the settings drawer switches to right-to-left layout for
+  Arabic.
+- A **Language** picker on the Layout tab. It defaults to following the
+  browser, but any of the 19 languages can be chosen manually — for example
+  Arabic on an English browser — and the whole interface, including the
+  buttons injected into WhatsApp's sidebar, switches immediately.
+
 ## [1.1.1] — 2026-08-16
 
 ### Fixed

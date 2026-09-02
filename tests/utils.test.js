@@ -58,3 +58,37 @@ test("falls back for unsupported choices and drops retired preferences", () => {
   assert.equal(result.folderLayout, DEFAULTS.folderLayout);
   assert.equal("rowStyle" in result, false);
 });
+
+test("normalizes the language setting against the supported list", () => {
+  assert.equal(normalizeSettings({}).language, "auto");
+  assert.equal(normalizeSettings({ language: "ar" }).language, "ar");
+  assert.equal(normalizeSettings({ language: "klingon" }).language, "auto");
+});
+
+test("i18n falls back to English without chrome, and a loaded locale wins", async (t) => {
+  const fs = require("node:fs");
+  const path = require("node:path");
+  const { i18n, loadLocaleOverride, localeDirection } = require("../src/utils.js");
+
+  assert.equal(i18n("privacyLabel", "Privacy"), "Privacy");
+
+  globalThis.chrome = { runtime: { getURL: (resource) => path.join(__dirname, "..", resource) } };
+  const realFetch = globalThis.fetch;
+  globalThis.fetch = async (url) => ({ json: async () => JSON.parse(fs.readFileSync(url, "utf8")) });
+  t.after(() => {
+    delete globalThis.chrome;
+    globalThis.fetch = realFetch;
+    return loadLocaleOverride("auto");
+  });
+
+  assert.equal(await loadLocaleOverride("ar"), true);
+  assert.equal(i18n("privacyLabel", "Privacy"), "الخصوصية");
+  assert.equal(i18n("folderUnread", "fallback", ["Groups", "3"]).includes("Groups"), true);
+  assert.equal(i18n("missingKey", "fallback"), "fallback");
+
+  assert.equal(await loadLocaleOverride("auto"), false);
+  assert.equal(i18n("privacyLabel", "Privacy"), "Privacy");
+
+  assert.equal(localeDirection("ar"), "rtl");
+  assert.equal(localeDirection("de"), "ltr");
+});
