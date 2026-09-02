@@ -2,6 +2,7 @@
   "use strict";
 
   const { DEFAULTS, normalizeSettings } = globalThis.WRSettings;
+  const t = globalThis.WRUtils.i18n;
   const storage = globalThis.chrome?.storage?.local;
   const numericSettings = new Set(["sidebarWidth", "blurStrength"]);
   const params = new URLSearchParams(location.search);
@@ -18,10 +19,15 @@
   function renderPlatform() {
     const platform = globalThis.WRUtils.desktopPlatform(navigator);
     const isMac = platform === "mac";
-    const names = { mac: "macOS shortcuts", windows: "Windows shortcuts", linux: "Linux shortcuts", other: "Desktop shortcuts" };
+    const names = {
+      mac: t("platformMac", "macOS shortcuts"),
+      windows: t("platformWindows", "Windows shortcuts"),
+      linux: t("platformLinux", "Linux shortcuts"),
+      other: t("platformOther", "Desktop shortcuts")
+    };
     document.querySelector("#platformName").textContent = names[platform];
     document.querySelector("#platformSymbol").textContent = isMac ? "⌘" : platform === "windows" ? "⊞" : "⌨";
-    document.querySelector("#platformHelp").textContent = isMac ? "Uses Command (⌘) and Option (⌥)" : "Uses Ctrl and Alt";
+    document.querySelector("#platformHelp").textContent = isMac ? t("platformHelpMac", "Uses Command (⌘) and Option (⌥)") : t("platformHelpOther", "Uses Ctrl and Alt");
     document.querySelectorAll(".shortcut-keys").forEach((container) => {
       const tokens = (isMac ? container.dataset.mac : container.dataset.other).split("|");
       container.replaceChildren(...tokens.map((token) => {
@@ -56,7 +62,7 @@
     const progress = ((Number(input.value) - Number(input.min)) / (Number(input.max) - Number(input.min))) * 100;
     input.style.setProperty("--range-progress", `${progress}%`);
     const output = document.querySelector(`#${input.id}Value`);
-    if (output) output.textContent = `${input.value} px`;
+    if (output) output.textContent = t("pxValue", `${input.value} px`, [String(input.value)]);
   }
 
   function render(values) {

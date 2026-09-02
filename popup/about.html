@@ -12,36 +12,38 @@
         <img class="mark" src="../icons/icon128.png" alt="">
         <div class="identity">
           <h1>Refined WhatsApp™ Web</h1>
-          <p>A calmer workspace for WhatsApp Web.</p>
+          <p data-i18n="aboutTagline">A calmer workspace for WhatsApp Web.</p>
         </div>
         <span class="state-dot" id="stateDot" aria-hidden="true"></span>
       </header>
 
       <section class="activation" aria-labelledby="activationTitle">
         <div>
-          <span class="eyebrow">Extension status</span>
+          <span class="eyebrow" data-i18n="extensionStatus">Extension status</span>
           <h2 id="activationTitle">Refined is active</h2>
           <p id="activationHelp">Your layout and privacy preferences are applied.</p>
         </div>
         <button id="activationButton" type="button" aria-pressed="true">Pause Refined</button>
       </section>
 
-      <section class="details" aria-label="Privacy summary">
+      <section class="details" aria-label="Privacy summary" data-i18n-aria-label="privacySummaryAria">
         <div class="detail-row">
-          <span>Data</span>
-          <strong>Stays on your device</strong>
+          <span data-i18n="dataLabel">Data</span>
+          <strong data-i18n="dataValue">Stays on your device</strong>
         </div>
         <div class="detail-row">
-          <span>Access</span>
-          <strong>WhatsApp Web only</strong>
+          <span data-i18n="accessLabel">Access</span>
+          <strong data-i18n="accessValue">WhatsApp Web only</strong>
         </div>
       </section>
 
       <footer>
-        <p>Open Refined from the Settings button inside WhatsApp’s sidebar.</p>
+        <p data-i18n="aboutFooter">Open Refined from the Settings button inside WhatsApp’s sidebar.</p>
         <span id="version">v1.1.1</span>
       </footer>
     </main>
+    <script src="i18n.js"></script>
+    <script src="../src/utils.js"></script>
     <script src="../src/settings.js"></script>
     <script src="about.js"></script>
   </body>

@@ -5,7 +5,8 @@
   "description": "Native-feeling layout, privacy, and shortcut controls for WhatsApp Web.",
   "scripts": {
     "test": "node --test tests/*.test.js",
-    "package": "rm -rf dist && mkdir -p dist/unpacked && cp -R manifest.json icons popup src dist/unpacked/ && find dist/unpacked -name '.DS_Store' -delete && cd dist/unpacked && zip -qrX ../refined-whatsapp-web-$npm_package_version.zip .",
-    "release:check": "node scripts/check-release.js"
+    "package": "rm -rf dist && mkdir -p dist/unpacked && cp -R manifest.json _locales icons popup src dist/unpacked/ && find dist/unpacked -name '.DS_Store' -delete && cd dist/unpacked && zip -qrX ../refined-whatsapp-web-$npm_package_version.zip .",
+    "release:check": "node scripts/check-release.js",
+    "locales:check": "node scripts/check-locales.js"
   }
 }

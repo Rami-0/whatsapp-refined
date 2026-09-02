@@ -24,6 +24,9 @@ jobs:
       - name: Verify version and changelog
         run: npm run release:check -- "$GITHUB_REF_NAME"
 
+      - name: Verify locale files
+        run: npm run locales:check
+
       - name: Run tests
         run: npm test
 

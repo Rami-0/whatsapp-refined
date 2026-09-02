@@ -71,7 +71,17 @@
     return "other";
   }
 
-  const api = Object.freeze({ FOLDER_ALIASES, normalizeLabel, folderKind, folderInitial, uniqueFolders, parseFolderTab, desktopPlatform });
+  function i18n(key, fallback, substitutions) {
+    /* chrome.i18n is missing on the demo page and in Node tests; the English
+       fallback keeps the UI usable there. */
+    try {
+      const message = global.chrome?.i18n?.getMessage?.(key, substitutions);
+      if (message) return message;
+    } catch (_error) {}
+    return fallback;
+  }
+
+  const api = Object.freeze({ FOLDER_ALIASES, normalizeLabel, folderKind, folderInitial, uniqueFolders, parseFolderTab, desktopPlatform, i18n });
   global.WRUtils = api;
 
   if (typeof module !== "undefined" && module.exports) module.exports = api;

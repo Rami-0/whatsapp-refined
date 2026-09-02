@@ -3,19 +3,20 @@
 
   const storage = globalThis.chrome?.storage?.local;
   const defaults = globalThis.WRSettings.DEFAULTS;
+  const t = globalThis.WRUtils.i18n;
   const button = document.querySelector("#activationButton");
   let enabled = defaults.enabled;
 
   function render(value) {
     enabled = Boolean(value);
     document.body.classList.toggle("is-paused", !enabled);
-    document.querySelector("#activationTitle").textContent = enabled ? "Refined is active" : "Refined is paused";
+    document.querySelector("#activationTitle").textContent = enabled ? t("activeTitle", "Refined is active") : t("pausedTitle", "Refined is paused");
     document.querySelector("#activationHelp").textContent = enabled
-      ? "Your layout and privacy preferences are applied."
-      : "Activate it to restore your saved interface preferences.";
-    button.textContent = enabled ? "Pause Refined" : "Activate Refined";
+      ? t("activeHelp", "Your layout and privacy preferences are applied.")
+      : t("pausedHelp", "Activate it to restore your saved interface preferences.");
+    button.textContent = enabled ? t("pauseButton", "Pause Refined") : t("activateButton", "Activate Refined");
     button.setAttribute("aria-pressed", String(enabled));
-    document.querySelector("#stateDot").title = enabled ? "Active" : "Paused";
+    document.querySelector("#stateDot").title = enabled ? t("stateActive", "Active") : t("statePaused", "Paused");
   }
 
   function read() {

@@ -58,7 +58,8 @@ Linux (`⌘`/`Ctrl` + `⌥`/`Alt` + key):
 
 Everything is configured from a settings drawer inside WhatsApp Web that
 follows the host app's design, plus a toolbar popup to pause or resume the
-extension.
+extension. The interface is available in 19 languages and follows your
+browser's UI language automatically.
 
 <div align="center">
 <img src="store/assets/screenshot-2-privacy-1280x800.png" alt="Privacy blur settings" width="720">
@@ -131,6 +132,7 @@ policy, brand guidance, and promotional assets live in [`store/`](store/).
 
 ```
 manifest.json      Manifest V3 definition
+_locales/          Translations (Chrome i18n messages, English source)
 src/               Content script, stylesheet, settings, shared utils
 popup/             Settings drawer UI and toolbar popup
 icons/             Extension mark (PNG sizes)
