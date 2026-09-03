@@ -8,7 +8,7 @@
     "description": "Short extension name. Brand name — keep untranslated."
   },
   "appDesc": {
-    "message": "Giúp WhatsApp Web yên tĩnh và riêng tư hơn với điều khiển bố cục, làm mờ bảo vệ riêng tư và phím tắt.",
+    "message": "Giúp WhatsApp Web gọn gàng và riêng tư hơn: tùy chỉnh bố cục, làm mờ nội dung và phím tắt.",
     "description": "Store/extension description. Must stay under 132 characters."
   },
   "settingsTitle": {
@@ -16,7 +16,7 @@
     "description": "Title of the settings page and drawer."
   },
   "aboutTagline": {
-    "message": "Không gian làm việc yên tĩnh hơn cho WhatsApp Web.",
+    "message": "Không gian làm việc gọn gàng hơn cho WhatsApp Web.",
     "description": "Tagline under the extension name in the toolbar popup."
   },
   "extensionStatus": {
@@ -36,7 +36,7 @@
     "description": "Help text when enabled."
   },
   "pausedHelp": {
-    "message": "Kích hoạt để khôi phục các tùy chọn giao diện đã lưu.",
+    "message": "Bật lại để khôi phục các tùy chọn giao diện đã lưu.",
     "description": "Help text when disabled."
   },
   "pauseButton": {
@@ -44,7 +44,7 @@
     "description": "Button that disables the extension."
   },
   "activateButton": {
-    "message": "Kích hoạt Refined",
+    "message": "Bật Refined",
     "description": "Button that enables the extension."
   },
   "stateActive": {
@@ -64,7 +64,7 @@
     "description": "Label in privacy summary row."
   },
   "dataValue": {
-    "message": "Luôn ở trên thiết bị của bạn",
+    "message": "Chỉ lưu trên thiết bị của bạn",
     "description": "Value in privacy summary row about data."
   },
   "accessLabel": {
@@ -75,8 +75,62 @@
     "message": "Chỉ WhatsApp Web",
     "description": "Value in privacy summary row about site access."
   },
+  "versionLabel": {
+    "message": "Phiên bản",
+    "description": "Row label next to the installed version number."
+  },
+  "detailsAria": {
+    "message": "Chi tiết tiện ích",
+    "description": "Accessible name for the extension-details section."
+  },
+  "linksAria": {
+    "message": "Liên kết dự án",
+    "description": "Accessible name for the project links row."
+  },
+  "websiteLink": {
+    "message": "Trang web",
+    "description": "Tooltip and accessible name of the icon-only website link."
+  },
+  "githubLink": {
+    "message": "Kho lưu trữ GitHub",
+    "description": "Tooltip and accessible name of the icon-only GitHub link. 'GitHub' is a brand name."
+  },
+  "updateRestart": {
+    "message": "Khởi động lại",
+    "description": "Button that restarts the extension to apply a downloaded update."
+  },
+  "updateUpToDate": {
+    "message": "Đã cập nhật",
+    "description": "Badge shown when the installed version is current."
+  },
+  "updateReady": {
+    "message": "Đã sẵn sàng",
+    "description": "Badge shown when a newer version has been downloaded."
+  },
+  "updateChecking": {
+    "message": "Đang kiểm tra…",
+    "description": "Badge shown while the update check is in flight."
+  },
+  "updateVersionReady": {
+    "message": "Phiên bản $VERSION$ đã sẵn sàng",
+    "description": "Update card heading naming the new version. Keep the $VERSION$ placeholder.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.2.0"
+      }
+    }
+  },
+  "updateGenericReady": {
+    "message": "Bản cập nhật đã sẵn sàng",
+    "description": "Update card heading when the new version number is unknown."
+  },
+  "updateReadyHelp": {
+    "message": "Chrome đã tải bản cập nhật về. Hãy khởi động lại rồi tải lại các tab WhatsApp đang mở.",
+    "description": "Update card help text. 'Chrome' is a brand name."
+  },
   "aboutFooter": {
-    "message": "Mở Refined từ nút Cài đặt trong thanh bên của WhatsApp.",
+    "message": "Mở Refined từ nút “Cài đặt” trong thanh bên của WhatsApp.",
     "description": "Footer hint in the toolbar popup."
   },
   "headerTagline": {
@@ -103,6 +157,10 @@
     "message": "Phím tắt",
     "description": "Settings tab name (keyboard shortcuts)."
   },
+  "tabSettings": {
+    "message": "Cài đặt",
+    "description": "Settings tab name (extension-level options: language and reset)."
+  },
   "layoutPanelAria": {
     "message": "Cài đặt bố cục",
     "description": "Accessible label for the layout panel."
@@ -120,7 +178,7 @@
     "description": "Accessible label for the folder layout choice."
   },
   "nativeTabs": {
-    "message": "Tab gốc",
+    "message": "Tab mặc định",
     "description": "Folder layout option: WhatsApp's own tabs."
   },
   "whatsappSidebar": {
@@ -128,11 +186,11 @@
     "description": "Folder layout option: vertical sidebar."
   },
   "resizablePanel": {
-    "message": "Khung chat thay đổi được kích thước",
+    "message": "Khung chat có thể đổi kích thước",
     "description": "Setting title."
   },
   "resizablePanelHelp": {
-    "message": "Kéo mép phải bất cứ lúc nào; phím mũi tên hoạt động trên tay kéo",
+    "message": "Kéo mép phải bất cứ lúc nào; phím mũi tên cũng dùng được trên thanh kéo",
     "description": "Help text for the resizable panel setting."
   },
   "panelWidth": {
@@ -174,7 +232,7 @@
     "description": "Setting title. 'Meta AI' is a product name — keep untranslated."
   },
   "hideMetaAIHelp": {
-    "message": "Gỡ lối tắt điều hướng của tính năng này",
+    "message": "Gỡ nút khỏi thanh điều hướng",
     "description": "Help text."
   },
   "hideChannels": {
@@ -182,7 +240,7 @@
     "description": "Setting title. 'Channels' is WhatsApp's feature — use WhatsApp's official localized term."
   },
   "hideChannelsHelp": {
-    "message": "Gỡ lối tắt điều hướng của tính năng này",
+    "message": "Gỡ nút khỏi thanh điều hướng",
     "description": "Help text."
   },
   "privacyPanelAria": {
@@ -194,11 +252,11 @@
     "description": "Master privacy toggle title; also used as a shortcut row label."
   },
   "privacyModeHelp": {
-    "message": "Dùng phím tắt theo nền tảng hiển thị ở mục Phím tắt",
+    "message": "Dùng phím tắt phù hợp với hệ điều hành, xem ở mục “Phím tắt”",
     "description": "Help text for the privacy mode toggle."
   },
   "privacyBlurAria": {
-    "message": "Tùy chọn làm mờ riêng tư",
+    "message": "Tùy chọn làm mờ",
     "description": "Accessible label for the blur switches list."
   },
   "blurPreviews": {
@@ -214,7 +272,7 @@
     "description": "Setting title."
   },
   "blurMessagesHelp": {
-    "message": "Ẩn bong bóng hội thoại",
+    "message": "Ẩn bong bóng tin nhắn",
     "description": "Help text."
   },
   "blurImages": {
@@ -226,11 +284,11 @@
     "description": "Help text."
   },
   "blurVideos": {
-    "message": "Làm mờ video & GIF",
+    "message": "Làm mờ video và GIF",
     "description": "Setting title."
   },
   "blurVideosHelp": {
-    "message": "Khung video luôn được che mờ",
+    "message": "Vùng video luôn được làm mờ",
     "description": "Help text."
   },
   "blurNames": {
@@ -238,7 +296,7 @@
     "description": "Setting title."
   },
   "blurNamesHelp": {
-    "message": "Tiêu đề đoạn chat và cuộc trò chuyện",
+    "message": "Tên đoạn chat và tiêu đề cuộc trò chuyện",
     "description": "Help text."
   },
   "blurAvatars": {
@@ -254,7 +312,7 @@
     "description": "Setting title."
   },
   "revealOnHoverHelp": {
-    "message": "Tạm hiện đúng phần bạn trỏ vào",
+    "message": "Tạm thời chỉ hiện phần bạn trỏ vào",
     "description": "Help text."
   },
   "blurStrength": {
@@ -264,6 +322,10 @@
   "shortcutsPanelAria": {
     "message": "Phím tắt",
     "description": "Accessible label for the shortcuts panel."
+  },
+  "settingsPanelAria": {
+    "message": "Cài đặt tiện ích",
+    "description": "Accessible name for the extension settings panel."
   },
   "platformMac": {
     "message": "Phím tắt macOS",
@@ -306,15 +368,15 @@
     "description": "Shortcut row title."
   },
   "focusSearchHelp": {
-    "message": "Nhảy đến tìm kiếm của WhatsApp",
+    "message": "Đưa con trỏ vào ô tìm kiếm của WhatsApp",
     "description": "Help text."
   },
   "newChat": {
-    "message": "Đoạn chat mới",
+    "message": "Tin nhắn mới",
     "description": "Shortcut row title."
   },
   "newChatHelp": {
-    "message": "Mở bảng tạo đoạn chat mới gốc của WhatsApp",
+    "message": "Mở bảng “Tin nhắn mới” của WhatsApp",
     "description": "Help text."
   },
   "folderCycle": {
@@ -322,7 +384,7 @@
     "description": "Shortcut row title."
   },
   "folderCycleHelp": {
-    "message": "Chuyển qua các tab gốc hoặc thư mục ở thanh bên",
+    "message": "Chuyển giữa các tab mặc định hoặc thư mục ở thanh bên",
     "description": "Help text."
   },
   "privacyShortcutHelp": {
@@ -342,19 +404,39 @@
     "description": "Note under the shortcut list. Keep the key name Escape."
   },
   "footerSaved": {
-    "message": "Lưu cục bộ trên trình duyệt này",
+    "message": "Chỉ lưu trên trình duyệt này",
     "description": "Footer note about where settings are stored."
   },
   "resetDefaults": {
     "message": "Đặt lại mặc định",
     "description": "Button that restores default settings."
   },
+  "resetDefaultsHelp": {
+    "message": "Đưa mọi tùy chọn của Refined về trạng thái ban đầu",
+    "description": "Help text under the reset-defaults row."
+  },
+  "resetAction": {
+    "message": "Đặt lại",
+    "description": "Short label on the button that performs the reset."
+  },
+  "resetConfirmTitle": {
+    "message": "Đặt lại tất cả cài đặt?",
+    "description": "Heading of the confirmation dialog shown before resetting."
+  },
+  "resetConfirmBody": {
+    "message": "Mọi tùy chọn của Refined sẽ trở về giá trị mặc định. Tài khoản WhatsApp, cuộc trò chuyện và tin nhắn của bạn không bị ảnh hưởng.",
+    "description": "Body text of the reset confirmation dialog."
+  },
+  "cancel": {
+    "message": "Hủy",
+    "description": "Button that dismisses the confirmation dialog without changing anything."
+  },
   "language": {
     "message": "Ngôn ngữ",
     "description": "Setting title for the manual language picker."
   },
   "languageHelp": {
-    "message": "Theo ngôn ngữ trình duyệt trừ khi bạn tự chọn",
+    "message": "Tự động theo ngôn ngữ trình duyệt, trừ khi bạn tự chọn",
     "description": "Help text for the language picker."
   },
   "languageAuto": {
@@ -394,11 +476,11 @@
     "description": "Accessible label for the drag handle that resizes the chat panel."
   },
   "openListsMenu": {
-    "message": "Mở menu danh sách",
+    "message": "Mở menu Danh sách",
     "description": "Accessible label for the folder overflow/action button."
   },
   "folderUnread": {
-    "message": "$FOLDER$, $COUNT$ chưa đọc",
+    "message": "$FOLDER$, $COUNT$ đoạn chat chưa đọc",
     "description": "Accessible label for a folder with unread chats. Keep both placeholders.",
     "placeholders": {
       "folder": {

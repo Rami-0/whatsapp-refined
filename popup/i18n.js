@@ -42,19 +42,45 @@
     });
   }
 
+  async function applyLanguage(language) {
+    const overridden = await utils.loadLocaleOverride(language);
+    const root = document.documentElement;
+    if (overridden) {
+      root.lang = language.replace("_", "-");
+      root.dir = utils.localeDirection(language);
+    } else if (globalThis.chrome?.i18n) {
+      root.lang = chrome.i18n.getUILanguage();
+      root.dir = chrome.i18n.getMessage("@@bidi_dir") || "ltr";
+    }
+    /* popup.css keys its font stack off this: the Latin-first default renders
+       Arabic, Devanagari and CJK smaller than the text beside them. */
+    root.dataset.wrScript = utils.localeScript(utils.uiLanguage(language));
+    apply();
+  }
+
+  const listeners = [];
+
+  globalThis.WRLocale = Object.freeze({
+    /* Pages register whatever they render from JS rather than from a data-i18n
+       attribute. Switching language re-runs those in place: reloading the page
+       instead would throw away the open tab, the scroll position and focus. */
+    onChange(listener) {
+      listeners.push(listener);
+    }
+  });
+
   /* Pages await this promise before rendering their own strings, so a
      manually chosen language wins over the browser locale everywhere. */
   globalThis.WRLocaleReady = (async () => {
     const language = await readLanguage();
-    const overridden = await utils.loadLocaleOverride(language);
-    if (overridden) {
-      document.documentElement.lang = language.replace("_", "-");
-      document.documentElement.dir = utils.localeDirection(language);
-    } else if (globalThis.chrome?.i18n) {
-      document.documentElement.lang = chrome.i18n.getUILanguage();
-      document.documentElement.dir = chrome.i18n.getMessage("@@bidi_dir") || "ltr";
-    }
-    apply();
+    await applyLanguage(language);
     return language;
   })();
+
+  globalThis.chrome?.storage?.onChanged?.addListener((changes, area) => {
+    if (area !== "local" || !changes.language) return;
+    applyLanguage(changes.language.newValue || "auto").then(() => {
+      listeners.forEach((listener) => listener());
+    });
+  });
 })();

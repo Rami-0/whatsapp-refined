@@ -8,11 +8,11 @@
     "description": "Short extension name. Brand name — keep untranslated."
   },
   "appDesc": {
-    "message": "Jadikan WhatsApp Web lebih tenang dan privat dengan kontrol tata letak, buram privasi, dan pintasan keyboard.",
+    "message": "Buat WhatsApp Web lebih tenang dan privat: atur tata letak, buramkan isi layar, dan pakai pintasan keyboard.",
     "description": "Store/extension description. Must stay under 132 characters."
   },
   "settingsTitle": {
-    "message": "Setelan Refined WhatsApp™ Web",
+    "message": "Pengaturan Refined WhatsApp™ Web",
     "description": "Title of the settings page and drawer."
   },
   "aboutTagline": {
@@ -75,8 +75,62 @@
     "message": "Hanya WhatsApp Web",
     "description": "Value in privacy summary row about site access."
   },
+  "versionLabel": {
+    "message": "Versi",
+    "description": "Row label next to the installed version number."
+  },
+  "detailsAria": {
+    "message": "Detail ekstensi",
+    "description": "Accessible name for the extension-details section."
+  },
+  "linksAria": {
+    "message": "Tautan proyek",
+    "description": "Accessible name for the project links row."
+  },
+  "websiteLink": {
+    "message": "Situs web",
+    "description": "Tooltip and accessible name of the icon-only website link."
+  },
+  "githubLink": {
+    "message": "Repositori GitHub",
+    "description": "Tooltip and accessible name of the icon-only GitHub link. 'GitHub' is a brand name."
+  },
+  "updateRestart": {
+    "message": "Mulai ulang",
+    "description": "Button that restarts the extension to apply a downloaded update."
+  },
+  "updateUpToDate": {
+    "message": "Terbaru",
+    "description": "Badge shown when the installed version is current."
+  },
+  "updateReady": {
+    "message": "Pembaruan siap",
+    "description": "Badge shown when a newer version has been downloaded."
+  },
+  "updateChecking": {
+    "message": "Memeriksa…",
+    "description": "Badge shown while the update check is in flight."
+  },
+  "updateVersionReady": {
+    "message": "Versi $VERSION$ siap",
+    "description": "Update card heading naming the new version. Keep the $VERSION$ placeholder.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.2.0"
+      }
+    }
+  },
+  "updateGenericReady": {
+    "message": "Pembaruan sudah siap",
+    "description": "Update card heading when the new version number is unknown."
+  },
+  "updateReadyHelp": {
+    "message": "Chrome sudah mengunduhnya. Mulai ulang, lalu muat ulang tab WhatsApp yang terbuka.",
+    "description": "Update card help text. 'Chrome' is a brand name."
+  },
   "aboutFooter": {
-    "message": "Buka Refined dari tombol Setelan di bilah sisi WhatsApp.",
+    "message": "Buka Refined dari tombol “Pengaturan” di bilah sisi WhatsApp.",
     "description": "Footer hint in the toolbar popup."
   },
   "headerTagline": {
@@ -88,7 +142,7 @@
     "description": "Tooltip on the master on/off toggle."
   },
   "tabsAria": {
-    "message": "Bagian setelan",
+    "message": "Bagian pengaturan",
     "description": "Accessible label for the settings tab bar."
   },
   "tabLayout": {
@@ -103,8 +157,12 @@
     "message": "Pintasan",
     "description": "Settings tab name (keyboard shortcuts)."
   },
+  "tabSettings": {
+    "message": "Pengaturan",
+    "description": "Settings tab name (extension-level options: language and reset)."
+  },
   "layoutPanelAria": {
-    "message": "Setelan tata letak",
+    "message": "Pengaturan tata letak",
     "description": "Accessible label for the layout panel."
   },
   "chatFolders": {
@@ -112,7 +170,7 @@
     "description": "Setting group title."
   },
   "chatFoldersHelp": {
-    "message": "Pertahankan tab WhatsApp atau pindahkan ke bilah sisinya",
+    "message": "Pertahankan tab WhatsApp atau pindahkan ke bilah sisi",
     "description": "Help text for the chat folders setting."
   },
   "folderLayoutAria": {
@@ -128,7 +186,7 @@
     "description": "Folder layout option: vertical sidebar."
   },
   "resizablePanel": {
-    "message": "Panel chat dapat diubah ukurannya",
+    "message": "Panel chat bisa diubah ukurannya",
     "description": "Setting title."
   },
   "resizablePanelHelp": {
@@ -158,11 +216,11 @@
     "description": "Setting title."
   },
   "messagePreviewsHelp": {
-    "message": "Tampilkan pesan terakhir di baris chat",
+    "message": "Tampilkan pesan terakhir di daftar chat",
     "description": "Help text."
   },
   "hideNotification": {
-    "message": "Sembunyikan ajakan notifikasi",
+    "message": "Sembunyikan permintaan notifikasi",
     "description": "Setting title."
   },
   "hideNotificationHelp": {
@@ -174,7 +232,7 @@
     "description": "Setting title. 'Meta AI' is a product name — keep untranslated."
   },
   "hideMetaAIHelp": {
-    "message": "Hapus pintasan navigasinya",
+    "message": "Hapus tombolnya dari navigasi",
     "description": "Help text."
   },
   "hideChannels": {
@@ -182,11 +240,11 @@
     "description": "Setting title. 'Channels' is WhatsApp's feature — use WhatsApp's official localized term."
   },
   "hideChannelsHelp": {
-    "message": "Hapus pintasan navigasinya",
+    "message": "Hapus tombolnya dari navigasi",
     "description": "Help text."
   },
   "privacyPanelAria": {
-    "message": "Setelan privasi",
+    "message": "Pengaturan privasi",
     "description": "Accessible label for the privacy panel."
   },
   "privacyMode": {
@@ -194,11 +252,11 @@
     "description": "Master privacy toggle title; also used as a shortcut row label."
   },
   "privacyModeHelp": {
-    "message": "Gunakan pintasan sesuai platform yang tercantum di tab Pintasan",
+    "message": "Gunakan pintasan untuk sistem Anda, tercantum di tab “Pintasan”",
     "description": "Help text for the privacy mode toggle."
   },
   "privacyBlurAria": {
-    "message": "Opsi buram privasi",
+    "message": "Opsi efek buram",
     "description": "Accessible label for the blur switches list."
   },
   "blurPreviews": {
@@ -226,11 +284,11 @@
     "description": "Help text."
   },
   "blurVideos": {
-    "message": "Buramkan video & GIF",
+    "message": "Buramkan video dan GIF",
     "description": "Setting title."
   },
   "blurVideosHelp": {
-    "message": "Tampilan video tetap tersamarkan",
+    "message": "Area video tetap buram",
     "description": "Help text."
   },
   "blurNames": {
@@ -238,7 +296,7 @@
     "description": "Setting title."
   },
   "blurNamesHelp": {
-    "message": "Judul chat dan percakapan",
+    "message": "Nama chat dan judul percakapan",
     "description": "Help text."
   },
   "blurAvatars": {
@@ -246,24 +304,28 @@
     "description": "Setting title."
   },
   "blurAvatarsHelp": {
-    "message": "Hanya avatar; emoji dalam teks tetap terlihat",
+    "message": "Hanya foto profil; emoji dalam teks tetap terlihat",
     "description": "Help text."
   },
   "revealOnHover": {
-    "message": "Tampilkan saat diarahkan",
+    "message": "Tampilkan saat kursor diarahkan",
     "description": "Setting title."
   },
   "revealOnHoverHelp": {
-    "message": "Tampilkan sementara hanya bagian yang Anda tunjuk",
+    "message": "Tampilkan sementara hanya bagian yang ditunjuk kursor",
     "description": "Help text."
   },
   "blurStrength": {
-    "message": "Kekuatan buram",
+    "message": "Tingkat efek buram",
     "description": "Setting title for the blur slider."
   },
   "shortcutsPanelAria": {
     "message": "Pintasan keyboard",
     "description": "Accessible label for the shortcuts panel."
+  },
+  "settingsPanelAria": {
+    "message": "Pengaturan ekstensi",
+    "description": "Accessible name for the extension settings panel."
   },
   "platformMac": {
     "message": "Pintasan macOS",
@@ -294,7 +356,7 @@
     "description": "Toggle title for the extension's shortcuts. 'Refined' is the brand name."
   },
   "refinedShortcutsHelp": {
-    "message": "Aktif saat tab WhatsApp sedang difokuskan",
+    "message": "Berlaku selama tab WhatsApp sedang aktif",
     "description": "Help text."
   },
   "shortcutListAria": {
@@ -302,11 +364,11 @@
     "description": "Accessible label for the shortcut list."
   },
   "focusSearch": {
-    "message": "Fokus ke pencarian",
+    "message": "Buka kolom pencarian",
     "description": "Shortcut row title."
   },
   "focusSearchHelp": {
-    "message": "Langsung ke pencarian WhatsApp",
+    "message": "Pindah ke kolom pencarian WhatsApp",
     "description": "Help text."
   },
   "newChat": {
@@ -314,7 +376,7 @@
     "description": "Shortcut row title."
   },
   "newChatHelp": {
-    "message": "Buka panel chat baru bawaan WhatsApp",
+    "message": "Buka panel “Chat baru” bawaan WhatsApp",
     "description": "Help text."
   },
   "folderCycle": {
@@ -330,15 +392,15 @@
     "description": "Help text for the privacy mode shortcut row."
   },
   "refinedSettings": {
-    "message": "Setelan Refined",
+    "message": "Pengaturan Refined",
     "description": "Shortcut row title; opens this settings drawer. 'Refined' is the brand name."
   },
   "refinedSettingsHelp": {
-    "message": "Buka atau tutup laci ini",
+    "message": "Buka atau tutup panel pengaturan ini",
     "description": "Help text."
   },
   "shortcutNote": {
-    "message": "Pintasan keyboard bawaan WhatsApp tetap berfungsi seperti biasa. Tekan Escape untuk menutup laci setelan.",
+    "message": "Pintasan keyboard bawaan WhatsApp tetap berfungsi seperti biasa. Tekan Escape untuk menutup panel pengaturan.",
     "description": "Note under the shortcut list. Keep the key name Escape."
   },
   "footerSaved": {
@@ -346,8 +408,28 @@
     "description": "Footer note about where settings are stored."
   },
   "resetDefaults": {
-    "message": "Atur ulang bawaan",
+    "message": "Setel ulang ke bawaan",
     "description": "Button that restores default settings."
+  },
+  "resetDefaultsHelp": {
+    "message": "Kembalikan semua opsi Refined ke keadaan awal",
+    "description": "Help text under the reset-defaults row."
+  },
+  "resetAction": {
+    "message": "Setel ulang",
+    "description": "Short label on the button that performs the reset."
+  },
+  "resetConfirmTitle": {
+    "message": "Setel ulang semua pengaturan?",
+    "description": "Heading of the confirmation dialog shown before resetting."
+  },
+  "resetConfirmBody": {
+    "message": "Semua opsi Refined kembali ke nilai bawaan. Akun WhatsApp, chat, dan pesan Anda tidak terpengaruh.",
+    "description": "Body text of the reset confirmation dialog."
+  },
+  "cancel": {
+    "message": "Batal",
+    "description": "Button that dismisses the confirmation dialog without changing anything."
   },
   "language": {
     "message": "Bahasa",
@@ -366,7 +448,7 @@
     "description": "Accessible label for the injected folder sidebar."
   },
   "toolsAria": {
-    "message": "Perkakas Refined WhatsApp™ Web",
+    "message": "Alat Refined WhatsApp™ Web",
     "description": "Accessible label for the injected action buttons. Brand name — keep untranslated."
   },
   "togglePrivacyAria": {
@@ -378,15 +460,15 @@
     "description": "Short caption under the privacy button."
   },
   "openSettingsAria": {
-    "message": "Buka setelan Refined",
+    "message": "Buka pengaturan Refined",
     "description": "Label/tooltip for the settings button in WhatsApp's sidebar."
   },
   "settingsLabel": {
-    "message": "Setelan",
+    "message": "Pengaturan",
     "description": "Short caption under the settings button."
   },
   "closeSettingsAria": {
-    "message": "Tutup setelan Refined",
+    "message": "Tutup pengaturan Refined",
     "description": "Label for the drawer close button."
   },
   "resizePanelAria": {
@@ -394,11 +476,11 @@
     "description": "Accessible label for the drag handle that resizes the chat panel."
   },
   "openListsMenu": {
-    "message": "Buka menu daftar",
+    "message": "Buka menu Daftar",
     "description": "Accessible label for the folder overflow/action button."
   },
   "folderUnread": {
-    "message": "$FOLDER$, $COUNT$ belum dibaca",
+    "message": "$FOLDER$, $COUNT$ chat belum dibaca",
     "description": "Accessible label for a folder with unread chats. Keep both placeholders.",
     "placeholders": {
       "folder": {

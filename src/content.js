@@ -504,7 +504,14 @@
     });
   }
 
+  function applyLocaleScript() {
+    /* WhatsApp's own <html lang> says nothing about the language Refined was
+       set to, so the rail tags itself and content.css keys its fonts off it. */
+    document.documentElement.dataset.wrScript = utils.localeScript(utils.uiLanguage(settings.language));
+  }
+
   function applyLocaleStrings() {
+    applyLocaleScript();
     folderNav?.setAttribute("aria-label", t("navFoldersAria", "WhatsApp chat folders"));
     sidebarActions?.setAttribute("aria-label", t("toolsAria", "Refined WhatsApp™ Web tools"));
     const relabel = (button, label) => {
@@ -626,6 +633,7 @@
   async function start() {
     settings = await storageGet();
     await utils.loadLocaleOverride(settings.language);
+    applyLocaleScript();
     applySettings();
     refresh();
     startFolderSyncBurst();

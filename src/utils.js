@@ -72,7 +72,18 @@
   }
 
   const RTL_LANGUAGES = Object.freeze(["ar"]);
+  const LOCALE_SCRIPTS = Object.freeze({
+    ar: "arabic",
+    hi: "devanagari",
+    ja: "japanese",
+    ko: "korean",
+    zh: "han"
+  });
   let localeOverride = null;
+
+  function baseLanguage(language) {
+    return String(language || "").replace("-", "_").split("_")[0].toLowerCase();
+  }
 
   function applyPlaceholders(entry, substitutions) {
     let message = entry.message;
@@ -97,27 +108,55 @@
     return fallback;
   }
 
+  async function fetchLocaleMessages(language) {
+    /* Extension pages read their own _locales folder directly. Content scripts
+       cannot: Chrome will not serve underscore-prefixed paths to a web page,
+       so they ask the service worker, which reads it same-origin, instead. */
+    try {
+      const url = global.chrome?.runtime?.getURL?.(`_locales/${language}/messages.json`);
+      if (url) {
+        const response = await fetch(url);
+        if (response.ok) return await response.json();
+      }
+    } catch (_error) {}
+    try {
+      const response = await global.chrome?.runtime?.sendMessage?.({ type: "wr-locale", language });
+      if (response?.messages) return response.messages;
+    } catch (_error) {}
+    return null;
+  }
+
   async function loadLocaleOverride(language) {
     if (!language || language === "auto") {
       localeOverride = null;
       return false;
     }
+    localeOverride = await fetchLocaleMessages(language);
+    return Boolean(localeOverride);
+  }
+
+  function uiLanguage(language) {
+    if (language && language !== "auto") return language;
     try {
-      const url = global.chrome?.runtime?.getURL?.(`_locales/${language}/messages.json`);
-      if (!url) return false;
-      localeOverride = await (await fetch(url)).json();
-      return true;
+      return global.chrome?.i18n?.getUILanguage?.() || "en";
     } catch (_error) {
-      localeOverride = null;
-      return false;
+      return "en";
     }
   }
 
   function localeDirection(language) {
-    return RTL_LANGUAGES.includes(language) ? "rtl" : "ltr";
+    return RTL_LANGUAGES.includes(baseLanguage(language)) ? "rtl" : "ltr";
   }
 
-  const api = Object.freeze({ FOLDER_ALIASES, normalizeLabel, folderKind, folderInitial, uniqueFolders, parseFolderTab, desktopPlatform, i18n, loadLocaleOverride, localeDirection });
+  /* Latin-first UI fonts leave Arabic and Devanagari to whatever the platform
+     substitutes, which renders them noticeably smaller and thinner than the
+     surrounding text. Pages tag themselves with the script so the stylesheet
+     can pick a face made for it and nudge the size back up. */
+  function localeScript(language) {
+    return LOCALE_SCRIPTS[baseLanguage(language)] || "latin";
+  }
+
+  const api = Object.freeze({ FOLDER_ALIASES, normalizeLabel, folderKind, folderInitial, uniqueFolders, parseFolderTab, desktopPlatform, i18n, loadLocaleOverride, uiLanguage, localeDirection, localeScript });
   global.WRUtils = api;
 
   if (typeof module !== "undefined" && module.exports) module.exports = api;

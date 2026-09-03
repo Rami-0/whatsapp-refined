@@ -16,7 +16,7 @@
     "description": "Title of the settings page and drawer."
   },
   "aboutTagline": {
-    "message": "更安靜的 WhatsApp Web 工作空間。",
+    "message": "更清爽的 WhatsApp Web 工作空間。",
     "description": "Tagline under the extension name in the toolbar popup."
   },
   "extensionStatus": {
@@ -32,11 +32,11 @@
     "description": "Heading when the extension is disabled."
   },
   "activeHelp": {
-    "message": "已套用你的版面和隱私偏好設定。",
+    "message": "已套用你的版面和隱私設定。",
     "description": "Help text when enabled."
   },
   "pausedHelp": {
-    "message": "啟用後即可還原你儲存的介面偏好設定。",
+    "message": "啟用後即可還原你儲存的介面設定。",
     "description": "Help text when disabled."
   },
   "pauseButton": {
@@ -75,6 +75,60 @@
     "message": "僅限 WhatsApp Web",
     "description": "Value in privacy summary row about site access."
   },
+  "versionLabel": {
+    "message": "版本",
+    "description": "Row label next to the installed version number."
+  },
+  "detailsAria": {
+    "message": "擴充功能詳細資料",
+    "description": "Accessible name for the extension-details section."
+  },
+  "linksAria": {
+    "message": "專案連結",
+    "description": "Accessible name for the project links row."
+  },
+  "websiteLink": {
+    "message": "網站",
+    "description": "Tooltip and accessible name of the icon-only website link."
+  },
+  "githubLink": {
+    "message": "GitHub 存放庫",
+    "description": "Tooltip and accessible name of the icon-only GitHub link. 'GitHub' is a brand name."
+  },
+  "updateRestart": {
+    "message": "重新啟動",
+    "description": "Button that restarts the extension to apply a downloaded update."
+  },
+  "updateUpToDate": {
+    "message": "已是最新",
+    "description": "Badge shown when the installed version is current."
+  },
+  "updateReady": {
+    "message": "更新就緒",
+    "description": "Badge shown when a newer version has been downloaded."
+  },
+  "updateChecking": {
+    "message": "正在檢查…",
+    "description": "Badge shown while the update check is in flight."
+  },
+  "updateVersionReady": {
+    "message": "版本 $VERSION$ 已就緒",
+    "description": "Update card heading naming the new version. Keep the $VERSION$ placeholder.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.2.0"
+      }
+    }
+  },
+  "updateGenericReady": {
+    "message": "新版本已就緒",
+    "description": "Update card heading when the new version number is unknown."
+  },
+  "updateReadyHelp": {
+    "message": "Chrome 已下載更新。重新啟動後請重新整理已開啟的 WhatsApp 分頁。",
+    "description": "Update card help text. 'Chrome' is a brand name."
+  },
   "aboutFooter": {
     "message": "在 WhatsApp 側邊欄中點按「設定」按鈕即可開啟 Refined。",
     "description": "Footer hint in the toolbar popup."
@@ -88,7 +142,7 @@
     "description": "Tooltip on the master on/off toggle."
   },
   "tabsAria": {
-    "message": "設定區段",
+    "message": "設定分類",
     "description": "Accessible label for the settings tab bar."
   },
   "tabLayout": {
@@ -102,6 +156,10 @@
   "tabShortcuts": {
     "message": "快速鍵",
     "description": "Settings tab name (keyboard shortcuts)."
+  },
+  "tabSettings": {
+    "message": "設定",
+    "description": "Settings tab name (extension-level options: language and reset)."
   },
   "layoutPanelAria": {
     "message": "版面設定",
@@ -120,7 +178,7 @@
     "description": "Accessible label for the folder layout choice."
   },
   "nativeTabs": {
-    "message": "原生分頁",
+    "message": "內建分頁",
     "description": "Folder layout option: WhatsApp's own tabs."
   },
   "whatsappSidebar": {
@@ -132,7 +190,7 @@
     "description": "Setting title."
   },
   "resizablePanelHelp": {
-    "message": "隨時拖曳其右側邊緣；也可在控制點上使用方向鍵",
+    "message": "隨時拖曳右側邊緣；焦點在控制點上時也可用方向鍵",
     "description": "Help text for the resizable panel setting."
   },
   "panelWidth": {
@@ -158,7 +216,7 @@
     "description": "Setting title."
   },
   "messagePreviewsHelp": {
-    "message": "在聊天列表中顯示最後一則訊息",
+    "message": "在聊天清單中顯示最後一則訊息",
     "description": "Help text."
   },
   "hideNotification": {
@@ -174,7 +232,7 @@
     "description": "Setting title. 'Meta AI' is a product name — keep untranslated."
   },
   "hideMetaAIHelp": {
-    "message": "移除其導覽捷徑",
+    "message": "從導覽列移除",
     "description": "Help text."
   },
   "hideChannels": {
@@ -182,7 +240,7 @@
     "description": "Setting title. 'Channels' is WhatsApp's feature — use WhatsApp's official localized term."
   },
   "hideChannelsHelp": {
-    "message": "移除其導覽捷徑",
+    "message": "從導覽列移除",
     "description": "Help text."
   },
   "privacyPanelAria": {
@@ -194,11 +252,11 @@
     "description": "Master privacy toggle title; also used as a shortcut row label."
   },
   "privacyModeHelp": {
-    "message": "使用「快速鍵」中顯示的平台專屬快速鍵",
+    "message": "使用「快速鍵」分頁中對應系統的快速鍵",
     "description": "Help text for the privacy mode toggle."
   },
   "privacyBlurAria": {
-    "message": "隱私模糊選項",
+    "message": "模糊選項",
     "description": "Accessible label for the blur switches list."
   },
   "blurPreviews": {
@@ -238,7 +296,7 @@
     "description": "Setting title."
   },
   "blurNamesHelp": {
-    "message": "聊天和對話標題",
+    "message": "聊天和對話名稱",
     "description": "Help text."
   },
   "blurAvatars": {
@@ -264,6 +322,10 @@
   "shortcutsPanelAria": {
     "message": "鍵盤快速鍵",
     "description": "Accessible label for the shortcuts panel."
+  },
+  "settingsPanelAria": {
+    "message": "擴充功能設定",
+    "description": "Accessible name for the extension settings panel."
   },
   "platformMac": {
     "message": "macOS 快速鍵",
@@ -294,7 +356,7 @@
     "description": "Toggle title for the extension's shortcuts. 'Refined' is the brand name."
   },
   "refinedShortcutsHelp": {
-    "message": "在 WhatsApp 分頁取得焦點時生效",
+    "message": "只在 WhatsApp 分頁使用中時生效",
     "description": "Help text."
   },
   "shortcutListAria": {
@@ -302,11 +364,11 @@
     "description": "Accessible label for the shortcut list."
   },
   "focusSearch": {
-    "message": "聚焦搜尋",
+    "message": "跳到搜尋框",
     "description": "Shortcut row title."
   },
   "focusSearchHelp": {
-    "message": "跳至 WhatsApp 搜尋",
+    "message": "將游標移至 WhatsApp 的搜尋框",
     "description": "Help text."
   },
   "newChat": {
@@ -314,7 +376,7 @@
     "description": "Shortcut row title."
   },
   "newChatHelp": {
-    "message": "開啟 WhatsApp 原生的新聊天面板",
+    "message": "開啟 WhatsApp 內建的新聊天面板",
     "description": "Help text."
   },
   "folderCycle": {
@@ -322,7 +384,7 @@
     "description": "Shortcut row title."
   },
   "folderCycleHelp": {
-    "message": "在原生分頁或側邊欄資料夾間循環切換",
+    "message": "在內建分頁或側邊欄資料夾之間循環切換",
     "description": "Help text."
   },
   "privacyShortcutHelp": {
@@ -342,19 +404,39 @@
     "description": "Note under the shortcut list. Keep the key name Escape."
   },
   "footerSaved": {
-    "message": "僅儲存在此瀏覽器本機",
+    "message": "只儲存在這個瀏覽器中",
     "description": "Footer note about where settings are stored."
   },
   "resetDefaults": {
-    "message": "恢復預設值",
+    "message": "重設為預設值",
     "description": "Button that restores default settings."
+  },
+  "resetDefaultsHelp": {
+    "message": "將 Refined 的所有選項還原成初始狀態",
+    "description": "Help text under the reset-defaults row."
+  },
+  "resetAction": {
+    "message": "重設",
+    "description": "Short label on the button that performs the reset."
+  },
+  "resetConfirmTitle": {
+    "message": "要重設所有設定嗎？",
+    "description": "Heading of the confirmation dialog shown before resetting."
+  },
+  "resetConfirmBody": {
+    "message": "Refined 的所有選項都會恢復為預設值。你的 WhatsApp 帳號、聊天和訊息不受影響。",
+    "description": "Body text of the reset confirmation dialog."
+  },
+  "cancel": {
+    "message": "取消",
+    "description": "Button that dismisses the confirmation dialog without changing anything."
   },
   "language": {
     "message": "語言",
     "description": "Setting title for the manual language picker."
   },
   "languageHelp": {
-    "message": "未選擇時跟隨瀏覽器語言",
+    "message": "未選擇時會跟隨瀏覽器語言",
     "description": "Help text for the language picker."
   },
   "languageAuto": {
@@ -394,7 +476,7 @@
     "description": "Accessible label for the drag handle that resizes the chat panel."
   },
   "openListsMenu": {
-    "message": "開啟清單選單",
+    "message": "開啟「清單」選單",
     "description": "Accessible label for the folder overflow/action button."
   },
   "folderUnread": {

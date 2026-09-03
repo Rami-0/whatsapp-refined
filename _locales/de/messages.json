@@ -8,7 +8,7 @@
     "description": "Short extension name. Brand name — keep untranslated."
   },
   "appDesc": {
-    "message": "Mach WhatsApp Web ruhiger und privater: native Layout-Optionen, Privatsphäre-Unschärfe und Tastenkürzel.",
+    "message": "Macht WhatsApp Web ruhiger und privater: nativ wirkende Layout-Optionen, Weichzeichnen für mehr Privatsphäre und Tastenkürzel.",
     "description": "Store/extension description. Must stay under 132 characters."
   },
   "settingsTitle": {
@@ -32,11 +32,11 @@
     "description": "Heading when the extension is disabled."
   },
   "activeHelp": {
-    "message": "Deine Layout- und Privatsphäre-Einstellungen sind aktiv.",
+    "message": "Deine Layout- und Privatsphäre-Einstellungen werden angewendet.",
     "description": "Help text when enabled."
   },
   "pausedHelp": {
-    "message": "Aktiviere es, um deine gespeicherten Oberflächen-Einstellungen wiederherzustellen.",
+    "message": "Aktiviere Refined, um deine gespeicherten Oberflächeneinstellungen wiederherzustellen.",
     "description": "Help text when disabled."
   },
   "pauseButton": {
@@ -75,12 +75,66 @@
     "message": "Nur WhatsApp Web",
     "description": "Value in privacy summary row about site access."
   },
+  "versionLabel": {
+    "message": "Version",
+    "description": "Row label next to the installed version number."
+  },
+  "detailsAria": {
+    "message": "Erweiterungsdetails",
+    "description": "Accessible name for the extension-details section."
+  },
+  "linksAria": {
+    "message": "Projektlinks",
+    "description": "Accessible name for the project links row."
+  },
+  "websiteLink": {
+    "message": "Website",
+    "description": "Tooltip and accessible name of the icon-only website link."
+  },
+  "githubLink": {
+    "message": "GitHub-Repository",
+    "description": "Tooltip and accessible name of the icon-only GitHub link. 'GitHub' is a brand name."
+  },
+  "updateRestart": {
+    "message": "Neu starten",
+    "description": "Button that restarts the extension to apply a downloaded update."
+  },
+  "updateUpToDate": {
+    "message": "Aktuell",
+    "description": "Badge shown when the installed version is current."
+  },
+  "updateReady": {
+    "message": "Update bereit",
+    "description": "Badge shown when a newer version has been downloaded."
+  },
+  "updateChecking": {
+    "message": "Wird geprüft…",
+    "description": "Badge shown while the update check is in flight."
+  },
+  "updateVersionReady": {
+    "message": "Version $VERSION$ ist bereit",
+    "description": "Update card heading naming the new version. Keep the $VERSION$ placeholder.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.2.0"
+      }
+    }
+  },
+  "updateGenericReady": {
+    "message": "Ein Update ist bereit",
+    "description": "Update card heading when the new version number is unknown."
+  },
+  "updateReadyHelp": {
+    "message": "Chrome hat es heruntergeladen. Starte neu und lade offene WhatsApp-Tabs neu.",
+    "description": "Update card help text. 'Chrome' is a brand name."
+  },
   "aboutFooter": {
-    "message": "Öffne Refined über die Einstellungen-Schaltfläche in der WhatsApp-Seitenleiste.",
+    "message": "Öffne Refined über die Schaltfläche „Einstellungen“ in der WhatsApp-Seitenleiste.",
     "description": "Footer hint in the toolbar popup."
   },
   "headerTagline": {
-    "message": "Mach deinen Arbeitsbereich zu deinem.",
+    "message": "Dein Arbeitsbereich, ganz nach deinem Geschmack.",
     "description": "Tagline in the settings drawer header."
   },
   "masterToggleTitle": {
@@ -100,8 +154,12 @@
     "description": "Settings tab name."
   },
   "tabShortcuts": {
-    "message": "Kurzbefehle",
+    "message": "Tastenkürzel",
     "description": "Settings tab name (keyboard shortcuts)."
+  },
+  "tabSettings": {
+    "message": "Einstellungen",
+    "description": "Settings tab name (extension-level options: language and reset)."
   },
   "layoutPanelAria": {
     "message": "Layout-Einstellungen",
@@ -128,15 +186,15 @@
     "description": "Folder layout option: vertical sidebar."
   },
   "resizablePanel": {
-    "message": "Anpassbares Chat-Panel",
+    "message": "Anpassbarer Chat-Bereich",
     "description": "Setting title."
   },
   "resizablePanelHelp": {
-    "message": "Zieh jederzeit am rechten Rand; Pfeiltasten funktionieren am Griff",
+    "message": "Jederzeit am rechten Rand ziehen; am Griff funktionieren auch die Pfeiltasten",
     "description": "Help text for the resizable panel setting."
   },
   "panelWidth": {
-    "message": "Breite des Chat-Panels",
+    "message": "Breite des Chat-Bereichs",
     "description": "Setting title for the width slider."
   },
   "pxValue": {
@@ -150,7 +208,7 @@
     }
   },
   "interfaceOptionsAria": {
-    "message": "Oberflächen-Optionen",
+    "message": "Oberflächenoptionen",
     "description": "Accessible label for the interface switches list."
   },
   "messagePreviews": {
@@ -158,11 +216,11 @@
     "description": "Setting title."
   },
   "messagePreviewsHelp": {
-    "message": "Letzte Nachricht in den Chat-Zeilen anzeigen",
+    "message": "Letzte Nachricht in der Chatliste anzeigen",
     "description": "Help text."
   },
   "hideNotification": {
-    "message": "Benachrichtigungs-Hinweis ausblenden",
+    "message": "Benachrichtigungshinweis ausblenden",
     "description": "Setting title."
   },
   "hideNotificationHelp": {
@@ -174,7 +232,7 @@
     "description": "Setting title. 'Meta AI' is a product name — keep untranslated."
   },
   "hideMetaAIHelp": {
-    "message": "Die Verknüpfung aus der Navigation entfernen",
+    "message": "Eintrag aus der Navigation entfernen",
     "description": "Help text."
   },
   "hideChannels": {
@@ -182,7 +240,7 @@
     "description": "Setting title. 'Channels' is WhatsApp's feature — use WhatsApp's official localized term."
   },
   "hideChannelsHelp": {
-    "message": "Die Verknüpfung aus der Navigation entfernen",
+    "message": "Eintrag aus der Navigation entfernen",
     "description": "Help text."
   },
   "privacyPanelAria": {
@@ -194,11 +252,11 @@
     "description": "Master privacy toggle title; also used as a shortcut row label."
   },
   "privacyModeHelp": {
-    "message": "Nutze das passende Tastenkürzel unter „Kurzbefehle“",
+    "message": "Das passende Tastenkürzel findest du im Tab „Tastenkürzel“",
     "description": "Help text for the privacy mode toggle."
   },
   "privacyBlurAria": {
-    "message": "Optionen für Privatsphäre-Unschärfe",
+    "message": "Weichzeichner-Optionen",
     "description": "Accessible label for the blur switches list."
   },
   "blurPreviews": {
@@ -226,7 +284,7 @@
     "description": "Help text."
   },
   "blurVideos": {
-    "message": "Videos & GIFs weichzeichnen",
+    "message": "Videos und GIFs weichzeichnen",
     "description": "Setting title."
   },
   "blurVideosHelp": {
@@ -238,7 +296,7 @@
     "description": "Setting title."
   },
   "blurNamesHelp": {
-    "message": "Chat- und Unterhaltungstitel",
+    "message": "Namen von Chats und Unterhaltungen",
     "description": "Help text."
   },
   "blurAvatars": {
@@ -246,15 +304,15 @@
     "description": "Setting title."
   },
   "blurAvatarsHelp": {
-    "message": "Nur Avatare; Emojis im Text bleiben sichtbar",
+    "message": "Nur Profilbilder; Emojis im Text bleiben sichtbar",
     "description": "Help text."
   },
   "revealOnHover": {
-    "message": "Beim Überfahren anzeigen",
+    "message": "Beim Daraufzeigen einblenden",
     "description": "Setting title."
   },
   "revealOnHoverHelp": {
-    "message": "Zeigt vorübergehend nur, worauf du zeigst",
+    "message": "Blendet vorübergehend nur das ein, worauf du zeigst",
     "description": "Help text."
   },
   "blurStrength": {
@@ -262,23 +320,27 @@
     "description": "Setting title for the blur slider."
   },
   "shortcutsPanelAria": {
-    "message": "Tastaturkurzbefehle",
+    "message": "Tastenkürzel",
     "description": "Accessible label for the shortcuts panel."
   },
+  "settingsPanelAria": {
+    "message": "Erweiterungseinstellungen",
+    "description": "Accessible name for the extension settings panel."
+  },
   "platformMac": {
-    "message": "macOS-Kurzbefehle",
+    "message": "macOS-Tastenkürzel",
     "description": "Platform card title on macOS."
   },
   "platformWindows": {
-    "message": "Windows-Kurzbefehle",
+    "message": "Windows-Tastenkürzel",
     "description": "Platform card title on Windows."
   },
   "platformLinux": {
-    "message": "Linux-Kurzbefehle",
+    "message": "Linux-Tastenkürzel",
     "description": "Platform card title on Linux."
   },
   "platformOther": {
-    "message": "Desktop-Kurzbefehle",
+    "message": "Desktop-Tastenkürzel",
     "description": "Platform card title on other platforms."
   },
   "platformHelpMac": {
@@ -290,23 +352,23 @@
     "description": "Platform card help on non-macOS. Keep key names Ctrl/Alt."
   },
   "refinedShortcuts": {
-    "message": "Refined-Kurzbefehle",
+    "message": "Refined-Tastenkürzel",
     "description": "Toggle title for the extension's shortcuts. 'Refined' is the brand name."
   },
   "refinedShortcutsHelp": {
-    "message": "Aktiv, solange der WhatsApp-Tab fokussiert ist",
+    "message": "Aktiv, solange der WhatsApp-Tab im Vordergrund ist",
     "description": "Help text."
   },
   "shortcutListAria": {
-    "message": "Verfügbare Tastaturkurzbefehle",
+    "message": "Verfügbare Tastenkürzel",
     "description": "Accessible label for the shortcut list."
   },
   "focusSearch": {
-    "message": "Suche fokussieren",
+    "message": "Suche aufrufen",
     "description": "Shortcut row title."
   },
   "focusSearchHelp": {
-    "message": "Zur WhatsApp-Suche springen",
+    "message": "Direkt ins WhatsApp-Suchfeld springen",
     "description": "Help text."
   },
   "newChat": {
@@ -314,7 +376,7 @@
     "description": "Shortcut row title."
   },
   "newChatHelp": {
-    "message": "Das native Neuer-Chat-Panel von WhatsApp öffnen",
+    "message": "Das native „Neuer Chat“-Fenster von WhatsApp öffnen",
     "description": "Help text."
   },
   "folderCycle": {
@@ -322,7 +384,7 @@
     "description": "Shortcut row title."
   },
   "folderCycleHelp": {
-    "message": "Wechselt durch native Tabs oder Seitenleisten-Ordner",
+    "message": "Durch native Tabs oder Ordner in der Seitenleiste blättern",
     "description": "Help text."
   },
   "privacyShortcutHelp": {
@@ -334,11 +396,11 @@
     "description": "Shortcut row title; opens this settings drawer. 'Refined' is the brand name."
   },
   "refinedSettingsHelp": {
-    "message": "Dieses Panel öffnen oder schließen",
+    "message": "Diesen Bereich öffnen oder schließen",
     "description": "Help text."
   },
   "shortcutNote": {
-    "message": "Die eigenen Tastenkürzel von WhatsApp funktionieren unverändert weiter. Drücke Escape, um das Einstellungs-Panel zu schließen.",
+    "message": "Die eigenen Tastenkürzel von WhatsApp funktionieren unverändert weiter. Drücke Escape, um den Einstellungsbereich zu schließen.",
     "description": "Note under the shortcut list. Keep the key name Escape."
   },
   "footerSaved": {
@@ -346,15 +408,35 @@
     "description": "Footer note about where settings are stored."
   },
   "resetDefaults": {
-    "message": "Zurücksetzen",
+    "message": "Standardwerte wiederherstellen",
     "description": "Button that restores default settings."
+  },
+  "resetDefaultsHelp": {
+    "message": "Alle Refined-Optionen wieder auf die Standardwerte setzen",
+    "description": "Help text under the reset-defaults row."
+  },
+  "resetAction": {
+    "message": "Zurücksetzen",
+    "description": "Short label on the button that performs the reset."
+  },
+  "resetConfirmTitle": {
+    "message": "Alle Einstellungen zurücksetzen?",
+    "description": "Heading of the confirmation dialog shown before resetting."
+  },
+  "resetConfirmBody": {
+    "message": "Alle Refined-Optionen kehren auf die Standardwerte zurück. Dein WhatsApp-Konto, deine Chats und Nachrichten bleiben unverändert.",
+    "description": "Body text of the reset confirmation dialog."
+  },
+  "cancel": {
+    "message": "Abbrechen",
+    "description": "Button that dismisses the confirmation dialog without changing anything."
   },
   "language": {
     "message": "Sprache",
     "description": "Setting title for the manual language picker."
   },
   "languageHelp": {
-    "message": "Folgt deinem Browser, außer du wählst eine aus",
+    "message": "Richtet sich nach dem Browser, sofern du keine Sprache wählst",
     "description": "Help text for the language picker."
   },
   "languageAuto": {
@@ -366,7 +448,7 @@
     "description": "Accessible label for the injected folder sidebar."
   },
   "toolsAria": {
-    "message": "Refined WhatsApp™ Web-Tools",
+    "message": "Tools von Refined WhatsApp™ Web",
     "description": "Accessible label for the injected action buttons. Brand name — keep untranslated."
   },
   "togglePrivacyAria": {
@@ -390,15 +472,15 @@
     "description": "Label for the drawer close button."
   },
   "resizePanelAria": {
-    "message": "Chat-Panel in der Größe anpassen",
+    "message": "Chat-Bereich in der Größe ändern",
     "description": "Accessible label for the drag handle that resizes the chat panel."
   },
   "openListsMenu": {
-    "message": "Listenmenü öffnen",
+    "message": "Menü „Listen“ öffnen",
     "description": "Accessible label for the folder overflow/action button."
   },
   "folderUnread": {
-    "message": "$FOLDER$, $COUNT$ ungelesen",
+    "message": "$FOLDER$, $COUNT$ ungelesene Chats",
     "description": "Accessible label for a folder with unread chats. Keep both placeholders.",
     "placeholders": {
       "folder": {

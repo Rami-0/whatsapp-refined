@@ -12,7 +12,43 @@
   --accent-soft: rgba(0, 168, 132, .15);
   --accent-text: #d9fdd3;
   --thumb: #dfe6e8;
-  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --danger: #f15c6d;
+  --danger-soft: rgba(241, 92, 109, .14);
+  /* A Latin-first stack leaves Arabic, Devanagari and CJK to whatever the
+     system substitutes, which renders them smaller and thinner than the Latin
+     text around them. i18n.js sets data-wr-script so each script gets a face
+     built for it, plus the size nudge that evens the two out. */
+  --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font: var(--font-base);
+  --text-scale: 1;
+}
+
+:root[data-wr-script="arabic"] {
+  /* "SF Arabic" is deliberately absent: Chrome will not resolve it by name, so
+     naming it dropped the stack through to Tahoma, which set too tight and
+     dark. Muna first, Geeza Pro behind it as the macOS fallback. */
+  --font: "Muna", "Geeza Pro", "Segoe UI", "Noto Naskh Arabic", "Noto Sans Arabic", var(--font-base);
+  --text-scale: 1.3;
+}
+
+:root[data-wr-script="devanagari"] {
+  --font: "Kohinoor Devanagari", "Nirmala UI", "Noto Sans Devanagari", var(--font-base);
+  --text-scale: 1.1;
+}
+
+:root[data-wr-script="japanese"] {
+  --font: "Hiragino Sans", "Yu Gothic UI", "Noto Sans JP", Meiryo, var(--font-base);
+  --text-scale: 1.05;
+}
+
+:root[data-wr-script="korean"] {
+  --font: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", var(--font-base);
+  --text-scale: 1.05;
+}
+
+:root[data-wr-script="han"] {
+  --font: "PingFang SC", "PingFang TC", "Microsoft YaHei UI", "Noto Sans SC", var(--font-base);
+  --text-scale: 1.05;
 }
 
 * { box-sizing: border-box; }
@@ -25,7 +61,7 @@ body {
   color: var(--text);
   background: var(--bg);
   font-family: var(--font);
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale));
   -webkit-font-smoothing: antialiased;
 }
 
@@ -75,7 +111,7 @@ h1 {
 .title-block p {
   margin-top: 3px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale));
   line-height: 1.3;
 }
 
@@ -111,7 +147,7 @@ h1 {
   content: "";
   position: absolute;
   top: 3px;
-  left: 3px;
+  inset-inline-start: 3px;
   width: 18px;
   height: 18px;
   border-radius: 50%;
@@ -131,21 +167,38 @@ h1 {
   background: #fff;
 }
 
+/* translateX is physical, so the knob has to travel the other way in RTL. */
+[dir="rtl"] .toggle input:checked + span::after,
+[dir="rtl"] .switch-row > input:checked + i::after,
+[dir="rtl"] .privacy-master > input:checked + i::after { transform: translateX(-16px); }
+
+/* Four tabs have to clear 420px in every locale; German and French are the
+   tightest. The buttons never shrink, so a label can't clip — if one ever does
+   run long the row scrolls instead. */
 .tabs {
   height: 50px;
-  padding: 0 20px;
+  padding: 0 14px;
   display: flex;
-  gap: 26px;
+  gap: 12px;
   border-bottom: 1px solid var(--line);
+  overflow-x: auto;
+  scrollbar-width: none;
 }
+
+.tabs::-webkit-scrollbar { display: none; }
 
 .tabs button {
   position: relative;
+  flex: 0 0 auto;
   padding: 0 2px;
+  white-space: nowrap;
   border: 0;
   color: var(--muted);
   background: transparent;
-  font: 600 13px/1 var(--font);
+  font-family: var(--font);
+  font-size: calc(12px * var(--text-scale));
+  font-weight: 600;
+  line-height: 1.15;
   cursor: pointer;
 }
 
@@ -194,6 +247,9 @@ h1 {
 
 .select-row > span { min-width: 0; }
 
+/* Inside a card the row needs the same inset as the switch rows beside it. */
+.switch-list > .select-row { padding: 12px 13px; }
+
 .select-row select {
   flex: 0 0 auto;
   max-width: 168px;
@@ -203,7 +259,7 @@ h1 {
   background: var(--surface);
   color: var(--text);
   font: inherit;
-  font-size: 12.5px;
+  font-size: calc(12.5px * var(--text-scale));
   cursor: pointer;
 }
 
@@ -228,10 +284,11 @@ h1 {
 .select-row b,
 .privacy-master b,
 .platform-card b,
-.shortcut-row b {
+.shortcut-row b,
+.danger-row b {
   display: block;
   color: var(--text);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale));
   line-height: 1.25;
   font-weight: 600;
 }
@@ -241,11 +298,12 @@ h1 {
 .select-row small,
 .privacy-master small,
 .platform-card small,
-.shortcut-row small {
+.shortcut-row small,
+.danger-row small {
   display: block;
   margin-top: 4px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale));
   line-height: 1.4;
 }
 
@@ -271,7 +329,7 @@ h1 {
   gap: 8px;
   color: var(--muted);
   border-radius: 999px;
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale));
   font-weight: 600;
 }
 
@@ -399,7 +457,7 @@ h1 {
 .shortcut-note {
   margin: 13px 2px 0;
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale));
   line-height: 1.5;
 }
 
@@ -407,7 +465,7 @@ h1 {
 
 output {
   color: var(--accent-strong);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale));
   font-weight: 650;
   font-variant-numeric: tabular-nums;
 }
@@ -419,8 +477,12 @@ input[type="range"] {
   appearance: none;
   border-radius: 5px;
   outline: none;
-  background: linear-gradient(to right, var(--accent) var(--range-progress, 50%), #3b4a54 var(--range-progress, 50%));
+  /* Chrome mirrors the track itself in RTL (min sits on the right), so the
+     filled part has to grow from the right too or it detaches from the thumb. */
+  background: linear-gradient(var(--range-fill-side, to right), var(--accent) var(--range-progress, 50%), #3b4a54 var(--range-progress, 50%));
 }
+
+[dir="rtl"] input[type="range"] { --range-fill-side: to left; }
 
 input[type="range"]::-webkit-slider-thumb {
   width: 16px;
@@ -442,35 +504,159 @@ footer {
   gap: 12px;
   color: var(--muted);
   border-top: 1px solid var(--line);
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale));
 }
 
 footer span { display: flex; align-items: center; gap: 7px; }
 footer i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
 
-footer button {
-  padding: 6px 0;
-  border: 0;
-  color: var(--muted);
-  background: transparent;
-  font: 600 10px/1 var(--font);
+footer { justify-content: flex-start; }
+
+.danger-row {
+  min-height: 62px;
+  padding: 12px 13px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface-subtle);
+}
+
+.danger-row > span { min-width: 0; }
+
+.danger-button,
+.ghost-button {
+  flex: 0 0 auto;
+  min-height: 34px;
+  padding: 0 14px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-family: var(--font);
+  font-size: calc(12px * var(--text-scale));
+  font-weight: 600;
   cursor: pointer;
 }
 
-footer button:hover { color: var(--text); }
+.danger-button {
+  color: var(--danger);
+  border-color: var(--danger-soft);
+  background: var(--danger-soft);
+}
+
+.danger-button:hover {
+  color: #fff;
+  border-color: var(--danger);
+  background: var(--danger);
+}
+
+.ghost-button {
+  color: var(--text);
+  border-color: var(--line);
+  background: transparent;
+}
+
+.ghost-button:hover { background: var(--surface-hover); }
+
+/* Resetting wipes every choice at once, so it asks first. <dialog> brings the
+   focus trap, Escape-to-dismiss and inert background with it. */
+.confirm {
+  /* Wide enough that the two action labels sit on one line in every locale;
+     Arabic at its larger scale is the constraint. */
+  width: min(360px, calc(100% - 32px));
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  color: var(--text);
+  background: var(--surface);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, .42);
+}
+
+.confirm::backdrop { background: rgba(11, 20, 26, .62); }
+
+.confirm-card {
+  padding: 22px 22px 18px;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.confirm-icon {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 2px;
+  display: grid;
+  place-items: center;
+  color: var(--danger);
+  border-radius: 50%;
+  background: var(--danger-soft);
+}
+
+.confirm-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.confirm h2 {
+  margin: 0;
+  color: var(--text);
+  font-size: calc(15px * var(--text-scale));
+  line-height: 1.3;
+  font-weight: 650;
+}
+
+.confirm p {
+  margin: 0;
+  color: var(--muted);
+  font-size: calc(12px * var(--text-scale));
+  line-height: 1.5;
+}
+
+.confirm-actions {
+  width: 100%;
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .confirm[open] { animation: confirm-in 140ms ease-out; }
+  .confirm[open]::backdrop { animation: backdrop-in 140ms ease-out; }
+}
+
+@keyframes confirm-in {
+  from { opacity: 0; transform: scale(.94); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
 .master-toggle input:focus-visible + span,
 .switch-row input:focus-visible + i,
 .privacy-master input:focus-visible + i,
 .choice-grid input:focus-visible + span,
 .tabs button:focus-visible,
-footer button:focus-visible {
+.danger-button:focus-visible,
+.ghost-button:focus-visible {
   outline: 2px solid var(--accent-strong);
   outline-offset: 2px;
 }
 
-body.is-disabled .panels,
-body.is-disabled .tabs { opacity: .42; pointer-events: none; }
+/* Turning Refined off dims the options it controls, but Language and Reset
+   have to stay reachable — Reset is how you turn it back on. */
+body.is-disabled .panel:not([data-panel="settings"]),
+body.is-disabled .tabs button:not([data-panel-target="settings"]) { opacity: .42; pointer-events: none; }
 
 body.privacy-off [data-panel="privacy"] .switch-list,
 body.privacy-off [data-panel="privacy"] .range-setting { opacity: .45; }
@@ -491,6 +677,8 @@ body.shortcuts-off .shortcut-note { opacity: .42; }
     --accent-strong: #008069;
     --accent-soft: rgba(0, 168, 132, .1);
     --thumb: #fff;
+    --danger: #d93a4c;
+    --danger-soft: rgba(217, 58, 76, .1);
   }
 }
 
@@ -506,6 +694,8 @@ body.shortcuts-off .shortcut-note { opacity: .42; }
   --accent-strong: #008069;
   --accent-soft: rgba(0, 168, 132, .1);
   --thumb: #fff;
+  --danger: #d93a4c;
+  --danger-soft: rgba(217, 58, 76, .1);
 }
 
 @media (prefers-reduced-motion: reduce) {

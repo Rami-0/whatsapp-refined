@@ -1,11 +1,53 @@
 :root {
   --wr-sidebar-width: 432px;
   --wr-privacy-blur: 8px;
+  /* Latin-first stacks hand Arabic, Devanagari and CJK to whatever the system
+     substitutes, which sits noticeably smaller than the Latin text beside it.
+     content.js sets data-wr-script so each script gets a face built for it and
+     the size nudge that brings it back to the same optical weight. */
+  --wr-font-base: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --wr-font: var(--wr-font-base);
+  --wr-text-scale: 1;
+  /* The rail's micro-label lives in a 40px slot, so it takes the better face
+     but not the size bump: an Arabic word like "الخصوصية" clips if enlarged. */
+  --wr-label-scale: 1;
   /* WhatsApp light-theme accents; WhatsApp's own tokens win when present. */
   --wr-accent: #008069;
   --wr-active-pill: rgba(0, 168, 132, .12);
   --wr-badge-background: #25d366;
   --wr-badge-text: #fff;
+}
+
+html[data-wr-script="arabic"] {
+  /* "SF Arabic" is deliberately absent: Chrome will not resolve it by name, so
+     naming it dropped the stack through to Tahoma, which set too tight and
+     dark. Muna first, Geeza Pro behind it as the macOS fallback. */
+  --wr-font: "Muna", "Geeza Pro", "Segoe UI", "Noto Naskh Arabic", "Noto Sans Arabic", var(--wr-font-base);
+  --wr-text-scale: 1.15;
+}
+
+html[data-wr-script="devanagari"] {
+  --wr-label-scale: 1.05;
+  --wr-font: "Kohinoor Devanagari", "Nirmala UI", "Noto Sans Devanagari", var(--wr-font-base);
+  --wr-text-scale: 1.1;
+}
+
+html[data-wr-script="japanese"] {
+  --wr-label-scale: 1.05;
+  --wr-font: "Hiragino Sans", "Yu Gothic UI", "Noto Sans JP", Meiryo, var(--wr-font-base);
+  --wr-text-scale: 1.05;
+}
+
+html[data-wr-script="korean"] {
+  --wr-label-scale: 1.05;
+  --wr-font: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", var(--wr-font-base);
+  --wr-text-scale: 1.05;
+}
+
+html[data-wr-script="han"] {
+  --wr-label-scale: 1.05;
+  --wr-font: "PingFang SC", "PingFang TC", "Microsoft YaHei UI", "Noto Sans SC", var(--wr-font-base);
+  --wr-text-scale: 1.05;
 }
 
 html.dark,
@@ -202,7 +244,8 @@ html[data-wr-ready="true"] #wr-sidebar-actions {
   width: 100%;
   overflow: hidden;
   color: var(--secondary);
-  font-size: 7.5px;
+  font-family: var(--wr-font);
+  font-size: calc(7.5px * var(--wr-label-scale));
   line-height: 1.2;
   font-weight: 550;
   text-align: center;
@@ -409,10 +452,10 @@ html[data-wr-resizing="true"] * {
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(11, 20, 26, .3);
-  font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-family: var(--wr-font);
+  font-size: calc(14px * var(--wr-text-scale));
   font-weight: 500;
-  line-height: 1.15;
+  line-height: 1.25;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

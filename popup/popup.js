@@ -107,11 +107,24 @@
     });
   });
 
-  document.querySelector("#resetSettings").addEventListener("click", () => {
+  function resetToDefaults() {
     try {
       if (storage) return storage.set(DEFAULTS, () => render(DEFAULTS));
     } catch (_error) {}
     render(DEFAULTS);
+  }
+
+  const resetDialog = document.querySelector("#resetDialog");
+
+  document.querySelector("#resetSettings").addEventListener("click", () => {
+    /* One click would otherwise discard every choice on the page. */
+    if (typeof resetDialog.showModal === "function") resetDialog.showModal();
+    else resetToDefaults();
+  });
+
+  resetDialog.addEventListener("close", () => {
+    if (resetDialog.returnValue === "reset") resetToDefaults();
+    resetDialog.returnValue = "";
   });
 
   if (params.has("embedded")) document.body.classList.add("is-embedded");
@@ -122,8 +135,13 @@
   });
   globalThis.chrome?.storage?.onChanged?.addListener((changes, area) => {
     if (area !== "local") return;
-    /* Reload so i18n.js re-resolves the whole page in the new language. */
-    if (changes.language) return location.reload();
+    readSettings().then(render);
+  });
+
+  /* i18n.js has already re-resolved every data-i18n string by this point; these
+     are the ones this page builds itself. */
+  globalThis.WRLocale?.onChange(() => {
+    renderPlatform();
     readSettings().then(render);
   });
 })();

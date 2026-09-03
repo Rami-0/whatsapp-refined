@@ -192,18 +192,17 @@ h2 { font-size: 15px; font-weight: 650; }
   gap: 8px;
 }
 
+/* Icon-only: the destination is named by the title and aria-label, which keeps
+   the row identical in every language. */
 .links a {
   min-height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 7px;
   border: 1px solid var(--line);
   border-radius: 11px;
   color: var(--text);
   background: var(--surface);
-  font-size: 11px;
-  font-weight: 600;
   text-decoration: none;
   transition: background 140ms ease, border-color 140ms ease;
 }
@@ -211,7 +210,7 @@ h2 { font-size: 15px; font-weight: 650; }
 .links a:hover { border-color: var(--accent); background: var(--surface-strong); }
 .links a:focus-visible { outline: 2px solid var(--accent-bright); outline-offset: 2px; }
 
-.links svg { width: 13px; height: 13px; flex: 0 0 auto; color: var(--muted); }
+.links svg { width: 16px; height: 16px; flex: 0 0 auto; color: var(--muted); }
 .links a:hover svg { color: var(--accent-bright); }
 .icon-fill { fill: currentColor; }
 .icon-stroke { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }

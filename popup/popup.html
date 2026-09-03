@@ -24,6 +24,7 @@
         <button type="button" data-panel-target="layout" aria-selected="true" data-i18n="tabLayout">Layout</button>
         <button type="button" data-panel-target="privacy" aria-selected="false" data-i18n="tabPrivacy">Privacy</button>
         <button type="button" data-panel-target="shortcuts" aria-selected="false" data-i18n="tabShortcuts">Shortcuts</button>
+        <button type="button" data-panel-target="settings" aria-selected="false" data-i18n="tabSettings">Settings</button>
       </nav>
 
       <div class="panels">
@@ -51,32 +52,6 @@
             <label class="switch-row" for="hideMetaAI"><span><b data-i18n="hideMetaAI">Hide Meta AI</b><small data-i18n="hideMetaAIHelp">Remove its navigation shortcut</small></span><input id="hideMetaAI" data-setting="hideMetaAI" type="checkbox"><i aria-hidden="true"></i></label>
             <label class="switch-row" for="hideChannels"><span><b data-i18n="hideChannels">Hide Channels</b><small data-i18n="hideChannelsHelp">Remove its navigation shortcut</small></span><input id="hideChannels" data-setting="hideChannels" type="checkbox"><i aria-hidden="true"></i></label>
           </div>
-
-          <label class="select-row" for="language">
-            <span><b data-i18n="language">Language</b><small data-i18n="languageHelp">Follows your browser unless you pick one</small></span>
-            <select id="language" data-setting="language">
-              <option value="auto" data-i18n="languageAuto">Automatic</option>
-              <option value="ar">العربية</option>
-              <option value="de">Deutsch</option>
-              <option value="en">English</option>
-              <option value="es">Español</option>
-              <option value="fr">Français</option>
-              <option value="hi">हिन्दी</option>
-              <option value="id">Bahasa Indonesia</option>
-              <option value="it">Italiano</option>
-              <option value="ja">日本語</option>
-              <option value="ko">한국어</option>
-              <option value="nl">Nederlands</option>
-              <option value="pl">Polski</option>
-              <option value="pt_BR">Português (Brasil)</option>
-              <option value="pt_PT">Português (Portugal)</option>
-              <option value="ru">Русский</option>
-              <option value="tr">Türkçe</option>
-              <option value="vi">Tiếng Việt</option>
-              <option value="zh_CN">简体中文</option>
-              <option value="zh_TW">繁體中文</option>
-            </select>
-          </label>
         </section>
 
         <section class="panel" data-panel="privacy" aria-label="Privacy settings" data-i18n-aria-label="privacyPanelAria" hidden>
@@ -121,13 +96,61 @@
 
           <p class="shortcut-note" data-i18n="shortcutNote">WhatsApp’s own keyboard shortcuts continue to work unchanged. Press Escape to close the settings drawer.</p>
         </section>
+
+        <section class="panel" data-panel="settings" aria-label="Extension settings" data-i18n-aria-label="settingsPanelAria" hidden>
+          <div class="switch-list">
+            <label class="select-row" for="language">
+              <span><b data-i18n="language">Language</b><small data-i18n="languageHelp">Follows your browser unless you pick one</small></span>
+              <select id="language" data-setting="language">
+                <option value="auto" data-i18n="languageAuto">Automatic</option>
+                <option value="ar">العربية</option>
+                <option value="de">Deutsch</option>
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="hi">हिन्दी</option>
+                <option value="id">Bahasa Indonesia</option>
+                <option value="it">Italiano</option>
+                <option value="ja">日本語</option>
+                <option value="ko">한국어</option>
+                <option value="nl">Nederlands</option>
+                <option value="pl">Polski</option>
+                <option value="pt_BR">Português (Brasil)</option>
+                <option value="pt_PT">Português (Portugal)</option>
+                <option value="ru">Русский</option>
+                <option value="tr">Türkçe</option>
+                <option value="vi">Tiếng Việt</option>
+                <option value="zh_CN">简体中文</option>
+                <option value="zh_TW">繁體中文</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="danger-row">
+            <span><b data-i18n="resetDefaults">Reset defaults</b><small data-i18n="resetDefaultsHelp">Put every Refined option back the way it shipped</small></span>
+            <button id="resetSettings" type="button" class="danger-button" data-i18n="resetAction">Reset</button>
+          </div>
+        </section>
       </div>
 
       <footer>
         <span data-i18n="footerSaved"><i aria-hidden="true"></i>Saved locally on this browser</span>
-        <button id="resetSettings" type="button" data-i18n="resetDefaults">Reset defaults</button>
       </footer>
     </main>
+
+    <dialog id="resetDialog" class="confirm" aria-labelledby="resetDialogTitle">
+      <form method="dialog" class="confirm-card">
+        <span class="confirm-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M20 11.5A8 8 0 1 1 17.6 6"/><path d="M20 4v4.5h-4.5"/></svg>
+        </span>
+        <h2 id="resetDialogTitle" data-i18n="resetConfirmTitle">Reset every setting?</h2>
+        <p data-i18n="resetConfirmBody">All Refined options go back to their defaults. Your WhatsApp account, chats and messages are untouched.</p>
+        <div class="confirm-actions">
+          <button type="submit" value="cancel" class="ghost-button" autofocus data-i18n="cancel">Cancel</button>
+          <button type="submit" value="reset" class="danger-button" data-i18n="resetAction">Reset</button>
+        </div>
+      </form>
+    </dialog>
     <script src="../src/utils.js"></script>
     <script src="../src/settings.js"></script>
     <script src="i18n.js"></script>

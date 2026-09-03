@@ -16,11 +16,11 @@
     "description": "Title of the settings page and drawer."
   },
   "aboutTagline": {
-    "message": "更安静的 WhatsApp Web 工作空间。",
+    "message": "更清爽的 WhatsApp Web 工作空间。",
     "description": "Tagline under the extension name in the toolbar popup."
   },
   "extensionStatus": {
-    "message": "扩展状态",
+    "message": "扩展程序状态",
     "description": "Eyebrow label above the activation state."
   },
   "activeTitle": {
@@ -32,11 +32,11 @@
     "description": "Heading when the extension is disabled."
   },
   "activeHelp": {
-    "message": "已应用你的布局和隐私偏好设置。",
+    "message": "已应用你的布局和隐私设置。",
     "description": "Help text when enabled."
   },
   "pausedHelp": {
-    "message": "启用后即可恢复你保存的界面偏好设置。",
+    "message": "启用后即可恢复你保存的界面设置。",
     "description": "Help text when disabled."
   },
   "pauseButton": {
@@ -75,6 +75,60 @@
     "message": "仅限 WhatsApp Web",
     "description": "Value in privacy summary row about site access."
   },
+  "versionLabel": {
+    "message": "版本",
+    "description": "Row label next to the installed version number."
+  },
+  "detailsAria": {
+    "message": "扩展程序详情",
+    "description": "Accessible name for the extension-details section."
+  },
+  "linksAria": {
+    "message": "项目链接",
+    "description": "Accessible name for the project links row."
+  },
+  "websiteLink": {
+    "message": "网站",
+    "description": "Tooltip and accessible name of the icon-only website link."
+  },
+  "githubLink": {
+    "message": "GitHub 仓库",
+    "description": "Tooltip and accessible name of the icon-only GitHub link. 'GitHub' is a brand name."
+  },
+  "updateRestart": {
+    "message": "重启",
+    "description": "Button that restarts the extension to apply a downloaded update."
+  },
+  "updateUpToDate": {
+    "message": "已是最新",
+    "description": "Badge shown when the installed version is current."
+  },
+  "updateReady": {
+    "message": "更新就绪",
+    "description": "Badge shown when a newer version has been downloaded."
+  },
+  "updateChecking": {
+    "message": "正在检查…",
+    "description": "Badge shown while the update check is in flight."
+  },
+  "updateVersionReady": {
+    "message": "版本 $VERSION$ 已就绪",
+    "description": "Update card heading naming the new version. Keep the $VERSION$ placeholder.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.2.0"
+      }
+    }
+  },
+  "updateGenericReady": {
+    "message": "新版本已就绪",
+    "description": "Update card heading when the new version number is unknown."
+  },
+  "updateReadyHelp": {
+    "message": "Chrome 已下载更新。重启后请刷新已打开的 WhatsApp 标签页。",
+    "description": "Update card help text. 'Chrome' is a brand name."
+  },
   "aboutFooter": {
     "message": "在 WhatsApp 侧边栏中点击“设置”按钮即可打开 Refined。",
     "description": "Footer hint in the toolbar popup."
@@ -88,7 +142,7 @@
     "description": "Tooltip on the master on/off toggle."
   },
   "tabsAria": {
-    "message": "设置分区",
+    "message": "设置分类",
     "description": "Accessible label for the settings tab bar."
   },
   "tabLayout": {
@@ -102,6 +156,10 @@
   "tabShortcuts": {
     "message": "快捷键",
     "description": "Settings tab name (keyboard shortcuts)."
+  },
+  "tabSettings": {
+    "message": "设置",
+    "description": "Settings tab name (extension-level options: language and reset)."
   },
   "layoutPanelAria": {
     "message": "布局设置",
@@ -132,7 +190,7 @@
     "description": "Setting title."
   },
   "resizablePanelHelp": {
-    "message": "随时拖动其右边缘；也可在手柄上使用方向键",
+    "message": "随时拖动右边缘；焦点在手柄上时也可用方向键",
     "description": "Help text for the resizable panel setting."
   },
   "panelWidth": {
@@ -194,11 +252,11 @@
     "description": "Master privacy toggle title; also used as a shortcut row label."
   },
   "privacyModeHelp": {
-    "message": "使用“快捷键”中显示的平台专属快捷键",
+    "message": "使用“快捷键”标签页中对应系统的快捷键",
     "description": "Help text for the privacy mode toggle."
   },
   "privacyBlurAria": {
-    "message": "隐私模糊选项",
+    "message": "模糊选项",
     "description": "Accessible label for the blur switches list."
   },
   "blurPreviews": {
@@ -238,7 +296,7 @@
     "description": "Setting title."
   },
   "blurNamesHelp": {
-    "message": "聊天和会话标题",
+    "message": "聊天和对话名称",
     "description": "Help text."
   },
   "blurAvatars": {
@@ -264,6 +322,10 @@
   "shortcutsPanelAria": {
     "message": "键盘快捷键",
     "description": "Accessible label for the shortcuts panel."
+  },
+  "settingsPanelAria": {
+    "message": "扩展程序设置",
+    "description": "Accessible name for the extension settings panel."
   },
   "platformMac": {
     "message": "macOS 快捷键",
@@ -294,7 +356,7 @@
     "description": "Toggle title for the extension's shortcuts. 'Refined' is the brand name."
   },
   "refinedShortcutsHelp": {
-    "message": "在 WhatsApp 标签页处于焦点时生效",
+    "message": "仅在 WhatsApp 标签页处于活动状态时生效",
     "description": "Help text."
   },
   "shortcutListAria": {
@@ -302,19 +364,19 @@
     "description": "Accessible label for the shortcut list."
   },
   "focusSearch": {
-    "message": "聚焦搜索",
+    "message": "定位到搜索框",
     "description": "Shortcut row title."
   },
   "focusSearchHelp": {
-    "message": "跳转到 WhatsApp 搜索",
+    "message": "跳转到 WhatsApp 的搜索框",
     "description": "Help text."
   },
   "newChat": {
-    "message": "新建聊天",
+    "message": "新聊天",
     "description": "Shortcut row title."
   },
   "newChatHelp": {
-    "message": "打开 WhatsApp 原生的新建聊天面板",
+    "message": "打开 WhatsApp 自带的新聊天面板",
     "description": "Help text."
   },
   "folderCycle": {
@@ -346,15 +408,35 @@
     "description": "Footer note about where settings are stored."
   },
   "resetDefaults": {
-    "message": "恢复默认设置",
+    "message": "重置为默认设置",
     "description": "Button that restores default settings."
+  },
+  "resetDefaultsHelp": {
+    "message": "把 Refined 的所有选项恢复到初始状态",
+    "description": "Help text under the reset-defaults row."
+  },
+  "resetAction": {
+    "message": "重置",
+    "description": "Short label on the button that performs the reset."
+  },
+  "resetConfirmTitle": {
+    "message": "要重置所有设置吗？",
+    "description": "Heading of the confirmation dialog shown before resetting."
+  },
+  "resetConfirmBody": {
+    "message": "Refined 的所有选项都会恢复为默认值。你的 WhatsApp 账号、聊天和消息不受影响。",
+    "description": "Body text of the reset confirmation dialog."
+  },
+  "cancel": {
+    "message": "取消",
+    "description": "Button that dismisses the confirmation dialog without changing anything."
   },
   "language": {
     "message": "语言",
     "description": "Setting title for the manual language picker."
   },
   "languageHelp": {
-    "message": "未选择时跟随浏览器语言",
+    "message": "未手动选择时跟随浏览器语言",
     "description": "Help text for the language picker."
   },
   "languageAuto": {
@@ -394,7 +476,7 @@
     "description": "Accessible label for the drag handle that resizes the chat panel."
   },
   "openListsMenu": {
-    "message": "打开列表菜单",
+    "message": "打开“列表”菜单",
     "description": "Accessible label for the folder overflow/action button."
   },
   "folderUnread": {

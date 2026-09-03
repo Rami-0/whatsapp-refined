@@ -8,7 +8,7 @@
     "description": "Short extension name. Brand name — keep untranslated."
   },
   "appDesc": {
-    "message": "WhatsApp Web'i daha sakin ve gizli yapın: yerleşim kontrolleri, gizlilik bulanıklığı ve klavye kısayolları.",
+    "message": "WhatsApp Web'i sakinleştirin ve gizliliğinizi koruyun: düzen denetimleri, bulanıklaştırma ve klavye kısayolları.",
     "description": "Store/extension description. Must stay under 132 characters."
   },
   "settingsTitle": {
@@ -32,7 +32,7 @@
     "description": "Heading when the extension is disabled."
   },
   "activeHelp": {
-    "message": "Yerleşim ve gizlilik tercihleriniz uygulanıyor.",
+    "message": "Düzen ve gizlilik tercihleriniz uygulanıyor.",
     "description": "Help text when enabled."
   },
   "pausedHelp": {
@@ -75,8 +75,62 @@
     "message": "Yalnızca WhatsApp Web",
     "description": "Value in privacy summary row about site access."
   },
+  "versionLabel": {
+    "message": "Sürüm",
+    "description": "Row label next to the installed version number."
+  },
+  "detailsAria": {
+    "message": "Uzantı ayrıntıları",
+    "description": "Accessible name for the extension-details section."
+  },
+  "linksAria": {
+    "message": "Proje bağlantıları",
+    "description": "Accessible name for the project links row."
+  },
+  "websiteLink": {
+    "message": "Web sitesi",
+    "description": "Tooltip and accessible name of the icon-only website link."
+  },
+  "githubLink": {
+    "message": "GitHub deposu",
+    "description": "Tooltip and accessible name of the icon-only GitHub link. 'GitHub' is a brand name."
+  },
+  "updateRestart": {
+    "message": "Yeniden başlat",
+    "description": "Button that restarts the extension to apply a downloaded update."
+  },
+  "updateUpToDate": {
+    "message": "Güncel",
+    "description": "Badge shown when the installed version is current."
+  },
+  "updateReady": {
+    "message": "Güncelleme hazır",
+    "description": "Badge shown when a newer version has been downloaded."
+  },
+  "updateChecking": {
+    "message": "Denetleniyor…",
+    "description": "Badge shown while the update check is in flight."
+  },
+  "updateVersionReady": {
+    "message": "$VERSION$ sürümü hazır",
+    "description": "Update card heading naming the new version. Keep the $VERSION$ placeholder.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.2.0"
+      }
+    }
+  },
+  "updateGenericReady": {
+    "message": "Yeni bir güncelleme hazır",
+    "description": "Update card heading when the new version number is unknown."
+  },
+  "updateReadyHelp": {
+    "message": "Chrome güncellemeyi indirdi. Yeniden başlatın, sonra açık WhatsApp sekmelerini yenileyin.",
+    "description": "Update card help text. 'Chrome' is a brand name."
+  },
   "aboutFooter": {
-    "message": "Refined'ı WhatsApp kenar çubuğundaki Ayarlar düğmesinden açın.",
+    "message": "Refined'ı WhatsApp kenar çubuğundaki “Ayarlar” düğmesinden açın.",
     "description": "Footer hint in the toolbar popup."
   },
   "headerTagline": {
@@ -92,7 +146,7 @@
     "description": "Accessible label for the settings tab bar."
   },
   "tabLayout": {
-    "message": "Yerleşim",
+    "message": "Düzen",
     "description": "Settings tab name."
   },
   "tabPrivacy": {
@@ -103,8 +157,12 @@
     "message": "Kısayollar",
     "description": "Settings tab name (keyboard shortcuts)."
   },
+  "tabSettings": {
+    "message": "Ayarlar",
+    "description": "Settings tab name (extension-level options: language and reset)."
+  },
   "layoutPanelAria": {
-    "message": "Yerleşim ayarları",
+    "message": "Düzen ayarları",
     "description": "Accessible label for the layout panel."
   },
   "chatFolders": {
@@ -116,11 +174,11 @@
     "description": "Help text for the chat folders setting."
   },
   "folderLayoutAria": {
-    "message": "Sohbet klasörü yerleşimi",
+    "message": "Sohbet klasörü düzeni",
     "description": "Accessible label for the folder layout choice."
   },
   "nativeTabs": {
-    "message": "Yerel sekmeler",
+    "message": "Yerleşik sekmeler",
     "description": "Folder layout option: WhatsApp's own tabs."
   },
   "whatsappSidebar": {
@@ -158,23 +216,23 @@
     "description": "Setting title."
   },
   "messagePreviewsHelp": {
-    "message": "Sohbet satırlarında son mesajı göster",
+    "message": "Sohbet listesinde son mesajı gösterir",
     "description": "Help text."
   },
   "hideNotification": {
-    "message": "Bildirim istemini gizle",
+    "message": "Bildirim isteğini gizle",
     "description": "Setting title."
   },
   "hideNotificationHelp": {
-    "message": "“Bildirimleri aç” şeridini kaldır",
+    "message": "“Bildirimleri aç” uyarısını kaldırır",
     "description": "Help text."
   },
   "hideMetaAI": {
-    "message": "Meta AI'ı gizle",
+    "message": "Meta AI'yı gizle",
     "description": "Setting title. 'Meta AI' is a product name — keep untranslated."
   },
   "hideMetaAIHelp": {
-    "message": "Gezinme kısayolunu kaldır",
+    "message": "Gezinme çubuğundaki düğmesini kaldırır",
     "description": "Help text."
   },
   "hideChannels": {
@@ -182,7 +240,7 @@
     "description": "Setting title. 'Channels' is WhatsApp's feature — use WhatsApp's official localized term."
   },
   "hideChannelsHelp": {
-    "message": "Gezinme kısayolunu kaldır",
+    "message": "Gezinme çubuğundaki düğmesini kaldırır",
     "description": "Help text."
   },
   "privacyPanelAria": {
@@ -194,11 +252,11 @@
     "description": "Master privacy toggle title; also used as a shortcut row label."
   },
   "privacyModeHelp": {
-    "message": "Kısayollar bölümünde gösterilen platforma uygun kısayolu kullanın",
+    "message": "Sisteminize uygun kısayolu “Kısayollar” bölümünde bulabilirsiniz",
     "description": "Help text for the privacy mode toggle."
   },
   "privacyBlurAria": {
-    "message": "Gizlilik bulanıklaştırma seçenekleri",
+    "message": "Bulanıklaştırma seçenekleri",
     "description": "Accessible label for the blur switches list."
   },
   "blurPreviews": {
@@ -206,7 +264,7 @@
     "description": "Setting title."
   },
   "blurPreviewsHelp": {
-    "message": "Son mesaj metnini koru",
+    "message": "Son mesajların metnini korur",
     "description": "Help text."
   },
   "blurMessages": {
@@ -214,7 +272,7 @@
     "description": "Setting title."
   },
   "blurMessagesHelp": {
-    "message": "Konuşma balonlarını gizle",
+    "message": "Mesaj balonlarını gizler",
     "description": "Help text."
   },
   "blurImages": {
@@ -230,7 +288,7 @@
     "description": "Setting title."
   },
   "blurVideosHelp": {
-    "message": "Video alanları gizli kalır",
+    "message": "Video alanları bulanık kalır",
     "description": "Help text."
   },
   "blurNames": {
@@ -238,7 +296,7 @@
     "description": "Setting title."
   },
   "blurNamesHelp": {
-    "message": "Sohbet ve konuşma başlıkları",
+    "message": "Sohbet adları ve başlıkları",
     "description": "Help text."
   },
   "blurAvatars": {
@@ -246,7 +304,7 @@
     "description": "Setting title."
   },
   "blurAvatarsHelp": {
-    "message": "Yalnızca avatarlar; satır içi emojiler görünür kalır",
+    "message": "Yalnızca profil fotoğrafları; satır içi emojiler görünür kalır",
     "description": "Help text."
   },
   "revealOnHover": {
@@ -254,16 +312,20 @@
     "description": "Setting title."
   },
   "revealOnHoverHelp": {
-    "message": "Yalnızca imlecin üzerindekini geçici olarak göster",
+    "message": "İmleci getirdiğiniz ögeyi geçici olarak gösterir",
     "description": "Help text."
   },
   "blurStrength": {
-    "message": "Bulanıklık şiddeti",
+    "message": "Bulanıklık düzeyi",
     "description": "Setting title for the blur slider."
   },
   "shortcutsPanelAria": {
     "message": "Klavye kısayolları",
     "description": "Accessible label for the shortcuts panel."
+  },
+  "settingsPanelAria": {
+    "message": "Uzantı ayarları",
+    "description": "Accessible name for the extension settings panel."
   },
   "platformMac": {
     "message": "macOS kısayolları",
@@ -294,7 +356,7 @@
     "description": "Toggle title for the extension's shortcuts. 'Refined' is the brand name."
   },
   "refinedShortcutsHelp": {
-    "message": "WhatsApp sekmesi odaktayken etkindir",
+    "message": "WhatsApp sekmesi etkinken çalışır",
     "description": "Help text."
   },
   "shortcutListAria": {
@@ -302,11 +364,11 @@
     "description": "Accessible label for the shortcut list."
   },
   "focusSearch": {
-    "message": "Aramaya odaklan",
+    "message": "Arama kutusuna git",
     "description": "Shortcut row title."
   },
   "focusSearchHelp": {
-    "message": "WhatsApp aramasına git",
+    "message": "İmleci WhatsApp arama kutusuna taşır",
     "description": "Help text."
   },
   "newChat": {
@@ -314,7 +376,7 @@
     "description": "Shortcut row title."
   },
   "newChatHelp": {
-    "message": "WhatsApp'ın yerel yeni sohbet panelini aç",
+    "message": "WhatsApp'ın kendi “Yeni sohbet” panelini açar",
     "description": "Help text."
   },
   "folderCycle": {
@@ -322,11 +384,11 @@
     "description": "Shortcut row title."
   },
   "folderCycleHelp": {
-    "message": "Yerel sekmeler veya kenar çubuğu klasörleri arasında geçiş yapar",
+    "message": "Yerleşik sekmeler veya kenar çubuğu klasörleri arasında geçiş yapar",
     "description": "Help text."
   },
   "privacyShortcutHelp": {
-    "message": "Korunan içeriği bulanıklaştır veya göster",
+    "message": "Korunan içeriği bulanıklaştırır veya gösterir",
     "description": "Help text for the privacy mode shortcut row."
   },
   "refinedSettings": {
@@ -334,7 +396,7 @@
     "description": "Shortcut row title; opens this settings drawer. 'Refined' is the brand name."
   },
   "refinedSettingsHelp": {
-    "message": "Bu paneli aç veya kapat",
+    "message": "Bu ayar panelini açar veya kapatır",
     "description": "Help text."
   },
   "shortcutNote": {
@@ -348,6 +410,26 @@
   "resetDefaults": {
     "message": "Varsayılanlara sıfırla",
     "description": "Button that restores default settings."
+  },
+  "resetDefaultsHelp": {
+    "message": "Tüm Refined seçeneklerini ilk haline döndürür",
+    "description": "Help text under the reset-defaults row."
+  },
+  "resetAction": {
+    "message": "Sıfırla",
+    "description": "Short label on the button that performs the reset."
+  },
+  "resetConfirmTitle": {
+    "message": "Tüm ayarlar sıfırlansın mı?",
+    "description": "Heading of the confirmation dialog shown before resetting."
+  },
+  "resetConfirmBody": {
+    "message": "Tüm Refined seçenekleri varsayılan değerlerine döner. WhatsApp hesabınız, sohbetleriniz ve mesajlarınız etkilenmez.",
+    "description": "Body text of the reset confirmation dialog."
+  },
+  "cancel": {
+    "message": "İptal",
+    "description": "Button that dismisses the confirmation dialog without changing anything."
   },
   "language": {
     "message": "Dil",
@@ -398,7 +480,7 @@
     "description": "Accessible label for the folder overflow/action button."
   },
   "folderUnread": {
-    "message": "$FOLDER$, $COUNT$ okunmamış",
+    "message": "$FOLDER$, $COUNT$ okunmamış sohbet",
     "description": "Accessible label for a folder with unread chats. Keep both placeholders.",
     "placeholders": {
       "folder": {
