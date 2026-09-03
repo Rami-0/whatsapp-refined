@@ -474,23 +474,26 @@ html[data-wr-enabled="true"][data-wr-ready="true"] #pane-side {
   scrollbar-color: rgba(var(--secondary-rgb), .28) transparent;
 }
 
-/* The chat row's second line carries the message preview AND the row's meta
-   chips (unread count, mute, pin), so blanket-hiding it also takes the unread
-   badge away. Drop the line only when it holds nothing but the preview; when a
-   chip is there, keep the line, hide just the preview children, and pin the
-   chips to the trailing edge where WhatsApp normally draws them. */
-html[data-wr-enabled="true"][data-wr-show-previews="false"] #pane-side [data-testid="cell-frame-secondary"]:has(:is([aria-label*="unread" i], [data-icon*="unread"], [data-icon*="mute"], [data-icon*="pin"], [data-testid*="unread"], [data-testid*="muted"], [data-testid*="pinned"])) {
+/* The chat row's second line carries the message preview AND the row's chips —
+   unread count, mute, pin, star — which WhatsApp keeps in a [role="gridcell"]
+   beside the preview. So hiding previews means hiding everything on that line
+   except the gridcell, and the chips survive whatever WhatsApp later puts in
+   it, in any language.
+
+   Naming the chips instead is what lost them: the old list matched data-icon
+   attributes and English aria-labels this build no longer has, so pinned and
+   muted chats came out bare. Nothing here identifies a chip any more. */
+html[data-wr-enabled="true"][data-wr-show-previews="false"] #pane-side [data-testid="cell-frame-secondary"] {
   display: flex !important;
   align-items: center !important;
   justify-content: flex-end !important;
 }
 
-html[data-wr-enabled="true"][data-wr-show-previews="false"] #pane-side [data-testid="cell-frame-secondary"]:not(:has(:is([aria-label*="unread" i], [data-icon*="unread"], [data-icon*="mute"], [data-icon*="pin"], [data-testid*="unread"], [data-testid*="muted"], [data-testid*="pinned"]))),
-html[data-wr-enabled="true"][data-wr-show-previews="false"] #pane-side [data-testid="cell-frame-secondary"] > *:not(:is([aria-label*="unread" i], [data-icon*="unread"], [data-icon*="mute"], [data-icon*="pin"], [data-testid*="unread"], [data-testid*="muted"], [data-testid*="pinned"])):not(:has(:is([aria-label*="unread" i], [data-icon*="unread"], [data-icon*="mute"], [data-icon*="pin"], [data-testid*="unread"], [data-testid*="muted"], [data-testid*="pinned"]))) {
+html[data-wr-enabled="true"][data-wr-show-previews="false"] #pane-side [data-testid="cell-frame-secondary"] > *:not([role="gridcell"]) {
   display: none !important;
 }
 
-html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-previews="true"] #pane-side [data-testid="cell-frame-secondary"] > *:not(:is([aria-label*="unread" i], [data-icon*="unread"], [data-icon*="mute"], [data-icon*="pin"], [data-testid*="unread"], [data-testid*="muted"], [data-testid*="pinned"])):not(:has(:is([aria-label*="unread" i], [data-icon*="unread"], [data-icon*="mute"], [data-icon*="pin"], [data-testid*="unread"], [data-testid*="muted"], [data-testid*="pinned"]))),
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-previews="true"] #pane-side [data-testid="cell-frame-secondary"] > *:not([role="gridcell"]),
 html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-messages="true"] [data-testid="msg-container"],
 html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-names="true"] #pane-side [data-testid="cell-frame-title"],
 html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-names="true"] [data-testid="conversation-info-header-chat-title"],
@@ -506,7 +509,7 @@ html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-videos="true"]
   transition: filter 120ms ease !important;
 }
 
-html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="true"] #pane-side [data-testid="cell-frame-secondary"] > *:not(:is([aria-label*="unread" i], [data-icon*="unread"], [data-icon*="mute"], [data-icon*="pin"], [data-testid*="unread"], [data-testid*="muted"], [data-testid*="pinned"])):not(:has(:is([aria-label*="unread" i], [data-icon*="unread"], [data-icon*="mute"], [data-icon*="pin"], [data-testid*="unread"], [data-testid*="muted"], [data-testid*="pinned"]))):hover,
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="true"] #pane-side [data-testid="cell-frame-secondary"] > *:not([role="gridcell"]):hover,
 html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="true"] [data-testid="msg-container"]:hover,
 html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="true"] #pane-side [data-testid="cell-frame-title"]:hover,
 html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="true"] [data-testid="conversation-info-header-chat-title"]:hover,

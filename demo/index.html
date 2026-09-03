@@ -48,7 +48,7 @@
       [data-testid="cell-frame-secondary"] { display:flex; align-items:center; gap:6px; }
       .demo-preview { min-width:0; flex:1 1 auto; overflow:hidden; text-overflow:ellipsis; }
       .demo-row-meta { flex:0 0 auto; display:flex; align-items:center; gap:5px; }
-      .demo-unread { min-width:18px; padding:0 5px; color:#111b21; background:#25d366; border-radius:9px; font-size:11px; font-weight:600; line-height:18px; text-align:center; }
+      [data-testid="icon-unread-count"] { min-width:18px; padding:0 5px; color:#111b21; background:#25d366; border-radius:9px; font-size:11px; font-weight:600; line-height:18px; text-align:center; }
       #main { flex:1; min-width:0; display:flex; flex-direction:column; background:#0b141a; }
       #main header { height:64px; padding:12px 16px; display:flex; align-items:center; gap:11px; background:#202c33; }
       .conversation { flex:1; padding:36px 7%; display:flex; flex-direction:column; justify-content:flex-end; gap:12px; }
@@ -81,7 +81,7 @@
         </div>
       </header>
       <div class="demo-chat-shell">
-        <header class="demo-chat-header" data-testid="chatlist-header"><span class="demo-avatar">R</span><span class="demo-title">Chats</span><button aria-label="New chat"><svg><title>ic-add</title></svg>＋</button></header>
+        <header class="demo-chat-header" data-testid="chatlist-header"><span class="demo-avatar">R</span><span class="demo-title">Chats</span><button aria-label="New chat"><svg width="16" height="16" aria-hidden="true"><title>ic-add</title></svg>＋</button></header>
         <section id="side">
           <div class="search">Search or start a new chat</div>
           <div role="tablist" aria-label="chat-list-filters">
@@ -90,15 +90,15 @@
             <button role="tab" id="label_item_1" aria-selected="false"><span><span>Unread</span></span><span><span>4</span></span></button>
             <button role="tab" id="label_item_2" aria-selected="false"><span><span>Favourites</span></span><span><span>1</span></span></button>
             <button role="tab" id="label_item_3" aria-selected="false"><span><span>Groups</span></span><span><span>8</span></span></button>
-            <button role="tab" id="additional-filters" aria-selected="false"><span aria-hidden="true"><svg><title>ic-arrow-drop-down</title></svg></span></button>
+            <button role="tab" id="additional-filters" aria-selected="false"><span aria-hidden="true"><svg width="16" height="16" aria-hidden="true"><title>ic-arrow-drop-down</title></svg></span></button>
           </div>
-          <div class="notification" data-testid="chat-butterbar"><button aria-label="Close"><svg><title>ic-close</title></svg>×</button> Notifications are off</div>
+          <div class="notification" data-testid="chat-butterbar"><button aria-label="Close"><svg width="16" height="16" aria-hidden="true"><title>ic-close</title></svg>×</button> Notifications are off</div>
           <div id="pane-side">
             <div role="grid" aria-label="Chat list">
-              <div role="row" data-testid="list-item-0"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Design team</div><div data-testid="cell-frame-secondary"><div class="demo-preview"><span dir="ltr">Maya: The final screens are ready <span role="img" aria-label="thumbs up">👍</span></span></div><div class="demo-row-meta"><span class="demo-unread" aria-label="3 unread messages">3</span></div></div></div><time>10:42</time></div></div>
+              <div role="row" data-testid="list-item-0"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Design team</div><div data-testid="cell-frame-secondary"><div class="demo-preview"><span dir="ltr">Maya: The final screens are ready <span role="img" aria-label="thumbs up">👍</span></span></div><div class="demo-row-meta" role="gridcell" aria-colindex="1"><span data-testid="icon-unread-count" aria-label="3 unread messages">3</span></div></div></div><time>10:42</time></div></div>
               <div role="row" data-testid="list-item-1"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Weekend plans</div><div data-testid="cell-frame-secondary"><div class="demo-preview"><span data-icon="status-dblcheck" aria-hidden="true">✓✓</span> <span dir="ltr">You: I’ll book the table</span></div></div></div><time>09:18</time></div></div>
-              <div role="row" data-testid="list-item-2"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Product sync</div><div data-testid="cell-frame-secondary"><div class="demo-preview"><span dir="ltr">Three new messages</span></div><div class="demo-row-meta"><span data-icon="muted" aria-label="Muted">🔕</span><span class="demo-unread" aria-label="12 unread messages">12</span></div></div></div><time>Tue</time></div></div>
-              <div role="row" data-testid="list-item-3"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Family</div><div data-testid="cell-frame-secondary"><div class="demo-preview"><span dir="ltr">Photo</span></div><div class="demo-row-meta"><span data-icon="pinned2" aria-label="Pinned">📌</span></div></div></div><time>Mon</time></div></div>
+              <div role="row" data-testid="list-item-2"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Product sync</div><div data-testid="cell-frame-secondary"><div class="demo-preview"><span dir="ltr">Three new messages</span></div><div class="demo-row-meta" role="gridcell" aria-colindex="1"><span data-testid="mute-notifications-refreshed" aria-label="Muted chat"><svg width="16" height="16" aria-hidden="true"><title>ic-notifications-off</title></svg>🔕</span><span data-testid="icon-unread-count" aria-label="12 unread messages">12</span></div></div></div><time>Tue</time></div></div>
+              <div role="row" data-testid="list-item-3"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Family</div><div data-testid="cell-frame-secondary"><div class="demo-preview"><span dir="ltr">Photo</span></div><div class="demo-row-meta" role="gridcell" aria-colindex="1"><span aria-label="Pinned chat"><svg width="16" height="16" aria-hidden="true"><title>ic-push-pin</title></svg>📌</span></div></div></div><time>Mon</time></div></div>
             </div>
           </div>
         </section>
@@ -164,6 +164,7 @@
         folderLayout: "sidebar",
         customSidebarWidth: previewQuery.has("wide"),
         sidebarWidth: 520,
+        showPreviews: !previewQuery.has("no-previews"),
         hideMetaAI: previewQuery.has("hide-ai"),
         hideChannels: previewQuery.has("hide-channels"),
         privacyEnabled: previewQuery.has("privacy"),

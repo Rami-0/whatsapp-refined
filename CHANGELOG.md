@@ -6,6 +6,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.2] — 2026-09-03
+
+### Fixed
+
+- Hiding message previews also took the row chips with it — the unread badge,
+  and the mute, pin and star markers — leaving a pinned or muted chat with no
+  sign of it. The rule kept the row line only when it could recognise a chip on
+  it, and it recognised them by `data-icon` attributes and English aria-labels
+  that WhatsApp no longer uses, so it recognised almost nothing. Nothing
+  identifies a chip any more: WhatsApp keeps them in their own gridcell beside
+  the preview, so hiding the preview now means hiding everything on that line
+  except that cell, whatever WhatsApp later puts in it. The same stale list was
+  blurring the pin and star markers under **Blur message previews**, which
+  stops too.
+
 ## [1.2.1] — 2026-09-03
 
 ### Fixed
