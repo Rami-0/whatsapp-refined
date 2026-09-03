@@ -479,6 +479,10 @@
     "message": "Abrir el menú Listas",
     "description": "Accessible label for the folder overflow/action button."
   },
+  "listsLabel": {
+    "message": "Listas",
+    "description": "Rail label for the folder overflow button that opens WhatsApp's lists."
+  },
   "folderUnread": {
     "message": "$FOLDER$, $COUNT$ chats sin leer",
     "description": "Accessible label for a folder with unread chats. Keep both placeholders.",

@@ -479,6 +479,10 @@
     "message": "Apri il menu Liste",
     "description": "Accessible label for the folder overflow/action button."
   },
+  "listsLabel": {
+    "message": "Elenchi",
+    "description": "Rail label for the folder overflow button that opens WhatsApp's lists."
+  },
   "folderUnread": {
     "message": "$FOLDER$, $COUNT$ chat non lette",
     "description": "Accessible label for a folder with unread chats. Keep both placeholders.",

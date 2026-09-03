@@ -6,6 +6,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.1] — 2026-09-03
+
+### Fixed
+
+- The folder rail identified WhatsApp's own filters by reading their names, so
+  it only ever recognised them on an English or Arabic WhatsApp. Everywhere
+  else All, Unread, Favourites and Groups fell through to "custom" and the rail
+  drew a bare first letter where their icons belong. It now reads the ids
+  WhatsApp puts on the tabs — `all-filter`, `label_item_1`..`3` and
+  `additional-filters` — which do not change with the UI language. Lists the
+  user made keep their own name and their letter, which is the point of naming
+  them, and an id WhatsApp has not used before is treated as one of those
+  rather than borrowing another filter's icon.
+- The rail labelled the overflow button "Lists" in English in every language.
+- The new-chat shortcut looked for `aria-label="New chat"` and so did nothing
+  outside an English WhatsApp. It matches WhatsApp's icon name instead, reading
+  both the `data-icon` attributes older builds use and the SVG `<title>`
+  current ones do, the way the Channels and Meta AI entries already did.
+- The notification banner was found by walking up from its `aria-label="Close"`
+  button, so **Hide the notification banner** did nothing outside English. The
+  banner carries WhatsApp's own `chat-butterbar` testid.
+
 ## [1.2.0] — 2026-09-03
 
 ### Added

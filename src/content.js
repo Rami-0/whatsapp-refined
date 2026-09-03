@@ -335,12 +335,16 @@
       if (sidebarActions.parentElement !== footerHost) footerHost.prepend(sidebarActions);
     }
 
-    const closeNotification = side.querySelector('button[aria-label="Close"]');
-    if (closeNotification) {
-      let banner = closeNotification;
-      while (banner.parentElement && banner.parentElement !== side) banner = banner.parentElement;
-      if (banner.parentElement === side) banner.classList.add("wr-notification-banner");
+    /* WhatsApp labels this banner's dismiss button in the UI language, so the
+       old walk up from aria-label="Close" only found it in English. The banner
+       carries its own testid. */
+    let banner = side.querySelector('[data-testid="chat-butterbar"]');
+    if (!banner) {
+      const closeNotification = side.querySelector('button[aria-label="Close"]');
+      for (banner = closeNotification; banner?.parentElement && banner.parentElement !== side; banner = banner.parentElement);
+      if (banner?.parentElement !== side) banner = null;
     }
+    banner?.classList.add("wr-notification-banner");
 
     syncNativeNavSlots();
     return { side, shell };
@@ -363,17 +367,24 @@
       });
     }
 
+    /* Ids, not names and not position. Matching the labels only ever worked on
+       an English or Arabic WhatsApp; everywhere else all four built-ins fell
+       through to "custom" and the rail drew a bare letter where the All,
+       Unread, Favourites and Groups icons belong. Counting tabs instead would
+       not fix it, because WhatsApp interleaves the lists a user made with its
+       own filters. The ids it puts on them survive both. */
     return utils.uniqueFolders(Array.from(tablist.querySelectorAll('[role="tab"]')).map((element) => {
       const leafTexts = Array.from(element.querySelectorAll("span"))
         .filter((span) => span.children.length === 0 && span.getAttribute("aria-hidden") !== "true")
         .map((span) => span.textContent);
       const rawLabel = (element.getAttribute("aria-label") || element.innerText || element.textContent || "").replace(/\s+/g, " ").trim();
       const parsed = utils.parseFolderTab(leafTexts, rawLabel);
-      const label = parsed.action ? "Lists" : parsed.label;
+      const action = utils.isFolderAction(element.id) || parsed.action;
+      const label = action ? t("listsLabel", "Lists") : parsed.label;
       return {
         label: label.slice(0, 48), count: parsed.count,
-        kind: parsed.action ? "lists" : utils.folderKind(label),
-        action: parsed.action, element,
+        kind: action ? "lists" : utils.folderKindById(element.id),
+        action, element,
         selected: element.getAttribute("aria-selected") === "true"
       };
     }).filter((folder) => folder.label)).slice(0, 12);
@@ -599,6 +610,19 @@
     window.setTimeout(scheduleRefresh, 80);
   }
 
+  /* WhatsApp translates its aria-labels but not its icon names, the same reason
+     syncNativeNavSlots() matches on icons. navIconSignature() reads both the
+     data-icon attributes older builds use and the SVG <title> current ones do.
+     The English label stays behind it as a last resort. */
+  function newChatButton() {
+    for (const header of document.querySelectorAll('header[data-testid="chatlist-header"]')) {
+      for (const button of header.querySelectorAll('button, [role="button"]')) {
+        if (/ic-add|new-chat/i.test(navIconSignature(button))) return button;
+      }
+    }
+    return document.querySelector('button[aria-label="New chat"]');
+  }
+
   function onShortcut(event) {
     if (event.key === "Escape" && drawer?.getAttribute("aria-hidden") === "false") {
       toggleDrawer(false);
@@ -618,7 +642,7 @@
       const search = document.querySelector('#side [role="textbox"]');
       search?.click();
       search?.focus();
-    } else if (event.code === "KeyN") document.querySelector('button[aria-label="New chat"]')?.click();
+    } else if (event.code === "KeyN") newChatButton()?.click();
     else if (event.code === "ArrowLeft") cycleFolders(-1);
     else if (event.code === "ArrowRight") cycleFolders(1);
     else if (event.code === "Comma") toggleDrawer();

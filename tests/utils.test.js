@@ -14,6 +14,42 @@ test("recognizes built-in English and Arabic folder labels", () => {
   assert.equal(folderKind("Client work"), "custom");
 });
 
+test("resolves WhatsApp's own filters by their ids, whatever language they are in", () => {
+  const { folderKindById, isFolderAction } = require("../src/utils.js");
+
+  assert.equal(folderKindById("all-filter"), "all");
+  assert.equal(folderKindById("label_item_1"), "unread");
+  assert.equal(folderKindById("label_item_2"), "favourites");
+  assert.equal(folderKindById("label_item_3"), "groups");
+
+  /* Lists the user made are label_item_4 and up, and get their own initial. */
+  assert.equal(folderKindById("label_item_4"), "custom");
+  assert.equal(folderKindById("label_item_17"), "custom");
+
+  /* An id WhatsApp has not used before reads as a user list: the folder shows
+     its initial rather than borrowing some other filter's icon. */
+  assert.equal(folderKindById("something-new"), "custom");
+  assert.equal(folderKindById(""), "custom");
+  assert.equal(folderKindById(undefined), "custom");
+
+  assert.equal(isFolderAction("additional-filters"), true);
+  assert.equal(isFolderAction("label_item_1"), false);
+});
+
+test("a list the user made between two built-in filters does not displace them", () => {
+  const { folderKindById, isFolderAction } = require("../src/utils.js");
+
+  /* Verbatim from a real strip: WhatsApp interleaves the lists a user made
+     with its own filters, so counting tabs would label "Rmli" unread, "Unread"
+     favourites, and so on down the rail. */
+  const strip = ["all-filter", "label_item_4", "label_item_1", "label_item_2", "label_item_3", "label_item_6", "additional-filters"];
+
+  assert.deepEqual(
+    strip.map((id) => (isFolderAction(id) ? "lists" : folderKindById(id))),
+    ["all", "custom", "unread", "favourites", "groups", "custom", "lists"]
+  );
+});
+
 test("creates a safe visible initial for custom folders", () => {
   assert.equal(folderInitial("  personal"), "P");
   assert.equal(folderInitial("⭐ Work"), "W");

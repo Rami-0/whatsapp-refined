@@ -1,6 +1,35 @@
 (function initUtils(global) {
   "use strict";
 
+  /* WhatsApp gives every filter tab a stable id, and none of them change with
+     the UI language: `all-filter`, its three system labels as label_item_1..3,
+     the lists the user made as label_item_4 and up, and `additional-filters`
+     for the overflow arrow. Reading the id is what makes the rail work on a
+     Portuguese or Chinese WhatsApp, where the labels are translated.
+
+     Position does not work. WhatsApp interleaves the lists a user made with
+     its own filters — a real strip runs All, <user list>, Unread, Favourites,
+     Groups, <user list>, arrow — so counting tabs assigns the wrong icon to
+     almost every one of them. An unrecognised id is left `custom`, which shows
+     the folder's initial: worse than an icon, never a wrong icon. */
+  const NATIVE_FOLDER_IDS = Object.freeze({
+    "all-filter": "all",
+    "label_item_1": "unread",
+    "label_item_2": "favourites",
+    "label_item_3": "groups",
+    "additional-filters": "lists"
+  });
+
+  function folderKindById(id) {
+    return NATIVE_FOLDER_IDS[String(id || "")] || "custom";
+  }
+
+  function isFolderAction(id) {
+    return String(id || "") === "additional-filters";
+  }
+
+  /* Kept for the label-matching path and its tests; the rail resolves kinds by
+     WhatsApp's own ids now, so nothing here has to learn a new language. */
   const FOLDER_ALIASES = Object.freeze({
     all: ["all", "الكل"],
     unread: ["unread", "غير مقروءة", "غير المقروءة"],
@@ -156,7 +185,7 @@
     return LOCALE_SCRIPTS[baseLanguage(language)] || "latin";
   }
 
-  const api = Object.freeze({ FOLDER_ALIASES, normalizeLabel, folderKind, folderInitial, uniqueFolders, parseFolderTab, desktopPlatform, i18n, loadLocaleOverride, uiLanguage, localeDirection, localeScript });
+  const api = Object.freeze({ FOLDER_ALIASES, NATIVE_FOLDER_IDS, normalizeLabel, folderKind, folderKindById, isFolderAction, folderInitial, uniqueFolders, parseFolderTab, desktopPlatform, i18n, loadLocaleOverride, uiLanguage, localeDirection, localeScript });
   global.WRUtils = api;
 
   if (typeof module !== "undefined" && module.exports) module.exports = api;

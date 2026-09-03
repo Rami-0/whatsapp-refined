@@ -81,17 +81,18 @@
         </div>
       </header>
       <div class="demo-chat-shell">
-        <header class="demo-chat-header" data-testid="chatlist-header"><span class="demo-avatar">R</span><span class="demo-title">Chats</span><button aria-label="New chat">＋</button></header>
+        <header class="demo-chat-header" data-testid="chatlist-header"><span class="demo-avatar">R</span><span class="demo-title">Chats</span><button aria-label="New chat"><svg><title>ic-add</title></svg>＋</button></header>
         <section id="side">
           <div class="search">Search or start a new chat</div>
           <div role="tablist" aria-label="chat-list-filters">
-            <button role="tab" aria-selected="true"><span><span>All</span></span></button>
-            <button role="tab" aria-selected="false"><span><span>Unread</span></span><span><span>4</span></span></button>
-            <button role="tab" aria-selected="false"><span><span>Favourites</span></span><span><span>1</span></span></button>
-            <button role="tab" aria-selected="false"><span><span>Groups</span></span><span><span>8</span></span></button>
-            <button role="tab" aria-selected="false"><span aria-hidden="true"><svg><title>ic-arrow-drop-down</title></svg></span></button>
+            <button role="tab" id="all-filter" aria-selected="true"><span><span>All</span></span></button>
+            <button role="tab" id="label_item_4" aria-selected="false"><span><span>Rmli</span></span></button>
+            <button role="tab" id="label_item_1" aria-selected="false"><span><span>Unread</span></span><span><span>4</span></span></button>
+            <button role="tab" id="label_item_2" aria-selected="false"><span><span>Favourites</span></span><span><span>1</span></span></button>
+            <button role="tab" id="label_item_3" aria-selected="false"><span><span>Groups</span></span><span><span>8</span></span></button>
+            <button role="tab" id="additional-filters" aria-selected="false"><span aria-hidden="true"><svg><title>ic-arrow-drop-down</title></svg></span></button>
           </div>
-          <div class="notification"><button aria-label="Close">×</button> Notifications are off</div>
+          <div class="notification" data-testid="chat-butterbar"><button aria-label="Close"><svg><title>ic-close</title></svg>×</button> Notifications are off</div>
           <div id="pane-side">
             <div role="grid" aria-label="Chat list">
               <div role="row" data-testid="list-item-0"><div role="gridcell"><img alt="" width="48" height="48"><div data-testid="cell-frame-container"><div data-testid="cell-frame-title">Design team</div><div data-testid="cell-frame-secondary"><div class="demo-preview"><span dir="ltr">Maya: The final screens are ready <span role="img" aria-label="thumbs up">👍</span></span></div><div class="demo-row-meta"><span class="demo-unread" aria-label="3 unread messages">3</span></div></div></div><time>10:42</time></div></div>
@@ -125,10 +126,38 @@
         document.body.append(menu);
       });
       const previewQuery = new URLSearchParams(location.search);
+
+      /* ?wa-lang=<pt|zh|ru> relabels WhatsApp's own chrome the way a non-English
+         WhatsApp does. The rail has to come out identical either way: reading
+         those labels is what left every non-English user with a column of bare
+         letters where the built-in icons belong. */
+      const WA_LANGUAGES = {
+        pt: { filters: { "all-filter": "Todas", label_item_1: "Não lidas", label_item_2: "Favoritas", label_item_3: "Grupos" }, newChat: "Nova conversa", channels: "Canais, 3 não lidas", close: "Fechar" },
+        zh: { filters: { "all-filter": "全部", label_item_1: "未读", label_item_2: "收藏", label_item_3: "群组" }, newChat: "新建聊天", channels: "频道，3 条未读", close: "关闭" },
+        ru: { filters: { "all-filter": "Все", label_item_1: "Непрочитанные", label_item_2: "Избранные", label_item_3: "Группы" }, newChat: "Новый чат", channels: "Каналы, 3 непрочитанных", close: "Закрыть" }
+      };
+      const waLanguage = WA_LANGUAGES[previewQuery.get("wa-lang")];
+      if (waLanguage) {
+        /* Only WhatsApp's own filters get translated. The two lists in the
+           strip are named by the user and read the same in every language,
+           which is exactly why the rail must not go looking at names. */
+        Object.entries(waLanguage.filters).forEach(([id, label]) => {
+          const leaf = document.getElementById(id)?.querySelector("span span");
+          if (leaf) leaf.textContent = label;
+        });
+        document.querySelector('button[aria-label="New chat"]')?.setAttribute("aria-label", waLanguage.newChat);
+        document.querySelector('button[aria-label^="Channels"]')?.setAttribute("aria-label", waLanguage.channels);
+        document.querySelector('button[aria-label="Close"]')?.setAttribute("aria-label", waLanguage.close);
+      }
+
+      /* WhatsApp can render Groups a beat after the rest, and it comes back
+         wherever WhatsApp puts it. Its id travels with it, so the rail picks it
+         up again as Groups without caring where in the strip it landed. */
       if (previewQuery.has("delayed")) {
-        const delayedGroupTab = demoTabs[3];
+        const delayedGroupTab = document.getElementById("label_item_3");
+        const delayedAnchor = delayedGroupTab.nextElementSibling;
         delayedGroupTab.remove();
-        window.setTimeout(() => demoTabs.at(-1).before(delayedGroupTab), 700);
+        window.setTimeout(() => delayedAnchor.before(delayedGroupTab), 700);
       }
       const previewSettings = previewQuery.has("sidebar") ? {
         enabled: !previewQuery.has("paused"),
