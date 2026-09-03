@@ -74,7 +74,7 @@ test("i18n falls back to English without chrome, and a loaded locale wins", asyn
 
   globalThis.chrome = { runtime: { getURL: (resource) => path.join(__dirname, "..", resource) } };
   const realFetch = globalThis.fetch;
-  globalThis.fetch = async (url) => ({ json: async () => JSON.parse(fs.readFileSync(url, "utf8")) });
+  globalThis.fetch = async (url) => ({ ok: true, json: async () => JSON.parse(fs.readFileSync(url, "utf8")) });
   t.after(() => {
     delete globalThis.chrome;
     globalThis.fetch = realFetch;
@@ -91,4 +91,47 @@ test("i18n falls back to English without chrome, and a loaded locale wins", asyn
 
   assert.equal(localeDirection("ar"), "rtl");
   assert.equal(localeDirection("de"), "ltr");
+});
+
+test("the content script falls back to the service worker when the fetch is blocked", async (t) => {
+  const fs = require("node:fs");
+  const path = require("node:path");
+  const { i18n, loadLocaleOverride } = require("../src/utils.js");
+
+  /* Chrome will not serve the extension's _locales folder to a web page, so on
+     web.whatsapp.com the direct fetch fails and the worker answers instead. */
+  const asked = [];
+  globalThis.chrome = {
+    runtime: {
+      getURL: (resource) => path.join(__dirname, "..", resource),
+      sendMessage: async (message) => {
+        asked.push(message);
+        return { messages: JSON.parse(fs.readFileSync(path.join(__dirname, "..", "_locales", message.language, "messages.json"), "utf8")) };
+      }
+    }
+  };
+  const realFetch = globalThis.fetch;
+  globalThis.fetch = async () => { throw new Error("blocked"); };
+  t.after(() => {
+    delete globalThis.chrome;
+    globalThis.fetch = realFetch;
+    return loadLocaleOverride("auto");
+  });
+
+  assert.equal(await loadLocaleOverride("ar"), true);
+  assert.deepEqual(asked, [{ type: "wr-locale", language: "ar" }]);
+  assert.equal(i18n("togglePrivacyAria", "Toggle privacy mode"), "تبديل وضع الخصوصية");
+});
+
+test("localeScript picks a font bucket per writing system", () => {
+  const { localeScript, uiLanguage } = require("../src/utils.js");
+
+  assert.equal(localeScript("ar"), "arabic");
+  assert.equal(localeScript("hi"), "devanagari");
+  assert.equal(localeScript("zh_TW"), "han");
+  assert.equal(localeScript("pt_BR"), "latin");
+  assert.equal(localeScript("auto"), "latin");
+
+  assert.equal(uiLanguage("ar"), "ar");
+  assert.equal(uiLanguage("auto"), "en");
 });

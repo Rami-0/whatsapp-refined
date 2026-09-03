@@ -8,7 +8,7 @@
     "description": "Short extension name. Brand name — keep untranslated."
   },
   "appDesc": {
-    "message": "Спокойный и более приватный WhatsApp Web: управление макетом, размытие для приватности и горячие клавиши.",
+    "message": "Сделайте WhatsApp Web спокойнее и приватнее: настройка макета, размытие и горячие клавиши.",
     "description": "Store/extension description. Must stay under 132 characters."
   },
   "settingsTitle": {
@@ -56,7 +56,7 @@
     "description": "Tooltip on the state dot when disabled."
   },
   "privacySummaryAria": {
-    "message": "Сводка о конфиденциальности",
+    "message": "Сводка о приватности",
     "description": "Accessible label for the privacy details section."
   },
   "dataLabel": {
@@ -75,8 +75,62 @@
     "message": "Только WhatsApp Web",
     "description": "Value in privacy summary row about site access."
   },
+  "versionLabel": {
+    "message": "Версия",
+    "description": "Row label next to the installed version number."
+  },
+  "detailsAria": {
+    "message": "Сведения о расширении",
+    "description": "Accessible name for the extension-details section."
+  },
+  "linksAria": {
+    "message": "Ссылки проекта",
+    "description": "Accessible name for the project links row."
+  },
+  "websiteLink": {
+    "message": "Веб-сайт",
+    "description": "Tooltip and accessible name of the icon-only website link."
+  },
+  "githubLink": {
+    "message": "Репозиторий GitHub",
+    "description": "Tooltip and accessible name of the icon-only GitHub link. 'GitHub' is a brand name."
+  },
+  "updateRestart": {
+    "message": "Перезапустить",
+    "description": "Button that restarts the extension to apply a downloaded update."
+  },
+  "updateUpToDate": {
+    "message": "Обновлений нет",
+    "description": "Badge shown when the installed version is current."
+  },
+  "updateReady": {
+    "message": "Обновление готово",
+    "description": "Badge shown when a newer version has been downloaded."
+  },
+  "updateChecking": {
+    "message": "Проверка…",
+    "description": "Badge shown while the update check is in flight."
+  },
+  "updateVersionReady": {
+    "message": "Версия $VERSION$ готова",
+    "description": "Update card heading naming the new version. Keep the $VERSION$ placeholder.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.2.0"
+      }
+    }
+  },
+  "updateGenericReady": {
+    "message": "Обновление готово к установке",
+    "description": "Update card heading when the new version number is unknown."
+  },
+  "updateReadyHelp": {
+    "message": "Chrome уже скачал его. Перезапустите, затем обновите открытые вкладки WhatsApp.",
+    "description": "Update card help text. 'Chrome' is a brand name."
+  },
   "aboutFooter": {
-    "message": "Откройте Refined с помощью кнопки настроек в боковой панели WhatsApp.",
+    "message": "Откройте Refined с помощью кнопки «Настройки» в боковой панели WhatsApp.",
     "description": "Footer hint in the toolbar popup."
   },
   "headerTagline": {
@@ -103,6 +157,10 @@
     "message": "Клавиши",
     "description": "Settings tab name (keyboard shortcuts)."
   },
+  "tabSettings": {
+    "message": "Настройки",
+    "description": "Settings tab name (extension-level options: language and reset)."
+  },
   "layoutPanelAria": {
     "message": "Настройки макета",
     "description": "Accessible label for the layout panel."
@@ -128,11 +186,11 @@
     "description": "Folder layout option: vertical sidebar."
   },
   "resizablePanel": {
-    "message": "Изменяемый размер панели чатов",
+    "message": "Изменение размера панели чатов",
     "description": "Setting title."
   },
   "resizablePanelHelp": {
-    "message": "Перетаскивайте правый край в любой момент; на ручке работают клавиши со стрелками",
+    "message": "Перетаскивайте правый край в любой момент; на разделителе работают клавиши со стрелками",
     "description": "Help text for the resizable panel setting."
   },
   "panelWidth": {
@@ -162,7 +220,7 @@
     "description": "Help text."
   },
   "hideNotification": {
-    "message": "Скрыть запрос уведомлений",
+    "message": "Скрыть запрос на уведомления",
     "description": "Setting title."
   },
   "hideNotificationHelp": {
@@ -174,7 +232,7 @@
     "description": "Setting title. 'Meta AI' is a product name — keep untranslated."
   },
   "hideMetaAIHelp": {
-    "message": "Убрать его ярлык из панели навигации",
+    "message": "Убрать его из панели навигации",
     "description": "Help text."
   },
   "hideChannels": {
@@ -182,7 +240,7 @@
     "description": "Setting title. 'Channels' is WhatsApp's feature — use WhatsApp's official localized term."
   },
   "hideChannelsHelp": {
-    "message": "Убрать их ярлык из панели навигации",
+    "message": "Убрать их из панели навигации",
     "description": "Help text."
   },
   "privacyPanelAria": {
@@ -230,7 +288,7 @@
     "description": "Setting title."
   },
   "blurVideosHelp": {
-    "message": "Видео остаются скрытыми",
+    "message": "Видео остаются размытыми",
     "description": "Help text."
   },
   "blurNames": {
@@ -238,7 +296,7 @@
     "description": "Setting title."
   },
   "blurNamesHelp": {
-    "message": "Названия чатов и переписок",
+    "message": "Названия чатов и открытой переписки",
     "description": "Help text."
   },
   "blurAvatars": {
@@ -246,7 +304,7 @@
     "description": "Setting title."
   },
   "blurAvatarsHelp": {
-    "message": "Только аватары; эмодзи в тексте остаются видимыми",
+    "message": "Только фото профиля; эмодзи в тексте остаются видимыми",
     "description": "Help text."
   },
   "revealOnHover": {
@@ -264,6 +322,10 @@
   "shortcutsPanelAria": {
     "message": "Горячие клавиши",
     "description": "Accessible label for the shortcuts panel."
+  },
+  "settingsPanelAria": {
+    "message": "Настройки расширения",
+    "description": "Accessible name for the extension settings panel."
   },
   "platformMac": {
     "message": "Сочетания для macOS",
@@ -306,7 +368,7 @@
     "description": "Shortcut row title."
   },
   "focusSearchHelp": {
-    "message": "Переход к поиску WhatsApp",
+    "message": "Ставит курсор в строку поиска WhatsApp",
     "description": "Help text."
   },
   "newChat": {
@@ -314,7 +376,7 @@
     "description": "Shortcut row title."
   },
   "newChatHelp": {
-    "message": "Открывает стандартную панель нового чата WhatsApp",
+    "message": "Открывает панель «Новый чат» WhatsApp",
     "description": "Help text."
   },
   "folderCycle": {
@@ -322,7 +384,7 @@
     "description": "Shortcut row title."
   },
   "folderCycleHelp": {
-    "message": "Переключает вкладки или папки боковой панели",
+    "message": "Переключает стандартные вкладки или папки боковой панели",
     "description": "Help text."
   },
   "privacyShortcutHelp": {
@@ -334,7 +396,7 @@
     "description": "Shortcut row title; opens this settings drawer. 'Refined' is the brand name."
   },
   "refinedSettingsHelp": {
-    "message": "Открыть или закрыть эту панель",
+    "message": "Открыть или закрыть панель настроек",
     "description": "Help text."
   },
   "shortcutNote": {
@@ -349,12 +411,32 @@
     "message": "Сбросить настройки",
     "description": "Button that restores default settings."
   },
+  "resetDefaultsHelp": {
+    "message": "Возвращает все параметры Refined к исходным значениям",
+    "description": "Help text under the reset-defaults row."
+  },
+  "resetAction": {
+    "message": "Сбросить",
+    "description": "Short label on the button that performs the reset."
+  },
+  "resetConfirmTitle": {
+    "message": "Сбросить все настройки?",
+    "description": "Heading of the confirmation dialog shown before resetting."
+  },
+  "resetConfirmBody": {
+    "message": "Все параметры Refined вернутся к значениям по умолчанию. Аккаунт WhatsApp, чаты и сообщения останутся без изменений.",
+    "description": "Body text of the reset confirmation dialog."
+  },
+  "cancel": {
+    "message": "Отмена",
+    "description": "Button that dismisses the confirmation dialog without changing anything."
+  },
   "language": {
     "message": "Язык",
     "description": "Setting title for the manual language picker."
   },
   "languageHelp": {
-    "message": "Следует языку браузера, если не выбран другой",
+    "message": "Используется язык браузера, если не выбран другой",
     "description": "Help text for the language picker."
   },
   "languageAuto": {
@@ -394,7 +476,7 @@
     "description": "Accessible label for the drag handle that resizes the chat panel."
   },
   "openListsMenu": {
-    "message": "Открыть меню списков",
+    "message": "Открыть меню «Списки»",
     "description": "Accessible label for the folder overflow/action button."
   },
   "folderUnread": {

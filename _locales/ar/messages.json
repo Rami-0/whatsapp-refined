@@ -8,7 +8,7 @@
     "description": "Short extension name. Brand name — keep untranslated."
   },
   "appDesc": {
-    "message": "اجعل واتساب ويب أهدأ وأكثر خصوصية مع عناصر تحكم بالتخطيط وتمويه للخصوصية واختصارات لوحة المفاتيح.",
+    "message": "واجهة أهدأ وأكثر خصوصية لواتساب ويب: تحكّم في التخطيط، وتمويه للخصوصية، واختصارات لوحة المفاتيح.",
     "description": "Store/extension description. Must stay under 132 characters."
   },
   "settingsTitle": {
@@ -24,7 +24,7 @@
     "description": "Eyebrow label above the activation state."
   },
   "activeTitle": {
-    "message": "Refined مفعّل",
+    "message": "Refined نشط",
     "description": "Heading when the extension is enabled. 'Refined' is the brand name."
   },
   "pausedTitle": {
@@ -32,7 +32,7 @@
     "description": "Heading when the extension is disabled."
   },
   "activeHelp": {
-    "message": "تفضيلات التخطيط والخصوصية لديك مطبّقة.",
+    "message": "تفضيلات التخطيط والخصوصية مُطبَّقة الآن.",
     "description": "Help text when enabled."
   },
   "pausedHelp": {
@@ -48,7 +48,7 @@
     "description": "Button that enables the extension."
   },
   "stateActive": {
-    "message": "مفعّل",
+    "message": "نشط",
     "description": "Tooltip on the state dot when enabled."
   },
   "statePaused": {
@@ -75,8 +75,62 @@
     "message": "واتساب ويب فقط",
     "description": "Value in privacy summary row about site access."
   },
+  "versionLabel": {
+    "message": "الإصدار",
+    "description": "Row label next to the installed version number."
+  },
+  "detailsAria": {
+    "message": "تفاصيل الإضافة",
+    "description": "Accessible name for the extension-details section."
+  },
+  "linksAria": {
+    "message": "روابط المشروع",
+    "description": "Accessible name for the project links row."
+  },
+  "websiteLink": {
+    "message": "الموقع الإلكتروني",
+    "description": "Tooltip and accessible name of the icon-only website link."
+  },
+  "githubLink": {
+    "message": "مستودع GitHub",
+    "description": "Tooltip and accessible name of the icon-only GitHub link. 'GitHub' is a brand name."
+  },
+  "updateRestart": {
+    "message": "إعادة التشغيل",
+    "description": "Button that restarts the extension to apply a downloaded update."
+  },
+  "updateUpToDate": {
+    "message": "محدَّث",
+    "description": "Badge shown when the installed version is current."
+  },
+  "updateReady": {
+    "message": "التحديث جاهز",
+    "description": "Badge shown when a newer version has been downloaded."
+  },
+  "updateChecking": {
+    "message": "جارٍ التحقق…",
+    "description": "Badge shown while the update check is in flight."
+  },
+  "updateVersionReady": {
+    "message": "الإصدار $VERSION$ جاهز",
+    "description": "Update card heading naming the new version. Keep the $VERSION$ placeholder.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.2.0"
+      }
+    }
+  },
+  "updateGenericReady": {
+    "message": "يتوفر تحديث جاهز",
+    "description": "Update card heading when the new version number is unknown."
+  },
+  "updateReadyHelp": {
+    "message": "نزّله Chrome. أعد التشغيل، ثم أعد تحميل علامات تبويب واتساب المفتوحة.",
+    "description": "Update card help text. 'Chrome' is a brand name."
+  },
   "aboutFooter": {
-    "message": "افتح Refined من زر الإعدادات في الشريط الجانبي لواتساب.",
+    "message": "افتح Refined من زر «الإعدادات» في الشريط الجانبي لواتساب.",
     "description": "Footer hint in the toolbar popup."
   },
   "headerTagline": {
@@ -103,20 +157,24 @@
     "message": "الاختصارات",
     "description": "Settings tab name (keyboard shortcuts)."
   },
+  "tabSettings": {
+    "message": "الإعدادات",
+    "description": "Settings tab name (extension-level options: language and reset)."
+  },
   "layoutPanelAria": {
     "message": "إعدادات التخطيط",
     "description": "Accessible label for the layout panel."
   },
   "chatFolders": {
-    "message": "مجلدات الدردشة",
+    "message": "مجلدات الدردشات",
     "description": "Setting group title."
   },
   "chatFoldersHelp": {
-    "message": "أبقِ علامات تبويب واتساب أو انقلها إلى شريطه الجانبي",
+    "message": "أبقِ علامات تبويب واتساب كما هي أو انقلها إلى الشريط الجانبي",
     "description": "Help text for the chat folders setting."
   },
   "folderLayoutAria": {
-    "message": "تخطيط مجلدات الدردشة",
+    "message": "تخطيط مجلدات الدردشات",
     "description": "Accessible label for the folder layout choice."
   },
   "nativeTabs": {
@@ -132,7 +190,7 @@
     "description": "Setting title."
   },
   "resizablePanelHelp": {
-    "message": "اسحب حافتها اليمنى في أي وقت؛ وتعمل مفاتيح الأسهم على المقبض",
+    "message": "اسحب حافتها اليمنى في أي وقت، أو استخدم مفاتيح الأسهم على المقبض",
     "description": "Help text for the resizable panel setting."
   },
   "panelWidth": {
@@ -158,7 +216,7 @@
     "description": "Setting title."
   },
   "messagePreviewsHelp": {
-    "message": "إظهار آخر رسالة في صفوف الدردشات",
+    "message": "إظهار آخر رسالة في قائمة الدردشات",
     "description": "Help text."
   },
   "hideNotification": {
@@ -194,7 +252,7 @@
     "description": "Master privacy toggle title; also used as a shortcut row label."
   },
   "privacyModeHelp": {
-    "message": "استخدم الاختصار المناسب لنظامك الموضح في قسم الاختصارات",
+    "message": "استخدم الاختصار المخصّص لنظامك، وتجده في قسم «الاختصارات»",
     "description": "Help text for the privacy mode toggle."
   },
   "privacyBlurAria": {
@@ -202,7 +260,7 @@
     "description": "Accessible label for the blur switches list."
   },
   "blurPreviews": {
-    "message": "تمويه معاينات الدردشة",
+    "message": "تمويه معاينات الدردشات",
     "description": "Setting title."
   },
   "blurPreviewsHelp": {
@@ -222,15 +280,15 @@
     "description": "Setting title."
   },
   "blurImagesHelp": {
-    "message": "الصور والملصقات ومصغرات الروابط؛ دون الرموز التعبيرية أو الأيقونات",
+    "message": "الصور والملصقات ومصغّرات الروابط، وليس الرموز التعبيرية أو الأيقونات",
     "description": "Help text."
   },
   "blurVideos": {
-    "message": "تمويه الفيديو وملفات GIF",
+    "message": "تمويه مقاطع الفيديو وصور GIF",
     "description": "Setting title."
   },
   "blurVideosHelp": {
-    "message": "تبقى مقاطع الفيديو مموّهة",
+    "message": "يبقى محتوى الفيديو مموّهًا",
     "description": "Help text."
   },
   "blurNames": {
@@ -238,7 +296,7 @@
     "description": "Setting title."
   },
   "blurNamesHelp": {
-    "message": "عناوين الدردشات والمحادثات",
+    "message": "أسماء الدردشات وعناوين المحادثات",
     "description": "Help text."
   },
   "blurAvatars": {
@@ -246,15 +304,15 @@
     "description": "Setting title."
   },
   "blurAvatarsHelp": {
-    "message": "الصور الرمزية فقط؛ تبقى الرموز التعبيرية ظاهرة",
+    "message": "الصور الشخصية فقط، وتبقى الرموز التعبيرية ظاهرة",
     "description": "Help text."
   },
   "revealOnHover": {
-    "message": "الكشف عند التمرير",
+    "message": "الإظهار عند مرور المؤشر",
     "description": "Setting title."
   },
   "revealOnHoverHelp": {
-    "message": "إظهار ما تشير إليه فقط بشكل مؤقت",
+    "message": "إظهار ما يشير إليه المؤشر مؤقتًا فقط",
     "description": "Help text."
   },
   "blurStrength": {
@@ -264,6 +322,10 @@
   "shortcutsPanelAria": {
     "message": "اختصارات لوحة المفاتيح",
     "description": "Accessible label for the shortcuts panel."
+  },
+  "settingsPanelAria": {
+    "message": "إعدادات الإضافة",
+    "description": "Accessible name for the extension settings panel."
   },
   "platformMac": {
     "message": "اختصارات macOS",
@@ -302,11 +364,11 @@
     "description": "Accessible label for the shortcut list."
   },
   "focusSearch": {
-    "message": "التركيز على البحث",
+    "message": "الانتقال إلى البحث",
     "description": "Shortcut row title."
   },
   "focusSearchHelp": {
-    "message": "الانتقال إلى بحث واتساب",
+    "message": "وضع المؤشر في حقل بحث واتساب",
     "description": "Help text."
   },
   "newChat": {
@@ -314,7 +376,7 @@
     "description": "Shortcut row title."
   },
   "newChatHelp": {
-    "message": "فتح لوحة الدردشة الجديدة الأصلية في واتساب",
+    "message": "فتح لوحة «دردشة جديدة» الأصلية في واتساب",
     "description": "Help text."
   },
   "folderCycle": {
@@ -322,11 +384,11 @@
     "description": "Shortcut row title."
   },
   "folderCycleHelp": {
-    "message": "يتنقل بين علامات التبويب الأصلية أو مجلدات الشريط الجانبي",
+    "message": "التنقل بين علامات التبويب الأصلية أو مجلدات الشريط الجانبي",
     "description": "Help text."
   },
   "privacyShortcutHelp": {
-    "message": "تمويه المحتوى المحمي أو كشفه",
+    "message": "تمويه المحتوى المحمي أو إظهاره",
     "description": "Help text for the privacy mode shortcut row."
   },
   "refinedSettings": {
@@ -338,23 +400,43 @@
     "description": "Help text."
   },
   "shortcutNote": {
-    "message": "تستمر اختصارات واتساب الأصلية في العمل دون تغيير. اضغط Escape لإغلاق لوحة الإعدادات.",
+    "message": "تستمر اختصارات واتساب الأصلية في العمل دون تغيير. اضغط مفتاح Escape لإغلاق لوحة الإعدادات.",
     "description": "Note under the shortcut list. Keep the key name Escape."
   },
   "footerSaved": {
-    "message": "محفوظة محليًا على هذا المتصفح",
+    "message": "محفوظة محليًا في هذا المتصفح",
     "description": "Footer note about where settings are stored."
   },
   "resetDefaults": {
-    "message": "استعادة الافتراضيات",
+    "message": "استعادة الإعدادات الافتراضية",
     "description": "Button that restores default settings."
+  },
+  "resetDefaultsHelp": {
+    "message": "إعادة جميع خيارات Refined إلى إعداداتها الأصلية",
+    "description": "Help text under the reset-defaults row."
+  },
+  "resetAction": {
+    "message": "إعادة تعيين",
+    "description": "Short label on the button that performs the reset."
+  },
+  "resetConfirmTitle": {
+    "message": "إعادة تعيين جميع الإعدادات؟",
+    "description": "Heading of the confirmation dialog shown before resetting."
+  },
+  "resetConfirmBody": {
+    "message": "ستعود جميع خيارات Refined إلى قيمها الافتراضية. لن يتأثر حسابك في واتساب ولا دردشاتك ولا رسائلك.",
+    "description": "Body text of the reset confirmation dialog."
+  },
+  "cancel": {
+    "message": "إلغاء",
+    "description": "Button that dismisses the confirmation dialog without changing anything."
   },
   "language": {
     "message": "اللغة",
     "description": "Setting title for the manual language picker."
   },
   "languageHelp": {
-    "message": "تتبع لغة المتصفح ما لم تختر لغة أخرى",
+    "message": "تتبع لغة المتصفح ما لم تختر لغة محدّدة",
     "description": "Help text for the language picker."
   },
   "languageAuto": {
@@ -362,7 +444,7 @@
     "description": "First picker option: follow the browser's UI language."
   },
   "navFoldersAria": {
-    "message": "مجلدات دردشة واتساب",
+    "message": "مجلدات الدردشات في واتساب",
     "description": "Accessible label for the injected folder sidebar."
   },
   "toolsAria": {
@@ -394,7 +476,7 @@
     "description": "Accessible label for the drag handle that resizes the chat panel."
   },
   "openListsMenu": {
-    "message": "فتح قائمة القوائم",
+    "message": "فتح خيارات القوائم",
     "description": "Accessible label for the folder overflow/action button."
   },
   "folderUnread": {

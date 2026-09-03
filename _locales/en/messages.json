@@ -75,6 +75,60 @@
     "message": "WhatsApp Web only",
     "description": "Value in privacy summary row about site access."
   },
+  "versionLabel": {
+    "message": "Version",
+    "description": "Row label next to the installed version number."
+  },
+  "detailsAria": {
+    "message": "Extension details",
+    "description": "Accessible name for the extension-details section."
+  },
+  "linksAria": {
+    "message": "Project links",
+    "description": "Accessible name for the project links row."
+  },
+  "websiteLink": {
+    "message": "Website",
+    "description": "Tooltip and accessible name of the icon-only website link."
+  },
+  "githubLink": {
+    "message": "GitHub repository",
+    "description": "Tooltip and accessible name of the icon-only GitHub link. 'GitHub' is a brand name."
+  },
+  "updateRestart": {
+    "message": "Restart",
+    "description": "Button that restarts the extension to apply a downloaded update."
+  },
+  "updateUpToDate": {
+    "message": "Up to date",
+    "description": "Badge shown when the installed version is current."
+  },
+  "updateReady": {
+    "message": "Update ready",
+    "description": "Badge shown when a newer version has been downloaded."
+  },
+  "updateChecking": {
+    "message": "Checking…",
+    "description": "Badge shown while the update check is in flight."
+  },
+  "updateVersionReady": {
+    "message": "Version $VERSION$ is ready",
+    "description": "Update card heading naming the new version. Keep the $VERSION$ placeholder.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.2.0"
+      }
+    }
+  },
+  "updateGenericReady": {
+    "message": "An update is ready",
+    "description": "Update card heading when the new version number is unknown."
+  },
+  "updateReadyHelp": {
+    "message": "Chrome downloaded it. Restart, then refresh open WhatsApp tabs.",
+    "description": "Update card help text. 'Chrome' is a brand name."
+  },
   "aboutFooter": {
     "message": "Open Refined from the Settings button inside WhatsApp’s sidebar.",
     "description": "Footer hint in the toolbar popup."
@@ -102,6 +156,10 @@
   "tabShortcuts": {
     "message": "Shortcuts",
     "description": "Settings tab name (keyboard shortcuts)."
+  },
+  "tabSettings": {
+    "message": "Settings",
+    "description": "Settings tab name (extension-level options: language and reset)."
   },
   "layoutPanelAria": {
     "message": "Layout settings",
@@ -265,6 +323,10 @@
     "message": "Keyboard shortcuts",
     "description": "Accessible label for the shortcuts panel."
   },
+  "settingsPanelAria": {
+    "message": "Extension settings",
+    "description": "Accessible name for the extension settings panel."
+  },
   "platformMac": {
     "message": "macOS shortcuts",
     "description": "Platform card title on macOS."
@@ -348,6 +410,26 @@
   "resetDefaults": {
     "message": "Reset defaults",
     "description": "Button that restores default settings."
+  },
+  "resetDefaultsHelp": {
+    "message": "Put every Refined option back the way it shipped",
+    "description": "Help text under the reset-defaults row."
+  },
+  "resetAction": {
+    "message": "Reset",
+    "description": "Short label on the button that performs the reset."
+  },
+  "resetConfirmTitle": {
+    "message": "Reset every setting?",
+    "description": "Heading of the confirmation dialog shown before resetting."
+  },
+  "resetConfirmBody": {
+    "message": "All Refined options go back to their defaults. Your WhatsApp account, chats and messages are untouched.",
+    "description": "Body text of the reset confirmation dialog."
+  },
+  "cancel": {
+    "message": "Cancel",
+    "description": "Button that dismisses the confirmation dialog without changing anything."
   },
   "language": {
     "message": "Language",

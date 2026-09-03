@@ -16,6 +16,7 @@
   const RECHECK_AFTER_MS = 6 * 60 * 60 * 1000;
   const currentVersion = runtime?.getManifest?.().version || "0";
   let enabled = defaults.enabled;
+  let lastUpdate = null;
 
   function render(value) {
     enabled = Boolean(value);
@@ -51,8 +52,15 @@
 
   globalThis.chrome?.storage?.onChanged?.addListener((changes, area) => {
     if (area !== "local") return;
-    if (changes.language) return location.reload();
     if (changes.enabled) render(changes.enabled.newValue ?? defaults.enabled);
+  });
+
+  /* i18n.js has already re-resolved every data-i18n string by this point; these
+     are the ones this page builds itself. Re-rendering beats reloading, which
+     would send the update chip back through its "checking" state. */
+  globalThis.WRLocale?.onChange(() => {
+    render(enabled);
+    renderUpdate(lastUpdate);
   });
 
   /* Compares dotted-integer extension versions: 1 if a is newer, -1 if older, 0 if equal. */
@@ -92,28 +100,32 @@
   /* Turns a cached or fresh check into what the popup shows. `chip` is the badge
      beside the version number, `card` the restart prompt (null to hide it). */
   function describeUpdateState(entry) {
+    const upToDate = { chip: t("updateUpToDate", "Up to date"), tone: "good", card: null };
     if (entry?.status === "update_available") {
       /* Chrome applies updates on its own schedule, so a remembered
          "update_available" can name a version that is already running. */
       const applied = entry.version && compareVersions(entry.version, currentVersion) <= 0;
-      if (applied) return { chip: "Up to date", tone: "good", card: null };
+      if (applied) return upToDate;
       return {
-        chip: "Update ready",
+        chip: t("updateReady", "Update ready"),
         tone: "ready",
         card: {
-          title: entry.version ? `Version ${entry.version} is ready` : "An update is ready",
-          help: "Chrome downloaded it. Restart, then refresh open WhatsApp tabs."
+          title: entry.version
+            ? t("updateVersionReady", `Version ${entry.version} is ready`, [entry.version])
+            : t("updateGenericReady", "An update is ready"),
+          help: t("updateReadyHelp", "Chrome downloaded it. Restart, then refresh open WhatsApp tabs.")
         }
       };
     }
-    if (entry?.status === "no_update") return { chip: "Up to date", tone: "good", card: null };
-    if (entry?.status === "checking") return { chip: "Checking…", tone: "idle", card: null };
+    if (entry?.status === "no_update") return upToDate;
+    if (entry?.status === "checking") return { chip: t("updateChecking", "Checking…"), tone: "idle", card: null };
     /* "throttled", a development build, or no answer at all: say nothing rather
        than claim a state we cannot vouch for. */
     return { chip: null, tone: "idle", card: null };
   }
 
   function renderUpdate(entry) {
+    lastUpdate = entry;
     const state = describeUpdateState(entry);
     chip.hidden = !state.chip;
     if (state.chip) {
@@ -163,6 +175,8 @@
   });
 
   if (runtime?.getManifest) document.querySelector("#version").textContent = `v${currentVersion}`;
-  (globalThis.WRLocaleReady || Promise.resolve()).then(read);
-  refreshUpdateState();
+  (globalThis.WRLocaleReady || Promise.resolve()).then(() => {
+    read();
+    refreshUpdateState();
+  });
 })();

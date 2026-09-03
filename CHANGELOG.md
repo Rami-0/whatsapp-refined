@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] — 2026-09-03
+
 ### Added
 
 - Localization into 18 languages (Arabic, German, Spanish, French, Hindi,
@@ -15,10 +17,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   browser's UI language and falls back to English. Brand names stay
   untranslated; the settings drawer switches to right-to-left layout for
   Arabic.
-- A **Language** picker on the Layout tab. It defaults to following the
-  browser, but any of the 19 languages can be chosen manually — for example
-  Arabic on an English browser — and the whole interface, including the
-  buttons injected into WhatsApp's sidebar, switches immediately.
+- A **Settings** tab in the drawer, holding the language picker and
+  **Reset defaults**. It stays reachable while Refined is paused, since a
+  reset is how you turn it back on.
+- The **Language** picker moved there from the Layout tab. It defaults to
+  following the browser, but any of the 19 languages can be chosen manually —
+  for example Arabic on an English browser — and the whole interface,
+  including the buttons injected into WhatsApp's sidebar, switches
+  immediately.
+- A confirmation dialog before **Reset defaults**, which previously wiped
+  every preference on a single click.
+- Script-aware fonts. Arabic, Devanagari and CJK were left to whatever the
+  platform substituted for a Latin-first stack, which rendered them smaller
+  and thinner than the text beside them; each script now gets a face built for
+  it and a matching size, in both the settings panel and WhatsApp's sidebar.
+
+### Fixed
+
+- The buttons injected into WhatsApp's sidebar ignored a manually chosen
+  language and followed the browser instead — their tooltips and labels stayed
+  in the browser's language while the settings drawer switched. Chrome does not
+  serve the extension's `_locales` folder to a web page, so the content script's
+  own request for it came back empty; a service worker now reads it and hands
+  the messages over.
+- Changing the language reloaded the settings page, which snapped it back to
+  the first tab and lost the scroll position. Translations are now re-applied
+  in place; nothing else changes.
+- The version row, the update badge and the project links in the toolbar popup
+  were never translated.
 
 ## [1.1.1] — 2026-08-16
 
