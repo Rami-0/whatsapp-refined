@@ -29,9 +29,9 @@ See the settings drawer, sidebar chat folders, resizable chat panel, and
 privacy controls in action. The preview runs at 3× speed; the full recording
 is about one minute long.
 
-[![Animated walkthrough of Refined WhatsApp Web's layout and privacy controls](store/assets/WA-org-preview.gif)](store/assets/WA-org.mp4)
+[![Animated walkthrough of Refined WhatsApp Web's layout and privacy controls](store/assets/WA-org-preview.gif)](https://www.youtube.com/watch?v=oubtNCym0eQ)
 
-[Watch or download the full demo (MP4)](store/assets/WA-org.mp4).
+[Watch the full demo on YouTube](https://www.youtube.com/watch?v=oubtNCym0eQ).
 
 ## Features
 
