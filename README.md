@@ -23,6 +23,16 @@ patterns, in both light and dark themes.
 It is an independent project and is not affiliated with, endorsed by, or
 sponsored by WhatsApp or Meta. WhatsApp is a trademark of WhatsApp LLC.
 
+## Demo
+
+See the settings drawer, sidebar chat folders, resizable chat panel, and
+privacy controls in action. The preview runs at 3× speed; the full recording
+is about one minute long.
+
+[![Animated walkthrough of Refined WhatsApp Web's layout and privacy controls](store/assets/WA-org-preview.gif)](store/assets/WA-org.mp4)
+
+[Watch or download the full demo (MP4)](store/assets/WA-org.mp4).
+
 ## Features
 
 ### Layout
