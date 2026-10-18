@@ -6,6 +6,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.0] — 2026-10-18
+
+### Added
+
+- **Leave a review** and **Request a feature** links, in the toolbar popup and
+  in the footer of the settings drawer inside WhatsApp. The review link opens
+  the Chrome Web Store reviews; the feature link opens a new GitHub issue
+  labelled `enhancement`. Both are text labels, translated in every locale.
+
+### Changed
+
+- The toolbar popup's website button is gone; its place is taken by the review
+  link.
+
 ## [1.2.2] — 2026-09-03
 
 ### Fixed

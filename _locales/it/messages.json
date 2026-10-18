@@ -87,9 +87,13 @@
     "message": "Link del progetto",
     "description": "Accessible name for the project links row."
   },
-  "websiteLink": {
-    "message": "Sito web",
-    "description": "Tooltip and accessible name of the icon-only website link."
+  "reviewLink": {
+    "message": "Lascia una recensione",
+    "description": "Tooltip and accessible name of the icon-only link to the extension's store reviews."
+  },
+  "featureRequestLink": {
+    "message": "Richiedi una funzione",
+    "description": "Tooltip and accessible name of the icon-only link that opens a GitHub feature request."
   },
   "githubLink": {
     "message": "Repository GitHub",
