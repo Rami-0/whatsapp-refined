@@ -87,9 +87,13 @@
     "message": "專案連結",
     "description": "Accessible name for the project links row."
   },
-  "websiteLink": {
-    "message": "網站",
-    "description": "Tooltip and accessible name of the icon-only website link."
+  "reviewLink": {
+    "message": "留下評價",
+    "description": "Tooltip and accessible name of the icon-only link to the extension's store reviews."
+  },
+  "featureRequestLink": {
+    "message": "建議新功能",
+    "description": "Tooltip and accessible name of the icon-only link that opens a GitHub feature request."
   },
   "githubLink": {
     "message": "GitHub 存放庫",

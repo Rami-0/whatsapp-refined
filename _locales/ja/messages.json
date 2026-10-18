@@ -87,9 +87,13 @@
     "message": "プロジェクトのリンク",
     "description": "Accessible name for the project links row."
   },
-  "websiteLink": {
-    "message": "ウェブサイト",
-    "description": "Tooltip and accessible name of the icon-only website link."
+  "reviewLink": {
+    "message": "レビューを書く",
+    "description": "Tooltip and accessible name of the icon-only link to the extension's store reviews."
+  },
+  "featureRequestLink": {
+    "message": "機能をリクエスト",
+    "description": "Tooltip and accessible name of the icon-only link that opens a GitHub feature request."
   },
   "githubLink": {
     "message": "GitHub リポジトリ",

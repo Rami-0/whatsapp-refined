@@ -87,9 +87,13 @@
     "message": "प्रोजेक्ट लिंक",
     "description": "Accessible name for the project links row."
   },
-  "websiteLink": {
-    "message": "वेबसाइट",
-    "description": "Tooltip and accessible name of the icon-only website link."
+  "reviewLink": {
+    "message": "समीक्षा लिखें",
+    "description": "Tooltip and accessible name of the icon-only link to the extension's store reviews."
+  },
+  "featureRequestLink": {
+    "message": "सुविधा का सुझाव दें",
+    "description": "Tooltip and accessible name of the icon-only link that opens a GitHub feature request."
   },
   "githubLink": {
     "message": "GitHub रिपॉज़िटरी",

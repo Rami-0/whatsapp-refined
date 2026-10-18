@@ -188,14 +188,15 @@ h2 { font-size: 15px; font-weight: 650; }
 .links {
   margin-top: 13px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 40px;
   gap: 8px;
 }
 
-/* Icon-only: the destination is named by the title and aria-label, which keeps
-   the row identical in every language. */
+/* Review and feature links are plain text labels; the GitHub mark is familiar
+   enough to stay icon-only, named by its title and aria-label. */
 .links a {
   min-height: 36px;
+  padding: 6px 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -203,6 +204,10 @@ h2 { font-size: 15px; font-weight: 650; }
   border-radius: 11px;
   color: var(--text);
   background: var(--surface);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
   text-decoration: none;
   transition: background 140ms ease, border-color 140ms ease;
 }

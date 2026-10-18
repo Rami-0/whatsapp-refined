@@ -510,7 +510,11 @@ footer {
 footer span { display: flex; align-items: center; gap: 7px; }
 footer i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
 
-footer { justify-content: flex-start; }
+
+.footer-links { margin-inline-start: auto; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 4px 14px; }
+.footer-links a { color: var(--text); font-size: calc(11px * var(--text-scale)); font-weight: 600; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; white-space: nowrap; }
+.footer-links a:hover { color: var(--accent-strong); text-decoration-color: currentColor; }
+.footer-links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
 
 .danger-row {
   min-height: 62px;
