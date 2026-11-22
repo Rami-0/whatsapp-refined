@@ -521,5 +521,8 @@
   },
   "whatsNew_1_3_1": {
     "message": "La barre latérale des dossiers fonctionne de nouveau après la dernière mise à jour de WhatsApp.\nLes dossiers sont désormais détectés même si WhatsApp renomme sa barre de filtres."
+  },
+  "whatsNew_1_3_2": {
+    "message": "Sous Windows et Linux, le mode confidentialité passe à Alt+Maj+P et les réglages de Refined à Alt+Maj+Virgule.\nLes raccourcis de WhatsApp Ctrl+Alt+P (Profil) et Ctrl+Alt+Virgule (Paramètres) fonctionnent à nouveau."
   }
 }

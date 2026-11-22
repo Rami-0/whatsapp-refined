@@ -521,5 +521,8 @@
   },
   "whatsNew_1_3_1": {
     "message": "De mappenzijbalk werkt weer na de nieuwste WhatsApp-update.\nMappen worden nu ook gevonden als WhatsApp zijn filterbalk hernoemt."
+  },
+  "whatsNew_1_3_2": {
+    "message": "Op Windows en Linux is de privacymodus nu Alt+Shift+P en de Refined-instellingen Alt+Shift+Komma.\nWhatsApps eigen Ctrl+Alt+P (Profiel) en Ctrl+Alt+Komma (Instellingen) werken weer."
   }
 }

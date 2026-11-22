@@ -521,5 +521,8 @@
   },
   "whatsNew_1_3_1": {
     "message": "La barra laterale delle cartelle funziona di nuovo dopo l'ultimo aggiornamento di WhatsApp.\nLe cartelle vengono trovate anche se WhatsApp rinomina la barra dei filtri."
+  },
+  "whatsNew_1_3_2": {
+    "message": "Su Windows e Linux la modalità privacy ora è Alt+Maiusc+P e le impostazioni di Refined Alt+Maiusc+Virgola.\nLe scorciatoie di WhatsApp Ctrl+Alt+P (Profilo) e Ctrl+Alt+Virgola (Impostazioni) funzionano di nuovo."
   }
 }

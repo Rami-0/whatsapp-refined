@@ -521,5 +521,8 @@
   },
   "whatsNew_1_3_1": {
     "message": "WhatsApp 最新更新后，文件夹侧边栏已恢复正常。\n即使 WhatsApp 重命名筛选栏，也能找到文件夹。"
+  },
+  "whatsNew_1_3_2": {
+    "message": "在 Windows 和 Linux 上，隐私模式改为 Alt+Shift+P，Refined 设置改为 Alt+Shift+逗号。\nWhatsApp 自带的 Ctrl+Alt+P（个人资料）和 Ctrl+Alt+逗号（设置）恢复可用。"
   }
 }

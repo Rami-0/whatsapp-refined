@@ -521,5 +521,8 @@
   },
   "whatsNew_1_3_1": {
     "message": "WhatsApp の最新アップデート後もフォルダのサイドバーが再び動作します。\nWhatsApp がフィルタバーの名前を変えてもフォルダを検出できるようになりました。"
+  },
+  "whatsNew_1_3_2": {
+    "message": "Windows と Linux では、プライバシーモードが Alt+Shift+P、Refined の設定が Alt+Shift+カンマ になりました。\nWhatsApp 本来の Ctrl+Alt+P（プロフィール）と Ctrl+Alt+カンマ（設定）が再び使えます。"
   }
 }

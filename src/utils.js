@@ -100,6 +100,34 @@
     return "other";
   }
 
+  /* Refined's shortcuts, per platform. WhatsApp's own Windows and Linux
+     shortcuts use Ctrl+Alt (Ctrl+Alt+P is its Profile, Ctrl+Alt+, its
+     Settings, Ctrl+Alt+N its New chat), so there Refined only claims the
+     Ctrl+Alt keys WhatsApp leaves free and moves the rest to Alt+Shift.
+     On macOS WhatsApp uses Cmd+Ctrl, so Cmd+Alt is free for all of them.
+     Returns the action name, or "" to leave the key to WhatsApp. */
+  const SHORTCUT_KEYS = Object.freeze({
+    mac: { chord: "cmd+alt", keys: { KeyP: "privacy", KeyK: "search", KeyN: "newChat", ArrowLeft: "previousFolder", ArrowRight: "nextFolder", Comma: "settings" } },
+    other: {
+      chord: "ctrl+alt", keys: { KeyK: "search", ArrowLeft: "previousFolder", ArrowRight: "nextFolder" },
+      altShift: { KeyP: "privacy", Comma: "settings" }
+    }
+  });
+
+  function shortcutAction(event, platform) {
+    const { metaKey, ctrlKey, altKey, shiftKey, code } = event || {};
+    /* Alt+Shift+P toggled privacy before the per-platform chords existed, so
+       it keeps working everywhere. */
+    if (altKey && shiftKey && !metaKey && !ctrlKey && code === "KeyP") return "privacy";
+    if (platform === "mac") {
+      if (metaKey && altKey && !ctrlKey && !shiftKey) return SHORTCUT_KEYS.mac.keys[code] || "";
+      return "";
+    }
+    if (ctrlKey && altKey && !metaKey && !shiftKey) return SHORTCUT_KEYS.other.keys[code] || "";
+    if (altKey && shiftKey && !ctrlKey && !metaKey) return SHORTCUT_KEYS.other.altShift[code] || "";
+    return "";
+  }
+
   const RTL_LANGUAGES = Object.freeze(["ar"]);
   const LOCALE_SCRIPTS = Object.freeze({
     ar: "arabic",
@@ -188,7 +216,7 @@
   /* Every version that ships release notes, newest first. Each one has a
      `whatsNew_<major>_<minor>_<patch>` message in every locale (one note per
      line), and `npm run release:check` refuses a tag missing from this list. */
-  const RELEASE_NOTES = Object.freeze(["1.3.1"]);
+  const RELEASE_NOTES = Object.freeze(["1.3.2", "1.3.1"]);
   const MAX_NOTES_SHOWN = 3;
 
   function compareVersions(a, b) {
@@ -228,7 +256,7 @@
     return { showNotes: true, askReview: reviewState !== "reviewed" };
   }
 
-  const api = Object.freeze({ whatsNewPlan, RELEASE_NOTES, compareVersions, releaseNotesKey, unseenReleases, FOLDER_ALIASES, NATIVE_FOLDER_IDS, normalizeLabel, folderKind, folderKindById, isFolderAction, folderInitial, uniqueFolders, parseFolderTab, desktopPlatform, i18n, loadLocaleOverride, uiLanguage, localeDirection, localeScript });
+  const api = Object.freeze({ shortcutAction, whatsNewPlan, RELEASE_NOTES, compareVersions, releaseNotesKey, unseenReleases, FOLDER_ALIASES, NATIVE_FOLDER_IDS, normalizeLabel, folderKind, folderKindById, isFolderAction, folderInitial, uniqueFolders, parseFolderTab, desktopPlatform, i18n, loadLocaleOverride, uiLanguage, localeDirection, localeScript });
   global.WRUtils = api;
 
   if (typeof module !== "undefined" && module.exports) module.exports = api;

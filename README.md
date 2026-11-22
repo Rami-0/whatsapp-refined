@@ -56,15 +56,16 @@ is about one minute long.
 ### Shortcuts
 
 Platform-aware shortcuts that show the right keys for macOS, Windows, and
-Linux (`⌘`/`Ctrl` + `⌥`/`Alt` + key):
+Linux. On Windows and Linux, WhatsApp already uses Ctrl+Alt for its own
+shortcuts, so Refined only takes the Ctrl+Alt keys WhatsApp leaves free:
 
-| Action | Shortcut |
-| --- | --- |
-| Focus search | `⌥⌘K` / `Ctrl+Alt+K` |
-| New chat | `⌥⌘N` / `Ctrl+Alt+N` |
-| Previous / next folder | `⌥⌘←` / `⌥⌘→` |
-| Toggle privacy mode | `⌥⌘P` / `Ctrl+Alt+P` |
-| Open Refined settings | `⌥⌘,` / `Ctrl+Alt+,` |
+| Action | macOS | Windows / Linux |
+| --- | --- | --- |
+| Focus search | `⌥⌘K` | `Ctrl+Alt+K` |
+| New chat | `⌥⌘N` | `Ctrl+Alt+N` (WhatsApp's own) |
+| Previous / next folder | `⌥⌘←` / `⌥⌘→` | `Ctrl+Alt+←` / `Ctrl+Alt+→` |
+| Toggle privacy mode | `⌥⌘P` | `Alt+Shift+P` |
+| Open Refined settings | `⌥⌘,` | `Alt+Shift+,` |
 
 Everything is configured from a settings drawer inside WhatsApp Web that
 follows the host app's design, plus a toolbar popup to pause or resume the

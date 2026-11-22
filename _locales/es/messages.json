@@ -521,5 +521,8 @@
   },
   "whatsNew_1_3_1": {
     "message": "La barra lateral de carpetas vuelve a funcionar tras la última actualización de WhatsApp.\nLas carpetas se detectan aunque WhatsApp cambie el nombre de su barra de filtros."
+  },
+  "whatsNew_1_3_2": {
+    "message": "En Windows y Linux, el modo privacidad ahora es Alt+Shift+P y los ajustes de Refined Alt+Shift+Coma.\nLos atajos de WhatsApp Ctrl+Alt+P (Perfil) y Ctrl+Alt+Coma (Ajustes) vuelven a funcionar."
   }
 }

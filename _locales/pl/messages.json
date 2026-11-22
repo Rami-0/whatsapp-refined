@@ -521,5 +521,8 @@
   },
   "whatsNew_1_3_1": {
     "message": "Panel boczny folderów znów działa po najnowszej aktualizacji WhatsApp.\nFoldery są wykrywane nawet wtedy, gdy WhatsApp zmieni nazwę paska filtrów."
+  },
+  "whatsNew_1_3_2": {
+    "message": "W systemach Windows i Linux tryb prywatności to teraz Alt+Shift+P, a ustawienia Refined Alt+Shift+Przecinek.\nSkróty WhatsApp Ctrl+Alt+P (Profil) i Ctrl+Alt+Przecinek (Ustawienia) znów działają."
   }
 }

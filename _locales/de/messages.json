@@ -521,5 +521,8 @@
   },
   "whatsNew_1_3_1": {
     "message": "Die Ordner-Seitenleiste funktioniert nach dem neuesten WhatsApp-Update wieder.\nOrdner werden jetzt auch erkannt, wenn WhatsApp seine Filterleiste umbenennt."
+  },
+  "whatsNew_1_3_2": {
+    "message": "Unter Windows und Linux ist der Privatsphäre-Modus jetzt Alt+Shift+P und die Refined-Einstellungen Alt+Shift+Komma.\nWhatsApps eigene Kürzel Strg+Alt+P (Profil) und Strg+Alt+Komma (Einstellungen) funktionieren wieder."
   }
 }

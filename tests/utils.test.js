@@ -205,3 +205,34 @@ test("every listed release has notes in English", () => {
   const en = require("../_locales/en/messages.json");
   for (const version of RELEASE_NOTES) assert.ok(en[releaseNotesKey(version)]?.message, `missing ${releaseNotesKey(version)}`);
 });
+
+test("Refined's shortcuts leave WhatsApp's own Ctrl+Alt keys alone on Windows and Linux", () => {
+  const { shortcutAction } = require("../src/utils.js");
+  const key = (code, mods = {}) => ({ code, metaKey: false, ctrlKey: false, altKey: false, shiftKey: false, ...mods });
+  const ctrlAlt = { ctrlKey: true, altKey: true };
+  const altShift = { altKey: true, shiftKey: true };
+  const cmdAlt = { metaKey: true, altKey: true };
+
+  for (const platform of ["windows", "linux", "other"]) {
+    /* WhatsApp: Ctrl+Alt+P Profile, Ctrl+Alt+, Settings, Ctrl+Alt+N New chat. */
+    assert.equal(shortcutAction(key("KeyP", ctrlAlt), platform), "");
+    assert.equal(shortcutAction(key("Comma", ctrlAlt), platform), "");
+    assert.equal(shortcutAction(key("KeyN", ctrlAlt), platform), "");
+    assert.equal(shortcutAction(key("KeyK", ctrlAlt), platform), "search");
+    assert.equal(shortcutAction(key("ArrowLeft", ctrlAlt), platform), "previousFolder");
+    assert.equal(shortcutAction(key("ArrowRight", ctrlAlt), platform), "nextFolder");
+    assert.equal(shortcutAction(key("KeyP", altShift), platform), "privacy");
+    assert.equal(shortcutAction(key("Comma", altShift), platform), "settings");
+    /* WhatsApp's Ctrl+Alt+Shift+P pins a chat. */
+    assert.equal(shortcutAction(key("KeyP", { ...ctrlAlt, shiftKey: true }), platform), "");
+  }
+
+  assert.equal(shortcutAction(key("KeyP", cmdAlt), "mac"), "privacy");
+  assert.equal(shortcutAction(key("KeyN", cmdAlt), "mac"), "newChat");
+  assert.equal(shortcutAction(key("Comma", cmdAlt), "mac"), "settings");
+  assert.equal(shortcutAction(key("KeyK", cmdAlt), "mac"), "search");
+  /* WhatsApp's Mac shortcuts are Cmd+Ctrl; its Cmd+K is Extended Search. */
+  assert.equal(shortcutAction(key("KeyP", { metaKey: true, ctrlKey: true }), "mac"), "");
+  assert.equal(shortcutAction(key("KeyK", { metaKey: true }), "mac"), "");
+  assert.equal(shortcutAction(key("KeyP", altShift), "mac"), "privacy");
+});

@@ -521,5 +521,8 @@
   },
   "whatsNew_1_3_1": {
     "message": "Bilah samping folder kembali berfungsi setelah pembaruan WhatsApp terbaru.\nFolder kini tetap terdeteksi walau WhatsApp mengganti nama bilah filternya."
+  },
+  "whatsNew_1_3_2": {
+    "message": "Di Windows dan Linux, mode privasi kini Alt+Shift+P dan pengaturan Refined Alt+Shift+Koma.\nPintasan WhatsApp Ctrl+Alt+P (Profil) dan Ctrl+Alt+Koma (Setelan) berfungsi lagi."
   }
 }

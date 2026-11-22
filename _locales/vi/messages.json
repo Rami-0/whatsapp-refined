@@ -521,5 +521,8 @@
   },
   "whatsNew_1_3_1": {
     "message": "Thanh bên thư mục hoạt động trở lại sau bản cập nhật WhatsApp mới nhất.\nThư mục vẫn được nhận diện ngay cả khi WhatsApp đổi tên thanh bộ lọc."
+  },
+  "whatsNew_1_3_2": {
+    "message": "Trên Windows và Linux, chế độ riêng tư nay là Alt+Shift+P và cài đặt Refined là Alt+Shift+Dấu phẩy.\nPhím tắt riêng của WhatsApp Ctrl+Alt+P (Hồ sơ) và Ctrl+Alt+Dấu phẩy (Cài đặt) hoạt động trở lại."
   }
 }

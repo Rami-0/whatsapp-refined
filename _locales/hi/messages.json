@@ -521,5 +521,8 @@
   },
   "whatsNew_1_3_1": {
     "message": "WhatsApp के नए अपडेट के बाद फ़ोल्डर साइडबार फिर से काम करता है।\nWhatsApp अपनी फ़िल्टर पट्टी का नाम बदल दे, तब भी फ़ोल्डर मिल जाते हैं।"
+  },
+  "whatsNew_1_3_2": {
+    "message": "Windows और Linux पर प्राइवेसी मोड अब Alt+Shift+P है और Refined सेटिंग्स Alt+Shift+Comma।\nWhatsApp के अपने Ctrl+Alt+P (प्रोफ़ाइल) और Ctrl+Alt+Comma (सेटिंग्स) फिर से काम करते हैं।"
   }
 }
