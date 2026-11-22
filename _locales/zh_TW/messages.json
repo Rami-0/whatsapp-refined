@@ -521,5 +521,8 @@
   },
   "whatsNew_1_3_1": {
     "message": "WhatsApp 最新更新後，資料夾側邊欄已恢復正常。\n即使 WhatsApp 重新命名篩選列，也能找到資料夾。"
+  },
+  "whatsNew_1_3_2": {
+    "message": "在 Windows 和 Linux 上，隱私模式改為 Alt+Shift+P，Refined 設定改為 Alt+Shift+逗號。\nWhatsApp 內建的 Ctrl+Alt+P（個人資料）和 Ctrl+Alt+逗號（設定）恢復可用。"
   }
 }

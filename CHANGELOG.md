@@ -6,6 +6,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.2] — 2026-11-22
+
+### Fixed
+
+- On Windows and Linux, Refined's Ctrl+Alt shortcuts overrode WhatsApp's own:
+  Ctrl+Alt+P (Profile) toggled Refined's privacy mode instead, and
+  Ctrl+Alt+Comma (Settings) opened Refined's drawer. There, privacy mode is
+  now **Alt+Shift+P** (which already worked everywhere) and Refined settings
+  **Alt+Shift+Comma**; Ctrl+Alt+N is left to WhatsApp, which opens a new chat
+  the same way. Ctrl+Alt+K and Ctrl+Alt+Arrow stay. macOS is unchanged:
+  WhatsApp uses Cmd+Ctrl there, Refined Cmd+Option.
+
 ## [1.3.1] — 2026-11-22
 
 ### Fixed

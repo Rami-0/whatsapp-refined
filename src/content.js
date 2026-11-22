@@ -762,22 +762,19 @@
     }
     if (!settings.enabled || !settings.keyboardShortcuts || event.isComposing) return;
 
-    const platform = utils.desktopPlatform(navigator);
-    const modifier = platform === "mac" ? event.metaKey : event.ctrlKey;
-    const refinedChord = modifier && event.altKey && !event.shiftKey;
-    const legacyPrivacyChord = event.altKey && event.shiftKey && event.code === "KeyP" && !modifier;
-    if (!refinedChord && !legacyPrivacyChord) return;
+    const action = utils.shortcutAction(event, utils.desktopPlatform(navigator));
+    if (!action) return;
 
     let handled = true;
-    if (legacyPrivacyChord || event.code === "KeyP") togglePrivacy();
-    else if (event.code === "KeyK") {
+    if (action === "privacy") togglePrivacy();
+    else if (action === "search") {
       const search = document.querySelector('#side [role="textbox"]');
       search?.click();
       search?.focus();
-    } else if (event.code === "KeyN") newChatButton()?.click();
-    else if (event.code === "ArrowLeft") cycleFolders(-1);
-    else if (event.code === "ArrowRight") cycleFolders(1);
-    else if (event.code === "Comma") toggleDrawer();
+    } else if (action === "newChat") newChatButton()?.click();
+    else if (action === "previousFolder") cycleFolders(-1);
+    else if (action === "nextFolder") cycleFolders(1);
+    else if (action === "settings") toggleDrawer();
     else handled = false;
 
     if (handled) {

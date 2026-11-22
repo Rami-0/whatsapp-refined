@@ -521,5 +521,8 @@
   },
   "whatsNew_1_3_1": {
     "message": "A barra lateral de pastas voltou a funcionar após a última atualização do WhatsApp.\nAs pastas passam a ser encontradas mesmo que o WhatsApp mude o nome da barra de filtros."
+  },
+  "whatsNew_1_3_2": {
+    "message": "No Windows e no Linux, o modo de privacidade passa a ser Alt+Shift+P e as definições do Refined Alt+Shift+Vírgula.\nOs atalhos do WhatsApp Ctrl+Alt+P (Perfil) e Ctrl+Alt+Vírgula (Definições) voltam a funcionar."
   }
 }

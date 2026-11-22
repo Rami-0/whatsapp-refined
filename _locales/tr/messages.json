@@ -521,5 +521,8 @@
   },
   "whatsNew_1_3_1": {
     "message": "Klasör kenar çubuğu, WhatsApp'ın son güncellemesinden sonra yeniden çalışıyor.\nWhatsApp filtre çubuğunun adını değiştirse bile klasörler bulunuyor."
+  },
+  "whatsNew_1_3_2": {
+    "message": "Windows ve Linux'ta gizlilik modu artık Alt+Shift+P, Refined ayarları ise Alt+Shift+Virgül.\nWhatsApp'ın kendi Ctrl+Alt+P (Profil) ve Ctrl+Alt+Virgül (Ayarlar) kısayolları yeniden çalışıyor."
   }
 }
