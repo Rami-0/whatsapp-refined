@@ -500,5 +500,26 @@
         "example": "3"
       }
     }
+  },
+  "whatsNewTitle": {
+    "message": "Что нового в Refined $VERSION$",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.3.1"
+      }
+    }
+  },
+  "whatsNewNotes": {
+    "message": "Боковая панель папок снова работает после последнего обновления WhatsApp.\nПапки находятся, даже если WhatsApp переименует панель фильтров."
+  },
+  "reviewAsk": {
+    "message": "Нравится Refined? Короткий отзыв в Chrome Web Store поможет другим его найти."
+  },
+  "reviewNotNow": {
+    "message": "Не сейчас"
+  },
+  "whatsNewClose": {
+    "message": "Закрыть"
   }
 }

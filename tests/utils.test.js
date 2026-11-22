@@ -171,3 +171,14 @@ test("localeScript picks a font bucket per writing system", () => {
   assert.equal(uiLanguage("ar"), "ar");
   assert.equal(uiLanguage("auto"), "en");
 });
+
+test("the post-update card shows once and asks for a review only until answered", () => {
+  const { whatsNewPlan } = require("../src/utils.js");
+  const pending = { version: "1.3.1", previousVersion: "1.3.0" };
+
+  assert.deepEqual(whatsNewPlan(undefined, undefined), { showNotes: false, askReview: false });
+  assert.deepEqual(whatsNewPlan({}, undefined), { showNotes: false, askReview: false });
+  assert.deepEqual(whatsNewPlan(pending, undefined), { showNotes: true, askReview: true });
+  assert.deepEqual(whatsNewPlan(pending, "reviewed"), { showNotes: true, askReview: false });
+  assert.deepEqual(whatsNewPlan(pending, "declined"), { showNotes: true, askReview: false });
+});

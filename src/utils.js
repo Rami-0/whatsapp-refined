@@ -185,7 +185,20 @@
     return LOCALE_SCRIPTS[baseLanguage(language)] || "latin";
   }
 
-  const api = Object.freeze({ FOLDER_ALIASES, NATIVE_FOLDER_IDS, normalizeLabel, folderKind, folderKindById, isFolderAction, folderInitial, uniqueFolders, parseFolderTab, desktopPlatform, i18n, loadLocaleOverride, uiLanguage, localeDirection, localeScript });
+  /* Decides what the post-update card shows. `pending` is what background.js
+     stored on update ({ version, previousVersion }) or undefined; `reviewState`
+     is "reviewed" once the user clicked the review link, "declined" once they
+     closed a card that asked, and undefined before either.
+     Returns { showNotes, askReview }: showNotes renders the card at all,
+     askReview adds the "leave a review" ask to it. */
+  function whatsNewPlan(pending, reviewState) {
+    if (!pending?.version) return { showNotes: false, askReview: false };
+    /* Asked once: clicking the review link or closing a card that asked ends
+       it for good, so later updates show their notes alone. */
+    return { showNotes: true, askReview: reviewState !== "reviewed" && reviewState !== "declined" };
+  }
+
+  const api = Object.freeze({ whatsNewPlan, FOLDER_ALIASES, NATIVE_FOLDER_IDS, normalizeLabel, folderKind, folderKindById, isFolderAction, folderInitial, uniqueFolders, parseFolderTab, desktopPlatform, i18n, loadLocaleOverride, uiLanguage, localeDirection, localeScript });
   global.WRUtils = api;
 
   if (typeof module !== "undefined" && module.exports) module.exports = api;

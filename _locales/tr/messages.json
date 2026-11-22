@@ -500,5 +500,26 @@
         "example": "3"
       }
     }
+  },
+  "whatsNewTitle": {
+    "message": "Refined $VERSION$ sürümündeki yenilikler",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.3.1"
+      }
+    }
+  },
+  "whatsNewNotes": {
+    "message": "Klasör kenar çubuğu, WhatsApp'ın son güncellemesinden sonra yeniden çalışıyor.\nWhatsApp filtre çubuğunun adını değiştirse bile klasörler bulunuyor."
+  },
+  "reviewAsk": {
+    "message": "Refined'ı beğendiniz mi? Chrome Web Store'da kısa bir değerlendirme, başkalarının onu bulmasına yardımcı olur."
+  },
+  "reviewNotNow": {
+    "message": "Şimdi değil"
+  },
+  "whatsNewClose": {
+    "message": "Kapat"
   }
 }

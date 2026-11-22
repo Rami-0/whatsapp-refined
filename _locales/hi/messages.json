@@ -500,5 +500,26 @@
         "example": "3"
       }
     }
+  },
+  "whatsNewTitle": {
+    "message": "Refined $VERSION$ में नया क्या है",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.3.1"
+      }
+    }
+  },
+  "whatsNewNotes": {
+    "message": "WhatsApp के नए अपडेट के बाद फ़ोल्डर साइडबार फिर से काम करता है।\nWhatsApp अपनी फ़िल्टर पट्टी का नाम बदल दे, तब भी फ़ोल्डर मिल जाते हैं।"
+  },
+  "reviewAsk": {
+    "message": "Refined पसंद आया? Chrome Web Store पर एक छोटी समीक्षा दूसरों को इसे ढूँढने में मदद करती है।"
+  },
+  "reviewNotNow": {
+    "message": "अभी नहीं"
+  },
+  "whatsNewClose": {
+    "message": "बंद करें"
   }
 }
