@@ -36,6 +36,23 @@
   let lastFolderSignature = "";
   let actionAnchorCleanup = null;
   let folderSyncTimers = [];
+  /* The Pinned / Snoozed shelf (src/shelf.js), started once WhatsApp is up. */
+  const shelf = globalThis.WRShelf?.create({ t, utils, chats: globalThis.WRChats, settings: () => settings, folders: () => currentFolders() });
+  /* Cmd/Ctrl+K palette (src/palette.js). */
+  const palette = globalThis.WRPalette?.create({
+    t, utils, chats: globalThis.WRChats, settings: () => settings, shelf,
+    actions: {
+      folders: () => currentFolders().filter((folder) => !folder.action).map((folder) => ({ ...folder, open: () => { folder.element.click(); window.setTimeout(scheduleRefresh, 80); } })),
+      togglePrivacy: () => togglePrivacy(),
+      openSettings: () => toggleDrawer(true),
+      showMentions: () => shelf?.showMentions()
+    }
+  });
+
+  function currentFolders() {
+    const side = document.querySelector("#side");
+    return side ? readFolders(side) : [];
+  }
 
   function storageGet() {
     return new Promise((resolve) => {
@@ -740,6 +757,7 @@
     document.documentElement.dataset.wrReady = String(Boolean(ui));
     if (!ui) return;
     renderFolders(readFolders(ui.side));
+    shelf?.render();
     maybeShowWhatsNew();
   }
 
@@ -811,6 +829,8 @@
     applyLocaleScript();
     applySettings();
     refresh();
+    shelf?.start();
+    palette?.start();
     startFolderSyncBurst();
     document.addEventListener("keydown", onShortcut, true);
     document.addEventListener("pointerover", onTooltipOver, true);
@@ -837,6 +857,7 @@
 
     globalThis.chrome?.storage?.onChanged?.addListener((changes, area) => {
       if (area !== "local") return;
+      shelf?.onStorageChange(changes);
       /* Only settings keys: the release-note state shares this storage area. */
       Object.entries(changes).forEach(([key, change]) => { if (key in DEFAULTS) settings[key] = change.newValue; });
       if (changes.whatsNewPending && !changes.whatsNewPending.newValue && whatsNewCard) {
@@ -850,6 +871,15 @@
       if (changes.language) utils.loadLocaleOverride(settings.language).then(applyLocaleStrings);
     });
   }
+
+  /* A reminder notification was clicked: background.js asks this tab to
+     open that chat. */
+  try {
+    chrome.runtime.onMessage.addListener((message) => {
+      if (message?.type === "wr-open-chat" && message.name) globalThis.WRChats?.openChat(message.name);
+      return false;
+    });
+  } catch (_error) {}
 
   /* Development only: a test driver posts {wrDev: "reload"} from the page to
      reload an unpacked Refined (see background.js; store installs ignore it). */

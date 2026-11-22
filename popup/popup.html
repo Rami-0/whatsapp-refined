@@ -22,6 +22,7 @@
 
       <nav class="tabs" aria-label="Settings sections" data-i18n-aria-label="tabsAria">
         <button type="button" data-panel-target="layout" aria-selected="true" data-i18n="tabLayout">Layout</button>
+        <button type="button" data-panel-target="tools" aria-selected="false" data-i18n="tabTools">Tools</button>
         <button type="button" data-panel-target="privacy" aria-selected="false" data-i18n="tabPrivacy">Privacy</button>
         <button type="button" data-panel-target="shortcuts" aria-selected="false" data-i18n="tabShortcuts">Shortcuts</button>
         <button type="button" data-panel-target="settings" aria-selected="false" data-i18n="tabSettings">Settings</button>
@@ -51,6 +52,16 @@
             <label class="switch-row" for="hideNotificationBanner"><span><b data-i18n="hideNotification">Hide notification prompt</b><small data-i18n="hideNotificationHelp">Remove the “turn on notifications” banner</small></span><input id="hideNotificationBanner" data-setting="hideNotificationBanner" type="checkbox"><i aria-hidden="true"></i></label>
             <label class="switch-row" for="hideMetaAI"><span><b data-i18n="hideMetaAI">Hide Meta AI</b><small data-i18n="hideMetaAIHelp">Remove its navigation shortcut</small></span><input id="hideMetaAI" data-setting="hideMetaAI" type="checkbox"><i aria-hidden="true"></i></label>
             <label class="switch-row" for="hideChannels"><span><b data-i18n="hideChannels">Hide Channels</b><small data-i18n="hideChannelsHelp">Remove its navigation shortcut</small></span><input id="hideChannels" data-setting="hideChannels" type="checkbox"><i aria-hidden="true"></i></label>
+          </div>
+        </section>
+
+        <section class="panel" data-panel="tools" aria-label="Chat tools" data-i18n-aria-label="toolsPanelAria" hidden>
+          <div class="switch-list" aria-label="Chat tools" data-i18n-aria-label="toolsPanelAria">
+            <label class="switch-row" for="pinsEnabled"><span><b data-i18n="pinsSetting">Unlimited pins</b><small data-i18n="pinsSettingHelp">Pin any chat from its row and drag to reorder</small></span><input id="pinsEnabled" data-setting="pinsEnabled" type="checkbox"><i aria-hidden="true"></i></label>
+            <label class="switch-row" for="remindersEnabled"><span><b data-i18n="remindersSetting">Chat reminders</b><small data-i18n="remindersSettingHelp">Snooze a chat and get it back when it is due</small></span><input id="remindersEnabled" data-setting="remindersEnabled" type="checkbox"><i aria-hidden="true"></i></label>
+            <label class="switch-row" for="reminderNotifications"><span><b data-i18n="reminderNotificationsSetting">Reminder notifications</b><small data-i18n="reminderNotificationsHelp">Also alert you when WhatsApp is closed</small></span><input id="reminderNotifications" data-setting="reminderNotifications" type="checkbox"><i aria-hidden="true"></i></label>
+            <label class="switch-row" for="paletteEnabled"><span><b data-i18n="paletteSetting">Command palette</b><small data-i18n="paletteSettingHelp">Cmd/Ctrl+K opens Refined's palette; add Shift for WhatsApp's search</small></span><input id="paletteEnabled" data-setting="paletteEnabled" type="checkbox"><i aria-hidden="true"></i></label>
+            <label class="switch-row" for="mentionsEnabled"><span><b data-i18n="mentionsSetting">Mentions digest</b><small data-i18n="mentionsSettingHelp">Collect chats where you were @mentioned</small></span><input id="mentionsEnabled" data-setting="mentionsEnabled" type="checkbox"><i aria-hidden="true"></i></label>
           </div>
         </section>
 

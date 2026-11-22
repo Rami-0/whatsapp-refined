@@ -259,6 +259,7 @@ test("pins are keyed by chat name, ordered by the user, and never duplicated", (
   assert.equal(refreshed[1].unread, 4);
   assert.equal(refreshed[1].muted, true);
   assert.equal(refreshed[1].seenAt, 9);
+  assert.equal("avatar" in refreshed[1], false, "profile photo URLs are never stored");
   assert.equal(refreshPins(refreshed, rows, 10), refreshed, "unchanged rows return the same array");
 });
 
@@ -303,4 +304,24 @@ test("personal WhatsApp: built-ins are 1-3 and user lists stay custom, wherever 
   const strip = ["all-filter", "label_item_4", "label_item_1", "label_item_2", "label_item_3", "label_item_6", "additional-filters"].map((id) => ({ id }));
   assert.deepEqual(classifyFolders(strip), ["all", "custom", "unread", "favourites", "groups", "custom", "lists"]);
   assert.deepEqual(classifyFolders([]), []);
+});
+
+test("palette ranking prefers prefixes, word starts and runs, and ignores case and accents", () => {
+  const { fuzzyScore } = require("../src/utils.js");
+  assert.equal(fuzzyScore("xyz", "Work"), 0);
+  assert.ok(fuzzyScore("wo", "Work") > fuzzyScore("wo", "Hello world"));
+  assert.ok(fuzzyScore("wor", "Hello world") > fuzzyScore("wor", "aw orchid r"));
+  assert.ok(fuzzyScore("jose", "José Silva") > 0);
+  assert.ok(fuzzyScore("rmli", "rmli orders طلبات رملي") > fuzzyScore("rmli", "random mail list"));
+  assert.ok(fuzzyScore("5406", "+966 50 681 5406") > 0);
+  assert.equal(fuzzyScore("", "anything"), 1);
+});
+
+test("mentions are learned from rows on screen and dropped once read", () => {
+  const { mergeMentions } = require("../src/utils.js");
+  let list = mergeMentions([], [{ name: "Team", mention: true, unread: 3 }, { name: "Mom", mention: false, unread: 1 }], 10);
+  assert.deepEqual(list.map((m) => [m.name, m.unread]), [["Team", 3]]);
+  assert.equal(mergeMentions(list, [{ name: "Team", mention: true, unread: 3 }], 11), list, "unchanged rows keep the same array");
+  assert.equal(mergeMentions(list, [{ name: "Other", mention: false, unread: 0 }], 12), list, "chats off screen keep their state");
+  assert.deepEqual(mergeMentions(list, [{ name: "Team", mention: false, unread: 0 }], 13), [], "a read chat leaves");
 });

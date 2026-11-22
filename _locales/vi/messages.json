@@ -524,5 +524,195 @@
   },
   "whatsNew_1_3_2": {
     "message": "Trên Windows và Linux, chế độ riêng tư nay là Alt+Shift+P và cài đặt Refined là Alt+Shift+Dấu phẩy.\nPhím tắt riêng của WhatsApp Ctrl+Alt+P (Hồ sơ) và Ctrl+Alt+Dấu phẩy (Cài đặt) hoạt động trở lại."
+  },
+  "unpinChat": {
+    "message": "Bỏ ghim"
+  },
+  "pinnedChatAria": {
+    "message": "$NAME$, đã ghim",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "mentionDismiss": {
+    "message": "Bỏ qua"
+  },
+  "mentionAria": {
+    "message": "$NAME$, đã nhắc đến bạn",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderDue": {
+    "message": "Đến giờ"
+  },
+  "reminderDone": {
+    "message": "Xong"
+  },
+  "remindMe": {
+    "message": "Nhắc tôi"
+  },
+  "reminderDueAria": {
+    "message": "$NAME$, đến giờ nhắc",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderAria": {
+    "message": "$NAME$, nhắc lúc $TIME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      },
+      "time": {
+        "content": "$2",
+        "example": "18:30"
+      }
+    }
+  },
+  "shelfPinned": {
+    "message": "Đã ghim"
+  },
+  "shelfSnoozed": {
+    "message": "Đã hoãn"
+  },
+  "shelfMentions": {
+    "message": "Lượt nhắc"
+  },
+  "mentionsScanning": {
+    "message": "Đang quét…"
+  },
+  "mentionsScan": {
+    "message": "Quét tất cả đoạn chat"
+  },
+  "chatNotFound": {
+    "message": "Không tìm thấy đoạn chat này. Có thể nó đã đổi tên."
+  },
+  "remindIn1h": {
+    "message": "Sau 1 giờ"
+  },
+  "remindIn3h": {
+    "message": "Sau 3 giờ"
+  },
+  "remindTomorrow": {
+    "message": "Ngày mai"
+  },
+  "remindCustom": {
+    "message": "Tùy chỉnh…"
+  },
+  "reminderSet": {
+    "message": "Đặt"
+  },
+  "reminderClear": {
+    "message": "Xóa lời nhắc"
+  },
+  "pinChat": {
+    "message": "Ghim trong Refined"
+  },
+  "paletteChats": {
+    "message": "Đoạn chat"
+  },
+  "paletteActions": {
+    "message": "Thao tác"
+  },
+  "paletteNextUnread": {
+    "message": "Mở đoạn chat chưa đọc tiếp theo"
+  },
+  "paletteUnpinOpen": {
+    "message": "Bỏ ghim đoạn chat này"
+  },
+  "palettePinOpen": {
+    "message": "Ghim đoạn chat này"
+  },
+  "paletteFolders": {
+    "message": "Thư mục"
+  },
+  "palettePrivacyOff": {
+    "message": "Tắt chế độ riêng tư"
+  },
+  "palettePrivacyOn": {
+    "message": "Bật chế độ riêng tư"
+  },
+  "paletteMentions": {
+    "message": "Hiện đoạn chat nhắc đến tôi"
+  },
+  "paletteSettings": {
+    "message": "Mở cài đặt Refined"
+  },
+  "paletteWhatsAppSearch": {
+    "message": "Mở tìm kiếm WhatsApp"
+  },
+  "paletteSearchFor": {
+    "message": "Tìm “$QUERY$” trên WhatsApp",
+    "placeholders": {
+      "query": {
+        "content": "$1",
+        "example": "anna"
+      }
+    }
+  },
+  "paletteEmpty": {
+    "message": "Không có kết quả"
+  },
+  "paletteTitle": {
+    "message": "Bảng lệnh Refined"
+  },
+  "palettePlaceholder": {
+    "message": "Đến một đoạn chat hoặc chạy lệnh…"
+  },
+  "tabTools": {
+    "message": "Công cụ"
+  },
+  "toolsPanelAria": {
+    "message": "Công cụ chat"
+  },
+  "pinsSetting": {
+    "message": "Ghim không giới hạn"
+  },
+  "pinsSettingHelp": {
+    "message": "Ghim đoạn chat bất kỳ từ hàng của nó và kéo để sắp xếp"
+  },
+  "remindersSetting": {
+    "message": "Lời nhắc chat"
+  },
+  "remindersSettingHelp": {
+    "message": "Hoãn một đoạn chat và nhận lại khi đến giờ"
+  },
+  "reminderNotificationsSetting": {
+    "message": "Thông báo lời nhắc"
+  },
+  "reminderNotificationsHelp": {
+    "message": "Báo cả khi WhatsApp đang đóng"
+  },
+  "paletteSetting": {
+    "message": "Bảng lệnh"
+  },
+  "paletteSettingHelp": {
+    "message": "Cmd/Ctrl+K mở bảng lệnh Refined; thêm Shift để tìm kiếm WhatsApp"
+  },
+  "mentionsSetting": {
+    "message": "Tổng hợp lượt nhắc"
+  },
+  "mentionsSettingHelp": {
+    "message": "Gom các đoạn chat nhắc @ đến bạn"
+  },
+  "reminderNotificationTitle": {
+    "message": "Lời nhắc"
+  },
+  "whatsNew_1_4_0": {
+    "message": "Ghim bao nhiêu đoạn chat tùy thích phía trên danh sách và kéo để sắp xếp.\n“Nhắc tôi” hoãn một đoạn chat; đến giờ nó quay lại danh sách Đã hoãn.\nCmd/Ctrl+K mở bảng lệnh của Refined; thêm Shift để mở tìm kiếm của WhatsApp.\nCác đoạn chat nhắc @ đến bạn được gom vào Lượt nhắc.\nNhãn WhatsApp Business hiện trên thanh thư mục với màu riêng."
+  },
+  "mentionsEmpty": {
+    "message": "Không có lượt nhắc chưa đọc"
   }
 }

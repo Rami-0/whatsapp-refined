@@ -524,5 +524,195 @@
   },
   "whatsNew_1_3_2": {
     "message": "Sous Windows et Linux, le mode confidentialité passe à Alt+Maj+P et les réglages de Refined à Alt+Maj+Virgule.\nLes raccourcis de WhatsApp Ctrl+Alt+P (Profil) et Ctrl+Alt+Virgule (Paramètres) fonctionnent à nouveau."
+  },
+  "unpinChat": {
+    "message": "Désépingler"
+  },
+  "pinnedChatAria": {
+    "message": "$NAME$, épinglée",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "mentionDismiss": {
+    "message": "Ignorer"
+  },
+  "mentionAria": {
+    "message": "$NAME$, vous a mentionné",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderDue": {
+    "message": "À faire"
+  },
+  "reminderDone": {
+    "message": "Terminé"
+  },
+  "remindMe": {
+    "message": "Me rappeler"
+  },
+  "reminderDueAria": {
+    "message": "$NAME$, rappel échu",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderAria": {
+    "message": "$NAME$, rappel à $TIME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      },
+      "time": {
+        "content": "$2",
+        "example": "18:30"
+      }
+    }
+  },
+  "shelfPinned": {
+    "message": "Épinglées"
+  },
+  "shelfSnoozed": {
+    "message": "En attente"
+  },
+  "shelfMentions": {
+    "message": "Mentions"
+  },
+  "mentionsScanning": {
+    "message": "Recherche…"
+  },
+  "mentionsScan": {
+    "message": "Parcourir toutes les discussions"
+  },
+  "chatNotFound": {
+    "message": "Discussion introuvable. Elle a peut-être été renommée."
+  },
+  "remindIn1h": {
+    "message": "Dans 1 heure"
+  },
+  "remindIn3h": {
+    "message": "Dans 3 heures"
+  },
+  "remindTomorrow": {
+    "message": "Demain"
+  },
+  "remindCustom": {
+    "message": "Personnalisé…"
+  },
+  "reminderSet": {
+    "message": "Valider"
+  },
+  "reminderClear": {
+    "message": "Supprimer le rappel"
+  },
+  "pinChat": {
+    "message": "Épingler dans Refined"
+  },
+  "paletteChats": {
+    "message": "Discussions"
+  },
+  "paletteActions": {
+    "message": "Actions"
+  },
+  "paletteNextUnread": {
+    "message": "Ouvrir la prochaine discussion non lue"
+  },
+  "paletteUnpinOpen": {
+    "message": "Désépingler cette discussion"
+  },
+  "palettePinOpen": {
+    "message": "Épingler cette discussion"
+  },
+  "paletteFolders": {
+    "message": "Dossiers"
+  },
+  "palettePrivacyOff": {
+    "message": "Désactiver le mode confidentialité"
+  },
+  "palettePrivacyOn": {
+    "message": "Activer le mode confidentialité"
+  },
+  "paletteMentions": {
+    "message": "Voir les discussions qui me mentionnent"
+  },
+  "paletteSettings": {
+    "message": "Ouvrir les réglages de Refined"
+  },
+  "paletteWhatsAppSearch": {
+    "message": "Ouvrir la recherche WhatsApp"
+  },
+  "paletteSearchFor": {
+    "message": "Rechercher « $QUERY$ » dans WhatsApp",
+    "placeholders": {
+      "query": {
+        "content": "$1",
+        "example": "anna"
+      }
+    }
+  },
+  "paletteEmpty": {
+    "message": "Aucun résultat"
+  },
+  "paletteTitle": {
+    "message": "Palette de commandes Refined"
+  },
+  "palettePlaceholder": {
+    "message": "Aller à une discussion ou lancer une commande…"
+  },
+  "tabTools": {
+    "message": "Outils"
+  },
+  "toolsPanelAria": {
+    "message": "Outils de discussion"
+  },
+  "pinsSetting": {
+    "message": "Épingles illimitées"
+  },
+  "pinsSettingHelp": {
+    "message": "Épinglez une discussion depuis sa ligne et glissez pour réordonner"
+  },
+  "remindersSetting": {
+    "message": "Rappels de discussion"
+  },
+  "remindersSettingHelp": {
+    "message": "Mettez une discussion en attente et retrouvez-la à l'heure dite"
+  },
+  "reminderNotificationsSetting": {
+    "message": "Notifications de rappel"
+  },
+  "reminderNotificationsHelp": {
+    "message": "Prévenir aussi quand WhatsApp est fermé"
+  },
+  "paletteSetting": {
+    "message": "Palette de commandes"
+  },
+  "paletteSettingHelp": {
+    "message": "Cmd/Ctrl+K ouvre la palette Refined ; avec Maj, la recherche WhatsApp"
+  },
+  "mentionsSetting": {
+    "message": "Récap des mentions"
+  },
+  "mentionsSettingHelp": {
+    "message": "Regroupe les discussions où vous êtes @mentionné"
+  },
+  "reminderNotificationTitle": {
+    "message": "Rappel"
+  },
+  "whatsNew_1_4_0": {
+    "message": "Épinglez autant de discussions que vous voulez au-dessus de la liste, dans l'ordre de votre choix.\n« Me rappeler » met une discussion en attente ; elle revient dans « En attente » à l'heure dite.\nCmd/Ctrl+K ouvre la palette de commandes Refined ; avec Maj, la recherche de WhatsApp.\nLes discussions qui vous @mentionnent se regroupent sous « Mentions ».\nLes étiquettes WhatsApp Business s'affichent dans la barre des dossiers avec leurs couleurs."
+  },
+  "mentionsEmpty": {
+    "message": "Aucune mention non lue"
   }
 }

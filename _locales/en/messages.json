@@ -530,5 +530,247 @@
   "whatsNew_1_3_2": {
     "message": "On Windows and Linux, privacy mode is now Alt+Shift+P and Refined settings Alt+Shift+Comma.\nWhatsApp's own Ctrl+Alt+P (Profile) and Ctrl+Alt+Comma (Settings) work again.",
     "description": "Release notes for 1.3.2, one note per line."
+  },
+  "unpinChat": {
+    "message": "Unpin",
+    "description": "Button that removes a chat from Refined's Pinned shelf."
+  },
+  "pinnedChatAria": {
+    "message": "$NAME$, pinned",
+    "description": "Screen-reader label of a pinned chat row. $NAME$ is the chat name.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "mentionDismiss": {
+    "message": "Dismiss",
+    "description": "Button that removes a chat from the Mentions list without opening it."
+  },
+  "mentionAria": {
+    "message": "$NAME$, mentioned you",
+    "description": "Screen-reader label of a row in the Mentions list.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderDue": {
+    "message": "Due",
+    "description": "Shown instead of a countdown when a chat reminder is due."
+  },
+  "reminderDone": {
+    "message": "Done",
+    "description": "Button that clears a due or pending chat reminder."
+  },
+  "remindMe": {
+    "message": "Remind me",
+    "description": "Button and menu title for setting a reminder on a chat."
+  },
+  "reminderDueAria": {
+    "message": "$NAME$, reminder due",
+    "description": "Screen-reader label of a due reminder row.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderAria": {
+    "message": "$NAME$, reminder at $TIME$",
+    "description": "Screen-reader label of a pending reminder row. $TIME$ is when it is due.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      },
+      "time": {
+        "content": "$2",
+        "example": "18:30"
+      }
+    }
+  },
+  "shelfPinned": {
+    "message": "Pinned",
+    "description": "Heading of Refined's pinned chats section above the chat list."
+  },
+  "shelfSnoozed": {
+    "message": "Snoozed",
+    "description": "Heading of the section listing chats with reminders (t3code-style 'Snoozed')."
+  },
+  "shelfMentions": {
+    "message": "Mentions",
+    "description": "Heading of the section listing chats where the user was @mentioned."
+  },
+  "mentionsScanning": {
+    "message": "Scanning…",
+    "description": "Tooltip while Refined scrolls the chat list looking for mentions."
+  },
+  "mentionsScan": {
+    "message": "Scan all chats",
+    "description": "Button that scrolls through every unread chat looking for @mentions."
+  },
+  "chatNotFound": {
+    "message": "Couldn't find this chat. It may have been renamed.",
+    "description": "Tooltip on a pinned chat that could not be found by name."
+  },
+  "remindIn1h": {
+    "message": "In 1 hour",
+    "description": "Reminder preset."
+  },
+  "remindIn3h": {
+    "message": "In 3 hours",
+    "description": "Reminder preset."
+  },
+  "remindTomorrow": {
+    "message": "Tomorrow",
+    "description": "Reminder preset: tomorrow at 09:00."
+  },
+  "remindCustom": {
+    "message": "Custom…",
+    "description": "Reminder option to pick a date and time."
+  },
+  "reminderSet": {
+    "message": "Set",
+    "description": "Button that confirms a custom reminder time."
+  },
+  "reminderClear": {
+    "message": "Remove reminder",
+    "description": "Menu item that deletes the reminder on this chat."
+  },
+  "pinChat": {
+    "message": "Pin in Refined",
+    "description": "Tooltip of the hover button that pins a chat to Refined's shelf (unlimited, separate from WhatsApp's own pins)."
+  },
+  "paletteChats": {
+    "message": "Chats",
+    "description": "Group heading in the command palette."
+  },
+  "paletteActions": {
+    "message": "Actions",
+    "description": "Group heading in the command palette."
+  },
+  "paletteNextUnread": {
+    "message": "Open next unread chat",
+    "description": "Palette command."
+  },
+  "paletteUnpinOpen": {
+    "message": "Unpin this chat",
+    "description": "Palette command for the chat that is open."
+  },
+  "palettePinOpen": {
+    "message": "Pin this chat",
+    "description": "Palette command for the chat that is open."
+  },
+  "paletteFolders": {
+    "message": "Folders",
+    "description": "Group heading in the command palette."
+  },
+  "palettePrivacyOff": {
+    "message": "Turn privacy mode off",
+    "description": "Palette command."
+  },
+  "palettePrivacyOn": {
+    "message": "Turn privacy mode on",
+    "description": "Palette command."
+  },
+  "paletteMentions": {
+    "message": "Show chats that mention me",
+    "description": "Palette command that shows the Mentions list."
+  },
+  "paletteSettings": {
+    "message": "Open Refined settings",
+    "description": "Palette command."
+  },
+  "paletteWhatsAppSearch": {
+    "message": "Open WhatsApp search",
+    "description": "Palette command that opens WhatsApp's own search (Extended Search)."
+  },
+  "paletteSearchFor": {
+    "message": "Search WhatsApp for “$QUERY$”",
+    "description": "Last palette result: types the query into WhatsApp's search. $QUERY$ is what the user typed.",
+    "placeholders": {
+      "query": {
+        "content": "$1",
+        "example": "anna"
+      }
+    }
+  },
+  "paletteEmpty": {
+    "message": "No matches",
+    "description": "Shown when no palette result matches."
+  },
+  "paletteTitle": {
+    "message": "Refined command palette",
+    "description": "Accessible name of the palette dialog."
+  },
+  "palettePlaceholder": {
+    "message": "Jump to a chat or run a command…",
+    "description": "Placeholder of the palette's text field."
+  },
+  "tabTools": {
+    "message": "Tools",
+    "description": "Settings tab for pins, reminders, the palette and mentions."
+  },
+  "toolsPanelAria": {
+    "message": "Chat tools",
+    "description": "Accessible name of the Tools settings panel."
+  },
+  "pinsSetting": {
+    "message": "Unlimited pins",
+    "description": "Setting title."
+  },
+  "pinsSettingHelp": {
+    "message": "Pin any chat from its row and drag to reorder",
+    "description": "Setting help text."
+  },
+  "remindersSetting": {
+    "message": "Chat reminders",
+    "description": "Setting title."
+  },
+  "remindersSettingHelp": {
+    "message": "Snooze a chat and get it back when it is due",
+    "description": "Setting help text."
+  },
+  "reminderNotificationsSetting": {
+    "message": "Reminder notifications",
+    "description": "Setting title; turning it on asks Chrome for notification permission."
+  },
+  "reminderNotificationsHelp": {
+    "message": "Also alert you when WhatsApp is closed",
+    "description": "Setting help text."
+  },
+  "paletteSetting": {
+    "message": "Command palette",
+    "description": "Setting title."
+  },
+  "paletteSettingHelp": {
+    "message": "Cmd/Ctrl+K opens Refined's palette; add Shift for WhatsApp's search",
+    "description": "Setting help text."
+  },
+  "mentionsSetting": {
+    "message": "Mentions digest",
+    "description": "Setting title."
+  },
+  "mentionsSettingHelp": {
+    "message": "Collect chats where you were @mentioned",
+    "description": "Setting help text."
+  },
+  "reminderNotificationTitle": {
+    "message": "Reminder",
+    "description": "Title of the system notification when a chat reminder is due; the chat name is the body."
+  },
+  "whatsNew_1_4_0": {
+    "message": "Pin as many chats as you like above the chat list, and drag them into any order.\nRemind me snoozes a chat; it comes back in the Snoozed list when it is due.\nCmd/Ctrl+K opens Refined's command palette; add Shift for WhatsApp's own search.\nChats that @mention you gather under Mentions.\nWhatsApp Business labels show in the folder rail in their own colours.",
+    "description": "Release notes for 1.4.0, one note per line."
+  },
+  "mentionsEmpty": {
+    "message": "No unread mentions",
+    "description": "Shown in the Mentions section when no chat has an unread @mention."
   }
 }

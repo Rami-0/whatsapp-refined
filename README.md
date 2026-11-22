@@ -45,6 +45,26 @@ is about one minute long.
 - **A quieter interface** — hide message previews, the notification prompt,
   Meta AI, or Channels.
 
+### Chat tools
+
+- **Unlimited pins** — pin any chat from the button that appears on its row,
+  as many as you like, in a Pinned shelf above the chat list. Drag rows (or
+  press Alt+↑/↓) to put them in your own order; unread counts stay live.
+- **Chat reminders** — *Remind me* on any chat: in 1 hour, in 3 hours,
+  tomorrow at 09:00, or a custom time. Snoozed chats wait in their own list
+  and come back when due, with a toolbar badge and, if you allow it, a system
+  notification that opens the chat.
+- **Command palette** — `⌘K` / `Ctrl+K` jumps to any chat or folder and runs
+  Refined's commands (pin, remind, privacy, next unread). Add Shift for
+  WhatsApp's own search.
+- **Mentions** — chats that @mention you gather in one list; *Scan all chats*
+  walks your unread chats for any you have not seen yet.
+- **WhatsApp Business** — business labels appear in the folder rail in their
+  own colours.
+
+Everything is on by default and can be turned off under **Tools** in the
+settings drawer. Pins, reminders and mentions are stored on this device only.
+
 ### Privacy
 
 - **Privacy blur** — blur chat previews, opened messages, images, video and
@@ -79,12 +99,16 @@ Language setting on the Layout tab.
 
 ## Privacy by design
 
-Refined WhatsApp™ Web has **no analytics, ads, background service, or network
-requests**. It does not collect or transmit messages, contacts, phone numbers,
-media, folder names, or usage data. The extension reads only the visible
-WhatsApp Web interface needed to apply the features you select, and asks for a
-single permission: local storage for your own preferences
-(`chrome.storage.local`).
+Refined WhatsApp™ Web has **no analytics, ads, or network requests**, and
+never transmits anything it reads. The extension reads only the visible
+WhatsApp Web interface needed to apply the features you select. It keeps your
+preferences, and the names of chats you pin, set reminders on, recently open
+or were @mentioned in, in local extension storage (`chrome.storage.local`) on
+this device only; profile photos are never stored.
+
+Permissions: `storage` for the above, `alarms` to wake reminders when they are
+due, and `notifications` only if you turn on reminder notifications (it is
+requested at that moment and optional).
 
 The full [privacy policy](store/privacy-policy.md) is in this repository.
 

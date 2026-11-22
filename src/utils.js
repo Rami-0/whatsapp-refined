@@ -248,7 +248,7 @@
   /* Every version that ships release notes, newest first. Each one has a
      `whatsNew_<major>_<minor>_<patch>` message in every locale (one note per
      line), and `npm run release:check` refuses a tag missing from this list. */
-  const RELEASE_NOTES = Object.freeze(["1.3.2", "1.3.1"]);
+  const RELEASE_NOTES = Object.freeze(["1.4.0", "1.3.2", "1.3.1"]);
   const MAX_NOTES_SHOWN = 3;
 
   function compareVersions(a, b) {
@@ -294,7 +294,7 @@
   function pinChat(pins, name, now = Date.now()) {
     const list = Array.isArray(pins) ? pins : [];
     if (!name || list.some((pin) => pin.name === name)) return list;
-    return [...list, { name, addedAt: now, unread: 0, muted: false, avatar: "" }];
+    return [...list, { name, addedAt: now, unread: 0, muted: false }];
   }
 
   function unpinChat(pins, name) {
@@ -312,8 +312,9 @@
     return list;
   }
 
-  /* Copies what the chat list currently shows (unread, muted, avatar) onto
-     the pins it names. Returns the same array when nothing changed. */
+  /* Copies what the chat list currently shows (unread, muted) onto the pins
+     it names. Profile photos are not stored: the shelf keeps them in memory
+     only. Returns the same array when nothing changed. */
   function refreshPins(pins, rows, now = Date.now()) {
     const list = Array.isArray(pins) ? pins : [];
     const byName = new Map((rows || []).map((row) => [row.name, row]));
@@ -321,10 +322,9 @@
     const next = list.map((pin) => {
       const row = byName.get(pin.name);
       if (!row) return pin;
-      const avatar = row.avatar || pin.avatar || "";
-      if (pin.unread === row.unread && pin.muted === row.muted && pin.avatar === avatar) return pin;
+      if (pin.unread === row.unread && pin.muted === row.muted) return pin;
       changed = true;
-      return { ...pin, unread: row.unread, muted: row.muted, avatar, seenAt: now };
+      return { name: pin.name, addedAt: pin.addedAt, unread: row.unread, muted: row.muted, seenAt: now };
     });
     return changed ? next : list;
   }
@@ -364,14 +364,67 @@
 
   /* "12h", "45m", "3d": the countdown shown beside a snoozed chat. */
   function shortDuration(ms) {
-    const minutes = Math.max(0, Math.round(ms / 60000));
+    /* Rounded up: a reminder 20 seconds away reads "1m", not "0m". */
+    const minutes = Math.max(1, Math.ceil(ms / 60000));
     if (minutes < 60) return `${minutes}m`;
     const hours = Math.round(minutes / 60);
     if (hours < 48) return `${hours}h`;
     return `${Math.round(hours / 24)}d`;
   }
 
-  const api = Object.freeze({ classifyFolders, pinChat, unpinChat, movePin, refreshPins, reminderPresets, addReminder, removeReminder, dueReminders, shortDuration, shortcutAction, whatsNewPlan, RELEASE_NOTES, compareVersions, releaseNotesKey, unseenReleases, FOLDER_ALIASES, NATIVE_FOLDER_IDS, normalizeLabel, folderKind, folderKindById, isFolderAction, folderInitial, uniqueFolders, parseFolderTab, desktopPlatform, i18n, loadLocaleOverride, uiLanguage, localeDirection, localeScript });
+  /* Palette ranking: every query character must appear in order. A match at
+     the start, at a word start, or in a run scores higher; 0 = no match.
+     Case- and accent-insensitive, so "jose" finds "José". */
+  function fold(value) {
+    return String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase();
+  }
+
+  function fuzzyScore(query, label) {
+    const q = fold(query).replace(/\s+/g, " ").trim();
+    const text = fold(label);
+    if (!q) return 1;
+    if (!text) return 0;
+    const exact = text.indexOf(q);
+    if (exact === 0) return 1000 - text.length;
+    if (exact > 0) return (/[\s\-_.(]/.test(text[exact - 1]) ? 800 : 600) - exact - text.length / 100;
+    let score = 0;
+    let from = 0;
+    let run = 0;
+    for (const char of q) {
+      if (char === " ") continue;
+      const at = text.indexOf(char, from);
+      if (at < 0) return 0;
+      run = at === from ? run + 1 : 0;
+      score += 10 + run * 5 + (at === 0 || /[\s\-_.(]/.test(text[at - 1]) ? 15 : 0) - Math.min(at - from, 10);
+      from = at + 1;
+    }
+    return Math.max(1, score);
+  }
+
+  /* Folds the rows on screen into the known mentions: a row showing the "@"
+     marker adds or refreshes its chat; the same chat on screen without it has
+     been read, so it leaves. Chats not on screen keep their last state.
+     Returns the same array when nothing changed. */
+  function mergeMentions(mentions, rows, now = Date.now()) {
+    const list = Array.isArray(mentions) ? mentions : [];
+    const byName = new Map(list.map((item) => [item.name, item]));
+    let changed = false;
+    (rows || []).forEach((row) => {
+      const known = byName.get(row.name);
+      if (row.mention) {
+        if (!known || known.unread !== row.unread) {
+          byName.set(row.name, { name: row.name, unread: row.unread, seenAt: now });
+          changed = true;
+        }
+      } else if (known) {
+        byName.delete(row.name);
+        changed = true;
+      }
+    });
+    return changed ? Array.from(byName.values()).sort((a, b) => b.seenAt - a.seenAt) : list;
+  }
+
+  const api = Object.freeze({ mergeMentions, fuzzyScore, classifyFolders, pinChat, unpinChat, movePin, refreshPins, reminderPresets, addReminder, removeReminder, dueReminders, shortDuration, shortcutAction, whatsNewPlan, RELEASE_NOTES, compareVersions, releaseNotesKey, unseenReleases, FOLDER_ALIASES, NATIVE_FOLDER_IDS, normalizeLabel, folderKind, folderKindById, isFolderAction, folderInitial, uniqueFolders, parseFolderTab, desktopPlatform, i18n, loadLocaleOverride, uiLanguage, localeDirection, localeScript });
   global.WRUtils = api;
 
   if (typeof module !== "undefined" && module.exports) module.exports = api;

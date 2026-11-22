@@ -524,5 +524,195 @@
   },
   "whatsNew_1_3_2": {
     "message": "在 Windows 和 Linux 上，隱私模式改為 Alt+Shift+P，Refined 設定改為 Alt+Shift+逗號。\nWhatsApp 內建的 Ctrl+Alt+P（個人資料）和 Ctrl+Alt+逗號（設定）恢復可用。"
+  },
+  "unpinChat": {
+    "message": "取消釘選"
+  },
+  "pinnedChatAria": {
+    "message": "$NAME$，已釘選",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "mentionDismiss": {
+    "message": "略過"
+  },
+  "mentionAria": {
+    "message": "$NAME$，提到了你",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderDue": {
+    "message": "時間到了"
+  },
+  "reminderDone": {
+    "message": "完成"
+  },
+  "remindMe": {
+    "message": "提醒我"
+  },
+  "reminderDueAria": {
+    "message": "$NAME$，提醒時間到了",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderAria": {
+    "message": "$NAME$，$TIME$ 提醒",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      },
+      "time": {
+        "content": "$2",
+        "example": "18:30"
+      }
+    }
+  },
+  "shelfPinned": {
+    "message": "釘選"
+  },
+  "shelfSnoozed": {
+    "message": "稍後處理"
+  },
+  "shelfMentions": {
+    "message": "提及"
+  },
+  "mentionsScanning": {
+    "message": "掃描中…"
+  },
+  "mentionsScan": {
+    "message": "掃描所有聊天"
+  },
+  "chatNotFound": {
+    "message": "找不到這個聊天，可能已改名。"
+  },
+  "remindIn1h": {
+    "message": "1 小時後"
+  },
+  "remindIn3h": {
+    "message": "3 小時後"
+  },
+  "remindTomorrow": {
+    "message": "明天"
+  },
+  "remindCustom": {
+    "message": "自訂…"
+  },
+  "reminderSet": {
+    "message": "設定"
+  },
+  "reminderClear": {
+    "message": "刪除提醒"
+  },
+  "pinChat": {
+    "message": "在 Refined 中釘選"
+  },
+  "paletteChats": {
+    "message": "聊天"
+  },
+  "paletteActions": {
+    "message": "操作"
+  },
+  "paletteNextUnread": {
+    "message": "開啟下一個未讀聊天"
+  },
+  "paletteUnpinOpen": {
+    "message": "取消釘選此聊天"
+  },
+  "palettePinOpen": {
+    "message": "釘選此聊天"
+  },
+  "paletteFolders": {
+    "message": "資料夾"
+  },
+  "palettePrivacyOff": {
+    "message": "關閉隱私模式"
+  },
+  "palettePrivacyOn": {
+    "message": "開啟隱私模式"
+  },
+  "paletteMentions": {
+    "message": "顯示提到我的聊天"
+  },
+  "paletteSettings": {
+    "message": "開啟 Refined 設定"
+  },
+  "paletteWhatsAppSearch": {
+    "message": "開啟 WhatsApp 搜尋"
+  },
+  "paletteSearchFor": {
+    "message": "在 WhatsApp 中搜尋「$QUERY$」",
+    "placeholders": {
+      "query": {
+        "content": "$1",
+        "example": "anna"
+      }
+    }
+  },
+  "paletteEmpty": {
+    "message": "沒有相符項目"
+  },
+  "paletteTitle": {
+    "message": "Refined 指令面板"
+  },
+  "palettePlaceholder": {
+    "message": "跳到聊天或執行指令…"
+  },
+  "tabTools": {
+    "message": "工具"
+  },
+  "toolsPanelAria": {
+    "message": "聊天工具"
+  },
+  "pinsSetting": {
+    "message": "無限釘選"
+  },
+  "pinsSettingHelp": {
+    "message": "從聊天列釘選任何聊天，拖曳即可排序"
+  },
+  "remindersSetting": {
+    "message": "聊天提醒"
+  },
+  "remindersSettingHelp": {
+    "message": "暫緩一個聊天，時間到再提醒你"
+  },
+  "reminderNotificationsSetting": {
+    "message": "提醒通知"
+  },
+  "reminderNotificationsHelp": {
+    "message": "WhatsApp 關閉時也通知"
+  },
+  "paletteSetting": {
+    "message": "指令面板"
+  },
+  "paletteSettingHelp": {
+    "message": "Cmd/Ctrl+K 開啟 Refined 面板；加 Shift 開啟 WhatsApp 搜尋"
+  },
+  "mentionsSetting": {
+    "message": "提及彙整"
+  },
+  "mentionsSettingHelp": {
+    "message": "彙整 @提到你的聊天"
+  },
+  "reminderNotificationTitle": {
+    "message": "提醒"
+  },
+  "whatsNew_1_4_0": {
+    "message": "可以在聊天列表上方釘選任意多個聊天，並拖曳調整順序。\n「提醒我」可暫緩一個聊天，時間到時它會回到「稍後處理」清單。\nCmd/Ctrl+K 開啟 Refined 指令面板；加 Shift 開啟 WhatsApp 內建搜尋。\n@提到你的聊天會彙整到「提及」。\nWhatsApp Business 標籤會以各自的顏色顯示在資料夾列中。"
+  },
+  "mentionsEmpty": {
+    "message": "沒有未讀提及"
   }
 }

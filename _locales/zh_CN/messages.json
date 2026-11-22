@@ -524,5 +524,195 @@
   },
   "whatsNew_1_3_2": {
     "message": "在 Windows 和 Linux 上，隐私模式改为 Alt+Shift+P，Refined 设置改为 Alt+Shift+逗号。\nWhatsApp 自带的 Ctrl+Alt+P（个人资料）和 Ctrl+Alt+逗号（设置）恢复可用。"
+  },
+  "unpinChat": {
+    "message": "取消置顶"
+  },
+  "pinnedChatAria": {
+    "message": "$NAME$，已置顶",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "mentionDismiss": {
+    "message": "忽略"
+  },
+  "mentionAria": {
+    "message": "$NAME$，提到了你",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderDue": {
+    "message": "已到时间"
+  },
+  "reminderDone": {
+    "message": "完成"
+  },
+  "remindMe": {
+    "message": "提醒我"
+  },
+  "reminderDueAria": {
+    "message": "$NAME$，提醒时间到了",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderAria": {
+    "message": "$NAME$，$TIME$ 提醒",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      },
+      "time": {
+        "content": "$2",
+        "example": "18:30"
+      }
+    }
+  },
+  "shelfPinned": {
+    "message": "置顶"
+  },
+  "shelfSnoozed": {
+    "message": "稍后处理"
+  },
+  "shelfMentions": {
+    "message": "提及"
+  },
+  "mentionsScanning": {
+    "message": "正在扫描…"
+  },
+  "mentionsScan": {
+    "message": "扫描所有聊天"
+  },
+  "chatNotFound": {
+    "message": "找不到这个聊天，可能已改名。"
+  },
+  "remindIn1h": {
+    "message": "1 小时后"
+  },
+  "remindIn3h": {
+    "message": "3 小时后"
+  },
+  "remindTomorrow": {
+    "message": "明天"
+  },
+  "remindCustom": {
+    "message": "自定义…"
+  },
+  "reminderSet": {
+    "message": "设置"
+  },
+  "reminderClear": {
+    "message": "删除提醒"
+  },
+  "pinChat": {
+    "message": "在 Refined 中置顶"
+  },
+  "paletteChats": {
+    "message": "聊天"
+  },
+  "paletteActions": {
+    "message": "操作"
+  },
+  "paletteNextUnread": {
+    "message": "打开下一个未读聊天"
+  },
+  "paletteUnpinOpen": {
+    "message": "取消置顶此聊天"
+  },
+  "palettePinOpen": {
+    "message": "置顶此聊天"
+  },
+  "paletteFolders": {
+    "message": "文件夹"
+  },
+  "palettePrivacyOff": {
+    "message": "关闭隐私模式"
+  },
+  "palettePrivacyOn": {
+    "message": "开启隐私模式"
+  },
+  "paletteMentions": {
+    "message": "显示提到我的聊天"
+  },
+  "paletteSettings": {
+    "message": "打开 Refined 设置"
+  },
+  "paletteWhatsAppSearch": {
+    "message": "打开 WhatsApp 搜索"
+  },
+  "paletteSearchFor": {
+    "message": "在 WhatsApp 中搜索“$QUERY$”",
+    "placeholders": {
+      "query": {
+        "content": "$1",
+        "example": "anna"
+      }
+    }
+  },
+  "paletteEmpty": {
+    "message": "没有匹配项"
+  },
+  "paletteTitle": {
+    "message": "Refined 命令面板"
+  },
+  "palettePlaceholder": {
+    "message": "跳转到聊天或运行命令…"
+  },
+  "tabTools": {
+    "message": "工具"
+  },
+  "toolsPanelAria": {
+    "message": "聊天工具"
+  },
+  "pinsSetting": {
+    "message": "无限置顶"
+  },
+  "pinsSettingHelp": {
+    "message": "从聊天行置顶任意聊天，拖动即可排序"
+  },
+  "remindersSetting": {
+    "message": "聊天提醒"
+  },
+  "remindersSettingHelp": {
+    "message": "暂缓一个聊天，到时再提醒你"
+  },
+  "reminderNotificationsSetting": {
+    "message": "提醒通知"
+  },
+  "reminderNotificationsHelp": {
+    "message": "WhatsApp 关闭时也通知"
+  },
+  "paletteSetting": {
+    "message": "命令面板"
+  },
+  "paletteSettingHelp": {
+    "message": "Cmd/Ctrl+K 打开 Refined 面板；加 Shift 打开 WhatsApp 搜索"
+  },
+  "mentionsSetting": {
+    "message": "提及汇总"
+  },
+  "mentionsSettingHelp": {
+    "message": "汇集 @提到你的聊天"
+  },
+  "reminderNotificationTitle": {
+    "message": "提醒"
+  },
+  "whatsNew_1_4_0": {
+    "message": "可以在聊天列表上方置顶任意多个聊天，并拖动调整顺序。\n“提醒我”可暂缓一个聊天，到时它会回到“稍后处理”列表。\nCmd/Ctrl+K 打开 Refined 命令面板；加 Shift 打开 WhatsApp 自带搜索。\n@提到你的聊天会汇集到“提及”。\nWhatsApp Business 标签会以各自的颜色显示在文件夹栏中。"
+  },
+  "mentionsEmpty": {
+    "message": "没有未读提及"
   }
 }
