@@ -524,5 +524,195 @@
   },
   "whatsNew_1_3_2": {
     "message": "Windows ve Linux'ta gizlilik modu artık Alt+Shift+P, Refined ayarları ise Alt+Shift+Virgül.\nWhatsApp'ın kendi Ctrl+Alt+P (Profil) ve Ctrl+Alt+Virgül (Ayarlar) kısayolları yeniden çalışıyor."
+  },
+  "unpinChat": {
+    "message": "Sabitlemeyi kaldır"
+  },
+  "pinnedChatAria": {
+    "message": "$NAME$, sabitlendi",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "mentionDismiss": {
+    "message": "Kapat"
+  },
+  "mentionAria": {
+    "message": "$NAME$, senden bahsetti",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderDue": {
+    "message": "Zamanı geldi"
+  },
+  "reminderDone": {
+    "message": "Bitti"
+  },
+  "remindMe": {
+    "message": "Hatırlat"
+  },
+  "reminderDueAria": {
+    "message": "$NAME$, hatırlatma zamanı",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderAria": {
+    "message": "$NAME$, $TIME$ hatırlatması",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      },
+      "time": {
+        "content": "$2",
+        "example": "18:30"
+      }
+    }
+  },
+  "shelfPinned": {
+    "message": "Sabitlenenler"
+  },
+  "shelfSnoozed": {
+    "message": "Ertelenenler"
+  },
+  "shelfMentions": {
+    "message": "Bahsetmeler"
+  },
+  "mentionsScanning": {
+    "message": "Taranıyor…"
+  },
+  "mentionsScan": {
+    "message": "Tüm sohbetleri tara"
+  },
+  "chatNotFound": {
+    "message": "Bu sohbet bulunamadı. Adı değişmiş olabilir."
+  },
+  "remindIn1h": {
+    "message": "1 saat sonra"
+  },
+  "remindIn3h": {
+    "message": "3 saat sonra"
+  },
+  "remindTomorrow": {
+    "message": "Yarın"
+  },
+  "remindCustom": {
+    "message": "Özel…"
+  },
+  "reminderSet": {
+    "message": "Ayarla"
+  },
+  "reminderClear": {
+    "message": "Hatırlatmayı kaldır"
+  },
+  "pinChat": {
+    "message": "Refined'a sabitle"
+  },
+  "paletteChats": {
+    "message": "Sohbetler"
+  },
+  "paletteActions": {
+    "message": "Eylemler"
+  },
+  "paletteNextUnread": {
+    "message": "Sonraki okunmamış sohbeti aç"
+  },
+  "paletteUnpinOpen": {
+    "message": "Bu sohbetin sabitlemesini kaldır"
+  },
+  "palettePinOpen": {
+    "message": "Bu sohbeti sabitle"
+  },
+  "paletteFolders": {
+    "message": "Klasörler"
+  },
+  "palettePrivacyOff": {
+    "message": "Gizlilik modunu kapat"
+  },
+  "palettePrivacyOn": {
+    "message": "Gizlilik modunu aç"
+  },
+  "paletteMentions": {
+    "message": "Benden bahsedilen sohbetleri göster"
+  },
+  "paletteSettings": {
+    "message": "Refined ayarlarını aç"
+  },
+  "paletteWhatsAppSearch": {
+    "message": "WhatsApp aramasını aç"
+  },
+  "paletteSearchFor": {
+    "message": "WhatsApp'ta “$QUERY$” ara",
+    "placeholders": {
+      "query": {
+        "content": "$1",
+        "example": "anna"
+      }
+    }
+  },
+  "paletteEmpty": {
+    "message": "Sonuç yok"
+  },
+  "paletteTitle": {
+    "message": "Refined komut paleti"
+  },
+  "palettePlaceholder": {
+    "message": "Bir sohbete git veya komut çalıştır…"
+  },
+  "tabTools": {
+    "message": "Araçlar"
+  },
+  "toolsPanelAria": {
+    "message": "Sohbet araçları"
+  },
+  "pinsSetting": {
+    "message": "Sınırsız sabitleme"
+  },
+  "pinsSettingHelp": {
+    "message": "Herhangi bir sohbeti satırından sabitle, sürükleyerek sırala"
+  },
+  "remindersSetting": {
+    "message": "Sohbet hatırlatmaları"
+  },
+  "remindersSettingHelp": {
+    "message": "Bir sohbeti ertele, zamanı gelince geri al"
+  },
+  "reminderNotificationsSetting": {
+    "message": "Hatırlatma bildirimleri"
+  },
+  "reminderNotificationsHelp": {
+    "message": "WhatsApp kapalıyken de bildir"
+  },
+  "paletteSetting": {
+    "message": "Komut paleti"
+  },
+  "paletteSettingHelp": {
+    "message": "Cmd/Ctrl+K Refined paletini açar; Shift eklersen WhatsApp araması"
+  },
+  "mentionsSetting": {
+    "message": "Bahsetme özeti"
+  },
+  "mentionsSettingHelp": {
+    "message": "@ ile bahsedildiğin sohbetleri topla"
+  },
+  "reminderNotificationTitle": {
+    "message": "Hatırlatma"
+  },
+  "whatsNew_1_4_0": {
+    "message": "Sohbet listesinin üstüne istediğin kadar sohbet sabitle ve sürükleyerek sırala.\n“Hatırlat” bir sohbeti erteler; zamanı gelince Ertelenenler listesine döner.\nCmd/Ctrl+K Refined komut paletini açar; Shift eklersen WhatsApp'ın kendi araması açılır.\nSenden @ ile bahseden sohbetler Bahsetmeler altında toplanır.\nWhatsApp Business etiketleri klasör çubuğunda kendi renkleriyle görünür."
+  },
+  "mentionsEmpty": {
+    "message": "Okunmamış bahsetme yok"
   }
 }

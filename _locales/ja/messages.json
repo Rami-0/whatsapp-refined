@@ -524,5 +524,195 @@
   },
   "whatsNew_1_3_2": {
     "message": "Windows と Linux では、プライバシーモードが Alt+Shift+P、Refined の設定が Alt+Shift+カンマ になりました。\nWhatsApp 本来の Ctrl+Alt+P（プロフィール）と Ctrl+Alt+カンマ（設定）が再び使えます。"
+  },
+  "unpinChat": {
+    "message": "固定を解除"
+  },
+  "pinnedChatAria": {
+    "message": "$NAME$、固定済み",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "mentionDismiss": {
+    "message": "非表示"
+  },
+  "mentionAria": {
+    "message": "$NAME$、あなたをメンション",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderDue": {
+    "message": "期限"
+  },
+  "reminderDone": {
+    "message": "完了"
+  },
+  "remindMe": {
+    "message": "リマインド"
+  },
+  "reminderDueAria": {
+    "message": "$NAME$、リマインドの時間です",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderAria": {
+    "message": "$NAME$、$TIME$ にリマインド",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      },
+      "time": {
+        "content": "$2",
+        "example": "18:30"
+      }
+    }
+  },
+  "shelfPinned": {
+    "message": "固定"
+  },
+  "shelfSnoozed": {
+    "message": "スヌーズ中"
+  },
+  "shelfMentions": {
+    "message": "メンション"
+  },
+  "mentionsScanning": {
+    "message": "スキャン中…"
+  },
+  "mentionsScan": {
+    "message": "すべてのチャットをスキャン"
+  },
+  "chatNotFound": {
+    "message": "このチャットが見つかりません。名前が変わった可能性があります。"
+  },
+  "remindIn1h": {
+    "message": "1時間後"
+  },
+  "remindIn3h": {
+    "message": "3時間後"
+  },
+  "remindTomorrow": {
+    "message": "明日"
+  },
+  "remindCustom": {
+    "message": "カスタム…"
+  },
+  "reminderSet": {
+    "message": "設定"
+  },
+  "reminderClear": {
+    "message": "リマインドを削除"
+  },
+  "pinChat": {
+    "message": "Refined に固定"
+  },
+  "paletteChats": {
+    "message": "チャット"
+  },
+  "paletteActions": {
+    "message": "操作"
+  },
+  "paletteNextUnread": {
+    "message": "次の未読チャットを開く"
+  },
+  "paletteUnpinOpen": {
+    "message": "このチャットの固定を解除"
+  },
+  "palettePinOpen": {
+    "message": "このチャットを固定"
+  },
+  "paletteFolders": {
+    "message": "フォルダ"
+  },
+  "palettePrivacyOff": {
+    "message": "プライバシーモードをオフ"
+  },
+  "palettePrivacyOn": {
+    "message": "プライバシーモードをオン"
+  },
+  "paletteMentions": {
+    "message": "自分へのメンションがあるチャットを表示"
+  },
+  "paletteSettings": {
+    "message": "Refined の設定を開く"
+  },
+  "paletteWhatsAppSearch": {
+    "message": "WhatsApp の検索を開く"
+  },
+  "paletteSearchFor": {
+    "message": "WhatsApp で「$QUERY$」を検索",
+    "placeholders": {
+      "query": {
+        "content": "$1",
+        "example": "anna"
+      }
+    }
+  },
+  "paletteEmpty": {
+    "message": "一致なし"
+  },
+  "paletteTitle": {
+    "message": "Refined コマンドパレット"
+  },
+  "palettePlaceholder": {
+    "message": "チャットへ移動、またはコマンドを実行…"
+  },
+  "tabTools": {
+    "message": "ツール"
+  },
+  "toolsPanelAria": {
+    "message": "チャットツール"
+  },
+  "pinsSetting": {
+    "message": "無制限の固定"
+  },
+  "pinsSettingHelp": {
+    "message": "行から任意のチャットを固定し、ドラッグで並べ替え"
+  },
+  "remindersSetting": {
+    "message": "チャットのリマインド"
+  },
+  "remindersSettingHelp": {
+    "message": "チャットをスヌーズし、時間になったら戻す"
+  },
+  "reminderNotificationsSetting": {
+    "message": "リマインドの通知"
+  },
+  "reminderNotificationsHelp": {
+    "message": "WhatsApp を閉じていても通知"
+  },
+  "paletteSetting": {
+    "message": "コマンドパレット"
+  },
+  "paletteSettingHelp": {
+    "message": "Cmd/Ctrl+K で Refined のパレット、Shift を加えると WhatsApp の検索"
+  },
+  "mentionsSetting": {
+    "message": "メンションのまとめ"
+  },
+  "mentionsSettingHelp": {
+    "message": "@メンションされたチャットを集める"
+  },
+  "reminderNotificationTitle": {
+    "message": "リマインド"
+  },
+  "whatsNew_1_4_0": {
+    "message": "チャット一覧の上に好きなだけチャットを固定し、ドラッグで自由に並べ替えられます。\n「リマインド」でチャットをスヌーズすると、時間になったらスヌーズ中の一覧に戻ります。\nCmd/Ctrl+K で Refined のコマンドパレット、Shift を加えると WhatsApp 本来の検索が開きます。\nあなたを @メンションしたチャットは「メンション」にまとまります。\nWhatsApp Business のラベルがフォルダバーにそれぞれの色で表示されます。"
+  },
+  "mentionsEmpty": {
+    "message": "未読のメンションはありません"
   }
 }

@@ -524,5 +524,195 @@
   },
   "whatsNew_1_3_2": {
     "message": "Di Windows dan Linux, mode privasi kini Alt+Shift+P dan pengaturan Refined Alt+Shift+Koma.\nPintasan WhatsApp Ctrl+Alt+P (Profil) dan Ctrl+Alt+Koma (Setelan) berfungsi lagi."
+  },
+  "unpinChat": {
+    "message": "Lepas sematan"
+  },
+  "pinnedChatAria": {
+    "message": "$NAME$, disematkan",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "mentionDismiss": {
+    "message": "Abaikan"
+  },
+  "mentionAria": {
+    "message": "$NAME$, menyebut Anda",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderDue": {
+    "message": "Sekarang"
+  },
+  "reminderDone": {
+    "message": "Selesai"
+  },
+  "remindMe": {
+    "message": "Ingatkan saya"
+  },
+  "reminderDueAria": {
+    "message": "$NAME$, pengingat jatuh tempo",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderAria": {
+    "message": "$NAME$, pengingat pukul $TIME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      },
+      "time": {
+        "content": "$2",
+        "example": "18:30"
+      }
+    }
+  },
+  "shelfPinned": {
+    "message": "Disematkan"
+  },
+  "shelfSnoozed": {
+    "message": "Ditunda"
+  },
+  "shelfMentions": {
+    "message": "Sebutan"
+  },
+  "mentionsScanning": {
+    "message": "Memindai…"
+  },
+  "mentionsScan": {
+    "message": "Pindai semua chat"
+  },
+  "chatNotFound": {
+    "message": "Chat ini tidak ditemukan. Mungkin namanya sudah diubah."
+  },
+  "remindIn1h": {
+    "message": "Dalam 1 jam"
+  },
+  "remindIn3h": {
+    "message": "Dalam 3 jam"
+  },
+  "remindTomorrow": {
+    "message": "Besok"
+  },
+  "remindCustom": {
+    "message": "Khusus…"
+  },
+  "reminderSet": {
+    "message": "Atur"
+  },
+  "reminderClear": {
+    "message": "Hapus pengingat"
+  },
+  "pinChat": {
+    "message": "Sematkan di Refined"
+  },
+  "paletteChats": {
+    "message": "Chat"
+  },
+  "paletteActions": {
+    "message": "Tindakan"
+  },
+  "paletteNextUnread": {
+    "message": "Buka chat belum dibaca berikutnya"
+  },
+  "paletteUnpinOpen": {
+    "message": "Lepas sematan chat ini"
+  },
+  "palettePinOpen": {
+    "message": "Sematkan chat ini"
+  },
+  "paletteFolders": {
+    "message": "Folder"
+  },
+  "palettePrivacyOff": {
+    "message": "Matikan mode privasi"
+  },
+  "palettePrivacyOn": {
+    "message": "Nyalakan mode privasi"
+  },
+  "paletteMentions": {
+    "message": "Tampilkan chat yang menyebut saya"
+  },
+  "paletteSettings": {
+    "message": "Buka pengaturan Refined"
+  },
+  "paletteWhatsAppSearch": {
+    "message": "Buka pencarian WhatsApp"
+  },
+  "paletteSearchFor": {
+    "message": "Cari “$QUERY$” di WhatsApp",
+    "placeholders": {
+      "query": {
+        "content": "$1",
+        "example": "anna"
+      }
+    }
+  },
+  "paletteEmpty": {
+    "message": "Tidak ada hasil"
+  },
+  "paletteTitle": {
+    "message": "Palet perintah Refined"
+  },
+  "palettePlaceholder": {
+    "message": "Buka chat atau jalankan perintah…"
+  },
+  "tabTools": {
+    "message": "Alat"
+  },
+  "toolsPanelAria": {
+    "message": "Alat chat"
+  },
+  "pinsSetting": {
+    "message": "Sematan tanpa batas"
+  },
+  "pinsSettingHelp": {
+    "message": "Sematkan chat mana pun dari barisnya dan seret untuk mengurutkan"
+  },
+  "remindersSetting": {
+    "message": "Pengingat chat"
+  },
+  "remindersSettingHelp": {
+    "message": "Tunda chat dan dapatkan kembali saat waktunya tiba"
+  },
+  "reminderNotificationsSetting": {
+    "message": "Notifikasi pengingat"
+  },
+  "reminderNotificationsHelp": {
+    "message": "Beri tahu juga saat WhatsApp ditutup"
+  },
+  "paletteSetting": {
+    "message": "Palet perintah"
+  },
+  "paletteSettingHelp": {
+    "message": "Cmd/Ctrl+K membuka palet Refined; tambah Shift untuk pencarian WhatsApp"
+  },
+  "mentionsSetting": {
+    "message": "Ringkasan sebutan"
+  },
+  "mentionsSettingHelp": {
+    "message": "Kumpulkan chat yang @menyebut Anda"
+  },
+  "reminderNotificationTitle": {
+    "message": "Pengingat"
+  },
+  "whatsNew_1_4_0": {
+    "message": "Sematkan chat sebanyak yang Anda mau di atas daftar chat, dan seret untuk mengurutkannya.\n“Ingatkan saya” menunda chat; chat kembali di daftar Ditunda saat waktunya tiba.\nCmd/Ctrl+K membuka palet perintah Refined; tambah Shift untuk pencarian WhatsApp sendiri.\nChat yang @menyebut Anda terkumpul di Sebutan.\nLabel WhatsApp Business tampil di rel folder dengan warnanya sendiri."
+  },
+  "mentionsEmpty": {
+    "message": "Tidak ada sebutan yang belum dibaca"
   }
 }

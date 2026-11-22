@@ -524,5 +524,195 @@
   },
   "whatsNew_1_3_2": {
     "message": "Su Windows e Linux la modalità privacy ora è Alt+Maiusc+P e le impostazioni di Refined Alt+Maiusc+Virgola.\nLe scorciatoie di WhatsApp Ctrl+Alt+P (Profilo) e Ctrl+Alt+Virgola (Impostazioni) funzionano di nuovo."
+  },
+  "unpinChat": {
+    "message": "Sblocca"
+  },
+  "pinnedChatAria": {
+    "message": "$NAME$, fissata",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "mentionDismiss": {
+    "message": "Ignora"
+  },
+  "mentionAria": {
+    "message": "$NAME$, ti ha menzionato",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderDue": {
+    "message": "Ora"
+  },
+  "reminderDone": {
+    "message": "Fatto"
+  },
+  "remindMe": {
+    "message": "Ricordamelo"
+  },
+  "reminderDueAria": {
+    "message": "$NAME$, promemoria scaduto",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderAria": {
+    "message": "$NAME$, promemoria alle $TIME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      },
+      "time": {
+        "content": "$2",
+        "example": "18:30"
+      }
+    }
+  },
+  "shelfPinned": {
+    "message": "Fissate"
+  },
+  "shelfSnoozed": {
+    "message": "Rimandate"
+  },
+  "shelfMentions": {
+    "message": "Menzioni"
+  },
+  "mentionsScanning": {
+    "message": "Ricerca…"
+  },
+  "mentionsScan": {
+    "message": "Controlla tutte le chat"
+  },
+  "chatNotFound": {
+    "message": "Chat non trovata. Forse è stata rinominata."
+  },
+  "remindIn1h": {
+    "message": "Tra 1 ora"
+  },
+  "remindIn3h": {
+    "message": "Tra 3 ore"
+  },
+  "remindTomorrow": {
+    "message": "Domani"
+  },
+  "remindCustom": {
+    "message": "Personalizzato…"
+  },
+  "reminderSet": {
+    "message": "Imposta"
+  },
+  "reminderClear": {
+    "message": "Rimuovi promemoria"
+  },
+  "pinChat": {
+    "message": "Fissa in Refined"
+  },
+  "paletteChats": {
+    "message": "Chat"
+  },
+  "paletteActions": {
+    "message": "Azioni"
+  },
+  "paletteNextUnread": {
+    "message": "Apri la prossima chat non letta"
+  },
+  "paletteUnpinOpen": {
+    "message": "Sblocca questa chat"
+  },
+  "palettePinOpen": {
+    "message": "Fissa questa chat"
+  },
+  "paletteFolders": {
+    "message": "Cartelle"
+  },
+  "palettePrivacyOff": {
+    "message": "Disattiva la modalità privacy"
+  },
+  "palettePrivacyOn": {
+    "message": "Attiva la modalità privacy"
+  },
+  "paletteMentions": {
+    "message": "Mostra le chat che mi menzionano"
+  },
+  "paletteSettings": {
+    "message": "Apri le impostazioni di Refined"
+  },
+  "paletteWhatsAppSearch": {
+    "message": "Apri la ricerca di WhatsApp"
+  },
+  "paletteSearchFor": {
+    "message": "Cerca “$QUERY$” su WhatsApp",
+    "placeholders": {
+      "query": {
+        "content": "$1",
+        "example": "anna"
+      }
+    }
+  },
+  "paletteEmpty": {
+    "message": "Nessun risultato"
+  },
+  "paletteTitle": {
+    "message": "Palette comandi di Refined"
+  },
+  "palettePlaceholder": {
+    "message": "Vai a una chat o esegui un comando…"
+  },
+  "tabTools": {
+    "message": "Strumenti"
+  },
+  "toolsPanelAria": {
+    "message": "Strumenti chat"
+  },
+  "pinsSetting": {
+    "message": "Fissaggi illimitati"
+  },
+  "pinsSettingHelp": {
+    "message": "Fissa qualsiasi chat dalla sua riga e trascina per riordinare"
+  },
+  "remindersSetting": {
+    "message": "Promemoria chat"
+  },
+  "remindersSettingHelp": {
+    "message": "Rimanda una chat e ritrovala quando è il momento"
+  },
+  "reminderNotificationsSetting": {
+    "message": "Notifiche dei promemoria"
+  },
+  "reminderNotificationsHelp": {
+    "message": "Avvisa anche a WhatsApp chiuso"
+  },
+  "paletteSetting": {
+    "message": "Palette comandi"
+  },
+  "paletteSettingHelp": {
+    "message": "Cmd/Ctrl+K apre la palette di Refined; con Maiusc la ricerca di WhatsApp"
+  },
+  "mentionsSetting": {
+    "message": "Riepilogo menzioni"
+  },
+  "mentionsSettingHelp": {
+    "message": "Raccoglie le chat in cui sei stato @menzionato"
+  },
+  "reminderNotificationTitle": {
+    "message": "Promemoria"
+  },
+  "whatsNew_1_4_0": {
+    "message": "Fissa tutte le chat che vuoi sopra l'elenco e trascinale nell'ordine che preferisci.\n“Ricordamelo” rimanda una chat; torna tra le Rimandate quando è il momento.\nCmd/Ctrl+K apre la palette comandi di Refined; con Maiusc la ricerca di WhatsApp.\nLe chat che ti @menzionano si raccolgono in Menzioni.\nLe etichette di WhatsApp Business compaiono nella barra delle cartelle con i loro colori."
+  },
+  "mentionsEmpty": {
+    "message": "Nessuna menzione non letta"
   }
 }

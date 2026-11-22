@@ -48,11 +48,15 @@ Refined WhatsApp™ Web is an independent extension and is not affiliated with, 
 
 **`storage` justification:** Stores the user’s Refined preferences locally in the browser so they persist between WhatsApp Web sessions.
 
+**`alarms` justification:** Wakes the extension when a chat reminder the user set is due, so the chat can be marked due and the toolbar badge updated.
+
+**`notifications` justification (optional permission):** Requested only when the user turns on Reminder notifications; shows a system notification for a due chat reminder.
+
 **Host permission justification:** Runs only on `https://web.whatsapp.com/*` to add the selected layout controls and privacy presentation to that page.
 
 **Remote code:** No.
 
-**Data collection:** None. Refined WhatsApp™ Web does not collect, sell, or transmit user data.
+**Data collection:** None. Refined WhatsApp™ Web does not collect, sell, or transmit user data. Chat names the user pins or sets reminders on stay in local extension storage on their device.
 
 ## What's new (1.1.1)
 

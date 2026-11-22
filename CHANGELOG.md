@@ -6,6 +6,44 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.0] — 2026-11-23
+
+### Added
+
+- **Unlimited pins.** A pin button on every chat row adds it to a Pinned
+  shelf above the chat list, with no limit. Drag rows, or press Alt+Up/Down,
+  to set their order; unread counts and the muted marker follow WhatsApp's.
+  WhatsApp's chat list is virtualised (about 24 of several hundred chats
+  exist at a time) and positioned by its own code, so the shelf draws its own
+  rows and opens chats by name rather than moving WhatsApp's.
+- **Chat reminders and a Snoozed list.** *Remind me* on any chat, with the
+  presets In 1 hour, In 3 hours, Tomorrow 09:00, or a custom time. Reminders
+  use `chrome.alarms` (rebuilt from storage on every start and update), mark
+  the chat due in the shelf, count on the toolbar icon, and, when the user
+  turns on **Reminder notifications**, show a system notification that opens
+  the chat. Notifications are an optional permission requested from that
+  switch, so the update does not disable Refined for anyone.
+- **Command palette on Cmd/Ctrl+K.** Jump to recent, pinned or listed chats,
+  switch folders, pin or remind the open chat, toggle privacy, open the next
+  unread chat. Anything not found runs WhatsApp's own search. Refined claims
+  the key before WhatsApp's Extended Search; Cmd/Ctrl+Shift+K opens
+  WhatsApp's search instead.
+- **Mentions.** Chats that show WhatsApp's "@" marker are collected in a
+  Mentions section as they appear in the list; *Scan all chats* switches to
+  the Unread filter, walks the list, and puts the filter and scroll position
+  back.
+- A **Tools** tab in settings with a switch for each of the above.
+
+### Fixed
+
+- **WhatsApp Business folder rail.** Business numbers its filters
+  differently: business labels are `label_item_1`–`10` with a colour dot, and
+  Unread, Favourites and Groups move to `11`–`13`. Labels took built-in icons
+  and the built-ins showed bare letters. Labels now show as a tag in their own
+  colour and the built-ins keep their icons. **Lists** is always last, the
+  12-folder cap is gone, and the rail scrolls with fade edges when WhatsApp
+  Business's longer navigation leaves it too little room.
+
 ## [1.3.2] — 2026-11-22
 
 ### Fixed

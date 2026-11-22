@@ -524,5 +524,195 @@
   },
   "whatsNew_1_3_2": {
     "message": "В Windows и Linux режим конфиденциальности теперь Alt+Shift+P, а настройки Refined — Alt+Shift+Запятая.\nСобственные сочетания WhatsApp Ctrl+Alt+P (Профиль) и Ctrl+Alt+Запятая (Настройки) снова работают."
+  },
+  "unpinChat": {
+    "message": "Открепить"
+  },
+  "pinnedChatAria": {
+    "message": "$NAME$, закреплён",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "mentionDismiss": {
+    "message": "Скрыть"
+  },
+  "mentionAria": {
+    "message": "$NAME$, упомянул вас",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderDue": {
+    "message": "Пора"
+  },
+  "reminderDone": {
+    "message": "Готово"
+  },
+  "remindMe": {
+    "message": "Напомнить"
+  },
+  "reminderDueAria": {
+    "message": "$NAME$, время напоминания",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderAria": {
+    "message": "$NAME$, напоминание в $TIME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      },
+      "time": {
+        "content": "$2",
+        "example": "18:30"
+      }
+    }
+  },
+  "shelfPinned": {
+    "message": "Закреплённые"
+  },
+  "shelfSnoozed": {
+    "message": "Отложенные"
+  },
+  "shelfMentions": {
+    "message": "Упоминания"
+  },
+  "mentionsScanning": {
+    "message": "Поиск…"
+  },
+  "mentionsScan": {
+    "message": "Проверить все чаты"
+  },
+  "chatNotFound": {
+    "message": "Чат не найден. Возможно, его переименовали."
+  },
+  "remindIn1h": {
+    "message": "Через 1 час"
+  },
+  "remindIn3h": {
+    "message": "Через 3 часа"
+  },
+  "remindTomorrow": {
+    "message": "Завтра"
+  },
+  "remindCustom": {
+    "message": "Своё время…"
+  },
+  "reminderSet": {
+    "message": "Задать"
+  },
+  "reminderClear": {
+    "message": "Удалить напоминание"
+  },
+  "pinChat": {
+    "message": "Закрепить в Refined"
+  },
+  "paletteChats": {
+    "message": "Чаты"
+  },
+  "paletteActions": {
+    "message": "Действия"
+  },
+  "paletteNextUnread": {
+    "message": "Открыть следующий непрочитанный чат"
+  },
+  "paletteUnpinOpen": {
+    "message": "Открепить этот чат"
+  },
+  "palettePinOpen": {
+    "message": "Закрепить этот чат"
+  },
+  "paletteFolders": {
+    "message": "Папки"
+  },
+  "palettePrivacyOff": {
+    "message": "Выключить режим конфиденциальности"
+  },
+  "palettePrivacyOn": {
+    "message": "Включить режим конфиденциальности"
+  },
+  "paletteMentions": {
+    "message": "Показать чаты с упоминаниями меня"
+  },
+  "paletteSettings": {
+    "message": "Открыть настройки Refined"
+  },
+  "paletteWhatsAppSearch": {
+    "message": "Открыть поиск WhatsApp"
+  },
+  "paletteSearchFor": {
+    "message": "Искать «$QUERY$» в WhatsApp",
+    "placeholders": {
+      "query": {
+        "content": "$1",
+        "example": "anna"
+      }
+    }
+  },
+  "paletteEmpty": {
+    "message": "Ничего не найдено"
+  },
+  "paletteTitle": {
+    "message": "Палитра команд Refined"
+  },
+  "palettePlaceholder": {
+    "message": "Перейти к чату или выполнить команду…"
+  },
+  "tabTools": {
+    "message": "Инструменты"
+  },
+  "toolsPanelAria": {
+    "message": "Инструменты чатов"
+  },
+  "pinsSetting": {
+    "message": "Неограниченное закрепление"
+  },
+  "pinsSettingHelp": {
+    "message": "Закрепляйте любой чат из его строки и перетаскивайте для порядка"
+  },
+  "remindersSetting": {
+    "message": "Напоминания о чатах"
+  },
+  "remindersSettingHelp": {
+    "message": "Отложите чат и верните его в нужное время"
+  },
+  "reminderNotificationsSetting": {
+    "message": "Уведомления о напоминаниях"
+  },
+  "reminderNotificationsHelp": {
+    "message": "Сообщать и при закрытом WhatsApp"
+  },
+  "paletteSetting": {
+    "message": "Палитра команд"
+  },
+  "paletteSettingHelp": {
+    "message": "Cmd/Ctrl+K открывает палитру Refined; с Shift — поиск WhatsApp"
+  },
+  "mentionsSetting": {
+    "message": "Сводка упоминаний"
+  },
+  "mentionsSettingHelp": {
+    "message": "Собирает чаты, где вас @упомянули"
+  },
+  "reminderNotificationTitle": {
+    "message": "Напоминание"
+  },
+  "whatsNew_1_4_0": {
+    "message": "Закрепляйте сколько угодно чатов над списком и расставляйте их перетаскиванием.\n«Напомнить» откладывает чат; в нужное время он вернётся в «Отложенные».\nCmd/Ctrl+K открывает палитру команд Refined; с Shift — собственный поиск WhatsApp.\nЧаты, где вас @упомянули, собираются в «Упоминаниях».\nЯрлыки WhatsApp Business показываются в панели папок своими цветами."
+  },
+  "mentionsEmpty": {
+    "message": "Непрочитанных упоминаний нет"
   }
 }

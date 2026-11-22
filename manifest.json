@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "__MSG_appName__",
   "short_name": "__MSG_appShortName__",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "description": "__MSG_appDesc__",
   "default_locale": "en",
   "homepage_url": "https://refined-wa.ramishalabi.xyz",
@@ -12,7 +12,8 @@
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
-  "permissions": ["storage"],
+  "permissions": ["storage", "alarms"],
+  "optional_permissions": ["notifications"],
   "host_permissions": ["https://web.whatsapp.com/*"],
   "background": { "service_worker": "src/background.js" },
   "action": {
@@ -27,7 +28,7 @@
     {
       "matches": ["https://web.whatsapp.com/*"],
       "css": ["src/content.css"],
-      "js": ["src/utils.js", "src/settings.js", "src/content.js"],
+      "js": ["src/utils.js", "src/settings.js", "src/chats.js", "src/shelf.js", "src/palette.js", "src/content.js"],
       "run_at": "document_idle"
     }
   ],

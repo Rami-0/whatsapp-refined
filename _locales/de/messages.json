@@ -524,5 +524,195 @@
   },
   "whatsNew_1_3_2": {
     "message": "Unter Windows und Linux ist der Privatsphäre-Modus jetzt Alt+Shift+P und die Refined-Einstellungen Alt+Shift+Komma.\nWhatsApps eigene Kürzel Strg+Alt+P (Profil) und Strg+Alt+Komma (Einstellungen) funktionieren wieder."
+  },
+  "unpinChat": {
+    "message": "Lösen"
+  },
+  "pinnedChatAria": {
+    "message": "$NAME$, angeheftet",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "mentionDismiss": {
+    "message": "Ausblenden"
+  },
+  "mentionAria": {
+    "message": "$NAME$, hat dich erwähnt",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderDue": {
+    "message": "Fällig"
+  },
+  "reminderDone": {
+    "message": "Erledigt"
+  },
+  "remindMe": {
+    "message": "Erinnern"
+  },
+  "reminderDueAria": {
+    "message": "$NAME$, Erinnerung fällig",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderAria": {
+    "message": "$NAME$, Erinnerung um $TIME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      },
+      "time": {
+        "content": "$2",
+        "example": "18:30"
+      }
+    }
+  },
+  "shelfPinned": {
+    "message": "Angeheftet"
+  },
+  "shelfSnoozed": {
+    "message": "Zurückgestellt"
+  },
+  "shelfMentions": {
+    "message": "Erwähnungen"
+  },
+  "mentionsScanning": {
+    "message": "Wird durchsucht…"
+  },
+  "mentionsScan": {
+    "message": "Alle Chats durchsuchen"
+  },
+  "chatNotFound": {
+    "message": "Dieser Chat wurde nicht gefunden. Vielleicht wurde er umbenannt."
+  },
+  "remindIn1h": {
+    "message": "In 1 Stunde"
+  },
+  "remindIn3h": {
+    "message": "In 3 Stunden"
+  },
+  "remindTomorrow": {
+    "message": "Morgen"
+  },
+  "remindCustom": {
+    "message": "Eigene Zeit…"
+  },
+  "reminderSet": {
+    "message": "Festlegen"
+  },
+  "reminderClear": {
+    "message": "Erinnerung entfernen"
+  },
+  "pinChat": {
+    "message": "In Refined anheften"
+  },
+  "paletteChats": {
+    "message": "Chats"
+  },
+  "paletteActions": {
+    "message": "Aktionen"
+  },
+  "paletteNextUnread": {
+    "message": "Nächsten ungelesenen Chat öffnen"
+  },
+  "paletteUnpinOpen": {
+    "message": "Diesen Chat lösen"
+  },
+  "palettePinOpen": {
+    "message": "Diesen Chat anheften"
+  },
+  "paletteFolders": {
+    "message": "Ordner"
+  },
+  "palettePrivacyOff": {
+    "message": "Privatsphäre-Modus aus"
+  },
+  "palettePrivacyOn": {
+    "message": "Privatsphäre-Modus an"
+  },
+  "paletteMentions": {
+    "message": "Chats mit Erwähnungen zeigen"
+  },
+  "paletteSettings": {
+    "message": "Refined-Einstellungen öffnen"
+  },
+  "paletteWhatsAppSearch": {
+    "message": "WhatsApp-Suche öffnen"
+  },
+  "paletteSearchFor": {
+    "message": "In WhatsApp nach „$QUERY$“ suchen",
+    "placeholders": {
+      "query": {
+        "content": "$1",
+        "example": "anna"
+      }
+    }
+  },
+  "paletteEmpty": {
+    "message": "Keine Treffer"
+  },
+  "paletteTitle": {
+    "message": "Refined-Befehlspalette"
+  },
+  "palettePlaceholder": {
+    "message": "Zu einem Chat springen oder Befehl ausführen…"
+  },
+  "tabTools": {
+    "message": "Werkzeuge"
+  },
+  "toolsPanelAria": {
+    "message": "Chat-Werkzeuge"
+  },
+  "pinsSetting": {
+    "message": "Unbegrenzt anheften"
+  },
+  "pinsSettingHelp": {
+    "message": "Jeden Chat in seiner Zeile anheften und per Ziehen sortieren"
+  },
+  "remindersSetting": {
+    "message": "Chat-Erinnerungen"
+  },
+  "remindersSettingHelp": {
+    "message": "Chat zurückstellen und zur fälligen Zeit zurückholen"
+  },
+  "reminderNotificationsSetting": {
+    "message": "Erinnerungs-Benachrichtigungen"
+  },
+  "reminderNotificationsHelp": {
+    "message": "Auch benachrichtigen, wenn WhatsApp geschlossen ist"
+  },
+  "paletteSetting": {
+    "message": "Befehlspalette"
+  },
+  "paletteSettingHelp": {
+    "message": "Cmd/Strg+K öffnet Refineds Palette; mit Shift die WhatsApp-Suche"
+  },
+  "mentionsSetting": {
+    "message": "Erwähnungs-Übersicht"
+  },
+  "mentionsSettingHelp": {
+    "message": "Chats sammeln, in denen du @erwähnt wurdest"
+  },
+  "reminderNotificationTitle": {
+    "message": "Erinnerung"
+  },
+  "whatsNew_1_4_0": {
+    "message": "Hefte beliebig viele Chats über der Chatliste an und sortiere sie per Ziehen.\n„Erinnern“ stellt einen Chat zurück; zur fälligen Zeit steht er unter „Zurückgestellt“.\nCmd/Strg+K öffnet Refineds Befehlspalette; mit Shift die WhatsApp-eigene Suche.\nChats, in denen du @erwähnt wirst, sammeln sich unter „Erwähnungen“.\nWhatsApp-Business-Labels erscheinen in der Ordnerleiste in ihren eigenen Farben."
+  },
+  "mentionsEmpty": {
+    "message": "Keine ungelesenen Erwähnungen"
   }
 }

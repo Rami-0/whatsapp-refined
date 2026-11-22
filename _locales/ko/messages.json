@@ -524,5 +524,195 @@
   },
   "whatsNew_1_3_2": {
     "message": "Windows와 Linux에서 개인정보 보호 모드는 Alt+Shift+P, Refined 설정은 Alt+Shift+쉼표로 바뀌었습니다.\nWhatsApp 자체 단축키 Ctrl+Alt+P(프로필)와 Ctrl+Alt+쉼표(설정)가 다시 작동합니다."
+  },
+  "unpinChat": {
+    "message": "고정 해제"
+  },
+  "pinnedChatAria": {
+    "message": "$NAME$, 고정됨",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "mentionDismiss": {
+    "message": "닫기"
+  },
+  "mentionAria": {
+    "message": "$NAME$, 나를 언급함",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderDue": {
+    "message": "지금"
+  },
+  "reminderDone": {
+    "message": "완료"
+  },
+  "remindMe": {
+    "message": "알림 설정"
+  },
+  "reminderDueAria": {
+    "message": "$NAME$, 알림 시간",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderAria": {
+    "message": "$NAME$, $TIME$에 알림",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      },
+      "time": {
+        "content": "$2",
+        "example": "18:30"
+      }
+    }
+  },
+  "shelfPinned": {
+    "message": "고정됨"
+  },
+  "shelfSnoozed": {
+    "message": "다시 알림"
+  },
+  "shelfMentions": {
+    "message": "멘션"
+  },
+  "mentionsScanning": {
+    "message": "검색 중…"
+  },
+  "mentionsScan": {
+    "message": "모든 채팅 검색"
+  },
+  "chatNotFound": {
+    "message": "이 채팅을 찾을 수 없습니다. 이름이 바뀌었을 수 있습니다."
+  },
+  "remindIn1h": {
+    "message": "1시간 후"
+  },
+  "remindIn3h": {
+    "message": "3시간 후"
+  },
+  "remindTomorrow": {
+    "message": "내일"
+  },
+  "remindCustom": {
+    "message": "직접 지정…"
+  },
+  "reminderSet": {
+    "message": "설정"
+  },
+  "reminderClear": {
+    "message": "알림 삭제"
+  },
+  "pinChat": {
+    "message": "Refined에 고정"
+  },
+  "paletteChats": {
+    "message": "채팅"
+  },
+  "paletteActions": {
+    "message": "작업"
+  },
+  "paletteNextUnread": {
+    "message": "다음 안 읽은 채팅 열기"
+  },
+  "paletteUnpinOpen": {
+    "message": "이 채팅 고정 해제"
+  },
+  "palettePinOpen": {
+    "message": "이 채팅 고정"
+  },
+  "paletteFolders": {
+    "message": "폴더"
+  },
+  "palettePrivacyOff": {
+    "message": "개인정보 보호 모드 끄기"
+  },
+  "palettePrivacyOn": {
+    "message": "개인정보 보호 모드 켜기"
+  },
+  "paletteMentions": {
+    "message": "나를 언급한 채팅 보기"
+  },
+  "paletteSettings": {
+    "message": "Refined 설정 열기"
+  },
+  "paletteWhatsAppSearch": {
+    "message": "WhatsApp 검색 열기"
+  },
+  "paletteSearchFor": {
+    "message": "WhatsApp에서 “$QUERY$” 검색",
+    "placeholders": {
+      "query": {
+        "content": "$1",
+        "example": "anna"
+      }
+    }
+  },
+  "paletteEmpty": {
+    "message": "결과 없음"
+  },
+  "paletteTitle": {
+    "message": "Refined 명령 팔레트"
+  },
+  "palettePlaceholder": {
+    "message": "채팅으로 이동하거나 명령 실행…"
+  },
+  "tabTools": {
+    "message": "도구"
+  },
+  "toolsPanelAria": {
+    "message": "채팅 도구"
+  },
+  "pinsSetting": {
+    "message": "무제한 고정"
+  },
+  "pinsSettingHelp": {
+    "message": "행에서 채팅을 고정하고 드래그해 순서 변경"
+  },
+  "remindersSetting": {
+    "message": "채팅 알림"
+  },
+  "remindersSettingHelp": {
+    "message": "채팅을 미뤄 두고 시간이 되면 다시 받기"
+  },
+  "reminderNotificationsSetting": {
+    "message": "알림 표시"
+  },
+  "reminderNotificationsHelp": {
+    "message": "WhatsApp이 닫혀 있어도 알림"
+  },
+  "paletteSetting": {
+    "message": "명령 팔레트"
+  },
+  "paletteSettingHelp": {
+    "message": "Cmd/Ctrl+K는 Refined 팔레트, Shift를 더하면 WhatsApp 검색"
+  },
+  "mentionsSetting": {
+    "message": "멘션 모음"
+  },
+  "mentionsSettingHelp": {
+    "message": "@멘션된 채팅 모으기"
+  },
+  "reminderNotificationTitle": {
+    "message": "알림"
+  },
+  "whatsNew_1_4_0": {
+    "message": "채팅 목록 위에 원하는 만큼 채팅을 고정하고 드래그해 순서를 바꿀 수 있습니다.\n‘알림 설정’으로 채팅을 미루면 시간이 되었을 때 다시 알림 목록에 나타납니다.\nCmd/Ctrl+K는 Refined 명령 팔레트를, Shift를 더하면 WhatsApp 자체 검색을 엽니다.\n나를 @멘션한 채팅은 ‘멘션’에 모입니다.\nWhatsApp Business 라벨이 폴더 막대에 고유 색상으로 표시됩니다."
+  },
+  "mentionsEmpty": {
+    "message": "읽지 않은 멘션이 없습니다"
   }
 }

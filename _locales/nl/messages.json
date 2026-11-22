@@ -524,5 +524,195 @@
   },
   "whatsNew_1_3_2": {
     "message": "Op Windows en Linux is de privacymodus nu Alt+Shift+P en de Refined-instellingen Alt+Shift+Komma.\nWhatsApps eigen Ctrl+Alt+P (Profiel) en Ctrl+Alt+Komma (Instellingen) werken weer."
+  },
+  "unpinChat": {
+    "message": "Losmaken"
+  },
+  "pinnedChatAria": {
+    "message": "$NAME$, vastgezet",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "mentionDismiss": {
+    "message": "Negeren"
+  },
+  "mentionAria": {
+    "message": "$NAME$, heeft je genoemd",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderDue": {
+    "message": "Nu"
+  },
+  "reminderDone": {
+    "message": "Klaar"
+  },
+  "remindMe": {
+    "message": "Herinner me"
+  },
+  "reminderDueAria": {
+    "message": "$NAME$, herinnering nu",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderAria": {
+    "message": "$NAME$, herinnering om $TIME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      },
+      "time": {
+        "content": "$2",
+        "example": "18:30"
+      }
+    }
+  },
+  "shelfPinned": {
+    "message": "Vastgezet"
+  },
+  "shelfSnoozed": {
+    "message": "Uitgesteld"
+  },
+  "shelfMentions": {
+    "message": "Vermeldingen"
+  },
+  "mentionsScanning": {
+    "message": "Zoeken…"
+  },
+  "mentionsScan": {
+    "message": "Alle chats doorzoeken"
+  },
+  "chatNotFound": {
+    "message": "Deze chat is niet gevonden. Misschien is hij hernoemd."
+  },
+  "remindIn1h": {
+    "message": "Over 1 uur"
+  },
+  "remindIn3h": {
+    "message": "Over 3 uur"
+  },
+  "remindTomorrow": {
+    "message": "Morgen"
+  },
+  "remindCustom": {
+    "message": "Aangepast…"
+  },
+  "reminderSet": {
+    "message": "Instellen"
+  },
+  "reminderClear": {
+    "message": "Herinnering verwijderen"
+  },
+  "pinChat": {
+    "message": "Vastzetten in Refined"
+  },
+  "paletteChats": {
+    "message": "Chats"
+  },
+  "paletteActions": {
+    "message": "Acties"
+  },
+  "paletteNextUnread": {
+    "message": "Volgende ongelezen chat openen"
+  },
+  "paletteUnpinOpen": {
+    "message": "Deze chat losmaken"
+  },
+  "palettePinOpen": {
+    "message": "Deze chat vastzetten"
+  },
+  "paletteFolders": {
+    "message": "Mappen"
+  },
+  "palettePrivacyOff": {
+    "message": "Privacymodus uit"
+  },
+  "palettePrivacyOn": {
+    "message": "Privacymodus aan"
+  },
+  "paletteMentions": {
+    "message": "Chats tonen die mij noemen"
+  },
+  "paletteSettings": {
+    "message": "Refined-instellingen openen"
+  },
+  "paletteWhatsAppSearch": {
+    "message": "WhatsApp-zoeken openen"
+  },
+  "paletteSearchFor": {
+    "message": "In WhatsApp zoeken naar ‘$QUERY$’",
+    "placeholders": {
+      "query": {
+        "content": "$1",
+        "example": "anna"
+      }
+    }
+  },
+  "paletteEmpty": {
+    "message": "Geen resultaten"
+  },
+  "paletteTitle": {
+    "message": "Refined-opdrachtpalet"
+  },
+  "palettePlaceholder": {
+    "message": "Naar een chat gaan of een opdracht uitvoeren…"
+  },
+  "tabTools": {
+    "message": "Hulpmiddelen"
+  },
+  "toolsPanelAria": {
+    "message": "Chathulpmiddelen"
+  },
+  "pinsSetting": {
+    "message": "Onbeperkt vastzetten"
+  },
+  "pinsSettingHelp": {
+    "message": "Zet elke chat vast vanuit de rij en sleep om te ordenen"
+  },
+  "remindersSetting": {
+    "message": "Chatherinneringen"
+  },
+  "remindersSettingHelp": {
+    "message": "Stel een chat uit en krijg hem terug als het tijd is"
+  },
+  "reminderNotificationsSetting": {
+    "message": "Meldingen voor herinneringen"
+  },
+  "reminderNotificationsHelp": {
+    "message": "Ook melden als WhatsApp gesloten is"
+  },
+  "paletteSetting": {
+    "message": "Opdrachtpalet"
+  },
+  "paletteSettingHelp": {
+    "message": "Cmd/Ctrl+K opent het Refined-palet; met Shift het zoeken van WhatsApp"
+  },
+  "mentionsSetting": {
+    "message": "Overzicht vermeldingen"
+  },
+  "mentionsSettingHelp": {
+    "message": "Verzamel chats waarin je @genoemd bent"
+  },
+  "reminderNotificationTitle": {
+    "message": "Herinnering"
+  },
+  "whatsNew_1_4_0": {
+    "message": "Zet zoveel chats vast als je wilt boven de chatlijst en sleep ze in elke volgorde.\n‘Herinner me’ stelt een chat uit; hij komt terug in Uitgesteld als het tijd is.\nCmd/Ctrl+K opent het opdrachtpalet van Refined; met Shift het zoeken van WhatsApp zelf.\nChats waarin je @genoemd wordt, verzamelen zich onder Vermeldingen.\nWhatsApp Business-labels verschijnen in de mappenbalk in hun eigen kleuren."
+  },
+  "mentionsEmpty": {
+    "message": "Geen ongelezen vermeldingen"
   }
 }

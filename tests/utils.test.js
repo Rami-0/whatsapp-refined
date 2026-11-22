@@ -236,3 +236,124 @@ test("Refined's shortcuts leave WhatsApp's own Ctrl+Alt keys alone on Windows an
   assert.equal(shortcutAction(key("KeyK", { metaKey: true }), "mac"), "");
   assert.equal(shortcutAction(key("KeyP", altShift), "mac"), "privacy");
 });
+
+test("pins are keyed by chat name, ordered by the user, and never duplicated", () => {
+  const { pinChat, unpinChat, movePin, refreshPins } = require("../src/utils.js");
+  let pins = [];
+  pins = pinChat(pins, "Mom", 1);
+  pins = pinChat(pins, "Work", 2);
+  pins = pinChat(pins, "Gym", 3);
+  assert.deepEqual(pins.map((p) => p.name), ["Mom", "Work", "Gym"]);
+  assert.equal(pinChat(pins, "Work", 4), pins, "pinning twice is a no-op");
+  assert.equal(pinChat(pins, "", 4), pins);
+
+  assert.deepEqual(movePin(pins, "Gym", 0).map((p) => p.name), ["Gym", "Mom", "Work"]);
+  assert.deepEqual(movePin(pins, "Mom", 99).map((p) => p.name), ["Work", "Gym", "Mom"]);
+  assert.deepEqual(movePin(pins, "Nobody", 0).map((p) => p.name), ["Mom", "Work", "Gym"]);
+  assert.deepEqual(pins.map((p) => p.name), ["Mom", "Work", "Gym"], "inputs are not mutated");
+
+  assert.deepEqual(unpinChat(pins, "Work").map((p) => p.name), ["Mom", "Gym"]);
+
+  const rows = [{ name: "Work", unread: 4, muted: true, avatar: "https://x/a.jpg" }];
+  const refreshed = refreshPins(pins, rows, 9);
+  assert.equal(refreshed[1].unread, 4);
+  assert.equal(refreshed[1].muted, true);
+  assert.equal(refreshed[1].seenAt, 9);
+  assert.equal("avatar" in refreshed[1], false, "profile photo URLs are never stored");
+  assert.equal(refreshPins(refreshed, rows, 10), refreshed, "unchanged rows return the same array");
+});
+
+test("reminder presets and the snoozed list", () => {
+  const { reminderPresets, addReminder, removeReminder, dueReminders, shortDuration } = require("../src/utils.js");
+  const now = new Date(2026, 10, 22, 23, 30);
+  const [hour, three, tomorrow] = reminderPresets(now);
+  assert.equal(hour.at - now.getTime(), 3600000);
+  assert.equal(three.at - now.getTime(), 3 * 3600000);
+  const t = new Date(tomorrow.at);
+  assert.deepEqual([t.getDate(), t.getHours(), t.getMinutes()], [23, 9, 0], "tomorrow is 09:00 the next day, across midnight");
+
+  let list = addReminder([], "Work", 5000, 1);
+  list = addReminder(list, "Mom", 2000, 2);
+  assert.deepEqual(list.map((r) => r.name), ["Mom", "Work"], "sorted by due time");
+  list = addReminder(list, "Work", 1000, 3);
+  assert.deepEqual(list.map((r) => [r.name, r.dueAt]), [["Work", 1000], ["Mom", 2000]], "one reminder per chat");
+  assert.deepEqual(dueReminders(list, 1500).map((r) => r.name), ["Work"]);
+  assert.deepEqual(removeReminder(list, "Work").map((r) => r.name), ["Mom"]);
+
+  assert.equal(shortDuration(45 * 60000), "45m");
+  assert.equal(shortDuration(12 * 3600000), "12h");
+  assert.equal(shortDuration(72 * 3600000), "3d");
+});
+
+test("WhatsApp Business: colour-dot labels stay labels and the built-ins are found past them", () => {
+  const { classifyFolders } = require("../src/utils.js");
+  /* Verbatim order from a live WhatsApp Business strip (Nov 2026): business
+     labels 1-10 carry a colour dot, Unread/Favourites/Groups are 11-13, and
+     the overflow arrow sits in the middle. */
+  const strip = [
+    { id: "all-filter" }, { id: "label_item_1", colored: true }, { id: "label_item_11" },
+    { id: "label_item_2", colored: true }, { id: "label_item_12" }, { id: "additional-filters" },
+    { id: "label_item_13" }, { id: "label_item_3", colored: true }, { id: "label_item_4", colored: true },
+    { id: "label_item_5", colored: true }, { id: "label_item_9", colored: true }
+  ];
+  assert.deepEqual(classifyFolders(strip), ["all", "label", "unread", "label", "favourites", "lists", "groups", "label", "label", "label", "label"]);
+});
+
+test("personal WhatsApp: built-ins are 1-3 and user lists stay custom, wherever they sit", () => {
+  const { classifyFolders } = require("../src/utils.js");
+  const strip = ["all-filter", "label_item_4", "label_item_1", "label_item_2", "label_item_3", "label_item_6", "additional-filters"].map((id) => ({ id }));
+  assert.deepEqual(classifyFolders(strip), ["all", "custom", "unread", "favourites", "groups", "custom", "lists"]);
+  assert.deepEqual(classifyFolders([]), []);
+});
+
+test("palette ranking prefers prefixes, word starts and runs, and ignores case and accents", () => {
+  const { fuzzyScore } = require("../src/utils.js");
+  assert.equal(fuzzyScore("xyz", "Work"), 0);
+  assert.ok(fuzzyScore("wo", "Work") > fuzzyScore("wo", "Hello world"));
+  assert.ok(fuzzyScore("wor", "Hello world") > fuzzyScore("wor", "aw orchid r"));
+  assert.ok(fuzzyScore("jose", "José Silva") > 0);
+  assert.ok(fuzzyScore("rmli", "rmli orders طلبات رملي") > fuzzyScore("rmli", "random mail list"));
+  assert.ok(fuzzyScore("5406", "+966 50 681 5406") > 0);
+  assert.equal(fuzzyScore("", "anything"), 1);
+});
+
+test("mentions are learned from rows on screen and dropped once read", () => {
+  const { mergeMentions } = require("../src/utils.js");
+  let list = mergeMentions([], [{ name: "Team", mention: true, unread: 3 }, { name: "Mom", mention: false, unread: 1 }], 10);
+  assert.deepEqual(list.map((m) => [m.name, m.unread]), [["Team", 3]]);
+  assert.equal(mergeMentions(list, [{ name: "Team", mention: true, unread: 3 }], 11), list, "unchanged rows keep the same array");
+  assert.equal(mergeMentions(list, [{ name: "Other", mention: false, unread: 0 }], 12), list, "chats off screen keep their state");
+  assert.deepEqual(mergeMentions(list, [{ name: "Team", mention: false, unread: 0 }], 13), [], "a read chat leaves");
+});
+
+test("two chats with the same name: a mention on either one counts once and stays", () => {
+  const { mergeMentions } = require("../src/utils.js");
+  const rows = [{ name: "Family", mention: false, unread: 0 }, { name: "Family", mention: true, unread: 2 }];
+  const list = mergeMentions([], rows, 1);
+  assert.deepEqual(list.map((m) => [m.name, m.unread]), [["Family", 2]]);
+  assert.equal(mergeMentions(list, rows, 2), list, "a redraw of the same rows writes nothing");
+});
+
+test("translated strings keep a chat name with $ signs intact", () => {
+  const { applyPlaceholders } = require("../src/utils.js");
+  const entry = { message: "$NAME$, pinned", placeholders: { name: { content: "$1" } } };
+  assert.equal(applyPlaceholders(entry, ["Cash $$ & $' $&"]), "Cash $$ & $' $&, pinned");
+  const two = { message: "$NAME$ at $TIME$", placeholders: { name: { content: "$1" }, time: { content: "$2" } } };
+  assert.equal(applyPlaceholders(two, ["Team", "18:30"]), "Team at 18:30");
+});
+
+test("the rail keeps one order however WhatsApp reshuffles its strip", () => {
+  const { railOrder } = require("../src/utils.js");
+  /* Live WhatsApp Business strip after Groups was picked from "More lists". */
+  const strip = [
+    { id: "all-filter", kind: "all" }, { id: "label_item_13", kind: "groups" }, { id: "additional-filters", kind: "lists" },
+    { id: "label_item_1", kind: "label" }, { id: "label_item_11", kind: "unread" }, { id: "label_item_2", kind: "label" },
+    { id: "label_item_12", kind: "favourites" }, { id: "label_item_10", kind: "label" }, { id: "label_item_3", kind: "label" }
+  ];
+  const ids = (list) => list.map((folder) => folder.id);
+  const expected = ["all-filter", "label_item_11", "label_item_12", "label_item_13", "label_item_1", "label_item_2", "label_item_3", "label_item_10", "additional-filters"];
+  assert.deepEqual(ids(railOrder(strip)), expected);
+  assert.deepEqual(ids(railOrder([...strip].reverse())), expected, "the strip's own order does not matter");
+  assert.deepEqual(ids(railOrder([{ id: "label_item_5", kind: "custom" }, { id: "label_item_1", kind: "unread" }, { id: "label_item_4", kind: "custom" }])), ["label_item_1", "label_item_4", "label_item_5"]);
+  assert.deepEqual(railOrder(undefined), []);
+});

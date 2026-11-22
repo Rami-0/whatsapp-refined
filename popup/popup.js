@@ -88,9 +88,22 @@
 
   document.querySelectorAll("[data-setting]").forEach((input) => {
     if (input.type === "range") input.addEventListener("input", () => updateRange(input));
-    input.addEventListener("change", () => {
+    input.addEventListener("change", async () => {
       const key = input.dataset.setting;
       const value = input.type === "checkbox" ? input.checked : numericSettings.has(key) ? Number(input.value) : input.value;
+      /* Notifications are an optional permission, asked for only here, so
+         the update never disables Refined for existing users. A refusal
+         leaves the switch off. */
+      if (key === "reminderNotifications" && value && globalThis.chrome?.permissions?.request) {
+        let granted = false;
+        try {
+          granted = await chrome.permissions.request({ permissions: ["notifications"] });
+        } catch (_error) {}
+        if (!granted) {
+          input.checked = false;
+          return;
+        }
+      }
       save(key, value);
       if (key === "enabled") document.body.classList.toggle("is-disabled", !value);
       if (key === "privacyEnabled") document.body.classList.toggle("privacy-off", !value);

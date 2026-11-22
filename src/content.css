@@ -94,6 +94,27 @@ html[data-wr-enabled="true"][data-wr-ready="true"] .wr-chat-shell > header {
   flex-direction: column !important;
 }
 
+/* WhatsApp sets this section to flex: 1 0 auto, so it never shrinks. With
+   WhatsApp Business's longer nav (calls, catalog, ads) plus a rail of business
+   labels it grew past the window and the last folders were cut off. Letting it
+   shrink hands the overflow to the rail, which scrolls. */
+html[data-wr-enabled="true"][data-wr-ready="true"][data-wr-folder-layout="sidebar"] .wr-native-folder-host {
+  flex: 1 1 0 !important;
+}
+
+/* Fade edges tell the user the rail scrolls, instead of a hidden scrollbar. */
+#wr-folder-sidebar[data-wr-overflow="bottom"] {
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 28px), transparent);
+}
+
+#wr-folder-sidebar[data-wr-overflow="top"] {
+  mask-image: linear-gradient(to bottom, transparent, #000 28px);
+}
+
+#wr-folder-sidebar[data-wr-overflow="both"] {
+  mask-image: linear-gradient(to bottom, transparent, #000 28px, #000 calc(100% - 28px), transparent);
+}
+
 .wr-native-folder-host > :first-child {
   flex: 0 0 auto;
 }
@@ -225,6 +246,18 @@ html[data-wr-ready="true"] #wr-sidebar-actions {
   height: 22px;
 }
 
+/* WhatsApp Business labels: a tag in the label's own colour, the same dot
+   colour WhatsApp shows on the pill, so a user finds "Lead" by its colour. */
+.wr-folder-icon--label > svg .wr-label-tag {
+  fill: var(--wr-label-color);
+  stroke: var(--wr-label-color);
+}
+
+.wr-folder-icon--label > svg .wr-label-hole {
+  fill: var(--app-background, #fff);
+  stroke: none;
+}
+
 .wr-folder-icon .wr-icon-fill {
   fill: var(--unread-marker-background, var(--wr-badge-background));
   stroke: var(--app-background);
@@ -333,6 +366,13 @@ html[data-wr-enabled="true"][data-wr-folder-layout="sidebar"] .wr-native-filter-
    fixed coordinates are installed, preventing a native-anchor position flash. */
 html[data-wr-positioning-lists="true"] [role="menu"] {
   visibility: hidden !important;
+}
+
+/* Picking a filter out of WhatsApp's "More lists" menu (selectFolder()).
+   Opacity, not visibility: WhatsApp ignores picks in a hidden menu. */
+html[data-wr-picking-folder="true"] [role="menu"] {
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 .wr-lists-menu-positioner {
@@ -663,4 +703,499 @@ html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="tr
 
 @media (prefers-reduced-motion: reduce) {
   #wr-whats-new { animation: none; }
+}
+
+/* ---------- Pinned / Snoozed shelf (src/shelf.js) ---------- */
+
+#wr-shelf {
+  flex: 0 0 auto;
+  max-height: 42%;
+  overflow-y: auto;
+  padding: 4px 0 6px;
+  border-bottom: 1px solid rgba(var(--secondary-rgb, 102, 119, 129), .16);
+  font-family: var(--wr-font);
+  scrollbar-width: thin;
+}
+
+#wr-shelf[hidden],
+#wr-shelf[data-searching="true"] { display: none; }
+
+.wr-shelf-avatar svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.wr-shelf-head {
+  width: 100%;
+  padding: 6px 16px 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--secondary, #667781);
+  background: none;
+  border: 0;
+  font: inherit;
+  font-size: calc(12px * var(--wr-text-scale));
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.wr-shelf-count {
+  font-weight: 500;
+  opacity: .8;
+}
+
+.wr-shelf-head svg {
+  width: 16px;
+  height: 16px;
+  margin-inline-start: auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 140ms ease;
+}
+
+.wr-shelf-head[aria-expanded="false"] svg { transform: rotate(-90deg); }
+
+.wr-shelf-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.wr-shelf-row {
+  position: relative;
+  height: 44px;
+  padding: 0 10px 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--primary, #111b21);
+  cursor: pointer;
+  user-select: none;
+  touch-action: none;
+  outline: none;
+}
+
+.wr-shelf-row:hover,
+.wr-shelf-row:focus-visible { background: var(--background-default-hover, rgba(var(--secondary-rgb, 102, 119, 129), .08)); }
+.wr-shelf-row:focus-visible { box-shadow: inset 0 0 0 2px var(--wr-accent); }
+.wr-shelf-row[aria-current="true"] { background: var(--background-default-active, rgba(var(--secondary-rgb, 102, 119, 129), .14)); }
+.wr-shelf-row[aria-busy="true"] { opacity: .6; }
+.wr-shelf-row[data-missing="true"] .wr-shelf-name { opacity: .55; text-decoration: line-through; }
+
+.wr-shelf-row[data-dragging="true"] {
+  z-index: 2;
+  background: var(--app-background, #fff);
+  box-shadow: 0 6px 18px rgba(11, 20, 26, .22);
+  cursor: grabbing;
+}
+
+.wr-shelf-list[data-dragging="true"] .wr-shelf-row:not([data-dragging="true"]) { transition: none; }
+.wr-shelf-row[data-drop-before="true"]::before,
+.wr-shelf-row[data-drop-after="true"]::after {
+  content: "";
+  position: absolute;
+  inset-inline: 16px 10px;
+  height: 2px;
+  background: var(--wr-accent);
+  border-radius: 2px;
+}
+.wr-shelf-row[data-drop-before="true"]::before { top: -1px; }
+.wr-shelf-row[data-drop-after="true"]::after { bottom: -1px; }
+
+.wr-shelf-avatar {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: var(--secondary, #667781);
+  background: rgba(var(--secondary-rgb, 102, 119, 129), .18);
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.wr-shelf-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wr-shelf-name {
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+  font-size: calc(15px * var(--wr-text-scale));
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wr-shelf-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--secondary, #667781);
+  font-size: calc(12px * var(--wr-text-scale));
+}
+
+.wr-shelf-meta i { display: grid; }
+
+.wr-shelf-meta svg,
+.wr-shelf-action svg,
+.wr-row-tool svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.wr-shelf-bell--due { color: var(--wr-accent); }
+.wr-shelf-row[data-due="true"] .wr-shelf-when { color: var(--wr-accent); font-weight: 600; }
+
+.wr-shelf-badge {
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  color: var(--wr-badge-text);
+  background: var(--unread-marker-background, var(--wr-badge-background));
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.wr-shelf-actions {
+  display: none;
+  gap: 2px;
+}
+
+.wr-shelf-row:hover .wr-shelf-actions,
+.wr-shelf-row:focus-within .wr-shelf-actions { display: flex; }
+.wr-shelf-row:hover .wr-shelf-meta,
+.wr-shelf-row:focus-within .wr-shelf-meta { display: none; }
+
+.wr-shelf-action,
+.wr-row-tool {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  color: var(--icon, #54656f);
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.wr-shelf-action:hover,
+.wr-row-tool:hover { background: rgba(var(--secondary-rgb, 102, 119, 129), .16); }
+
+/* Floating tools over WhatsApp's hovered chat row. */
+#wr-row-tools {
+  position: fixed;
+  z-index: 1001;
+  padding: 2px;
+  display: flex;
+  gap: 2px;
+  background: var(--app-background, #fff);
+  border: 1px solid rgba(var(--secondary-rgb, 102, 119, 129), .2);
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(11, 20, 26, .16);
+  transform: translate(-100%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 100ms ease;
+}
+
+#wr-row-tools[data-visible="true"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.wr-row-tool[aria-pressed="true"] { color: var(--wr-accent); }
+.wr-row-tool[hidden] { display: none; }
+
+/* Reminder preset menu, t3code style: label left, landing time right. */
+#wr-remind-menu {
+  position: fixed;
+  z-index: 1004;
+  min-width: 240px;
+  padding: 6px;
+  box-sizing: border-box;
+  color: var(--primary, #111b21);
+  background: var(--dropdown-background, var(--app-background, #fff));
+  border: 1px solid rgba(var(--secondary-rgb, 102, 119, 129), .2);
+  border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(11, 20, 26, .26);
+  font-family: var(--wr-font);
+  font-size: calc(14px * var(--wr-text-scale));
+}
+
+#wr-remind-menu [role="menuitem"] {
+  width: 100%;
+  padding: 9px 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  color: inherit;
+  background: none;
+  border: 0;
+  border-radius: 8px;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+
+#wr-remind-menu [role="menuitem"]:hover,
+#wr-remind-menu [role="menuitem"]:focus-visible {
+  background: rgba(var(--secondary-rgb, 102, 119, 129), .12);
+  outline: none;
+}
+
+#wr-remind-menu time { color: var(--secondary, #667781); }
+
+.wr-remind-custom {
+  margin-top: 4px;
+  padding: 8px 10px 4px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px;
+  border-top: 1px solid rgba(var(--secondary-rgb, 102, 119, 129), .16);
+}
+
+.wr-remind-custom span { grid-column: 1 / -1; color: var(--secondary, #667781); }
+
+.wr-remind-custom input {
+  min-width: 0;
+  padding: 5px 8px;
+  color: inherit;
+  background: transparent;
+  border: 1px solid rgba(var(--secondary-rgb, 102, 119, 129), .3);
+  border-radius: 8px;
+  font: inherit;
+  color-scheme: light dark;
+}
+
+.wr-remind-custom input[aria-invalid="true"] { border-color: #e53935; }
+
+.wr-remind-custom button {
+  padding: 5px 12px;
+  color: var(--wr-badge-text);
+  background: var(--wr-accent);
+  border: 0;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#wr-remind-menu .wr-remind-clear { color: #e53935; }
+
+/* The shelf shows chat names and avatars, so privacy mode covers it too. */
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-names="true"] .wr-shelf-name,
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-avatars="true"] .wr-shelf-avatar {
+  filter: blur(var(--wr-privacy-blur));
+}
+
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="true"] .wr-shelf-row:hover .wr-shelf-name,
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="true"] .wr-shelf-row:hover .wr-shelf-avatar {
+  filter: none;
+}
+
+html:not([data-wr-enabled="true"]) #wr-shelf,
+html:not([data-wr-enabled="true"]) #wr-row-tools { display: none !important; }
+
+.wr-shelf-at { color: var(--wr-accent); }
+.wr-shelf-section[data-due="true"] .wr-shelf-head { color: var(--wr-accent); }
+
+.wr-shelf-section { position: relative; }
+
+.wr-shelf-empty {
+  padding: 6px 16px 10px;
+  color: var(--secondary, #667781);
+  font-size: calc(13px * var(--wr-text-scale));
+}
+
+.wr-shelf-scan {
+  position: absolute;
+  top: 2px;
+  inset-inline-end: 34px;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  color: var(--secondary, #667781);
+  background: none;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.wr-shelf-scan:hover { background: rgba(var(--secondary-rgb, 102, 119, 129), .14); }
+.wr-shelf-scan:disabled { cursor: progress; animation: wr-spin 1s linear infinite; }
+
+.wr-shelf-scan svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@keyframes wr-spin { to { transform: rotate(360deg); } }
+
+/* ---------- Command palette (src/palette.js) ---------- */
+
+#wr-palette {
+  position: fixed;
+  z-index: 2001;
+  inset: 0;
+  padding-top: 12vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: rgba(11, 20, 26, .32);
+  font-family: var(--wr-font);
+  animation: wr-palette-in 120ms ease-out;
+}
+
+.wr-palette-panel {
+  width: min(620px, calc(100vw - 32px));
+  max-height: 68vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--primary, #111b21);
+  background: var(--dropdown-background, var(--app-background, #fff));
+  border: 1px solid rgba(var(--secondary-rgb, 102, 119, 129), .22);
+  border-radius: 16px;
+  box-shadow: 0 18px 60px rgba(11, 20, 26, .38);
+}
+
+.wr-palette-field {
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(var(--secondary-rgb, 102, 119, 129), .16);
+}
+
+.wr-palette-field svg,
+.wr-palette-item svg {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  color: var(--secondary, #667781);
+}
+
+.wr-palette-field input {
+  min-width: 0;
+  flex: 1 1 auto;
+  color: inherit;
+  background: none;
+  border: 0;
+  outline: none;
+  font: inherit;
+  font-size: calc(17px * var(--wr-text-scale));
+}
+
+.wr-palette-field kbd {
+  padding: 2px 6px;
+  color: var(--secondary, #667781);
+  border: 1px solid rgba(var(--secondary-rgb, 102, 119, 129), .3);
+  border-radius: 6px;
+  font: inherit;
+  font-size: 11px;
+}
+
+#wr-palette-list {
+  margin: 0;
+  padding: 6px;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.wr-palette-group {
+  padding: 10px 10px 4px;
+  color: var(--secondary, #667781);
+  font-size: calc(11.5px * var(--wr-text-scale));
+  font-weight: 600;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+
+.wr-palette-item {
+  padding: 9px 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: calc(15px * var(--wr-text-scale));
+}
+
+.wr-palette-item[aria-selected="true"] { background: rgba(var(--secondary-rgb, 102, 119, 129), .14); }
+.wr-palette-item[aria-selected="true"] svg { color: var(--wr-accent); }
+
+.wr-palette-label {
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wr-palette-hint {
+  max-width: 40%;
+  overflow: hidden;
+  color: var(--secondary, #667781);
+  font-size: calc(12.5px * var(--wr-text-scale));
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wr-palette-empty {
+  padding: 18px;
+  color: var(--secondary, #667781);
+  text-align: center;
+}
+
+@keyframes wr-palette-in { from { opacity: 0; } to { opacity: 1; } }
+
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-names="true"] .wr-palette-item .wr-palette-label,
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-names="true"] .wr-palette-item .wr-palette-hint {
+  filter: blur(var(--wr-privacy-blur));
+}
+
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="true"] .wr-palette-item[aria-selected="true"] .wr-palette-label,
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="true"] .wr-palette-item[aria-selected="true"] .wr-palette-hint { filter: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  #wr-palette { animation: none; }
+  .wr-shelf-scan:disabled { animation: none; }
 }

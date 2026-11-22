@@ -524,5 +524,195 @@
   },
   "whatsNew_1_3_2": {
     "message": "على Windows وLinux، أصبح وضع الخصوصية Alt+Shift+P وإعدادات Refined أصبحت Alt+Shift+Comma.\nعادت اختصارات واتساب Ctrl+Alt+P (الملف الشخصي) وCtrl+Alt+Comma (الإعدادات) تعمل."
+  },
+  "unpinChat": {
+    "message": "إلغاء التثبيت"
+  },
+  "pinnedChatAria": {
+    "message": "$NAME$، مثبتة",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "mentionDismiss": {
+    "message": "تجاهل"
+  },
+  "mentionAria": {
+    "message": "$NAME$، أشار إليك",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderDue": {
+    "message": "حان الوقت"
+  },
+  "reminderDone": {
+    "message": "تم"
+  },
+  "remindMe": {
+    "message": "ذكّرني"
+  },
+  "reminderDueAria": {
+    "message": "$NAME$، حان وقت التذكير",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderAria": {
+    "message": "$NAME$، تذكير في $TIME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      },
+      "time": {
+        "content": "$2",
+        "example": "18:30"
+      }
+    }
+  },
+  "shelfPinned": {
+    "message": "المثبتة"
+  },
+  "shelfSnoozed": {
+    "message": "المؤجلة"
+  },
+  "shelfMentions": {
+    "message": "الإشارات"
+  },
+  "mentionsScanning": {
+    "message": "جارٍ الفحص…"
+  },
+  "mentionsScan": {
+    "message": "فحص كل المحادثات"
+  },
+  "chatNotFound": {
+    "message": "تعذّر العثور على هذه المحادثة. ربما تغيّر اسمها."
+  },
+  "remindIn1h": {
+    "message": "بعد ساعة"
+  },
+  "remindIn3h": {
+    "message": "بعد 3 ساعات"
+  },
+  "remindTomorrow": {
+    "message": "غدًا"
+  },
+  "remindCustom": {
+    "message": "مخصص…"
+  },
+  "reminderSet": {
+    "message": "تعيين"
+  },
+  "reminderClear": {
+    "message": "إزالة التذكير"
+  },
+  "pinChat": {
+    "message": "تثبيت في Refined"
+  },
+  "paletteChats": {
+    "message": "المحادثات"
+  },
+  "paletteActions": {
+    "message": "الإجراءات"
+  },
+  "paletteNextUnread": {
+    "message": "فتح المحادثة غير المقروءة التالية"
+  },
+  "paletteUnpinOpen": {
+    "message": "إلغاء تثبيت هذه المحادثة"
+  },
+  "palettePinOpen": {
+    "message": "تثبيت هذه المحادثة"
+  },
+  "paletteFolders": {
+    "message": "المجلدات"
+  },
+  "palettePrivacyOff": {
+    "message": "إيقاف وضع الخصوصية"
+  },
+  "palettePrivacyOn": {
+    "message": "تشغيل وضع الخصوصية"
+  },
+  "paletteMentions": {
+    "message": "عرض المحادثات التي أشارت إليّ"
+  },
+  "paletteSettings": {
+    "message": "فتح إعدادات Refined"
+  },
+  "paletteWhatsAppSearch": {
+    "message": "فتح بحث واتساب"
+  },
+  "paletteSearchFor": {
+    "message": "البحث في واتساب عن «$QUERY$»",
+    "placeholders": {
+      "query": {
+        "content": "$1",
+        "example": "anna"
+      }
+    }
+  },
+  "paletteEmpty": {
+    "message": "لا توجد نتائج"
+  },
+  "paletteTitle": {
+    "message": "لوحة أوامر Refined"
+  },
+  "palettePlaceholder": {
+    "message": "انتقل إلى محادثة أو نفّذ أمرًا…"
+  },
+  "tabTools": {
+    "message": "الأدوات"
+  },
+  "toolsPanelAria": {
+    "message": "أدوات المحادثات"
+  },
+  "pinsSetting": {
+    "message": "تثبيت بلا حدود"
+  },
+  "pinsSettingHelp": {
+    "message": "ثبّت أي محادثة من صفّها واسحبها لإعادة الترتيب"
+  },
+  "remindersSetting": {
+    "message": "تذكيرات المحادثات"
+  },
+  "remindersSettingHelp": {
+    "message": "أجّل محادثة واستعِدها عندما يحين وقتها"
+  },
+  "reminderNotificationsSetting": {
+    "message": "إشعارات التذكير"
+  },
+  "reminderNotificationsHelp": {
+    "message": "نبّهني أيضًا عندما يكون واتساب مغلقًا"
+  },
+  "paletteSetting": {
+    "message": "لوحة الأوامر"
+  },
+  "paletteSettingHelp": {
+    "message": "Cmd/Ctrl+K يفتح لوحة Refined؛ أضف Shift لبحث واتساب"
+  },
+  "mentionsSetting": {
+    "message": "ملخص الإشارات"
+  },
+  "mentionsSettingHelp": {
+    "message": "اجمع المحادثات التي أُشير إليك فيها بـ @"
+  },
+  "reminderNotificationTitle": {
+    "message": "تذكير"
+  },
+  "whatsNew_1_4_0": {
+    "message": "ثبّت ما تشاء من المحادثات فوق قائمة المحادثات، واسحبها بالترتيب الذي تريده.\n«ذكّرني» يؤجل محادثة لتعود في قائمة المؤجلة عندما يحين وقتها.\nCmd/Ctrl+K يفتح لوحة أوامر Refined؛ أضف Shift لبحث واتساب نفسه.\nالمحادثات التي تشير إليك بـ @ تجتمع تحت «الإشارات».\nتصنيفات واتساب للأعمال تظهر في شريط المجلدات بألوانها."
+  },
+  "mentionsEmpty": {
+    "message": "لا توجد إشارات غير مقروءة"
   }
 }

@@ -524,5 +524,195 @@
   },
   "whatsNew_1_3_2": {
     "message": "Windows और Linux पर प्राइवेसी मोड अब Alt+Shift+P है और Refined सेटिंग्स Alt+Shift+Comma।\nWhatsApp के अपने Ctrl+Alt+P (प्रोफ़ाइल) और Ctrl+Alt+Comma (सेटिंग्स) फिर से काम करते हैं।"
+  },
+  "unpinChat": {
+    "message": "अनपिन करें"
+  },
+  "pinnedChatAria": {
+    "message": "$NAME$, पिन की गई",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "mentionDismiss": {
+    "message": "हटाएँ"
+  },
+  "mentionAria": {
+    "message": "$NAME$, ने आपका ज़िक्र किया",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderDue": {
+    "message": "समय हो गया"
+  },
+  "reminderDone": {
+    "message": "हो गया"
+  },
+  "remindMe": {
+    "message": "याद दिलाएँ"
+  },
+  "reminderDueAria": {
+    "message": "$NAME$, रिमाइंडर का समय",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      }
+    }
+  },
+  "reminderAria": {
+    "message": "$NAME$, रिमाइंडर $TIME$ पर",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Work"
+      },
+      "time": {
+        "content": "$2",
+        "example": "18:30"
+      }
+    }
+  },
+  "shelfPinned": {
+    "message": "पिन की गई"
+  },
+  "shelfSnoozed": {
+    "message": "स्थगित"
+  },
+  "shelfMentions": {
+    "message": "ज़िक्र"
+  },
+  "mentionsScanning": {
+    "message": "स्कैन हो रहा है…"
+  },
+  "mentionsScan": {
+    "message": "सभी चैट स्कैन करें"
+  },
+  "chatNotFound": {
+    "message": "यह चैट नहीं मिली। शायद इसका नाम बदल गया है।"
+  },
+  "remindIn1h": {
+    "message": "1 घंटे में"
+  },
+  "remindIn3h": {
+    "message": "3 घंटे में"
+  },
+  "remindTomorrow": {
+    "message": "कल"
+  },
+  "remindCustom": {
+    "message": "कस्टम…"
+  },
+  "reminderSet": {
+    "message": "सेट करें"
+  },
+  "reminderClear": {
+    "message": "रिमाइंडर हटाएँ"
+  },
+  "pinChat": {
+    "message": "Refined में पिन करें"
+  },
+  "paletteChats": {
+    "message": "चैट"
+  },
+  "paletteActions": {
+    "message": "कार्रवाइयाँ"
+  },
+  "paletteNextUnread": {
+    "message": "अगली अपठित चैट खोलें"
+  },
+  "paletteUnpinOpen": {
+    "message": "इस चैट को अनपिन करें"
+  },
+  "palettePinOpen": {
+    "message": "इस चैट को पिन करें"
+  },
+  "paletteFolders": {
+    "message": "फ़ोल्डर"
+  },
+  "palettePrivacyOff": {
+    "message": "प्राइवेसी मोड बंद करें"
+  },
+  "palettePrivacyOn": {
+    "message": "प्राइवेसी मोड चालू करें"
+  },
+  "paletteMentions": {
+    "message": "जिन चैट में मेरा ज़िक्र है, दिखाएँ"
+  },
+  "paletteSettings": {
+    "message": "Refined सेटिंग्स खोलें"
+  },
+  "paletteWhatsAppSearch": {
+    "message": "WhatsApp खोज खोलें"
+  },
+  "paletteSearchFor": {
+    "message": "WhatsApp में “$QUERY$” खोजें",
+    "placeholders": {
+      "query": {
+        "content": "$1",
+        "example": "anna"
+      }
+    }
+  },
+  "paletteEmpty": {
+    "message": "कोई मिलान नहीं"
+  },
+  "paletteTitle": {
+    "message": "Refined कमांड पैलेट"
+  },
+  "palettePlaceholder": {
+    "message": "किसी चैट पर जाएँ या कमांड चलाएँ…"
+  },
+  "tabTools": {
+    "message": "टूल"
+  },
+  "toolsPanelAria": {
+    "message": "चैट टूल"
+  },
+  "pinsSetting": {
+    "message": "असीमित पिन"
+  },
+  "pinsSettingHelp": {
+    "message": "किसी भी चैट को उसकी पंक्ति से पिन करें और खींचकर क्रम बदलें"
+  },
+  "remindersSetting": {
+    "message": "चैट रिमाइंडर"
+  },
+  "remindersSettingHelp": {
+    "message": "चैट को स्थगित करें और समय होने पर वापस पाएँ"
+  },
+  "reminderNotificationsSetting": {
+    "message": "रिमाइंडर सूचनाएँ"
+  },
+  "reminderNotificationsHelp": {
+    "message": "WhatsApp बंद होने पर भी सूचना दें"
+  },
+  "paletteSetting": {
+    "message": "कमांड पैलेट"
+  },
+  "paletteSettingHelp": {
+    "message": "Cmd/Ctrl+K Refined पैलेट खोलता है; WhatsApp खोज के लिए Shift जोड़ें"
+  },
+  "mentionsSetting": {
+    "message": "ज़िक्र सारांश"
+  },
+  "mentionsSettingHelp": {
+    "message": "जिन चैट में आपको @ज़िक्र किया गया, उन्हें इकट्ठा करें"
+  },
+  "reminderNotificationTitle": {
+    "message": "रिमाइंडर"
+  },
+  "whatsNew_1_4_0": {
+    "message": "चैट सूची के ऊपर जितनी चाहें उतनी चैट पिन करें और खींचकर किसी भी क्रम में रखें।\n“याद दिलाएँ” चैट को स्थगित करता है; समय होने पर वह स्थगित सूची में लौट आती है।\nCmd/Ctrl+K Refined का कमांड पैलेट खोलता है; WhatsApp की अपनी खोज के लिए Shift जोड़ें।\nजिन चैट में आपका @ज़िक्र है, वे “ज़िक्र” में इकट्ठा होती हैं।\nWhatsApp Business लेबल फ़ोल्डर रेल में अपने रंगों में दिखते हैं।"
+  },
+  "mentionsEmpty": {
+    "message": "कोई अपठित ज़िक्र नहीं"
   }
 }
