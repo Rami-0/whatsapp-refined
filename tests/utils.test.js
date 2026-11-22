@@ -172,7 +172,7 @@ test("localeScript picks a font bucket per writing system", () => {
   assert.equal(uiLanguage("auto"), "en");
 });
 
-test("the post-update card shows once and asks for a review only until answered", () => {
+test("every update card asks for a review until the user has left one", () => {
   const { whatsNewPlan } = require("../src/utils.js");
   const pending = { version: "1.3.1", previousVersion: "1.3.0" };
 
@@ -180,5 +180,28 @@ test("the post-update card shows once and asks for a review only until answered"
   assert.deepEqual(whatsNewPlan({}, undefined), { showNotes: false, askReview: false });
   assert.deepEqual(whatsNewPlan(pending, undefined), { showNotes: true, askReview: true });
   assert.deepEqual(whatsNewPlan(pending, "reviewed"), { showNotes: true, askReview: false });
-  assert.deepEqual(whatsNewPlan(pending, "declined"), { showNotes: true, askReview: false });
+  /* "Not now" skips one update's ask, not every later one. */
+  assert.deepEqual(whatsNewPlan(pending, "declined"), { showNotes: true, askReview: true });
+});
+
+test("release notes cover every version the user skipped, newest first", () => {
+  const { unseenReleases, compareVersions, releaseNotesKey } = require("../src/utils.js");
+  const known = ["1.6.0", "1.5.2", "1.5.0", "1.4.0", "1.3.1"];
+
+  assert.equal(compareVersions("1.10.0", "1.9.9"), 1);
+  assert.equal(compareVersions("1.3.1", "1.3.1"), 0);
+  assert.equal(releaseNotesKey("1.3.1"), "whatsNew_1_3_1");
+
+  assert.deepEqual(unseenReleases("1.3.0", "1.3.1", known), ["1.3.1"]);
+  assert.deepEqual(unseenReleases("1.3.1", "1.5.2", known), ["1.5.2", "1.5.0", "1.4.0"]);
+  /* Capped at three so a long-dormant install does not get a wall of text. */
+  assert.deepEqual(unseenReleases("1.0.0", "1.6.0", known), ["1.6.0", "1.5.2", "1.5.0"]);
+  /* A patch with no notes of its own shows nothing rather than stale notes. */
+  assert.deepEqual(unseenReleases("1.6.0", "1.6.1", known), []);
+});
+
+test("every listed release has notes in English", () => {
+  const { RELEASE_NOTES, releaseNotesKey } = require("../src/utils.js");
+  const en = require("../_locales/en/messages.json");
+  for (const version of RELEASE_NOTES) assert.ok(en[releaseNotesKey(version)]?.message, `missing ${releaseNotesKey(version)}`);
 });

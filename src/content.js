@@ -580,21 +580,46 @@
     whatsNewCard.setAttribute("role", "dialog");
     whatsNewCard.setAttribute("aria-labelledby", "wr-whats-new-title");
 
+    /* Each release keeps its own notes, so a user who skipped versions sees
+       every one they missed, and a version without notes shows nothing stale. */
+    const releases = utils.unseenReleases(whatsNewPending.previousVersion, whatsNewPending.version)
+      .map((version) => ({ version, lines: t(utils.releaseNotesKey(version), "").split("\n").map((line) => line.trim()).filter(Boolean) }))
+      .filter((release) => release.lines.length);
+    if (!releases.length) {
+      closeWhatsNew(null);
+      return;
+    }
+
+    /* The card follows Refined's language, not WhatsApp's, so it takes that
+       language's direction too: Arabic notes on an English WhatsApp read RTL. */
+    const language = utils.uiLanguage(settings.language);
+    whatsNewCard.lang = language.replace("_", "-");
+    whatsNewCard.dir = utils.localeDirection(language);
+
     const title = document.createElement("h2");
     title.id = "wr-whats-new-title";
-    title.textContent = t("whatsNewTitle", `What's new in Refined ${whatsNewPending.version}`, [whatsNewPending.version]);
+    title.textContent = t("whatsNewTitle", `What's new in Refined ${releases[0].version}`, [releases[0].version]);
+    whatsNewCard.append(title);
 
-    const notes = document.createElement("ul");
-    t("whatsNewNotes", "").split("\n").map((line) => line.trim()).filter(Boolean).forEach((line) => {
-      const item = document.createElement("li");
-      item.textContent = line;
-      notes.append(item);
+    releases.forEach((release, index) => {
+      if (index > 0) {
+        const heading = document.createElement("h3");
+        heading.textContent = release.version;
+        whatsNewCard.append(heading);
+      }
+      const notes = document.createElement("ul");
+      release.lines.forEach((line) => {
+        const item = document.createElement("li");
+        item.textContent = line;
+        notes.append(item);
+      });
+      whatsNewCard.append(notes);
     });
 
     const close = createButton("wr-whats-new-close", t("whatsNewClose", "Close"), '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17"/></svg>');
     close.dataset.wrTooltipPosition = "below";
     close.addEventListener("click", () => closeWhatsNew(plan.askReview ? "declined" : null));
-    whatsNewCard.append(close, title, notes);
+    whatsNewCard.prepend(close);
 
     if (plan.askReview) {
       const ask = document.createElement("p");

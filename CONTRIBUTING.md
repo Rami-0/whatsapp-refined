@@ -53,6 +53,22 @@ Please add or update tests when you change parsing or normalization logic.
 4. Open a pull request describing what changed and why, with screenshots for
    visual changes.
 
+## Releasing
+
+Every release shows a one-time **What's new** card on WhatsApp, so each version
+needs its own notes:
+
+1. Bump `version` in `manifest.json` and `package.json`, and add a
+   `## [x.y.z]` section to `CHANGELOG.md`.
+2. Add the version to the front of `RELEASE_NOTES` in `src/utils.js`.
+3. Add a `whatsNew_x_y_z` message to **every** `_locales/*/messages.json`:
+   one short, user-facing note per line (`\n` between lines), translated.
+   Older `whatsNew_*` keys stay, so users who skipped versions still see them.
+4. Run `npm test`, `npm run locales:check` and `npm run release:check -- x.y.z`.
+   The release check fails if step 2 or 3 is missing; the locale check fails
+   if any language lacks the new key.
+5. `npm run package`, then push the `x.y.z` tag to publish the GitHub release.
+
 ## Reporting issues
 
 Open a GitHub issue with your browser version, the extension version (shown in

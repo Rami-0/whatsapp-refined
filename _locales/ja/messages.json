@@ -510,16 +510,16 @@
       }
     }
   },
-  "whatsNewNotes": {
-    "message": "WhatsApp の最新アップデート後もフォルダのサイドバーが再び動作します。\nWhatsApp がフィルタバーの名前を変えてもフォルダを検出できるようになりました。"
-  },
   "reviewAsk": {
-    "message": "Refined を気に入っていただけましたか？Chrome ウェブストアでの短いレビューが、ほかの方の発見につながります。"
+    "message": "Refined を気に入っていただけましたか？まだでしたら、Chrome ウェブストアでの短いレビューがほかの方の発見につながります。"
   },
   "reviewNotNow": {
     "message": "後で"
   },
   "whatsNewClose": {
     "message": "閉じる"
+  },
+  "whatsNew_1_3_1": {
+    "message": "WhatsApp の最新アップデート後もフォルダのサイドバーが再び動作します。\nWhatsApp がフィルタバーの名前を変えてもフォルダを検出できるようになりました。"
   }
 }

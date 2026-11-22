@@ -510,16 +510,16 @@
       }
     }
   },
-  "whatsNewNotes": {
-    "message": "Bilah samping folder kembali berfungsi setelah pembaruan WhatsApp terbaru.\nFolder kini tetap terdeteksi walau WhatsApp mengganti nama bilah filternya."
-  },
   "reviewAsk": {
-    "message": "Suka Refined? Ulasan singkat di Chrome Web Store membantu orang lain menemukannya."
+    "message": "Suka Refined? Jika belum, ulasan singkat di Chrome Web Store membantu orang lain menemukannya."
   },
   "reviewNotNow": {
     "message": "Nanti saja"
   },
   "whatsNewClose": {
     "message": "Tutup"
+  },
+  "whatsNew_1_3_1": {
+    "message": "Bilah samping folder kembali berfungsi setelah pembaruan WhatsApp terbaru.\nFolder kini tetap terdeteksi walau WhatsApp mengganti nama bilah filternya."
   }
 }
