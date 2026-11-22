@@ -38,9 +38,28 @@
     return names.join(" ");
   }
 
+  /* A chat's name as one comparable string. WhatsApp draws emoji as <img
+     alt="❤️">, which textContent drops, so walk the nodes and keep each
+     image's alt. Rows and the open chat's header both go through this, so
+     "Mom ❤️" is the same key on both sides. */
+  function titleText(node) {
+    if (!node) return "";
+    let text = "";
+    const walk = (current) => {
+      current.childNodes.forEach((child) => {
+        if (child.nodeType === Node.TEXT_NODE) text += child.textContent;
+        else if (child.nodeName === "IMG") text += child.getAttribute("alt") || "";
+        else if (child.nodeType === Node.ELEMENT_NODE) walk(child);
+      });
+    };
+    walk(node);
+    return text.replace(/\s+/g, " ").trim();
+  }
+
   function rowName(row) {
-    const title = row.querySelector('[data-testid="cell-frame-title"] span[title]') || row.querySelector('[data-testid="cell-frame-title"]');
-    return (title?.getAttribute("title") || title?.textContent || "").trim();
+    const span = row.querySelector('[data-testid="cell-frame-title"] span[title]');
+    const fromTitle = (span?.getAttribute("title") || "").replace(/\s+/g, " ").trim();
+    return fromTitle || titleText(row.querySelector('[data-testid="cell-frame-title"]'));
   }
 
   /* The FAQ describes the mention marker as an "@" beside the unread badge.
@@ -101,12 +120,14 @@
   }
 
   /* React tracks an input's value itself, so assigning .value is ignored
-     unless it goes through the native setter before the input event. */
-  function setSearch(value) {
+     unless it goes through the native setter before the input event.
+     `focus: false` clears the box without taking focus from wherever
+     WhatsApp put it (the message box of the chat just opened). */
+  function setSearch(value, { focus = true } = {}) {
     const input = searchBox();
     if (!input) return false;
     const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value").set;
-    input.focus();
+    if (focus) input.focus();
     setter.call(input, value);
     input.dispatchEvent(new Event("input", { bubbles: true }));
     return true;
@@ -127,24 +148,38 @@
   /* Opens a chat by name: clicks its row when it is on screen, otherwise
      types the name into WhatsApp's search and clicks the match. Resolves true
      when a chat was opened. Never sends or types into a conversation. */
+  /* Each call takes a ticket; a newer open, or the user switching chats
+     themself, voids the older one, so a slow search can never pull the user
+     into a chat they did not pick last. */
+  let openTicket = 0;
+
   async function openChat(name) {
+    const ticket = ++openTicket;
     const visible = findRow(name);
     if (visible) {
       activate(visible);
       return true;
     }
+    const startedIn = openChatName();
     if (!setSearch(name)) return false;
-    const match = await waitFor(() => findRow(name));
-    if (match) activate(match);
-    window.setTimeout(() => setSearch(""), 250);
-    return Boolean(match);
+    const match = await waitFor(() => ticket !== openTicket || openChatName() !== startedIn || findRow(name));
+    const current = ticket === openTicket && openChatName() === startedIn;
+    const opened = current && match instanceof Element;
+    if (opened) activate(match);
+    if (ticket === openTicket) {
+      /* Clear the search without taking focus back from the message box
+         WhatsApp just focused in the opened chat. */
+      window.setTimeout(() => {
+        if (ticket === openTicket) setSearch("", { focus: false });
+      }, 250);
+    }
+    return opened;
   }
 
   /* The open chat's name. The header's span[title] is "click here for
      contact info", so read the title element's text instead. */
   function openChatName() {
-    const title = document.querySelector('#main header [data-testid="conversation-info-header-chat-title"]');
-    return (title?.textContent || "").trim();
+    return titleText(document.querySelector('#main header [data-testid="conversation-info-header-chat-title"]'));
   }
 
   /* Calls back with the rendered rows whenever WhatsApp redraws the list,
@@ -178,5 +213,5 @@
     };
   }
 
-  global.WRChats = Object.freeze({ chatPane, chatGrid, readRow, readRows, findRow, openChat, openChatName, observeRows, setSearch });
+  global.WRChats = Object.freeze({ titleText, chatPane, chatGrid, readRow, readRows, findRow, openChat, openChatName, observeRows, setSearch });
 })(typeof globalThis !== "undefined" ? globalThis : this);

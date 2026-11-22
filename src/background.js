@@ -60,7 +60,15 @@ async function readReminders() {
   };
 }
 
-async function syncReminderAlarms() {
+/* Syncs run one after another: overlapping runs could read an old list,
+   leave a stale badge, or clear an alarm another run just created. */
+let syncChain = Promise.resolve();
+function syncReminderAlarms() {
+  syncChain = syncChain.then(runReminderSync, runReminderSync);
+  return syncChain;
+}
+
+async function runReminderSync() {
   const { reminders, enabled } = await readReminders();
   const existing = (await chrome.alarms.getAll()).filter((alarm) => alarm.name.startsWith(REMINDER_PREFIX));
   const wanted = new Set(enabled ? reminders.map((item) => item.id) : []);
@@ -96,21 +104,17 @@ async function notifyReminder(item) {
   });
 }
 
-/* Focus a WhatsApp tab (or open one) and ask it to open the chat. */
+/* Focus a WhatsApp tab (or open one) and have it open the chat. The request
+   goes through storage: a tab that is loading, was discarded, or is brand new
+   picks it up once its chat list is ready (content.js), so no fixed delay. */
 async function openChatInWhatsApp(name) {
+  await chrome.storage.local.set({ pendingOpenChat: { name, at: Date.now() } });
   const [tab] = await chrome.tabs.query({ url: "https://web.whatsapp.com/*" });
   if (tab) {
     await chrome.tabs.update(tab.id, { active: true });
     if (tab.windowId !== undefined) await chrome.windows.update(tab.windowId, { focused: true });
-    chrome.tabs.sendMessage(tab.id, { type: "wr-open-chat", name }).catch(() => {});
   } else {
-    const created = await chrome.tabs.create({ url: "https://web.whatsapp.com/" });
-    const listener = (tabId, info) => {
-      if (tabId !== created.id || info.status !== "complete") return;
-      chrome.tabs.onUpdated.removeListener(listener);
-      setTimeout(() => chrome.tabs.sendMessage(created.id, { type: "wr-open-chat", name }).catch(() => {}), 8000);
-    };
-    chrome.tabs.onUpdated.addListener(listener);
+    await chrome.tabs.create({ url: "https://web.whatsapp.com/" });
   }
 }
 
@@ -141,11 +145,6 @@ function attachNotificationClicks() {
 
 attachNotificationClicks();
 chrome.permissions.onAdded.addListener(attachNotificationClicks);
-
-chrome.runtime.onMessage.addListener((message) => {
-  if (message?.type === "wr-reminders-sync") syncReminderAlarms();
-  return false;
-});
 
 chrome.storage.onChanged.addListener((changes, area) => {
   if (area === "local" && (changes.refinedReminders || changes.remindersEnabled || changes.enabled)) syncReminderAlarms();

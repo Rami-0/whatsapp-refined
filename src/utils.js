@@ -179,7 +179,8 @@
     const subs = Array.isArray(substitutions) ? substitutions : substitutions == null ? [] : [substitutions];
     for (const [name, definition] of Object.entries(entry.placeholders || {})) {
       const index = Number(String(definition?.content || "").replace("$", "")) - 1;
-      message = message.replace(new RegExp(`\\$${name}\\$`, "gi"), String(subs[index] ?? ""));
+      /* A function replacer: names and queries can contain "$&" or "$$". */
+      message = message.replace(new RegExp(`\\$${name}\\$`, "gi"), () => String(subs[index] ?? ""));
     }
     return message;
   }
@@ -409,7 +410,14 @@
     const list = Array.isArray(mentions) ? mentions : [];
     const byName = new Map(list.map((item) => [item.name, item]));
     let changed = false;
+    /* Two chats can share a name: the name has a mention if any of its rows
+       shows one, so the entry is not added and dropped in the same pass. */
+    const collapsed = new Map();
     (rows || []).forEach((row) => {
+      const seen = collapsed.get(row.name);
+      collapsed.set(row.name, seen ? { name: row.name, mention: seen.mention || row.mention, unread: Math.max(seen.unread || 0, row.unread || 0) } : row);
+    });
+    collapsed.forEach((row) => {
       const known = byName.get(row.name);
       if (row.mention) {
         if (!known || known.unread !== row.unread) {
@@ -424,7 +432,7 @@
     return changed ? Array.from(byName.values()).sort((a, b) => b.seenAt - a.seenAt) : list;
   }
 
-  const api = Object.freeze({ mergeMentions, fuzzyScore, classifyFolders, pinChat, unpinChat, movePin, refreshPins, reminderPresets, addReminder, removeReminder, dueReminders, shortDuration, shortcutAction, whatsNewPlan, RELEASE_NOTES, compareVersions, releaseNotesKey, unseenReleases, FOLDER_ALIASES, NATIVE_FOLDER_IDS, normalizeLabel, folderKind, folderKindById, isFolderAction, folderInitial, uniqueFolders, parseFolderTab, desktopPlatform, i18n, loadLocaleOverride, uiLanguage, localeDirection, localeScript });
+  const api = Object.freeze({ applyPlaceholders, mergeMentions, fuzzyScore, classifyFolders, pinChat, unpinChat, movePin, refreshPins, reminderPresets, addReminder, removeReminder, dueReminders, shortDuration, shortcutAction, whatsNewPlan, RELEASE_NOTES, compareVersions, releaseNotesKey, unseenReleases, FOLDER_ALIASES, NATIVE_FOLDER_IDS, normalizeLabel, folderKind, folderKindById, isFolderAction, folderInitial, uniqueFolders, parseFolderTab, desktopPlatform, i18n, loadLocaleOverride, uiLanguage, localeDirection, localeScript });
   global.WRUtils = api;
 
   if (typeof module !== "undefined" && module.exports) module.exports = api;

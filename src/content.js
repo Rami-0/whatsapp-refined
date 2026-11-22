@@ -758,6 +758,7 @@
     if (!ui) return;
     renderFolders(readFolders(ui.side));
     shelf?.render();
+    takePendingOpen();
     maybeShowWhatsNew();
   }
 
@@ -858,6 +859,7 @@
     globalThis.chrome?.storage?.onChanged?.addListener((changes, area) => {
       if (area !== "local") return;
       shelf?.onStorageChange(changes);
+      if (changes.pendingOpenChat?.newValue) takePendingOpen();
       /* Only settings keys: the release-note state shares this storage area. */
       Object.entries(changes).forEach(([key, change]) => { if (key in DEFAULTS) settings[key] = change.newValue; });
       if (changes.whatsNewPending && !changes.whatsNewPending.newValue && whatsNewCard) {
@@ -872,14 +874,29 @@
     });
   }
 
-  /* A reminder notification was clicked: background.js asks this tab to
-     open that chat. */
-  try {
-    chrome.runtime.onMessage.addListener((message) => {
-      if (message?.type === "wr-open-chat" && message.name) globalThis.WRChats?.openChat(message.name);
-      return false;
-    });
-  } catch (_error) {}
+  /* A reminder notification was clicked: background.js leaves the chat's
+     name in storage, and the first WhatsApp tab with its chat list ready
+     opens it and removes the request. Stale requests (over 2 minutes) are
+     dropped, not acted on. */
+  let pendingOpenBusy = false;
+  function takePendingOpen() {
+    if (pendingOpenBusy || !globalThis.WRChats?.chatPane()) return;
+    pendingOpenBusy = true;
+    try {
+      chrome.storage.local.get(["pendingOpenChat"], (values) => {
+        const pending = values?.pendingOpenChat;
+        if (!pending) {
+          pendingOpenBusy = false;
+          return;
+        }
+        chrome.storage.local.remove("pendingOpenChat");
+        if (Date.now() - pending.at < 120000 && document.visibilityState === "visible") globalThis.WRChats.openChat(pending.name);
+        pendingOpenBusy = false;
+      });
+    } catch (_error) {
+      pendingOpenBusy = false;
+    }
+  }
 
   /* Development only: a test driver posts {wrDev: "reload"} from the page to
      reload an unpacked Refined (see background.js; store installs ignore it). */

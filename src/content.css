@@ -1180,11 +1180,13 @@ html:not([data-wr-enabled="true"]) #wr-row-tools { display: none !important; }
 
 @keyframes wr-palette-in { from { opacity: 0; } to { opacity: 1; } }
 
-html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-names="true"] .wr-palette-item .wr-palette-label {
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-names="true"] .wr-palette-item .wr-palette-label,
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-blur-names="true"] .wr-palette-item .wr-palette-hint {
   filter: blur(var(--wr-privacy-blur));
 }
 
-html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="true"] .wr-palette-item[aria-selected="true"] .wr-palette-label { filter: none; }
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="true"] .wr-palette-item[aria-selected="true"] .wr-palette-label,
+html[data-wr-enabled="true"][data-wr-privacy="true"][data-wr-reveal-on-hover="true"] .wr-palette-item[aria-selected="true"] .wr-palette-hint { filter: none; }
 
 @media (prefers-reduced-motion: reduce) {
   #wr-palette { animation: none; }

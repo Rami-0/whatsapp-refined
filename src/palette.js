@@ -44,6 +44,17 @@
     /* Remembers the chats the user opens, newest first, so an empty palette
        lists them and a query ranks them up. */
     function trackOpenChat() {
+      /* Off means off: nothing is recorded, and what was is cleared. */
+      if (!enabled()) {
+        if (recent.length) {
+          recent = [];
+          try {
+            storage()?.remove(RECENT_KEY);
+          } catch (_error) {}
+        }
+        lastOpen = "";
+        return;
+      }
       const name = chats.openChatName();
       if (!name || name === lastOpen) return;
       lastOpen = name;

@@ -325,3 +325,19 @@ test("mentions are learned from rows on screen and dropped once read", () => {
   assert.equal(mergeMentions(list, [{ name: "Other", mention: false, unread: 0 }], 12), list, "chats off screen keep their state");
   assert.deepEqual(mergeMentions(list, [{ name: "Team", mention: false, unread: 0 }], 13), [], "a read chat leaves");
 });
+
+test("two chats with the same name: a mention on either one counts once and stays", () => {
+  const { mergeMentions } = require("../src/utils.js");
+  const rows = [{ name: "Family", mention: false, unread: 0 }, { name: "Family", mention: true, unread: 2 }];
+  const list = mergeMentions([], rows, 1);
+  assert.deepEqual(list.map((m) => [m.name, m.unread]), [["Family", 2]]);
+  assert.equal(mergeMentions(list, rows, 2), list, "a redraw of the same rows writes nothing");
+});
+
+test("translated strings keep a chat name with $ signs intact", () => {
+  const { applyPlaceholders } = require("../src/utils.js");
+  const entry = { message: "$NAME$, pinned", placeholders: { name: { content: "$1" } } };
+  assert.equal(applyPlaceholders(entry, ["Cash $$ & $' $&"]), "Cash $$ & $' $&, pinned");
+  const two = { message: "$NAME$ at $TIME$", placeholders: { name: { content: "$1" }, time: { content: "$2" } } };
+  assert.equal(applyPlaceholders(two, ["Team", "18:30"]), "Team at 18:30");
+});

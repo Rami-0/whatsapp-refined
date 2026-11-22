@@ -54,12 +54,6 @@
     } catch (_error) {}
   }
 
-  function message(payload) {
-    try {
-      globalThis.chrome?.runtime?.sendMessage?.(payload);
-    } catch (_error) {}
-  }
-
   function create({ t, utils, chats, settings, folders }) {
     let pins = [];
     let reminders = [];
@@ -118,10 +112,11 @@
       render();
     }
 
+    /* background.js re-syncs alarms from its storage.onChanged listener, so
+       no extra message: two syncs racing could leave a stale badge. */
     function saveReminders(next) {
       reminders = next;
       write({ [REMINDERS_KEY]: reminders });
-      message({ type: "wr-reminders-sync" });
       render();
     }
 
@@ -173,6 +168,8 @@
         root = document.createElement("section");
         root.id = "wr-shelf";
         root.addEventListener("keydown", onShelfKey);
+        /* The shelf sits inside WhatsApp's panel: keep its keys to itself. */
+        root.addEventListener("keydown", (event) => event.stopPropagation());
         root.addEventListener("pointerdown", onPointerDown);
         root.addEventListener("click", onShelfClick);
       }
@@ -412,6 +409,9 @@
       let target = rows.indexOf(item);
 
       const move = (moveEvent) => {
+        /* A release outside the window never reaches us; a move with no
+           button down ends the drag instead of starting a phantom one. */
+        if ((moveEvent.buttons & 1) === 0) return finish();
         const dy = moveEvent.clientY - startY;
         if (!dragging && Math.abs(dy) > DRAG_THRESHOLD) {
           dragging = true;
@@ -429,10 +429,11 @@
         });
       };
       const finish = () => {
-        root.removeEventListener("pointermove", move);
-        root.removeEventListener("pointerup", finish);
-        root.removeEventListener("pointercancel", finish);
+        window.removeEventListener("pointermove", move, true);
+        window.removeEventListener("pointerup", finish, true);
+        window.removeEventListener("pointercancel", finish, true);
         if (!dragging) return;
+        dragging = false;
         suppressClick = true;
         window.setTimeout(() => { suppressClick = false; }, 0);
         item.style.transform = "";
@@ -440,9 +441,10 @@
         savePins(utils.movePin(pins, item.dataset.name, target));
         render(true);
       };
-      root.addEventListener("pointermove", move);
-      root.addEventListener("pointerup", finish);
-      root.addEventListener("pointercancel", finish);
+      /* On window, so a drag that leaves the shelf still ends cleanly. */
+      window.addEventListener("pointermove", move, true);
+      window.addEventListener("pointerup", finish, true);
+      window.addEventListener("pointercancel", finish, true);
     }
 
     /* ---------- reminder preset menu ---------- */
@@ -464,7 +466,7 @@
         event.preventDefault();
         event.stopPropagation();
         closeMenu();
-      } else if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      } else if ((event.key === "ArrowDown" || event.key === "ArrowUp") && event.target.tagName !== "INPUT") {
         const items = Array.from(menu.querySelectorAll('[role="menuitem"]'));
         const index = items.indexOf(document.activeElement);
         const next = items.at((index + (event.key === "ArrowDown" ? 1 : -1)) % items.length);
@@ -479,6 +481,7 @@
       closeMenu();
       menu = document.createElement("div");
       menu.id = "wr-remind-menu";
+      menu.addEventListener("keydown", (event) => event.stopPropagation());
       menu.setAttribute("role", "menu");
       menu.setAttribute("aria-label", t("remindMe", "Remind me"));
       const labels = { "1h": t("remindIn1h", "In 1 hour"), "3h": t("remindIn3h", "In 3 hours"), tomorrow: t("remindTomorrow", "Tomorrow") };
@@ -637,7 +640,8 @@
     }
 
     function onRows(rows) {
-      if (scanning) return;
+      /* Nothing is learned or written while Refined is switched off. */
+      if (scanning || !settings().enabled) return;
       let photosChanged = false;
       rows.forEach((info) => {
         if (info.avatar && avatars.get(info.name) !== info.avatar) {
