@@ -22,3 +22,13 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   readLocale(message.language).then((messages) => sendResponse({ messages }));
   return true;
 });
+
+/* An update leaves a note for the content script, which shows the release
+   card the next time WhatsApp is open. A fresh install does not: the user has
+   just chosen the extension and the store page already told them what it does. */
+chrome.runtime.onInstalled.addListener(({ reason, previousVersion }) => {
+  if (reason !== "update") return;
+  const version = chrome.runtime.getManifest().version;
+  if (!previousVersion || previousVersion === version) return;
+  chrome.storage.local.set({ whatsNewPending: { version, previousVersion } });
+});

@@ -350,8 +350,27 @@
     return { side, shell };
   }
 
+  /* WhatsApp renames the strip's aria-label between releases, so the label is
+     only the first guess. The filter ids are what has stayed put, so fall back
+     to the container that holds `all-filter`. */
+  const FOLDER_TAB_SELECTOR = '[role="tab"], #all-filter, [id^="label_item_"], #additional-filters';
+
+  function findFilterStrip(side) {
+    const labelled = side.querySelector('[role="tablist"][aria-label="chat-list-filters"]');
+    if (labelled) return labelled;
+    const anchor = side.querySelector("#all-filter") || side.querySelector('[role="tablist"] [role="tab"]');
+    if (!anchor) return null;
+    const tablist = anchor.closest('[role="tablist"]');
+    if (tablist && side.contains(tablist)) return tablist;
+    /* No tablist role: climb to the nearest ancestor holding every filter. */
+    const total = side.querySelectorAll(FOLDER_TAB_SELECTOR).length;
+    let strip = anchor.parentElement;
+    while (strip && strip !== side && strip.querySelectorAll(FOLDER_TAB_SELECTOR).length < total) strip = strip.parentElement;
+    return strip && strip !== side ? strip : null;
+  }
+
   function readFolders(side) {
-    const tablist = side.querySelector('[role="tablist"][aria-label="chat-list-filters"]');
+    const tablist = findFilterStrip(side);
     if (!tablist) return [];
     tablist.classList.add("wr-native-filter-strip");
     if (observedTablist !== tablist) {
@@ -363,7 +382,7 @@
         childList: true,
         characterData: true,
         attributes: true,
-        attributeFilter: ["aria-selected", "aria-label"]
+        attributeFilter: ["aria-selected", "aria-pressed", "aria-label"]
       });
     }
 
@@ -373,7 +392,7 @@
        Unread, Favourites and Groups icons belong. Counting tabs instead would
        not fix it, because WhatsApp interleaves the lists a user made with its
        own filters. The ids it puts on them survive both. */
-    return utils.uniqueFolders(Array.from(tablist.querySelectorAll('[role="tab"]')).map((element) => {
+    return utils.uniqueFolders(Array.from(tablist.querySelectorAll(FOLDER_TAB_SELECTOR)).filter((element, index, all) => !all.some((other) => other !== element && other.contains(element))).map((element) => {
       const leafTexts = Array.from(element.querySelectorAll("span"))
         .filter((span) => span.children.length === 0 && span.getAttribute("aria-hidden") !== "true")
         .map((span) => span.textContent);
@@ -385,7 +404,9 @@
         label: label.slice(0, 48), count: parsed.count,
         kind: action ? "lists" : utils.folderKindById(element.id),
         action, element,
-        selected: element.getAttribute("aria-selected") === "true"
+        /* Tabs said aria-selected; the toggle buttons that replaced them say
+           aria-pressed. */
+        selected: element.getAttribute("aria-selected") === "true" || element.getAttribute("aria-pressed") === "true"
       };
     }).filter((folder) => folder.label)).slice(0, 12);
   }
@@ -404,7 +425,7 @@
 
   function openNativeFolderAction(folder, proxyButton) {
     actionAnchorCleanup?.();
-    const tablist = folder.element.closest('[role="tablist"]');
+    const tablist = folder.element.closest('[role="tablist"]') || (observedTablist?.contains(folder.element) ? observedTablist : null);
     if (!tablist) {
       folder.element.click();
       return;
@@ -418,9 +439,14 @@
     let menuPositioner = null;
     let positionFrame = null;
     let fallbackTimer = null;
+    /* The filter can sit a few wrappers deep in the strip now, so anchor the
+       strip's direct child that holds it rather than the button itself. */
+    let actionSlot = folder.element;
+    while (actionSlot.parentElement && actionSlot.parentElement !== tablist) actionSlot = actionSlot.parentElement;
     const cleanup = () => {
       tablist.classList.remove("wr-native-action-anchor");
       folder.element.classList.remove("wr-native-action-tab");
+      actionSlot.classList.remove("wr-native-action-slot");
       menuPositioner?.classList.remove("wr-lists-menu-positioner");
       menuPositioner?.style.removeProperty("--wr-lists-menu-left");
       menuPositioner?.style.removeProperty("--wr-lists-menu-top");
@@ -467,6 +493,7 @@
     tablist.style.setProperty("--wr-action-top", `${Math.round(rect.top)}px`);
     tablist.classList.add("wr-native-action-anchor");
     folder.element.classList.add("wr-native-action-tab");
+    actionSlot.classList.add("wr-native-action-slot");
     root.dataset.wrPositioningLists = "true";
     positionWatcher = new MutationObserver(positionMenu);
     positionWatcher.observe(document.body, { attributes: true, childList: true, subtree: true });
@@ -513,6 +540,85 @@
       });
       folderNav.append(button);
     });
+  }
+
+  const REVIEW_URL = "https://chromewebstore.google.com/detail/refined-whatsapp-web/lcahmmfammonkmhhljiniplfcanlaeka/reviews";
+  let whatsNewCard = null;
+  let whatsNewChecked = false;
+
+  function storageGetKeys(keys) {
+    return new Promise((resolve) => {
+      try {
+        if (!globalThis.chrome?.storage?.local) return resolve({});
+        chrome.storage.local.get(keys, (values) => resolve(values || {}));
+      } catch (_error) {
+        resolve({});
+      }
+    });
+  }
+
+  function closeWhatsNew(reviewState) {
+    /* Cleared on any way out, so the card shows once across every open tab. */
+    try {
+      chrome.storage.local.remove("whatsNewPending");
+      if (reviewState) storageSet({ reviewState });
+    } catch (_error) {}
+    whatsNewCard?.remove();
+    whatsNewCard = null;
+  }
+
+  async function maybeShowWhatsNew() {
+    /* Checked once per page load, after WhatsApp has drawn its chat list. */
+    if (whatsNewChecked || !document.querySelector("#side")) return;
+    whatsNewChecked = true;
+    const { whatsNewPending, reviewState } = await storageGetKeys(["whatsNewPending", "reviewState"]);
+    const plan = utils.whatsNewPlan(whatsNewPending, reviewState);
+    if (!plan.showNotes || whatsNewCard) return;
+
+    whatsNewCard = document.createElement("section");
+    whatsNewCard.id = "wr-whats-new";
+    whatsNewCard.setAttribute("role", "dialog");
+    whatsNewCard.setAttribute("aria-labelledby", "wr-whats-new-title");
+
+    const title = document.createElement("h2");
+    title.id = "wr-whats-new-title";
+    title.textContent = t("whatsNewTitle", `What's new in Refined ${whatsNewPending.version}`, [whatsNewPending.version]);
+
+    const notes = document.createElement("ul");
+    t("whatsNewNotes", "").split("\n").map((line) => line.trim()).filter(Boolean).forEach((line) => {
+      const item = document.createElement("li");
+      item.textContent = line;
+      notes.append(item);
+    });
+
+    const close = createButton("wr-whats-new-close", t("whatsNewClose", "Close"), '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17"/></svg>');
+    close.dataset.wrTooltipPosition = "below";
+    close.addEventListener("click", () => closeWhatsNew(plan.askReview ? "declined" : null));
+    whatsNewCard.append(close, title, notes);
+
+    if (plan.askReview) {
+      const ask = document.createElement("p");
+      ask.className = "wr-whats-new-ask";
+      ask.textContent = t("reviewAsk", "Enjoying Refined? A short review on the Chrome Web Store helps other people find it.");
+      const actions = document.createElement("div");
+      actions.className = "wr-whats-new-actions";
+      const review = document.createElement("a");
+      review.className = "wr-whats-new-primary";
+      review.href = REVIEW_URL;
+      review.target = "_blank";
+      review.rel = "noopener noreferrer";
+      review.textContent = t("reviewLink", "Leave a review");
+      review.addEventListener("click", () => closeWhatsNew("reviewed"));
+      const later = document.createElement("button");
+      later.type = "button";
+      later.className = "wr-whats-new-secondary";
+      later.textContent = t("reviewNotNow", "Not now");
+      later.addEventListener("click", () => closeWhatsNew("declined"));
+      actions.append(later, review);
+      whatsNewCard.append(ask, actions);
+    }
+
+    document.body.append(whatsNewCard);
   }
 
   function applyLocaleScript() {
@@ -587,6 +693,7 @@
     document.documentElement.dataset.wrReady = String(Boolean(ui));
     if (!ui) return;
     renderFolders(readFolders(ui.side));
+    maybeShowWhatsNew();
   }
 
   function scheduleRefresh() {
@@ -681,12 +788,18 @@
       subtree: true,
       childList: true,
       attributes: true,
-      attributeFilter: ["aria-selected", "aria-label"]
+      attributeFilter: ["aria-selected", "aria-pressed", "aria-label"]
     });
 
     globalThis.chrome?.storage?.onChanged?.addListener((changes, area) => {
       if (area !== "local") return;
-      Object.entries(changes).forEach(([key, change]) => { settings[key] = change.newValue; });
+      /* Only settings keys: the release-note state shares this storage area. */
+      Object.entries(changes).forEach(([key, change]) => { if (key in DEFAULTS) settings[key] = change.newValue; });
+      if (changes.whatsNewPending && !changes.whatsNewPending.newValue && whatsNewCard) {
+        whatsNewCard.remove();
+        whatsNewCard = null;
+      }
+      if (!Object.keys(changes).some((key) => key in DEFAULTS)) return;
       applySettings();
       scheduleRefresh();
       if (changes.folderLayout || changes.enabled) startFolderSyncBurst();

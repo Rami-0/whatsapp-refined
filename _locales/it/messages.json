@@ -500,5 +500,26 @@
         "example": "3"
       }
     }
+  },
+  "whatsNewTitle": {
+    "message": "Novità di Refined $VERSION$",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.3.1"
+      }
+    }
+  },
+  "whatsNewNotes": {
+    "message": "La barra laterale delle cartelle funziona di nuovo dopo l'ultimo aggiornamento di WhatsApp.\nLe cartelle vengono trovate anche se WhatsApp rinomina la barra dei filtri."
+  },
+  "reviewAsk": {
+    "message": "Ti piace Refined? Una breve recensione sul Chrome Web Store aiuta altre persone a trovarlo."
+  },
+  "reviewNotNow": {
+    "message": "Non ora"
+  },
+  "whatsNewClose": {
+    "message": "Chiudi"
   }
 }

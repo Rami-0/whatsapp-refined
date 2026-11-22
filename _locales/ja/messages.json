@@ -500,5 +500,26 @@
         "example": "3"
       }
     }
+  },
+  "whatsNewTitle": {
+    "message": "Refined $VERSION$ の新機能",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.3.1"
+      }
+    }
+  },
+  "whatsNewNotes": {
+    "message": "WhatsApp の最新アップデート後もフォルダのサイドバーが再び動作します。\nWhatsApp がフィルタバーの名前を変えてもフォルダを検出できるようになりました。"
+  },
+  "reviewAsk": {
+    "message": "Refined を気に入っていただけましたか？Chrome ウェブストアでの短いレビューが、ほかの方の発見につながります。"
+  },
+  "reviewNotNow": {
+    "message": "後で"
+  },
+  "whatsNewClose": {
+    "message": "閉じる"
   }
 }

@@ -500,5 +500,26 @@
         "example": "3"
       }
     }
+  },
+  "whatsNewTitle": {
+    "message": "Neu in Refined $VERSION$",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.3.1"
+      }
+    }
+  },
+  "whatsNewNotes": {
+    "message": "Die Ordner-Seitenleiste funktioniert nach dem neuesten WhatsApp-Update wieder.\nOrdner werden jetzt auch erkannt, wenn WhatsApp seine Filterleiste umbenennt."
+  },
+  "reviewAsk": {
+    "message": "Gefällt dir Refined? Eine kurze Bewertung im Chrome Web Store hilft anderen, es zu finden."
+  },
+  "reviewNotNow": {
+    "message": "Nicht jetzt"
+  },
+  "whatsNewClose": {
+    "message": "Schließen"
   }
 }

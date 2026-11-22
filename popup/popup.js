@@ -118,8 +118,12 @@
 
   document.querySelector("#resetSettings").addEventListener("click", () => {
     /* One click would otherwise discard every choice on the page. */
-    if (typeof resetDialog.showModal === "function") resetDialog.showModal();
-    else resetToDefaults();
+    if (typeof resetDialog.showModal === "function") {
+      resetDialog.showModal();
+      /* Not the autofocus attribute: Chrome blocks it inside the cross-origin
+         drawer iframe on WhatsApp and logs an error. Cancel is the safe default. */
+      resetDialog.querySelector('button[value="cancel"]')?.focus();
+    } else resetToDefaults();
   });
 
   resetDialog.addEventListener("close", () => {

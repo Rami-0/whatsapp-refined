@@ -500,5 +500,26 @@
         "example": "3"
       }
     }
+  },
+  "whatsNewTitle": {
+    "message": "Nieuw in Refined $VERSION$",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.3.1"
+      }
+    }
+  },
+  "whatsNewNotes": {
+    "message": "De mappenzijbalk werkt weer na de nieuwste WhatsApp-update.\nMappen worden nu ook gevonden als WhatsApp zijn filterbalk hernoemt."
+  },
+  "reviewAsk": {
+    "message": "Vind je Refined fijn? Een korte review in de Chrome Web Store helpt anderen het te vinden."
+  },
+  "reviewNotNow": {
+    "message": "Niet nu"
+  },
+  "whatsNewClose": {
+    "message": "Sluiten"
   }
 }

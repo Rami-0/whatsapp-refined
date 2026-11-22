@@ -6,6 +6,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.1] — 2026-11-22
+
+### Fixed
+
+- The folder sidebar was empty after WhatsApp's latest update, which left its
+  own filter pills showing instead. WhatsApp replaced the filter tabs
+  (`role="tablist"`, `aria-selected`) with a group of toggle buttons
+  (`role="group"`, `aria-pressed`) nested a few wrappers deep. Refined now
+  finds the bar by the filter ids WhatsApp kept (`all-filter`,
+  `label_item_N`, `additional-filters`), reads the selected folder from either
+  attribute, and anchors the **Lists** menu to the new structure.
+- Opening **Reset** in the settings drawer logged "Blocked autofocusing on a
+  `<button>` element in a cross-origin subframe". The dialog now focuses
+  **Cancel** itself instead of relying on `autofocus`.
+
+### Added
+
+- A one-time **What's new** card on WhatsApp after the extension updates, with
+  this release's notes. The first time it appears it also asks, politely and
+  once, for a Chrome Web Store review; reviewing or closing it ends the ask for
+  good. Translated in every locale.
+
 ## [1.3.0] — 2026-10-18
 
 ### Added

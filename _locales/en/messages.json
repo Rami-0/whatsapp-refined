@@ -500,5 +500,31 @@
         "example": "3"
       }
     }
+  },
+  "whatsNewTitle": {
+    "message": "What's new in Refined $VERSION$",
+    "description": "Title of the one-time card shown after the extension updates. $VERSION$ is the new version number.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.3.1"
+      }
+    }
+  },
+  "whatsNewNotes": {
+    "message": "The folder sidebar works again after WhatsApp's latest update.\nFolders are now found even when WhatsApp renames its filter bar.",
+    "description": "Release notes for this version, one item per line. Rewritten each release."
+  },
+  "reviewAsk": {
+    "message": "Enjoying Refined? A short review on the Chrome Web Store helps other people find it.",
+    "description": "Polite one-time request for a Chrome Web Store review, shown under the release notes."
+  },
+  "reviewNotNow": {
+    "message": "Not now",
+    "description": "Button that dismisses the review request without leaving a review."
+  },
+  "whatsNewClose": {
+    "message": "Close",
+    "description": "Accessible name of the release card's close button."
   }
 }
