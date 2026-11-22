@@ -510,16 +510,16 @@
       }
     }
   },
-  "whatsNewNotes": {
-    "message": "Thanh bên thư mục hoạt động trở lại sau bản cập nhật WhatsApp mới nhất.\nThư mục vẫn được nhận diện ngay cả khi WhatsApp đổi tên thanh bộ lọc."
-  },
   "reviewAsk": {
-    "message": "Bạn thích Refined? Một đánh giá ngắn trên Chrome Web Store giúp người khác tìm thấy nó."
+    "message": "Bạn thích Refined? Nếu chưa, một đánh giá ngắn trên Chrome Web Store sẽ giúp người khác tìm thấy nó."
   },
   "reviewNotNow": {
     "message": "Để sau"
   },
   "whatsNewClose": {
     "message": "Đóng"
+  },
+  "whatsNew_1_3_1": {
+    "message": "Thanh bên thư mục hoạt động trở lại sau bản cập nhật WhatsApp mới nhất.\nThư mục vẫn được nhận diện ngay cả khi WhatsApp đổi tên thanh bộ lọc."
   }
 }

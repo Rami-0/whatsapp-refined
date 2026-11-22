@@ -510,16 +510,16 @@
       }
     }
   },
-  "whatsNewNotes": {
-    "message": "Klasör kenar çubuğu, WhatsApp'ın son güncellemesinden sonra yeniden çalışıyor.\nWhatsApp filtre çubuğunun adını değiştirse bile klasörler bulunuyor."
-  },
   "reviewAsk": {
-    "message": "Refined'ı beğendiniz mi? Chrome Web Store'da kısa bir değerlendirme, başkalarının onu bulmasına yardımcı olur."
+    "message": "Refined'ı beğendiniz mi? Henüz yapmadıysanız, Chrome Web Store'da kısa bir değerlendirme başkalarının onu bulmasına yardımcı olur."
   },
   "reviewNotNow": {
     "message": "Şimdi değil"
   },
   "whatsNewClose": {
     "message": "Kapat"
+  },
+  "whatsNew_1_3_1": {
+    "message": "Klasör kenar çubuğu, WhatsApp'ın son güncellemesinden sonra yeniden çalışıyor.\nWhatsApp filtre çubuğunun adını değiştirse bile klasörler bulunuyor."
   }
 }

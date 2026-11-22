@@ -23,10 +23,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- A one-time **What's new** card on WhatsApp after the extension updates, with
-  this release's notes. The first time it appears it also asks, politely and
-  once, for a Chrome Web Store review; reviewing or closing it ends the ask for
-  good. Translated in every locale.
+- A one-time **What's new** card on WhatsApp after the extension updates. It
+  lists the notes of every version since the one the user updated from (up to
+  three), in the language chosen in Refined, laid out right-to-left for
+  Arabic. Each version keeps its own `whatsNew_x_y_z` notes, and
+  `release:check` fails a release that has none. Each card also asks, gently, for a Chrome Web Store
+  review "if you haven't already"; once the user opens the review page it
+  stops asking, and **Not now** only skips that update. Translated in every
+  locale.
 
 ## [1.3.0] — 2026-10-18
 

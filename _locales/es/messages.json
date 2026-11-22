@@ -510,16 +510,16 @@
       }
     }
   },
-  "whatsNewNotes": {
-    "message": "La barra lateral de carpetas vuelve a funcionar tras la última actualización de WhatsApp.\nLas carpetas se detectan aunque WhatsApp cambie el nombre de su barra de filtros."
-  },
   "reviewAsk": {
-    "message": "¿Te gusta Refined? Una reseña breve en Chrome Web Store ayuda a otras personas a encontrarlo."
+    "message": "¿Te gusta Refined? Si aún no lo has hecho, una reseña rápida en Chrome Web Store ayuda a otras personas a encontrarlo."
   },
   "reviewNotNow": {
     "message": "Ahora no"
   },
   "whatsNewClose": {
     "message": "Cerrar"
+  },
+  "whatsNew_1_3_1": {
+    "message": "La barra lateral de carpetas vuelve a funcionar tras la última actualización de WhatsApp.\nLas carpetas se detectan aunque WhatsApp cambie el nombre de su barra de filtros."
   }
 }

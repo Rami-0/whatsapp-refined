@@ -510,16 +510,16 @@
       }
     }
   },
-  "whatsNewNotes": {
-    "message": "A barra lateral de pastas voltou a funcionar após a última atualização do WhatsApp.\nAs pastas passam a ser encontradas mesmo que o WhatsApp mude o nome da barra de filtros."
-  },
   "reviewAsk": {
-    "message": "Está a gostar do Refined? Uma avaliação curta na Chrome Web Store ajuda outras pessoas a encontrá-lo."
+    "message": "Está a gostar do Refined? Se ainda não o fez, uma avaliação rápida na Chrome Web Store ajuda outras pessoas a encontrá-lo."
   },
   "reviewNotNow": {
     "message": "Agora não"
   },
   "whatsNewClose": {
     "message": "Fechar"
+  },
+  "whatsNew_1_3_1": {
+    "message": "A barra lateral de pastas voltou a funcionar após a última atualização do WhatsApp.\nAs pastas passam a ser encontradas mesmo que o WhatsApp mude o nome da barra de filtros."
   }
 }

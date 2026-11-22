@@ -510,16 +510,16 @@
       }
     }
   },
-  "whatsNewNotes": {
-    "message": "WhatsApp 最新更新后，文件夹侧边栏已恢复正常。\n即使 WhatsApp 重命名筛选栏，也能找到文件夹。"
-  },
   "reviewAsk": {
-    "message": "喜欢 Refined 吗？在 Chrome 应用商店留下简短评价，能帮助更多人发现它。"
+    "message": "喜欢 Refined 吗？如果还没评价过，在 Chrome 应用商店留下简短评价，能帮助更多人发现它。"
   },
   "reviewNotNow": {
     "message": "以后再说"
   },
   "whatsNewClose": {
     "message": "关闭"
+  },
+  "whatsNew_1_3_1": {
+    "message": "WhatsApp 最新更新后，文件夹侧边栏已恢复正常。\n即使 WhatsApp 重命名筛选栏，也能找到文件夹。"
   }
 }

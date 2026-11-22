@@ -185,20 +185,50 @@
     return LOCALE_SCRIPTS[baseLanguage(language)] || "latin";
   }
 
+  /* Every version that ships release notes, newest first. Each one has a
+     `whatsNew_<major>_<minor>_<patch>` message in every locale (one note per
+     line), and `npm run release:check` refuses a tag missing from this list. */
+  const RELEASE_NOTES = Object.freeze(["1.3.1"]);
+  const MAX_NOTES_SHOWN = 3;
+
+  function compareVersions(a, b) {
+    const left = String(a || "0").split(".").map(Number);
+    const right = String(b || "0").split(".").map(Number);
+    for (let i = 0; i < Math.max(left.length, right.length); i++) {
+      const diff = (left[i] || 0) - (right[i] || 0);
+      if (diff) return Math.sign(diff);
+    }
+    return 0;
+  }
+
+  function releaseNotesKey(version) {
+    return `whatsNew_${String(version).replace(/\./g, "_")}`;
+  }
+
+  /* The versions a user has not seen notes for yet: newer than the one they
+     updated from, up to the one installed, newest first. Someone who skipped a
+     few releases gets each of them, capped so the card stays short. */
+  function unseenReleases(previousVersion, currentVersion, known = RELEASE_NOTES) {
+    return known
+      .filter((version) => compareVersions(version, previousVersion) > 0 && compareVersions(version, currentVersion) <= 0)
+      .sort((a, b) => compareVersions(b, a))
+      .slice(0, MAX_NOTES_SHOWN);
+  }
+
   /* Decides what the post-update card shows. `pending` is what background.js
      stored on update ({ version, previousVersion }) or undefined; `reviewState`
-     is "reviewed" once the user clicked the review link, "declined" once they
-     closed a card that asked, and undefined before either.
+     is "reviewed" once the user clicked the review link, "declined" when they
+     last closed a card that asked, and undefined before either.
      Returns { showNotes, askReview }: showNotes renders the card at all,
      askReview adds the "leave a review" ask to it. */
   function whatsNewPlan(pending, reviewState) {
     if (!pending?.version) return { showNotes: false, askReview: false };
-    /* Asked once: clicking the review link or closing a card that asked ends
-       it for good, so later updates show their notes alone. */
-    return { showNotes: true, askReview: reviewState !== "reviewed" && reviewState !== "declined" };
+    /* Every update card asks, gently, until the user has opened the review
+       page. "Not now" or closing only skips this update's ask. */
+    return { showNotes: true, askReview: reviewState !== "reviewed" };
   }
 
-  const api = Object.freeze({ whatsNewPlan, FOLDER_ALIASES, NATIVE_FOLDER_IDS, normalizeLabel, folderKind, folderKindById, isFolderAction, folderInitial, uniqueFolders, parseFolderTab, desktopPlatform, i18n, loadLocaleOverride, uiLanguage, localeDirection, localeScript });
+  const api = Object.freeze({ whatsNewPlan, RELEASE_NOTES, compareVersions, releaseNotesKey, unseenReleases, FOLDER_ALIASES, NATIVE_FOLDER_IDS, normalizeLabel, folderKind, folderKindById, isFolderAction, folderInitial, uniqueFolders, parseFolderTab, desktopPlatform, i18n, loadLocaleOverride, uiLanguage, localeDirection, localeScript });
   global.WRUtils = api;
 
   if (typeof module !== "undefined" && module.exports) module.exports = api;

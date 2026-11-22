@@ -510,16 +510,16 @@
       }
     }
   },
-  "whatsNewNotes": {
-    "message": "Die Ordner-Seitenleiste funktioniert nach dem neuesten WhatsApp-Update wieder.\nOrdner werden jetzt auch erkannt, wenn WhatsApp seine Filterleiste umbenennt."
-  },
   "reviewAsk": {
-    "message": "Gefällt dir Refined? Eine kurze Bewertung im Chrome Web Store hilft anderen, es zu finden."
+    "message": "Gefällt dir Refined? Falls noch nicht geschehen, hilft eine kurze Bewertung im Chrome Web Store anderen, es zu finden."
   },
   "reviewNotNow": {
     "message": "Nicht jetzt"
   },
   "whatsNewClose": {
     "message": "Schließen"
+  },
+  "whatsNew_1_3_1": {
+    "message": "Die Ordner-Seitenleiste funktioniert nach dem neuesten WhatsApp-Update wieder.\nOrdner werden jetzt auch erkannt, wenn WhatsApp seine Filterleiste umbenennt."
   }
 }

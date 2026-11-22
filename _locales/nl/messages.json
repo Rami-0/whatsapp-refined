@@ -510,16 +510,16 @@
       }
     }
   },
-  "whatsNewNotes": {
-    "message": "De mappenzijbalk werkt weer na de nieuwste WhatsApp-update.\nMappen worden nu ook gevonden als WhatsApp zijn filterbalk hernoemt."
-  },
   "reviewAsk": {
-    "message": "Vind je Refined fijn? Een korte review in de Chrome Web Store helpt anderen het te vinden."
+    "message": "Vind je Refined fijn? Als je dat nog niet gedaan hebt, helpt een korte review in de Chrome Web Store anderen het te vinden."
   },
   "reviewNotNow": {
     "message": "Niet nu"
   },
   "whatsNewClose": {
     "message": "Sluiten"
+  },
+  "whatsNew_1_3_1": {
+    "message": "De mappenzijbalk werkt weer na de nieuwste WhatsApp-update.\nMappen worden nu ook gevonden als WhatsApp zijn filterbalk hernoemt."
   }
 }

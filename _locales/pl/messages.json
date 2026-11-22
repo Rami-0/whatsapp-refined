@@ -510,16 +510,16 @@
       }
     }
   },
-  "whatsNewNotes": {
-    "message": "Panel boczny folderów znów działa po najnowszej aktualizacji WhatsApp.\nFoldery są wykrywane nawet wtedy, gdy WhatsApp zmieni nazwę paska filtrów."
-  },
   "reviewAsk": {
-    "message": "Podoba ci się Refined? Krótka opinia w Chrome Web Store pomaga innym go znaleźć."
+    "message": "Podoba ci się Refined? Jeśli jeszcze tego nie zrobiłeś, krótka opinia w Chrome Web Store pomaga innym go znaleźć."
   },
   "reviewNotNow": {
     "message": "Nie teraz"
   },
   "whatsNewClose": {
     "message": "Zamknij"
+  },
+  "whatsNew_1_3_1": {
+    "message": "Panel boczny folderów znów działa po najnowszej aktualizacji WhatsApp.\nFoldery są wykrywane nawet wtedy, gdy WhatsApp zmieni nazwę paska filtrów."
   }
 }

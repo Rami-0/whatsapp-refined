@@ -510,16 +510,16 @@
       }
     }
   },
-  "whatsNewNotes": {
-    "message": "La barre latérale des dossiers fonctionne de nouveau après la dernière mise à jour de WhatsApp.\nLes dossiers sont désormais détectés même si WhatsApp renomme sa barre de filtres."
-  },
   "reviewAsk": {
-    "message": "Vous aimez Refined ? Un court avis sur le Chrome Web Store aide d'autres personnes à le découvrir."
+    "message": "Vous aimez Refined ? Si ce n'est pas déjà fait, un petit avis sur le Chrome Web Store aide d'autres personnes à le découvrir."
   },
   "reviewNotNow": {
     "message": "Plus tard"
   },
   "whatsNewClose": {
     "message": "Fermer"
+  },
+  "whatsNew_1_3_1": {
+    "message": "La barre latérale des dossiers fonctionne de nouveau après la dernière mise à jour de WhatsApp.\nLes dossiers sont désormais détectés même si WhatsApp renomme sa barre de filtres."
   }
 }

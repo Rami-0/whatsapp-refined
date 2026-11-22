@@ -20,6 +20,13 @@ if (packageJson.version !== tag) errors.push(`package.json is ${packageJson.vers
 if (manifest.version !== tag) errors.push(`manifest.json is ${manifest.version}, but the tag is ${tag}.`);
 if (!changelog.includes(`## [${tag}]`)) errors.push(`CHANGELOG.md has no '${tag}' release heading.`);
 
+/* Every release ships notes for the post-update card, in every locale (the
+   locale check enforces the translations once the en key exists). */
+const { RELEASE_NOTES, releaseNotesKey } = require(path.join(root, "src", "utils.js"));
+const enMessages = JSON.parse(fs.readFileSync(path.join(root, "_locales", "en", "messages.json"), "utf8"));
+if (!RELEASE_NOTES.includes(tag)) errors.push(`src/utils.js RELEASE_NOTES does not list ${tag}.`);
+if (!enMessages[releaseNotesKey(tag)]?.message) errors.push(`_locales/en/messages.json has no '${releaseNotesKey(tag)}' release notes.`);
+
 if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
