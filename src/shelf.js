@@ -172,6 +172,14 @@
         root.addEventListener("keydown", (event) => event.stopPropagation());
         root.addEventListener("pointerdown", onPointerDown);
         root.addEventListener("click", onShelfClick);
+        /* The shelf growing or shrinking moves WhatsApp's rows under the
+           hover tools; hide them rather than leave them over another row. */
+        let lastHeight = -1;
+        new ResizeObserver(() => {
+          const height = root.offsetHeight;
+          if (lastHeight >= 0 && height !== lastHeight) hideTools();
+          lastHeight = height;
+        }).observe(root);
       }
       if (root.nextElementSibling !== pane) pane.parentElement.insertBefore(root, pane);
     }
@@ -673,7 +681,7 @@
       const sleep = (ms) => new Promise((resolve) => window.setTimeout(resolve, ms));
       try {
         if (unread && unread !== previous) {
-          unread.element.click();
+          unread.select ? unread.select() : unread.element.click();
           await sleep(SCAN_STEP_MS * 2);
         }
         const list = chats.chatPane() || pane;
@@ -688,7 +696,7 @@
         }
       } finally {
         if (previous && unread && unread !== previous) {
-          previous.element.click();
+          previous.select ? previous.select() : previous.element.click();
           await sleep(SCAN_STEP_MS * 2);
         }
         const list = chats.chatPane();

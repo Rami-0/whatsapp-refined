@@ -60,6 +60,21 @@
     });
   }
 
+  /* WhatsApp moves a filter picked from its "More lists" menu to the front of
+     the strip, so the strip's order changes with use. The rail keeps one
+     order instead: All, the built-ins, the user's lists, the business labels
+     (each in the order WhatsApp created them), and the Lists menu last. */
+  const RAIL_RANK = Object.freeze({ all: 0, unread: 1, favourites: 2, groups: 3, custom: 4, label: 5, lists: 6 });
+
+  function railOrder(folders) {
+    const rank = (folder) => RAIL_RANK[folder.kind] ?? RAIL_RANK.custom;
+    const number = (folder) => labelNumber(folder.id) ?? Number.MAX_SAFE_INTEGER;
+    return (Array.isArray(folders) ? folders : [])
+      .map((folder, index) => ({ folder, index }))
+      .sort((a, b) => rank(a.folder) - rank(b.folder) || number(a.folder) - number(b.folder) || a.index - b.index)
+      .map(({ folder }) => folder);
+  }
+
   /* Kept for the label-matching path and its tests; the rail resolves kinds by
      WhatsApp's own ids now, so nothing here has to learn a new language. */
   const FOLDER_ALIASES = Object.freeze({
@@ -432,7 +447,7 @@
     return changed ? Array.from(byName.values()).sort((a, b) => b.seenAt - a.seenAt) : list;
   }
 
-  const api = Object.freeze({ applyPlaceholders, mergeMentions, fuzzyScore, classifyFolders, pinChat, unpinChat, movePin, refreshPins, reminderPresets, addReminder, removeReminder, dueReminders, shortDuration, shortcutAction, whatsNewPlan, RELEASE_NOTES, compareVersions, releaseNotesKey, unseenReleases, FOLDER_ALIASES, NATIVE_FOLDER_IDS, normalizeLabel, folderKind, folderKindById, isFolderAction, folderInitial, uniqueFolders, parseFolderTab, desktopPlatform, i18n, loadLocaleOverride, uiLanguage, localeDirection, localeScript });
+  const api = Object.freeze({ applyPlaceholders, mergeMentions, fuzzyScore, classifyFolders, railOrder, pinChat, unpinChat, movePin, refreshPins, reminderPresets, addReminder, removeReminder, dueReminders, shortDuration, shortcutAction, whatsNewPlan, RELEASE_NOTES, compareVersions, releaseNotesKey, unseenReleases, FOLDER_ALIASES, NATIVE_FOLDER_IDS, normalizeLabel, folderKind, folderKindById, isFolderAction, folderInitial, uniqueFolders, parseFolderTab, desktopPlatform, i18n, loadLocaleOverride, uiLanguage, localeDirection, localeScript });
   global.WRUtils = api;
 
   if (typeof module !== "undefined" && module.exports) module.exports = api;

@@ -368,6 +368,13 @@ html[data-wr-positioning-lists="true"] [role="menu"] {
   visibility: hidden !important;
 }
 
+/* Picking a filter out of WhatsApp's "More lists" menu (selectFolder()).
+   Opacity, not visibility: WhatsApp ignores picks in a hidden menu. */
+html[data-wr-picking-folder="true"] [role="menu"] {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 .wr-lists-menu-positioner {
   position: fixed !important;
   z-index: 1002 !important;

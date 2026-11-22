@@ -42,7 +42,7 @@
   const palette = globalThis.WRPalette?.create({
     t, utils, chats: globalThis.WRChats, settings: () => settings, shelf,
     actions: {
-      folders: () => currentFolders().filter((folder) => !folder.action).map((folder) => ({ ...folder, open: () => { folder.element.click(); window.setTimeout(scheduleRefresh, 80); } })),
+      folders: () => currentFolders().filter((folder) => !folder.action).map((folder) => ({ ...folder, open: () => selectFolder(folder) })),
       togglePrivacy: () => togglePrivacy(),
       openSettings: () => toggleDrawer(true),
       showMentions: () => shelf?.showMentions()
@@ -51,7 +51,7 @@
 
   function currentFolders() {
     const side = document.querySelector("#side");
-    return side ? readFolders(side) : [];
+    return side ? readFolders(side).map((folder) => ({ ...folder, select: () => selectFolder(folder) })) : [];
   }
 
   function storageGet() {
@@ -413,6 +413,10 @@
     const elements = Array.from(tablist.querySelectorAll(FOLDER_TAB_SELECTOR)).filter((element, index, all) => !all.some((other) => other !== element && other.contains(element)));
     const swatches = elements.map((element) => Array.from(element.querySelectorAll("[style]")).find((node) => /background-color/i.test(node.getAttribute("style") || "") && node.getBoundingClientRect().width <= 16));
     const kinds = utils.classifyFolders(elements.map((element, index) => ({ id: element.id, colored: Boolean(swatches[index]) })));
+    /* Filters past WhatsApp's "More lists" arrow are parked off screen and
+       ignore clicks; WhatsApp only selects them from that menu, which lists
+       them in the same order. */
+    const moreIndex = elements.findIndex((element) => utils.isFolderAction(element.id));
     const folders = utils.uniqueFolders(elements.map((element, index) => {
       const leafTexts = Array.from(element.querySelectorAll("span"))
         .filter((span) => span.children.length === 0 && span.getAttribute("aria-hidden") !== "true")
@@ -423,7 +427,9 @@
       const label = action ? t("listsLabel", "Lists") : parsed.label;
       return {
         label: label.slice(0, 48), count: parsed.count,
+        id: element.id,
         kind: action ? "lists" : kinds[index],
+        overflowIndex: moreIndex >= 0 && index > moreIndex ? index - moreIndex - 1 : -1,
         color: swatches[index] ? getComputedStyle(swatches[index]).backgroundColor : "",
         action, element,
         /* Tabs said aria-selected; the toggle buttons that replaced them say
@@ -431,9 +437,65 @@
         selected: element.getAttribute("aria-selected") === "true" || element.getAttribute("aria-pressed") === "true"
       };
     }).filter((folder) => folder.label));
-    /* WhatsApp puts its "more lists" arrow wherever its pills run out of room
-       (mid-strip on Business); in the rail it is always the last entry. */
-    return [...folders.filter((folder) => !folder.action), ...folders.filter((folder) => folder.action)];
+    /* WhatsApp reorders its strip as filters are used; the rail does not. */
+    return utils.railOrder(folders);
+  }
+
+  /* Selects a WhatsApp filter from the rail, the palette or a shortcut. A
+     filter on screen in the strip takes a click. One past the "More lists"
+     arrow is picked from that menu instead, opened out of sight, so the user
+     only sees the list change. */
+  let folderPick = null;
+  function selectFolder(target) {
+    actionAnchorCleanup?.();
+    folderPick?.();
+    /* Read the strip again: an earlier pick may have moved this filter in or
+       out of the menu since the caller looked. */
+    const side = document.querySelector("#side");
+    const folder = (side && readFolders(side).find((item) => item.id === target.id && item.label === target.label)) || target;
+    if (folder.overflowIndex < 0 || !folder.element.isConnected) {
+      folder.element.click();
+      window.setTimeout(scheduleRefresh, 80);
+      return;
+    }
+    const more = observedTablist?.querySelector("#additional-filters");
+    if (!more) {
+      folder.element.click();
+      return;
+    }
+    const root = document.documentElement;
+    const menusBefore = new Set(Array.from(document.querySelectorAll('[role="menu"]')).filter((menu) => menu.getBoundingClientRect().width > 0));
+    let watcher = null;
+    let timer = null;
+    const finish = () => {
+      watcher?.disconnect();
+      window.clearTimeout(timer);
+      delete root.dataset.wrPickingFolder;
+      if (folderPick === finish) folderPick = null;
+      window.setTimeout(scheduleRefresh, 80);
+    };
+    folderPick = finish;
+    const pick = () => {
+      const menu = Array.from(document.querySelectorAll('[role="menu"]')).find((element) => !menusBefore.has(element) && element.getBoundingClientRect().width > 0);
+      if (!menu) return false;
+      const items = Array.from(menu.querySelectorAll('[role="menuitemcheckbox"]'));
+      /* The menu can mount a frame before its entries do. */
+      if (!items.length) return false;
+      const name = utils.normalizeLabel(folder.label);
+      const matches = (item) => item && utils.normalizeLabel(item.innerText || item.textContent).startsWith(name);
+      const item = matches(items[folder.overflowIndex]) ? items[folder.overflowIndex] : items.find(matches);
+      if (item) item.click();
+      else document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", code: "Escape", keyCode: 27, bubbles: true }));
+      finish();
+      return true;
+    };
+    root.dataset.wrPickingFolder = "true";
+    watcher = new MutationObserver(pick);
+    watcher.observe(document.body, { childList: true, subtree: true, attributes: true });
+    /* Never leave WhatsApp's menus hidden if this one does not show up. */
+    timer = window.setTimeout(finish, 1500);
+    more.click();
+    pick();
   }
 
   function folderIcon(folder) {
@@ -558,10 +620,7 @@
       }
       button.addEventListener("click", () => {
         if (folder.action) openNativeFolderAction(folder, button);
-        else {
-          actionAnchorCleanup?.();
-          folder.element.click();
-        }
+        else selectFolder(folder);
         window.setTimeout(scheduleRefresh, 80);
       });
       folderNav.append(button);
@@ -779,8 +838,7 @@
     if (!folders.length) return;
     const current = folders.findIndex((folder) => folder.selected);
     const next = (Math.max(0, current) + direction + folders.length) % folders.length;
-    folders[next].element.click();
-    window.setTimeout(scheduleRefresh, 80);
+    selectFolder(folders[next]);
   }
 
   /* WhatsApp translates its aria-labels but not its icon names, the same reason

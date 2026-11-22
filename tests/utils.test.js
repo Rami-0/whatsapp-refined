@@ -341,3 +341,19 @@ test("translated strings keep a chat name with $ signs intact", () => {
   const two = { message: "$NAME$ at $TIME$", placeholders: { name: { content: "$1" }, time: { content: "$2" } } };
   assert.equal(applyPlaceholders(two, ["Team", "18:30"]), "Team at 18:30");
 });
+
+test("the rail keeps one order however WhatsApp reshuffles its strip", () => {
+  const { railOrder } = require("../src/utils.js");
+  /* Live WhatsApp Business strip after Groups was picked from "More lists". */
+  const strip = [
+    { id: "all-filter", kind: "all" }, { id: "label_item_13", kind: "groups" }, { id: "additional-filters", kind: "lists" },
+    { id: "label_item_1", kind: "label" }, { id: "label_item_11", kind: "unread" }, { id: "label_item_2", kind: "label" },
+    { id: "label_item_12", kind: "favourites" }, { id: "label_item_10", kind: "label" }, { id: "label_item_3", kind: "label" }
+  ];
+  const ids = (list) => list.map((folder) => folder.id);
+  const expected = ["all-filter", "label_item_11", "label_item_12", "label_item_13", "label_item_1", "label_item_2", "label_item_3", "label_item_10", "additional-filters"];
+  assert.deepEqual(ids(railOrder(strip)), expected);
+  assert.deepEqual(ids(railOrder([...strip].reverse())), expected, "the strip's own order does not matter");
+  assert.deepEqual(ids(railOrder([{ id: "label_item_5", kind: "custom" }, { id: "label_item_1", kind: "unread" }, { id: "label_item_4", kind: "custom" }])), ["label_item_1", "label_item_4", "label_item_5"]);
+  assert.deepEqual(railOrder(undefined), []);
+});
