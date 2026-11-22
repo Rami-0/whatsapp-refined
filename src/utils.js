@@ -28,6 +28,38 @@
     return String(id || "") === "additional-filters";
   }
 
+  /* Resolves every filter in the strip at once, because WhatsApp Business
+     numbers them differently from personal WhatsApp. Personal: label_item_1-3
+     are Unread, Favourites and Groups, user lists are 4 and up. Business:
+     label_item_1-10 are the account's business labels (each drawn with a
+     coloured dot), and Unread, Favourites and Groups move to 11-13. In both,
+     the built-ins are the three lowest-numbered filters WITHOUT a colour dot,
+     in that order. `items` = [{ id, colored }] in strip order; returns the
+     kind for each: all | unread | favourites | groups | label | custom | lists. */
+  const BUILT_IN_ORDER = Object.freeze(["unread", "favourites", "groups"]);
+
+  function labelNumber(id) {
+    const match = /^label_item_(\d+)$/.exec(String(id || ""));
+    return match ? Number(match[1]) : null;
+  }
+
+  function classifyFolders(items) {
+    const list = Array.isArray(items) ? items : [];
+    const builtIns = list
+      .filter((item) => !item.colored && labelNumber(item.id) !== null)
+      .map((item) => labelNumber(item.id))
+      .sort((a, b) => a - b)
+      .slice(0, BUILT_IN_ORDER.length);
+    return list.map((item) => {
+      if (item.id === "all-filter") return "all";
+      if (isFolderAction(item.id)) return "lists";
+      if (item.colored) return "label";
+      const number = labelNumber(item.id);
+      const builtIn = number === null ? -1 : builtIns.indexOf(number);
+      return builtIn >= 0 ? BUILT_IN_ORDER[builtIn] : "custom";
+    });
+  }
+
   /* Kept for the label-matching path and its tests; the rail resolves kinds by
      WhatsApp's own ids now, so nothing here has to learn a new language. */
   const FOLDER_ALIASES = Object.freeze({
@@ -256,7 +288,90 @@
     return { showNotes: true, askReview: reviewState !== "reviewed" };
   }
 
-  const api = Object.freeze({ shortcutAction, whatsNewPlan, RELEASE_NOTES, compareVersions, releaseNotesKey, unseenReleases, FOLDER_ALIASES, NATIVE_FOLDER_IDS, normalizeLabel, folderKind, folderKindById, isFolderAction, folderInitial, uniqueFolders, parseFolderTab, desktopPlatform, i18n, loadLocaleOverride, uiLanguage, localeDirection, localeScript });
+  /* Refined's own pins. WhatsApp's rows carry no chat id, so a chat is keyed
+     by its name. Every helper returns a new array and leaves its input alone,
+     so the caller can compare before writing to storage. */
+  function pinChat(pins, name, now = Date.now()) {
+    const list = Array.isArray(pins) ? pins : [];
+    if (!name || list.some((pin) => pin.name === name)) return list;
+    return [...list, { name, addedAt: now, unread: 0, muted: false, avatar: "" }];
+  }
+
+  function unpinChat(pins, name) {
+    const list = Array.isArray(pins) ? pins : [];
+    return list.filter((pin) => pin.name !== name);
+  }
+
+  function movePin(pins, name, toIndex) {
+    const list = Array.isArray(pins) ? [...pins] : [];
+    const from = list.findIndex((pin) => pin.name === name);
+    if (from < 0) return list;
+    const [pin] = list.splice(from, 1);
+    const target = Math.max(0, Math.min(list.length, Number(toIndex) || 0));
+    list.splice(target, 0, pin);
+    return list;
+  }
+
+  /* Copies what the chat list currently shows (unread, muted, avatar) onto
+     the pins it names. Returns the same array when nothing changed. */
+  function refreshPins(pins, rows, now = Date.now()) {
+    const list = Array.isArray(pins) ? pins : [];
+    const byName = new Map((rows || []).map((row) => [row.name, row]));
+    let changed = false;
+    const next = list.map((pin) => {
+      const row = byName.get(pin.name);
+      if (!row) return pin;
+      const avatar = row.avatar || pin.avatar || "";
+      if (pin.unread === row.unread && pin.muted === row.muted && pin.avatar === avatar) return pin;
+      changed = true;
+      return { ...pin, unread: row.unread, muted: row.muted, avatar, seenAt: now };
+    });
+    return changed ? next : list;
+  }
+
+  /* Snooze presets, t3code style: in 1 hour, in 3 hours, tomorrow at 09:00
+     local time. `now` is a Date so tests can pin the clock. */
+  function reminderPresets(now = new Date()) {
+    const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 9, 0, 0, 0);
+    return [
+      { key: "1h", at: now.getTime() + 60 * 60 * 1000 },
+      { key: "3h", at: now.getTime() + 3 * 60 * 60 * 1000 },
+      { key: "tomorrow", at: tomorrow.getTime() }
+    ];
+  }
+
+  /* One reminder per chat: setting a new one replaces the old. */
+  function addReminder(reminders, name, dueAt, now = Date.now()) {
+    const list = (Array.isArray(reminders) ? reminders : []).filter((item) => item.name !== name);
+    if (!name || !Number.isFinite(dueAt)) return list;
+    return [...list, { id: `wr-reminder-${now}-${Math.abs(hashString(name))}`, name, dueAt, createdAt: now, fired: false }]
+      .sort((a, b) => a.dueAt - b.dueAt);
+  }
+
+  function removeReminder(reminders, name) {
+    return (Array.isArray(reminders) ? reminders : []).filter((item) => item.name !== name);
+  }
+
+  function dueReminders(reminders, now = Date.now()) {
+    return (Array.isArray(reminders) ? reminders : []).filter((item) => item.dueAt <= now);
+  }
+
+  function hashString(value) {
+    let hash = 0;
+    for (const char of String(value)) hash = (hash * 31 + char.codePointAt(0)) | 0;
+    return hash;
+  }
+
+  /* "12h", "45m", "3d": the countdown shown beside a snoozed chat. */
+  function shortDuration(ms) {
+    const minutes = Math.max(0, Math.round(ms / 60000));
+    if (minutes < 60) return `${minutes}m`;
+    const hours = Math.round(minutes / 60);
+    if (hours < 48) return `${hours}h`;
+    return `${Math.round(hours / 24)}d`;
+  }
+
+  const api = Object.freeze({ classifyFolders, pinChat, unpinChat, movePin, refreshPins, reminderPresets, addReminder, removeReminder, dueReminders, shortDuration, shortcutAction, whatsNewPlan, RELEASE_NOTES, compareVersions, releaseNotesKey, unseenReleases, FOLDER_ALIASES, NATIVE_FOLDER_IDS, normalizeLabel, folderKind, folderKindById, isFolderAction, folderInitial, uniqueFolders, parseFolderTab, desktopPlatform, i18n, loadLocaleOverride, uiLanguage, localeDirection, localeScript });
   global.WRUtils = api;
 
   if (typeof module !== "undefined" && module.exports) module.exports = api;

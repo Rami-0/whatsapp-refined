@@ -32,3 +32,14 @@ chrome.runtime.onInstalled.addListener(({ reason, previousVersion }) => {
   if (!previousVersion || previousVersion === version) return;
   chrome.storage.local.set({ whatsNewPending: { version, previousVersion } });
 });
+
+/* Development only: lets a test driver reload the extension from the
+   WhatsApp tab, since chrome://extensions is out of its reach. Store installs
+   carry an update_url and ignore the request, so this never acts in the
+   published extension. */
+chrome.runtime.onMessage.addListener((message) => {
+  if (message?.type !== "wr-dev-reload") return false;
+  if ("update_url" in chrome.runtime.getManifest()) return false;
+  chrome.runtime.reload();
+  return false;
+});

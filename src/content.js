@@ -18,7 +18,8 @@
     custom: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5A2.5 2.5 0 0 1 6.5 5h3l2 2h6A2.5 2.5 0 0 1 20 9.5v8a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5v-10Z"/></svg>',
     lists: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h10M5 12h8M5 18h6"/><path d="M18 13v7M14.5 16.5h7"/></svg>',
     settings: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10M14 4v6M7 14v6"/></svg>',
-    privacy: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 6v5.2c0 4.7 3 8.2 7.5 9.8 4.5-1.6 7.5-5.1 7.5-9.8V6L12 3Z"/><path d="m8 12 2.4 2.4L16.5 8"/></svg>'
+    privacy: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 6v5.2c0 4.7 3 8.2 7.5 9.8 4.5-1.6 7.5-5.1 7.5-9.8V6L12 3Z"/><path d="m8 12 2.4 2.4L16.5 8"/></svg>',
+    label: '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="wr-label-tag" d="M3.5 5.5A2 2 0 0 1 5.5 3.5h6.17a2 2 0 0 1 1.42.59l7.33 7.33a2 2 0 0 1 0 2.83l-6.17 6.17a2 2 0 0 1-2.83 0L4.09 13.09a2 2 0 0 1-.59-1.42V5.5Z"/><circle cx="8.5" cy="8.5" r="1.6" class="wr-label-hole"/></svg>'
   });
 
   let settings = { ...DEFAULTS };
@@ -149,6 +150,7 @@
     folderNav = document.createElement("nav");
     folderNav.id = "wr-folder-sidebar";
     folderNav.setAttribute("aria-label", t("navFoldersAria", "WhatsApp chat folders"));
+    folderNav.addEventListener("scroll", updateRailOverflow, { passive: true });
 
     sidebarActions = document.createElement("div");
     sidebarActions.id = "wr-sidebar-actions";
@@ -386,35 +388,42 @@
       });
     }
 
-    /* Ids, not names and not position. Matching the labels only ever worked on
-       an English or Arabic WhatsApp; everywhere else all four built-ins fell
-       through to "custom" and the rail drew a bare letter where the All,
-       Unread, Favourites and Groups icons belong. Counting tabs instead would
-       not fix it, because WhatsApp interleaves the lists a user made with its
-       own filters. The ids it puts on them survive both. */
-    return utils.uniqueFolders(Array.from(tablist.querySelectorAll(FOLDER_TAB_SELECTOR)).filter((element, index, all) => !all.some((other) => other !== element && other.contains(element))).map((element) => {
+    /* Kinds come from classifyFolders(), which reads WhatsApp's ids together
+       with each filter's colour dot: personal WhatsApp numbers its built-ins
+       1-3, WhatsApp Business puts its coloured business labels first and the
+       built-ins after them. Names would only work in one language, and
+       position breaks as soon as a user list sits between built-ins. */
+    const elements = Array.from(tablist.querySelectorAll(FOLDER_TAB_SELECTOR)).filter((element, index, all) => !all.some((other) => other !== element && other.contains(element)));
+    const swatches = elements.map((element) => Array.from(element.querySelectorAll("[style]")).find((node) => /background-color/i.test(node.getAttribute("style") || "") && node.getBoundingClientRect().width <= 16));
+    const kinds = utils.classifyFolders(elements.map((element, index) => ({ id: element.id, colored: Boolean(swatches[index]) })));
+    const folders = utils.uniqueFolders(elements.map((element, index) => {
       const leafTexts = Array.from(element.querySelectorAll("span"))
         .filter((span) => span.children.length === 0 && span.getAttribute("aria-hidden") !== "true")
         .map((span) => span.textContent);
       const rawLabel = (element.getAttribute("aria-label") || element.innerText || element.textContent || "").replace(/\s+/g, " ").trim();
       const parsed = utils.parseFolderTab(leafTexts, rawLabel);
-      const action = utils.isFolderAction(element.id) || parsed.action;
+      const action = kinds[index] === "lists" || parsed.action;
       const label = action ? t("listsLabel", "Lists") : parsed.label;
       return {
         label: label.slice(0, 48), count: parsed.count,
-        kind: action ? "lists" : utils.folderKindById(element.id),
+        kind: action ? "lists" : kinds[index],
+        color: swatches[index] ? getComputedStyle(swatches[index]).backgroundColor : "",
         action, element,
         /* Tabs said aria-selected; the toggle buttons that replaced them say
            aria-pressed. */
         selected: element.getAttribute("aria-selected") === "true" || element.getAttribute("aria-pressed") === "true"
       };
-    }).filter((folder) => folder.label)).slice(0, 12);
+    }).filter((folder) => folder.label));
+    /* WhatsApp puts its "more lists" arrow wherever its pills run out of room
+       (mid-strip on Business); in the rail it is always the last entry. */
+    return [...folders.filter((folder) => !folder.action), ...folders.filter((folder) => folder.action)];
   }
 
   function folderIcon(folder) {
     const wrap = document.createElement("span");
     wrap.className = `wr-folder-icon wr-folder-icon--${folder.kind}`;
     wrap.innerHTML = iconMarkup(folder.kind);
+    if (folder.kind === "label") wrap.style.setProperty("--wr-label-color", folder.color || "currentColor");
     if (folder.kind === "custom") {
       const initial = document.createElement("b");
       initial.textContent = utils.folderInitial(folder.label);
@@ -505,7 +514,7 @@
   }
 
   function renderFolders(folders) {
-    const signature = folders.map((folder) => `${folder.label}:${folder.count}:${folder.selected}`).join("|");
+    const signature = folders.map((folder) => `${folder.kind}:${folder.label}:${folder.count}:${folder.selected}:${folder.color}`).join("|");
     if (!folderNav || signature === lastFolderSignature) return;
     lastFolderSignature = signature;
     hideTooltip();
@@ -540,6 +549,19 @@
       });
       folderNav.append(button);
     });
+    folderNav.querySelector('[aria-current="page"]')?.scrollIntoView({ block: "nearest" });
+    updateRailOverflow();
+  }
+
+  /* Marks which ends of the rail have more folders past them, for the fade. */
+  function updateRailOverflow() {
+    if (!folderNav) return;
+    const { scrollTop, scrollHeight, clientHeight } = folderNav;
+    const top = scrollTop > 2;
+    const bottom = scrollTop + clientHeight < scrollHeight - 2;
+    const state = top && bottom ? "both" : top ? "top" : bottom ? "bottom" : "";
+    if (state) folderNav.dataset.wrOverflow = state;
+    else delete folderNav.dataset.wrOverflow;
   }
 
   const REVIEW_URL = "https://chromewebstore.google.com/detail/refined-whatsapp-web/lcahmmfammonkmhhljiniplfcanlaeka/reviews";
@@ -799,7 +821,7 @@
     document.addEventListener("scroll", hideTooltip, { capture: true, passive: true });
     document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") startFolderSyncBurst(); });
     window.addEventListener("focus", startFolderSyncBurst);
-    window.addEventListener("resize", scheduleRefresh, { passive: true });
+    window.addEventListener("resize", () => { scheduleRefresh(); updateRailOverflow(); }, { passive: true });
 
     window.setInterval(() => {
       if (document.visibilityState === "visible" && settings.enabled && settings.folderLayout === "sidebar") scheduleRefresh();
@@ -828,6 +850,13 @@
       if (changes.language) utils.loadLocaleOverride(settings.language).then(applyLocaleStrings);
     });
   }
+
+  /* Development only: a test driver posts {wrDev: "reload"} from the page to
+     reload an unpacked Refined (see background.js; store installs ignore it). */
+  window.addEventListener("message", (event) => {
+    if (event.source !== window || event.data?.wrDev !== "reload") return;
+    try { chrome.runtime.sendMessage({ type: "wr-dev-reload" }); } catch (_error) {}
+  });
 
   if (document.body) start();
   else document.addEventListener("DOMContentLoaded", start, { once: true });

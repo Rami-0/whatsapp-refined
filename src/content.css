@@ -94,6 +94,27 @@ html[data-wr-enabled="true"][data-wr-ready="true"] .wr-chat-shell > header {
   flex-direction: column !important;
 }
 
+/* WhatsApp sets this section to flex: 1 0 auto, so it never shrinks. With
+   WhatsApp Business's longer nav (calls, catalog, ads) plus a rail of business
+   labels it grew past the window and the last folders were cut off. Letting it
+   shrink hands the overflow to the rail, which scrolls. */
+html[data-wr-enabled="true"][data-wr-ready="true"][data-wr-folder-layout="sidebar"] .wr-native-folder-host {
+  flex: 1 1 0 !important;
+}
+
+/* Fade edges tell the user the rail scrolls, instead of a hidden scrollbar. */
+#wr-folder-sidebar[data-wr-overflow="bottom"] {
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 28px), transparent);
+}
+
+#wr-folder-sidebar[data-wr-overflow="top"] {
+  mask-image: linear-gradient(to bottom, transparent, #000 28px);
+}
+
+#wr-folder-sidebar[data-wr-overflow="both"] {
+  mask-image: linear-gradient(to bottom, transparent, #000 28px, #000 calc(100% - 28px), transparent);
+}
+
 .wr-native-folder-host > :first-child {
   flex: 0 0 auto;
 }
@@ -223,6 +244,18 @@ html[data-wr-ready="true"] #wr-sidebar-actions {
 .wr-sidebar-action > svg {
   width: 22px;
   height: 22px;
+}
+
+/* WhatsApp Business labels: a tag in the label's own colour, the same dot
+   colour WhatsApp shows on the pill, so a user finds "Lead" by its colour. */
+.wr-folder-icon--label > svg .wr-label-tag {
+  fill: var(--wr-label-color);
+  stroke: var(--wr-label-color);
+}
+
+.wr-folder-icon--label > svg .wr-label-hole {
+  fill: var(--app-background, #fff);
+  stroke: none;
 }
 
 .wr-folder-icon .wr-icon-fill {

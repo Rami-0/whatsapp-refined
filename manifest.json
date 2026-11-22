@@ -27,7 +27,7 @@
     {
       "matches": ["https://web.whatsapp.com/*"],
       "css": ["src/content.css"],
-      "js": ["src/utils.js", "src/settings.js", "src/content.js"],
+      "js": ["src/utils.js", "src/settings.js", "src/chats.js", "src/content.js"],
       "run_at": "document_idle"
     }
   ],
