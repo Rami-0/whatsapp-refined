@@ -598,12 +598,6 @@
   "chatNotFound": {
     "message": "Không tìm thấy đoạn chat này. Có thể nó đã đổi tên."
   },
-  "remindIn1h": {
-    "message": "Sau 1 giờ"
-  },
-  "remindIn3h": {
-    "message": "Sau 3 giờ"
-  },
   "remindTomorrow": {
     "message": "Ngày mai"
   },
@@ -697,9 +691,6 @@
   "paletteSetting": {
     "message": "Bảng lệnh"
   },
-  "paletteSettingHelp": {
-    "message": "Cmd/Ctrl+K mở bảng lệnh Refined; thêm Shift để tìm kiếm WhatsApp"
-  },
   "mentionsSetting": {
     "message": "Tổng hợp lượt nhắc"
   },
@@ -714,5 +705,187 @@
   },
   "mentionsEmpty": {
     "message": "Không có lượt nhắc chưa đọc"
+  },
+  "reminderOpenChat": {
+    "message": "Mở cuộc trò chuyện",
+    "description": "Button on a due-reminder alert (system notification and in-page card) that opens the chat."
+  },
+  "reminderSnooze1h": {
+    "message": "Hoãn 1 giờ",
+    "description": "Button on a due-reminder alert that pushes the reminder back by one hour."
+  },
+  "testNotificationBody": {
+    "message": "Thông báo từ Refined hoạt động tốt.",
+    "description": "Body of the test notification sent from settings."
+  },
+  "testNotification": {
+    "message": "Thử thông báo",
+    "description": "Settings row title for sending a test notification."
+  },
+  "testNotificationHelp": {
+    "message": "Gửi thử một thông báo để kiểm tra cảnh báo có hiện trên màn hình",
+    "description": "Help text under the test-notification row."
+  },
+  "testNotificationAction": {
+    "message": "Gửi thử",
+    "description": "Button that sends a test notification."
+  },
+  "testNotificationSending": {
+    "message": "Đang gửi…",
+    "description": "Status while the test notification is being sent."
+  },
+  "testNotificationSent": {
+    "message": "Đã gửi.",
+    "description": "Status after the test notification was sent; followed by a hint on where to allow notifications."
+  },
+  "testNotificationHintMac": {
+    "message": "Không thấy gì? Mở Cài đặt hệ thống → Thông báo, chọn trình duyệt của bạn và bật Cho phép thông báo.",
+    "description": "macOS hint when a sent test notification did not appear."
+  },
+  "testNotificationHintWindows": {
+    "message": "Không thấy gì? Mở Cài đặt → Hệ thống → Thông báo và bật thông báo cho trình duyệt của bạn.",
+    "description": "Windows hint when a sent test notification did not appear."
+  },
+  "testNotificationHintOther": {
+    "message": "Không thấy gì? Hãy cho phép thông báo của trình duyệt trong cài đặt hệ thống.",
+    "description": "Hint on other systems when a sent test notification did not appear."
+  },
+  "testNotificationChrome": {
+    "message": "Trình duyệt đang chặn thông báo của Refined. Hãy cho phép trong cài đặt thông báo của trình duyệt.",
+    "description": "Error when the browser itself denies notifications to the extension."
+  },
+  "testNotificationPermission": {
+    "message": "Hãy bật thông báo lời nhắc trước.",
+    "description": "Error when the notification permission is not granted."
+  },
+  "testNotificationFailed": {
+    "message": "Không thể gửi thông báo. Hãy thử lại sau khi khởi động lại trình duyệt.",
+    "description": "Generic error for the test notification."
+  },
+  "presetsSetting": {
+    "message": "Thời điểm nhắc",
+    "description": "Settings block title: the times offered by the Remind me menu."
+  },
+  "presetsSettingHelp": {
+    "message": "Menu Nhắc tôi hiển thị tối đa 5 mục. Xóa một mục để có chỗ.",
+    "description": "Help text for the reminder-times block."
+  },
+  "presetAmountAria": {
+    "message": "Số lượng",
+    "description": "Accessible name of the number field for a new reminder time."
+  },
+  "presetUnitAria": {
+    "message": "Đơn vị",
+    "description": "Accessible name of the unit picker for a new reminder time."
+  },
+  "presetMinutes": {
+    "message": "phút",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetHours": {
+    "message": "giờ",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetDays": {
+    "message": "ngày",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetWeeks": {
+    "message": "tuần",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetTomorrow": {
+    "message": "Ngày mai 9:00",
+    "description": "Option for a reminder time of 09:00 the next day."
+  },
+  "presetAdd": {
+    "message": "Thêm",
+    "description": "Button that adds a reminder time."
+  },
+  "presetsEmpty": {
+    "message": "Chỉ ngày và giờ tùy chỉnh",
+    "description": "Shown when every preset was removed; the menu then offers only the date picker."
+  },
+  "presetsFull": {
+    "message": "Đã đủ 5. Xóa một mục để thêm mục khác.",
+    "description": "Shown when five reminder times are saved."
+  },
+  "presetsInvalid": {
+    "message": "Chọn thời gian từ 1 phút đến 1 năm.",
+    "description": "Shown for an out-of-range reminder time."
+  },
+  "presetsDuplicate": {
+    "message": "Thời điểm đó đã có trong danh sách.",
+    "description": "Shown when adding a reminder time that exists."
+  },
+  "paletteShortcutHelp": {
+    "message": "Tìm chat, thư mục và thao tác",
+    "description": "Help text for the command palette shortcut row."
+  },
+  "whatsappSearchShortcut": {
+    "message": "Tìm kiếm WhatsApp",
+    "description": "Shortcut row: WhatsApp's own extended search."
+  },
+  "whatsappSearchShortcutHelp": {
+    "message": "Cmd/Ctrl+K của WhatsApp, nay dùng cùng Shift",
+    "description": "Help text: WhatsApp's search shortcut now needs Shift."
+  },
+  "releaseNotes": {
+    "message": "Ghi chú phát hành",
+    "description": "Settings row and dialog title listing what changed in each version."
+  },
+  "releaseNotesAction": {
+    "message": "Xem",
+    "description": "Button that opens the release notes."
+  },
+  "releaseNotesInstalled": {
+    "message": "Đã cài đặt",
+    "description": "Tag next to the installed version in the release notes."
+  },
+  "restoreSettings": {
+    "message": "Khôi phục cài đặt trước đó",
+    "description": "Settings row offering to undo the last reset."
+  },
+  "restoreAction": {
+    "message": "Khôi phục",
+    "description": "Button that restores the settings saved before the last reset."
+  },
+  "resetBackupNote": {
+    "message": "Cài đặt hiện tại của bạn được giữ lại, nên bạn có thể khôi phục chỉ với một lần nhấp.",
+    "description": "Line in the reset confirmation dialog."
+  },
+  "presetRemoveAria": {
+    "message": "Xóa $LABEL$",
+    "description": "Accessible name of the button removing a reminder time.",
+    "placeholders": {
+      "label": {
+        "content": "$1",
+        "example": "In 3 minutes"
+      }
+    }
+  },
+  "releaseNotesHelp": {
+    "message": "Phiên bản $VERSION$ · thay đổi trong từng bản cập nhật",
+    "description": "Help text under the release notes row.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.5.0"
+      }
+    }
+  },
+  "restoreHelp": {
+    "message": "Đã lưu trước khi đặt lại vào $WHEN$",
+    "description": "Help text under the restore row with the date of the reset.",
+    "placeholders": {
+      "when": {
+        "content": "$1",
+        "example": "23 Nov 2026, 14:05"
+      }
+    }
+  },
+  "whatsNew_1_5_0": {
+    "message": "Thời điểm Nhắc tôi do bạn đặt: thêm các mốc như 3 phút hoặc 3 ngày trong cài đặt, tối đa năm mốc.\nLời nhắc đến hạn giờ hiện thẻ trên WhatsApp, và thông báo hệ thống ở lại trên màn hình cùng nút Mở cuộc trò chuyện và Hoãn.\nGửi thông báo thử từ cài đặt để kiểm tra cảnh báo có đến được với bạn.\nBảng lệnh nay nằm trong Phím tắt; các phím được liệt kê ở đó.\nGhi chú phát hành của mọi phiên bản nằm trong Cài đặt.\nĐặt lại vẫn giữ bản sao lưu cài đặt, để bạn khôi phục chỉ với một lần nhấp.",
+    "description": "Release notes for 1.5.0, one note per line."
   }
 }

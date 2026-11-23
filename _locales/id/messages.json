@@ -598,12 +598,6 @@
   "chatNotFound": {
     "message": "Chat ini tidak ditemukan. Mungkin namanya sudah diubah."
   },
-  "remindIn1h": {
-    "message": "Dalam 1 jam"
-  },
-  "remindIn3h": {
-    "message": "Dalam 3 jam"
-  },
   "remindTomorrow": {
     "message": "Besok"
   },
@@ -697,9 +691,6 @@
   "paletteSetting": {
     "message": "Palet perintah"
   },
-  "paletteSettingHelp": {
-    "message": "Cmd/Ctrl+K membuka palet Refined; tambah Shift untuk pencarian WhatsApp"
-  },
   "mentionsSetting": {
     "message": "Ringkasan sebutan"
   },
@@ -714,5 +705,187 @@
   },
   "mentionsEmpty": {
     "message": "Tidak ada sebutan yang belum dibaca"
+  },
+  "reminderOpenChat": {
+    "message": "Buka chat",
+    "description": "Button on a due-reminder alert (system notification and in-page card) that opens the chat."
+  },
+  "reminderSnooze1h": {
+    "message": "Tunda 1 jam",
+    "description": "Button on a due-reminder alert that pushes the reminder back by one hour."
+  },
+  "testNotificationBody": {
+    "message": "Notifikasi dari Refined berfungsi.",
+    "description": "Body of the test notification sent from settings."
+  },
+  "testNotification": {
+    "message": "Uji notifikasi",
+    "description": "Settings row title for sending a test notification."
+  },
+  "testNotificationHelp": {
+    "message": "Kirim satu sekarang untuk memastikan peringatan sampai ke layar Anda",
+    "description": "Help text under the test-notification row."
+  },
+  "testNotificationAction": {
+    "message": "Kirim uji",
+    "description": "Button that sends a test notification."
+  },
+  "testNotificationSending": {
+    "message": "Mengirim…",
+    "description": "Status while the test notification is being sent."
+  },
+  "testNotificationSent": {
+    "message": "Terkirim.",
+    "description": "Status after the test notification was sent; followed by a hint on where to allow notifications."
+  },
+  "testNotificationHintMac": {
+    "message": "Tidak muncul? Buka Pengaturan Sistem → Notifikasi, pilih browser Anda, lalu aktifkan Izinkan notifikasi.",
+    "description": "macOS hint when a sent test notification did not appear."
+  },
+  "testNotificationHintWindows": {
+    "message": "Tidak muncul? Buka Pengaturan → Sistem → Notifikasi dan aktifkan untuk browser Anda.",
+    "description": "Windows hint when a sent test notification did not appear."
+  },
+  "testNotificationHintOther": {
+    "message": "Tidak muncul? Izinkan notifikasi untuk browser Anda di pengaturan sistem.",
+    "description": "Hint on other systems when a sent test notification did not appear."
+  },
+  "testNotificationChrome": {
+    "message": "Browser Anda memblokir notifikasi Refined. Izinkan di pengaturan notifikasinya.",
+    "description": "Error when the browser itself denies notifications to the extension."
+  },
+  "testNotificationPermission": {
+    "message": "Aktifkan notifikasi pengingat terlebih dahulu.",
+    "description": "Error when the notification permission is not granted."
+  },
+  "testNotificationFailed": {
+    "message": "Notifikasi tidak dapat dikirim. Coba lagi setelah memulai ulang browser.",
+    "description": "Generic error for the test notification."
+  },
+  "presetsSetting": {
+    "message": "Waktu pengingat",
+    "description": "Settings block title: the times offered by the Remind me menu."
+  },
+  "presetsSettingHelp": {
+    "message": "Maksimal 5 tampil di menu Ingatkan saya. Hapus satu untuk memberi ruang.",
+    "description": "Help text for the reminder-times block."
+  },
+  "presetAmountAria": {
+    "message": "Jumlah",
+    "description": "Accessible name of the number field for a new reminder time."
+  },
+  "presetUnitAria": {
+    "message": "Satuan",
+    "description": "Accessible name of the unit picker for a new reminder time."
+  },
+  "presetMinutes": {
+    "message": "menit",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetHours": {
+    "message": "jam",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetDays": {
+    "message": "hari",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetWeeks": {
+    "message": "minggu",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetTomorrow": {
+    "message": "Besok 9:00",
+    "description": "Option for a reminder time of 09:00 the next day."
+  },
+  "presetAdd": {
+    "message": "Tambah",
+    "description": "Button that adds a reminder time."
+  },
+  "presetsEmpty": {
+    "message": "Hanya tanggal dan waktu khusus",
+    "description": "Shown when every preset was removed; the menu then offers only the date picker."
+  },
+  "presetsFull": {
+    "message": "Sudah 5. Hapus satu untuk menambah yang lain.",
+    "description": "Shown when five reminder times are saved."
+  },
+  "presetsInvalid": {
+    "message": "Pilih waktu antara 1 menit dan 1 tahun.",
+    "description": "Shown for an out-of-range reminder time."
+  },
+  "presetsDuplicate": {
+    "message": "Waktu itu sudah ada di daftar.",
+    "description": "Shown when adding a reminder time that exists."
+  },
+  "paletteShortcutHelp": {
+    "message": "Cari chat, folder, dan aksi",
+    "description": "Help text for the command palette shortcut row."
+  },
+  "whatsappSearchShortcut": {
+    "message": "Pencarian WhatsApp",
+    "description": "Shortcut row: WhatsApp's own extended search."
+  },
+  "whatsappSearchShortcutHelp": {
+    "message": "Cmd/Ctrl+K milik WhatsApp, kini dengan Shift",
+    "description": "Help text: WhatsApp's search shortcut now needs Shift."
+  },
+  "releaseNotes": {
+    "message": "Catatan rilis",
+    "description": "Settings row and dialog title listing what changed in each version."
+  },
+  "releaseNotesAction": {
+    "message": "Lihat",
+    "description": "Button that opens the release notes."
+  },
+  "releaseNotesInstalled": {
+    "message": "Terpasang",
+    "description": "Tag next to the installed version in the release notes."
+  },
+  "restoreSettings": {
+    "message": "Pulihkan pengaturan sebelumnya",
+    "description": "Settings row offering to undo the last reset."
+  },
+  "restoreAction": {
+    "message": "Pulihkan",
+    "description": "Button that restores the settings saved before the last reset."
+  },
+  "resetBackupNote": {
+    "message": "Pengaturan Anda saat ini disimpan, sehingga bisa dipulihkan dengan satu klik.",
+    "description": "Line in the reset confirmation dialog."
+  },
+  "presetRemoveAria": {
+    "message": "Hapus $LABEL$",
+    "description": "Accessible name of the button removing a reminder time.",
+    "placeholders": {
+      "label": {
+        "content": "$1",
+        "example": "In 3 minutes"
+      }
+    }
+  },
+  "releaseNotesHelp": {
+    "message": "Versi $VERSION$ · perubahan di setiap pembaruan",
+    "description": "Help text under the release notes row.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.5.0"
+      }
+    }
+  },
+  "restoreHelp": {
+    "message": "Disimpan sebelum penyetelan ulang pada $WHEN$",
+    "description": "Help text under the restore row with the date of the reset.",
+    "placeholders": {
+      "when": {
+        "content": "$1",
+        "example": "23 Nov 2026, 14:05"
+      }
+    }
+  },
+  "whatsNew_1_5_0": {
+    "message": "Waktu Ingatkan saya kini Anda tentukan sendiri: tambahkan seperti 3 menit atau 3 hari di pengaturan, hingga lima.\nPengingat yang jatuh tempo kini menampilkan kartu di WhatsApp, dan notifikasi sistem tetap di layar dengan tombol Buka chat dan Tunda.\nKirim notifikasi uji dari pengaturan untuk memastikan peringatan sampai kepada Anda.\nPalet perintah kini ada di Pintasan; tombolnya tercantum di sana.\nCatatan rilis setiap versi ada di Pengaturan.\nSetel ulang menyimpan cadangan pengaturan Anda, sehingga bisa dipulihkan dengan satu klik.",
+    "description": "Release notes for 1.5.0, one note per line."
   }
 }

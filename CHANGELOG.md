@@ -6,6 +6,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.0] — 2026-11-23
+
+### Added
+
+- **Your own reminder times.** Settings → Tools → Reminder times lists the
+  times *Remind me* offers. Add any number of minutes, hours, days or weeks
+  (up to a year), or Tomorrow 9:00, and remove any of them, the defaults
+  included. Up to five are kept; labels come from `Intl.RelativeTimeFormat`,
+  so a custom time reads naturally in every language.
+- **Due reminders on the page.** A reminder that comes due while WhatsApp is
+  open shows a card with Open chat, Snooze 1 hour and Done. It does not
+  depend on system notifications.
+- **Test notifications.** With Reminder notifications on, a Send test button
+  checks the whole path and, when nothing shows, says where the operating
+  system hides notifications (macOS: System Settings → Notifications).
+- **Release notes in settings.** Settings → Release notes lists what changed
+  in every version.
+- **Restore after reset.** Reset keeps the settings it replaced; a Restore
+  row brings them back in one click. Resetting settings that already match
+  the defaults keeps the earlier backup.
+
+### Changed
+
+- System notifications for reminders stay on screen until acted on and carry
+  Open chat and Snooze 1 hour buttons. Reminders that fell due while Chrome
+  was closed alert once when it starts again; each reminder alerts once.
+- The command palette is part of Refined shortcuts: the separate switch is
+  gone, and the Shortcuts tab lists Cmd/Ctrl+K and Shift+Cmd/Ctrl+K for
+  WhatsApp's own search.
+
 ## [1.4.0] — 2026-11-23
 
 ### Added

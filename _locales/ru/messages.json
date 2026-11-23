@@ -598,12 +598,6 @@
   "chatNotFound": {
     "message": "Чат не найден. Возможно, его переименовали."
   },
-  "remindIn1h": {
-    "message": "Через 1 час"
-  },
-  "remindIn3h": {
-    "message": "Через 3 часа"
-  },
   "remindTomorrow": {
     "message": "Завтра"
   },
@@ -697,9 +691,6 @@
   "paletteSetting": {
     "message": "Палитра команд"
   },
-  "paletteSettingHelp": {
-    "message": "Cmd/Ctrl+K открывает палитру Refined; с Shift — поиск WhatsApp"
-  },
   "mentionsSetting": {
     "message": "Сводка упоминаний"
   },
@@ -714,5 +705,187 @@
   },
   "mentionsEmpty": {
     "message": "Непрочитанных упоминаний нет"
+  },
+  "reminderOpenChat": {
+    "message": "Открыть чат",
+    "description": "Button on a due-reminder alert (system notification and in-page card) that opens the chat."
+  },
+  "reminderSnooze1h": {
+    "message": "Отложить на 1 час",
+    "description": "Button on a due-reminder alert that pushes the reminder back by one hour."
+  },
+  "testNotificationBody": {
+    "message": "Уведомления Refined работают.",
+    "description": "Body of the test notification sent from settings."
+  },
+  "testNotification": {
+    "message": "Проверить уведомления",
+    "description": "Settings row title for sending a test notification."
+  },
+  "testNotificationHelp": {
+    "message": "Отправьте одно сейчас, чтобы убедиться, что оповещения доходят до экрана",
+    "description": "Help text under the test-notification row."
+  },
+  "testNotificationAction": {
+    "message": "Отправить тест",
+    "description": "Button that sends a test notification."
+  },
+  "testNotificationSending": {
+    "message": "Отправка…",
+    "description": "Status while the test notification is being sent."
+  },
+  "testNotificationSent": {
+    "message": "Отправлено.",
+    "description": "Status after the test notification was sent; followed by a hint on where to allow notifications."
+  },
+  "testNotificationHintMac": {
+    "message": "Ничего не появилось? Откройте Системные настройки → Уведомления, выберите браузер и включите «Допуск уведомлений».",
+    "description": "macOS hint when a sent test notification did not appear."
+  },
+  "testNotificationHintWindows": {
+    "message": "Ничего не появилось? Откройте Параметры → Система → Уведомления и включите их для браузера.",
+    "description": "Windows hint when a sent test notification did not appear."
+  },
+  "testNotificationHintOther": {
+    "message": "Ничего не появилось? Разрешите уведомления для браузера в настройках системы.",
+    "description": "Hint on other systems when a sent test notification did not appear."
+  },
+  "testNotificationChrome": {
+    "message": "Браузер блокирует уведомления Refined. Разрешите их в его настройках уведомлений.",
+    "description": "Error when the browser itself denies notifications to the extension."
+  },
+  "testNotificationPermission": {
+    "message": "Сначала включите уведомления о напоминаниях.",
+    "description": "Error when the notification permission is not granted."
+  },
+  "testNotificationFailed": {
+    "message": "Не удалось отправить уведомление. Повторите попытку после перезапуска браузера.",
+    "description": "Generic error for the test notification."
+  },
+  "presetsSetting": {
+    "message": "Время напоминаний",
+    "description": "Settings block title: the times offered by the Remind me menu."
+  },
+  "presetsSettingHelp": {
+    "message": "В меню «Напомнить» показывается до 5. Удалите одно, чтобы освободить место.",
+    "description": "Help text for the reminder-times block."
+  },
+  "presetAmountAria": {
+    "message": "Количество",
+    "description": "Accessible name of the number field for a new reminder time."
+  },
+  "presetUnitAria": {
+    "message": "Единица",
+    "description": "Accessible name of the unit picker for a new reminder time."
+  },
+  "presetMinutes": {
+    "message": "минут",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetHours": {
+    "message": "часов",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetDays": {
+    "message": "дней",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetWeeks": {
+    "message": "недель",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetTomorrow": {
+    "message": "Завтра 9:00",
+    "description": "Option for a reminder time of 09:00 the next day."
+  },
+  "presetAdd": {
+    "message": "Добавить",
+    "description": "Button that adds a reminder time."
+  },
+  "presetsEmpty": {
+    "message": "Только своя дата и время",
+    "description": "Shown when every preset was removed; the menu then offers only the date picker."
+  },
+  "presetsFull": {
+    "message": "Уже 5. Удалите одно, чтобы добавить другое.",
+    "description": "Shown when five reminder times are saved."
+  },
+  "presetsInvalid": {
+    "message": "Выберите время от 1 минуты до 1 года.",
+    "description": "Shown for an out-of-range reminder time."
+  },
+  "presetsDuplicate": {
+    "message": "Это время уже есть в списке.",
+    "description": "Shown when adding a reminder time that exists."
+  },
+  "paletteShortcutHelp": {
+    "message": "Поиск чатов, папок и действий",
+    "description": "Help text for the command palette shortcut row."
+  },
+  "whatsappSearchShortcut": {
+    "message": "Поиск WhatsApp",
+    "description": "Shortcut row: WhatsApp's own extended search."
+  },
+  "whatsappSearchShortcutHelp": {
+    "message": "Собственный Cmd/Ctrl+K WhatsApp, теперь с Shift",
+    "description": "Help text: WhatsApp's search shortcut now needs Shift."
+  },
+  "releaseNotes": {
+    "message": "Список изменений",
+    "description": "Settings row and dialog title listing what changed in each version."
+  },
+  "releaseNotesAction": {
+    "message": "Открыть",
+    "description": "Button that opens the release notes."
+  },
+  "releaseNotesInstalled": {
+    "message": "Установлена",
+    "description": "Tag next to the installed version in the release notes."
+  },
+  "restoreSettings": {
+    "message": "Вернуть прежние настройки",
+    "description": "Settings row offering to undo the last reset."
+  },
+  "restoreAction": {
+    "message": "Вернуть",
+    "description": "Button that restores the settings saved before the last reset."
+  },
+  "resetBackupNote": {
+    "message": "Текущие настройки сохраняются, так что их можно вернуть одним щелчком.",
+    "description": "Line in the reset confirmation dialog."
+  },
+  "presetRemoveAria": {
+    "message": "Удалить: $LABEL$",
+    "description": "Accessible name of the button removing a reminder time.",
+    "placeholders": {
+      "label": {
+        "content": "$1",
+        "example": "In 3 minutes"
+      }
+    }
+  },
+  "releaseNotesHelp": {
+    "message": "Версия $VERSION$ · что менялось в каждом обновлении",
+    "description": "Help text under the release notes row.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.5.0"
+      }
+    }
+  },
+  "restoreHelp": {
+    "message": "Сохранено перед сбросом $WHEN$",
+    "description": "Help text under the restore row with the date of the reset.",
+    "placeholders": {
+      "when": {
+        "content": "$1",
+        "example": "23 Nov 2026, 14:05"
+      }
+    }
+  },
+  "whatsNew_1_5_0": {
+    "message": "Время в меню «Напомнить» задаёте вы: добавьте в настройках, например, 3 минуты или 3 дня, до пяти.\nСработавшее напоминание теперь показывает карточку в WhatsApp, а системные уведомления остаются на экране с кнопками «Открыть чат» и «Отложить».\nОтправьте тестовое уведомление из настроек, чтобы проверить, что оповещения до вас доходят.\nПалитра команд теперь в разделе «Клавиши»; там же указаны её сочетания.\nСписок изменений для каждой версии есть в настройках.\nСброс сохраняет копию ваших настроек, и их можно вернуть одним щелчком.",
+    "description": "Release notes for 1.5.0, one note per line."
   }
 }

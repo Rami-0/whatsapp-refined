@@ -598,12 +598,6 @@
   "chatNotFound": {
     "message": "تعذّر العثور على هذه المحادثة. ربما تغيّر اسمها."
   },
-  "remindIn1h": {
-    "message": "بعد ساعة"
-  },
-  "remindIn3h": {
-    "message": "بعد 3 ساعات"
-  },
   "remindTomorrow": {
     "message": "غدًا"
   },
@@ -697,9 +691,6 @@
   "paletteSetting": {
     "message": "لوحة الأوامر"
   },
-  "paletteSettingHelp": {
-    "message": "Cmd/Ctrl+K يفتح لوحة Refined؛ أضف Shift لبحث واتساب"
-  },
   "mentionsSetting": {
     "message": "ملخص الإشارات"
   },
@@ -714,5 +705,187 @@
   },
   "mentionsEmpty": {
     "message": "لا توجد إشارات غير مقروءة"
+  },
+  "reminderOpenChat": {
+    "message": "فتح المحادثة",
+    "description": "Button on a due-reminder alert (system notification and in-page card) that opens the chat."
+  },
+  "reminderSnooze1h": {
+    "message": "تأجيل ساعة",
+    "description": "Button on a due-reminder alert that pushes the reminder back by one hour."
+  },
+  "testNotificationBody": {
+    "message": "إشعارات Refined تعمل.",
+    "description": "Body of the test notification sent from settings."
+  },
+  "testNotification": {
+    "message": "اختبار الإشعارات",
+    "description": "Settings row title for sending a test notification."
+  },
+  "testNotificationHelp": {
+    "message": "أرسل إشعارًا الآن للتأكد من وصول التنبيهات إلى شاشتك",
+    "description": "Help text under the test-notification row."
+  },
+  "testNotificationAction": {
+    "message": "إرسال اختبار",
+    "description": "Button that sends a test notification."
+  },
+  "testNotificationSending": {
+    "message": "جارٍ الإرسال…",
+    "description": "Status while the test notification is being sent."
+  },
+  "testNotificationSent": {
+    "message": "تم الإرسال.",
+    "description": "Status after the test notification was sent; followed by a hint on where to allow notifications."
+  },
+  "testNotificationHintMac": {
+    "message": "لم يظهر شيء؟ افتح إعدادات النظام ← الإشعارات، واختر متصفحك وفعّل السماح بالإشعارات.",
+    "description": "macOS hint when a sent test notification did not appear."
+  },
+  "testNotificationHintWindows": {
+    "message": "لم يظهر شيء؟ افتح الإعدادات ← النظام ← الإشعارات وفعّلها لمتصفحك.",
+    "description": "Windows hint when a sent test notification did not appear."
+  },
+  "testNotificationHintOther": {
+    "message": "لم يظهر شيء؟ اسمح بإشعارات متصفحك من إعدادات النظام.",
+    "description": "Hint on other systems when a sent test notification did not appear."
+  },
+  "testNotificationChrome": {
+    "message": "متصفحك يحظر إشعارات Refined. اسمح بها من إعدادات الإشعارات فيه.",
+    "description": "Error when the browser itself denies notifications to the extension."
+  },
+  "testNotificationPermission": {
+    "message": "فعّل إشعارات التذكير أولًا.",
+    "description": "Error when the notification permission is not granted."
+  },
+  "testNotificationFailed": {
+    "message": "تعذّر إرسال الإشعار. جرّب مجددًا بعد إعادة تشغيل المتصفح.",
+    "description": "Generic error for the test notification."
+  },
+  "presetsSetting": {
+    "message": "أوقات التذكير",
+    "description": "Settings block title: the times offered by the Remind me menu."
+  },
+  "presetsSettingHelp": {
+    "message": "يظهر حتى 5 منها في قائمة «ذكّرني». احذف واحدًا لإفساح المجال.",
+    "description": "Help text for the reminder-times block."
+  },
+  "presetAmountAria": {
+    "message": "الكمية",
+    "description": "Accessible name of the number field for a new reminder time."
+  },
+  "presetUnitAria": {
+    "message": "الوحدة",
+    "description": "Accessible name of the unit picker for a new reminder time."
+  },
+  "presetMinutes": {
+    "message": "دقائق",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetHours": {
+    "message": "ساعات",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetDays": {
+    "message": "أيام",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetWeeks": {
+    "message": "أسابيع",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetTomorrow": {
+    "message": "غدًا 9:00",
+    "description": "Option for a reminder time of 09:00 the next day."
+  },
+  "presetAdd": {
+    "message": "إضافة",
+    "description": "Button that adds a reminder time."
+  },
+  "presetsEmpty": {
+    "message": "تاريخ ووقت مخصصان فقط",
+    "description": "Shown when every preset was removed; the menu then offers only the date picker."
+  },
+  "presetsFull": {
+    "message": "وصلت إلى 5. احذف واحدًا لإضافة آخر.",
+    "description": "Shown when five reminder times are saved."
+  },
+  "presetsInvalid": {
+    "message": "اختر وقتًا بين دقيقة واحدة وسنة.",
+    "description": "Shown for an out-of-range reminder time."
+  },
+  "presetsDuplicate": {
+    "message": "هذا الوقت موجود في القائمة.",
+    "description": "Shown when adding a reminder time that exists."
+  },
+  "paletteShortcutHelp": {
+    "message": "ابحث عن المحادثات والمجلدات والإجراءات",
+    "description": "Help text for the command palette shortcut row."
+  },
+  "whatsappSearchShortcut": {
+    "message": "بحث واتساب",
+    "description": "Shortcut row: WhatsApp's own extended search."
+  },
+  "whatsappSearchShortcutHelp": {
+    "message": "اختصار Cmd/Ctrl+K الخاص بواتساب، صار مع Shift",
+    "description": "Help text: WhatsApp's search shortcut now needs Shift."
+  },
+  "releaseNotes": {
+    "message": "ملاحظات الإصدار",
+    "description": "Settings row and dialog title listing what changed in each version."
+  },
+  "releaseNotesAction": {
+    "message": "عرض",
+    "description": "Button that opens the release notes."
+  },
+  "releaseNotesInstalled": {
+    "message": "مثبّت",
+    "description": "Tag next to the installed version in the release notes."
+  },
+  "restoreSettings": {
+    "message": "استعادة الإعدادات السابقة",
+    "description": "Settings row offering to undo the last reset."
+  },
+  "restoreAction": {
+    "message": "استعادة",
+    "description": "Button that restores the settings saved before the last reset."
+  },
+  "resetBackupNote": {
+    "message": "نحتفظ بإعداداتك الحالية، فيمكنك استعادتها بنقرة واحدة.",
+    "description": "Line in the reset confirmation dialog."
+  },
+  "presetRemoveAria": {
+    "message": "إزالة $LABEL$",
+    "description": "Accessible name of the button removing a reminder time.",
+    "placeholders": {
+      "label": {
+        "content": "$1",
+        "example": "In 3 minutes"
+      }
+    }
+  },
+  "releaseNotesHelp": {
+    "message": "الإصدار $VERSION$ · ما تغيّر في كل تحديث",
+    "description": "Help text under the release notes row.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.5.0"
+      }
+    }
+  },
+  "restoreHelp": {
+    "message": "حُفظت قبل إعادة التعيين في $WHEN$",
+    "description": "Help text under the restore row with the date of the reset.",
+    "placeholders": {
+      "when": {
+        "content": "$1",
+        "example": "23 Nov 2026, 14:05"
+      }
+    }
+  },
+  "whatsNew_1_5_0": {
+    "message": "أوقات «ذكّرني» بيدك الآن: أضف أوقاتًا مثل 3 دقائق أو 3 أيام من الإعدادات، وبحد أقصى خمسة.\nعند حلول موعد تذكير تظهر بطاقة في واتساب، وتبقى إشعارات النظام على الشاشة مع زرّي «فتح المحادثة» و«تأجيل».\nأرسل إشعارًا تجريبيًا من الإعدادات للتأكد من وصول التنبيهات إليك.\nلوحة الأوامر الآن ضمن الاختصارات، وتجد مفاتيحها هناك.\nملاحظات كل إصدار متاحة في الإعدادات.\nإعادة التعيين تحتفظ بنسخة من إعداداتك، فيمكنك استعادتها بنقرة واحدة.",
+    "description": "Release notes for 1.5.0, one note per line."
   }
 }

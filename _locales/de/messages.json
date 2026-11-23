@@ -598,12 +598,6 @@
   "chatNotFound": {
     "message": "Dieser Chat wurde nicht gefunden. Vielleicht wurde er umbenannt."
   },
-  "remindIn1h": {
-    "message": "In 1 Stunde"
-  },
-  "remindIn3h": {
-    "message": "In 3 Stunden"
-  },
   "remindTomorrow": {
     "message": "Morgen"
   },
@@ -697,9 +691,6 @@
   "paletteSetting": {
     "message": "Befehlspalette"
   },
-  "paletteSettingHelp": {
-    "message": "Cmd/Strg+K öffnet Refineds Palette; mit Shift die WhatsApp-Suche"
-  },
   "mentionsSetting": {
     "message": "Erwähnungs-Übersicht"
   },
@@ -714,5 +705,187 @@
   },
   "mentionsEmpty": {
     "message": "Keine ungelesenen Erwähnungen"
+  },
+  "reminderOpenChat": {
+    "message": "Chat öffnen",
+    "description": "Button on a due-reminder alert (system notification and in-page card) that opens the chat."
+  },
+  "reminderSnooze1h": {
+    "message": "1 Std. später",
+    "description": "Button on a due-reminder alert that pushes the reminder back by one hour."
+  },
+  "testNotificationBody": {
+    "message": "Benachrichtigungen von Refined funktionieren.",
+    "description": "Body of the test notification sent from settings."
+  },
+  "testNotification": {
+    "message": "Benachrichtigungen testen",
+    "description": "Settings row title for sending a test notification."
+  },
+  "testNotificationHelp": {
+    "message": "Sende jetzt eine, um zu prüfen, ob Hinweise auf deinem Bildschirm ankommen",
+    "description": "Help text under the test-notification row."
+  },
+  "testNotificationAction": {
+    "message": "Test senden",
+    "description": "Button that sends a test notification."
+  },
+  "testNotificationSending": {
+    "message": "Wird gesendet…",
+    "description": "Status while the test notification is being sent."
+  },
+  "testNotificationSent": {
+    "message": "Gesendet.",
+    "description": "Status after the test notification was sent; followed by a hint on where to allow notifications."
+  },
+  "testNotificationHintMac": {
+    "message": "Nichts erschienen? Öffne Systemeinstellungen → Mitteilungen, wähle deinen Browser und aktiviere „Mitteilungen erlauben“.",
+    "description": "macOS hint when a sent test notification did not appear."
+  },
+  "testNotificationHintWindows": {
+    "message": "Nichts erschienen? Öffne Einstellungen → System → Benachrichtigungen und aktiviere sie für deinen Browser.",
+    "description": "Windows hint when a sent test notification did not appear."
+  },
+  "testNotificationHintOther": {
+    "message": "Nichts erschienen? Erlaube Benachrichtigungen für deinen Browser in den Systemeinstellungen.",
+    "description": "Hint on other systems when a sent test notification did not appear."
+  },
+  "testNotificationChrome": {
+    "message": "Dein Browser blockiert die Benachrichtigungen von Refined. Erlaube sie in den Benachrichtigungseinstellungen.",
+    "description": "Error when the browser itself denies notifications to the extension."
+  },
+  "testNotificationPermission": {
+    "message": "Aktiviere zuerst die Erinnerungs-Benachrichtigungen.",
+    "description": "Error when the notification permission is not granted."
+  },
+  "testNotificationFailed": {
+    "message": "Die Benachrichtigung konnte nicht gesendet werden. Versuche es nach einem Neustart des Browsers erneut.",
+    "description": "Generic error for the test notification."
+  },
+  "presetsSetting": {
+    "message": "Erinnerungszeiten",
+    "description": "Settings block title: the times offered by the Remind me menu."
+  },
+  "presetsSettingHelp": {
+    "message": "Bis zu 5 erscheinen im Menü „Erinnern“. Entferne eine, um Platz zu schaffen.",
+    "description": "Help text for the reminder-times block."
+  },
+  "presetAmountAria": {
+    "message": "Anzahl",
+    "description": "Accessible name of the number field for a new reminder time."
+  },
+  "presetUnitAria": {
+    "message": "Einheit",
+    "description": "Accessible name of the unit picker for a new reminder time."
+  },
+  "presetMinutes": {
+    "message": "Minuten",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetHours": {
+    "message": "Stunden",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetDays": {
+    "message": "Tage",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetWeeks": {
+    "message": "Wochen",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetTomorrow": {
+    "message": "Morgen 9:00",
+    "description": "Option for a reminder time of 09:00 the next day."
+  },
+  "presetAdd": {
+    "message": "Hinzufügen",
+    "description": "Button that adds a reminder time."
+  },
+  "presetsEmpty": {
+    "message": "Nur eigenes Datum und eigene Uhrzeit",
+    "description": "Shown when every preset was removed; the menu then offers only the date picker."
+  },
+  "presetsFull": {
+    "message": "Das sind 5. Entferne eine, um eine weitere hinzuzufügen.",
+    "description": "Shown when five reminder times are saved."
+  },
+  "presetsInvalid": {
+    "message": "Wähle eine Zeit zwischen 1 Minute und 1 Jahr.",
+    "description": "Shown for an out-of-range reminder time."
+  },
+  "presetsDuplicate": {
+    "message": "Diese Zeit steht schon in der Liste.",
+    "description": "Shown when adding a reminder time that exists."
+  },
+  "paletteShortcutHelp": {
+    "message": "Chats, Ordner und Aktionen finden",
+    "description": "Help text for the command palette shortcut row."
+  },
+  "whatsappSearchShortcut": {
+    "message": "WhatsApp-Suche",
+    "description": "Shortcut row: WhatsApp's own extended search."
+  },
+  "whatsappSearchShortcutHelp": {
+    "message": "WhatsApps eigenes Cmd/Strg+K, jetzt mit Shift",
+    "description": "Help text: WhatsApp's search shortcut now needs Shift."
+  },
+  "releaseNotes": {
+    "message": "Versionshinweise",
+    "description": "Settings row and dialog title listing what changed in each version."
+  },
+  "releaseNotesAction": {
+    "message": "Ansehen",
+    "description": "Button that opens the release notes."
+  },
+  "releaseNotesInstalled": {
+    "message": "Installiert",
+    "description": "Tag next to the installed version in the release notes."
+  },
+  "restoreSettings": {
+    "message": "Vorherige Einstellungen wiederherstellen",
+    "description": "Settings row offering to undo the last reset."
+  },
+  "restoreAction": {
+    "message": "Wiederherstellen",
+    "description": "Button that restores the settings saved before the last reset."
+  },
+  "resetBackupNote": {
+    "message": "Deine aktuellen Einstellungen bleiben erhalten, du kannst sie mit einem Klick wiederherstellen.",
+    "description": "Line in the reset confirmation dialog."
+  },
+  "presetRemoveAria": {
+    "message": "$LABEL$ entfernen",
+    "description": "Accessible name of the button removing a reminder time.",
+    "placeholders": {
+      "label": {
+        "content": "$1",
+        "example": "In 3 minutes"
+      }
+    }
+  },
+  "releaseNotesHelp": {
+    "message": "Version $VERSION$ · was sich mit jedem Update geändert hat",
+    "description": "Help text under the release notes row.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.5.0"
+      }
+    }
+  },
+  "restoreHelp": {
+    "message": "Gesichert vor dem Zurücksetzen am $WHEN$",
+    "description": "Help text under the restore row with the date of the reset.",
+    "placeholders": {
+      "when": {
+        "content": "$1",
+        "example": "23 Nov 2026, 14:05"
+      }
+    }
+  },
+  "whatsNew_1_5_0": {
+    "message": "Die Zeiten bei „Erinnern“ legst du selbst fest: Füge in den Einstellungen z. B. 3 Minuten oder 3 Tage hinzu, bis zu fünf.\nEine fällige Erinnerung zeigt jetzt eine Karte in WhatsApp, und Systembenachrichtigungen bleiben mit „Chat öffnen“ und „Später“ auf dem Bildschirm.\nSende in den Einstellungen eine Testbenachrichtigung, um zu prüfen, ob Hinweise bei dir ankommen.\nDie Befehlspalette gehört jetzt zu den Tastenkürzeln; dort stehen ihre Tasten.\nDie Versionshinweise aller Versionen findest du in den Einstellungen.\nBeim Zurücksetzen wird eine Sicherung deiner Einstellungen behalten, die du mit einem Klick wiederherstellen kannst.",
+    "description": "Release notes for 1.5.0, one note per line."
   }
 }

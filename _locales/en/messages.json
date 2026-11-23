@@ -619,14 +619,6 @@
     "message": "Couldn't find this chat. It may have been renamed.",
     "description": "Tooltip on a pinned chat that could not be found by name."
   },
-  "remindIn1h": {
-    "message": "In 1 hour",
-    "description": "Reminder preset."
-  },
-  "remindIn3h": {
-    "message": "In 3 hours",
-    "description": "Reminder preset."
-  },
   "remindTomorrow": {
     "message": "Tomorrow",
     "description": "Reminder preset: tomorrow at 09:00."
@@ -749,10 +741,6 @@
     "message": "Command palette",
     "description": "Setting title."
   },
-  "paletteSettingHelp": {
-    "message": "Cmd/Ctrl+K opens Refined's palette; add Shift for WhatsApp's search",
-    "description": "Setting help text."
-  },
   "mentionsSetting": {
     "message": "Mentions digest",
     "description": "Setting title."
@@ -772,5 +760,187 @@
   "mentionsEmpty": {
     "message": "No unread mentions",
     "description": "Shown in the Mentions section when no chat has an unread @mention."
+  },
+  "reminderOpenChat": {
+    "message": "Open chat",
+    "description": "Button on a due-reminder alert (system notification and in-page card) that opens the chat."
+  },
+  "reminderSnooze1h": {
+    "message": "Snooze 1 hour",
+    "description": "Button on a due-reminder alert that pushes the reminder back by one hour."
+  },
+  "testNotificationBody": {
+    "message": "Notifications from Refined work.",
+    "description": "Body of the test notification sent from settings."
+  },
+  "testNotification": {
+    "message": "Test notifications",
+    "description": "Settings row title for sending a test notification."
+  },
+  "testNotificationHelp": {
+    "message": "Send one now to check that alerts reach your screen",
+    "description": "Help text under the test-notification row."
+  },
+  "testNotificationAction": {
+    "message": "Send test",
+    "description": "Button that sends a test notification."
+  },
+  "testNotificationSending": {
+    "message": "Sending…",
+    "description": "Status while the test notification is being sent."
+  },
+  "testNotificationSent": {
+    "message": "Sent.",
+    "description": "Status after the test notification was sent; followed by a hint on where to allow notifications."
+  },
+  "testNotificationHintMac": {
+    "message": "Nothing showed up? Open System Settings → Notifications, pick your browser and turn on Allow notifications.",
+    "description": "macOS hint when a sent test notification did not appear."
+  },
+  "testNotificationHintWindows": {
+    "message": "Nothing showed up? Open Settings → System → Notifications and turn them on for your browser.",
+    "description": "Windows hint when a sent test notification did not appear."
+  },
+  "testNotificationHintOther": {
+    "message": "Nothing showed up? Allow notifications for your browser in your system settings.",
+    "description": "Hint on other systems when a sent test notification did not appear."
+  },
+  "testNotificationChrome": {
+    "message": "Your browser is blocking Refined's notifications. Allow them in its notification settings.",
+    "description": "Error when the browser itself denies notifications to the extension."
+  },
+  "testNotificationPermission": {
+    "message": "Turn on Reminder notifications first.",
+    "description": "Error when the notification permission is not granted."
+  },
+  "testNotificationFailed": {
+    "message": "The notification could not be sent. Try again after restarting the browser.",
+    "description": "Generic error for the test notification."
+  },
+  "presetsSetting": {
+    "message": "Reminder times",
+    "description": "Settings block title: the times offered by the Remind me menu."
+  },
+  "presetsSettingHelp": {
+    "message": "Up to 5 show in the Remind me menu. Remove one to make room.",
+    "description": "Help text for the reminder-times block."
+  },
+  "presetAmountAria": {
+    "message": "Amount",
+    "description": "Accessible name of the number field for a new reminder time."
+  },
+  "presetUnitAria": {
+    "message": "Unit",
+    "description": "Accessible name of the unit picker for a new reminder time."
+  },
+  "presetMinutes": {
+    "message": "minutes",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetHours": {
+    "message": "hours",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetDays": {
+    "message": "days",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetWeeks": {
+    "message": "weeks",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetTomorrow": {
+    "message": "Tomorrow 9:00",
+    "description": "Option for a reminder time of 09:00 the next day."
+  },
+  "presetAdd": {
+    "message": "Add",
+    "description": "Button that adds a reminder time."
+  },
+  "presetsEmpty": {
+    "message": "Only a custom date and time",
+    "description": "Shown when every preset was removed; the menu then offers only the date picker."
+  },
+  "presetsFull": {
+    "message": "That's 5. Remove one to add another.",
+    "description": "Shown when five reminder times are saved."
+  },
+  "presetsInvalid": {
+    "message": "Pick a time between 1 minute and 1 year.",
+    "description": "Shown for an out-of-range reminder time."
+  },
+  "presetsDuplicate": {
+    "message": "That time is already in the list.",
+    "description": "Shown when adding a reminder time that exists."
+  },
+  "paletteShortcutHelp": {
+    "message": "Find chats, folders and actions",
+    "description": "Help text for the command palette shortcut row."
+  },
+  "whatsappSearchShortcut": {
+    "message": "WhatsApp search",
+    "description": "Shortcut row: WhatsApp's own extended search."
+  },
+  "whatsappSearchShortcutHelp": {
+    "message": "WhatsApp’s own Cmd/Ctrl+K, moved to Shift",
+    "description": "Help text: WhatsApp's search shortcut now needs Shift."
+  },
+  "releaseNotes": {
+    "message": "Release notes",
+    "description": "Settings row and dialog title listing what changed in each version."
+  },
+  "releaseNotesAction": {
+    "message": "View",
+    "description": "Button that opens the release notes."
+  },
+  "releaseNotesInstalled": {
+    "message": "Installed",
+    "description": "Tag next to the installed version in the release notes."
+  },
+  "restoreSettings": {
+    "message": "Restore previous settings",
+    "description": "Settings row offering to undo the last reset."
+  },
+  "restoreAction": {
+    "message": "Restore",
+    "description": "Button that restores the settings saved before the last reset."
+  },
+  "resetBackupNote": {
+    "message": "Your current settings are kept, so you can restore them in one click.",
+    "description": "Line in the reset confirmation dialog."
+  },
+  "presetRemoveAria": {
+    "message": "Remove $LABEL$",
+    "description": "Accessible name of the button removing a reminder time.",
+    "placeholders": {
+      "label": {
+        "content": "$1",
+        "example": "In 3 minutes"
+      }
+    }
+  },
+  "releaseNotesHelp": {
+    "message": "Version $VERSION$ · what changed in each update",
+    "description": "Help text under the release notes row.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.5.0"
+      }
+    }
+  },
+  "restoreHelp": {
+    "message": "Saved before the reset on $WHEN$",
+    "description": "Help text under the restore row with the date of the reset.",
+    "placeholders": {
+      "when": {
+        "content": "$1",
+        "example": "23 Nov 2026, 14:05"
+      }
+    }
+  },
+  "whatsNew_1_5_0": {
+    "message": "Remind me times are yours to set: add ones like 3 minutes or 3 days in settings, and keep up to five.\nA due reminder now shows a card on WhatsApp, and system notifications stay on screen with Open chat and Snooze buttons.\nSend a test notification from settings to check that alerts reach you.\nThe command palette is part of Shortcuts now; its keys are listed there.\nRelease notes for every version are under Settings.\nReset keeps a backup of your settings, so you can restore them in one click.",
+    "description": "Release notes for 1.5.0, one note per line."
   }
 }

@@ -598,12 +598,6 @@
   "chatNotFound": {
     "message": "이 채팅을 찾을 수 없습니다. 이름이 바뀌었을 수 있습니다."
   },
-  "remindIn1h": {
-    "message": "1시간 후"
-  },
-  "remindIn3h": {
-    "message": "3시간 후"
-  },
   "remindTomorrow": {
     "message": "내일"
   },
@@ -697,9 +691,6 @@
   "paletteSetting": {
     "message": "명령 팔레트"
   },
-  "paletteSettingHelp": {
-    "message": "Cmd/Ctrl+K는 Refined 팔레트, Shift를 더하면 WhatsApp 검색"
-  },
   "mentionsSetting": {
     "message": "멘션 모음"
   },
@@ -714,5 +705,187 @@
   },
   "mentionsEmpty": {
     "message": "읽지 않은 멘션이 없습니다"
+  },
+  "reminderOpenChat": {
+    "message": "채팅 열기",
+    "description": "Button on a due-reminder alert (system notification and in-page card) that opens the chat."
+  },
+  "reminderSnooze1h": {
+    "message": "1시간 뒤로 미루기",
+    "description": "Button on a due-reminder alert that pushes the reminder back by one hour."
+  },
+  "testNotificationBody": {
+    "message": "Refined 알림이 정상적으로 작동합니다.",
+    "description": "Body of the test notification sent from settings."
+  },
+  "testNotification": {
+    "message": "알림 테스트",
+    "description": "Settings row title for sending a test notification."
+  },
+  "testNotificationHelp": {
+    "message": "지금 하나 보내서 알림이 화면에 표시되는지 확인하세요",
+    "description": "Help text under the test-notification row."
+  },
+  "testNotificationAction": {
+    "message": "테스트 보내기",
+    "description": "Button that sends a test notification."
+  },
+  "testNotificationSending": {
+    "message": "보내는 중…",
+    "description": "Status while the test notification is being sent."
+  },
+  "testNotificationSent": {
+    "message": "보냈습니다.",
+    "description": "Status after the test notification was sent; followed by a hint on where to allow notifications."
+  },
+  "testNotificationHintMac": {
+    "message": "아무것도 나타나지 않았나요? 시스템 설정 → 알림을 열고 사용 중인 브라우저를 선택한 뒤 알림 허용을 켜세요.",
+    "description": "macOS hint when a sent test notification did not appear."
+  },
+  "testNotificationHintWindows": {
+    "message": "아무것도 나타나지 않았나요? 설정 → 시스템 → 알림을 열고 사용 중인 브라우저의 알림을 켜세요.",
+    "description": "Windows hint when a sent test notification did not appear."
+  },
+  "testNotificationHintOther": {
+    "message": "아무것도 나타나지 않았나요? 시스템 설정에서 브라우저의 알림을 허용하세요.",
+    "description": "Hint on other systems when a sent test notification did not appear."
+  },
+  "testNotificationChrome": {
+    "message": "브라우저가 Refined 알림을 차단하고 있습니다. 브라우저의 알림 설정에서 허용하세요.",
+    "description": "Error when the browser itself denies notifications to the extension."
+  },
+  "testNotificationPermission": {
+    "message": "먼저 알림 표시를 켜세요.",
+    "description": "Error when the notification permission is not granted."
+  },
+  "testNotificationFailed": {
+    "message": "알림을 보내지 못했습니다. 브라우저를 다시 시작한 뒤 다시 시도하세요.",
+    "description": "Generic error for the test notification."
+  },
+  "presetsSetting": {
+    "message": "알림 시간",
+    "description": "Settings block title: the times offered by the Remind me menu."
+  },
+  "presetsSettingHelp": {
+    "message": "‘알림 설정’ 메뉴에 최대 5개까지 표시됩니다. 하나를 삭제해 자리를 만드세요.",
+    "description": "Help text for the reminder-times block."
+  },
+  "presetAmountAria": {
+    "message": "수량",
+    "description": "Accessible name of the number field for a new reminder time."
+  },
+  "presetUnitAria": {
+    "message": "단위",
+    "description": "Accessible name of the unit picker for a new reminder time."
+  },
+  "presetMinutes": {
+    "message": "분",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetHours": {
+    "message": "시간",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetDays": {
+    "message": "일",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetWeeks": {
+    "message": "주",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetTomorrow": {
+    "message": "내일 9:00",
+    "description": "Option for a reminder time of 09:00 the next day."
+  },
+  "presetAdd": {
+    "message": "추가",
+    "description": "Button that adds a reminder time."
+  },
+  "presetsEmpty": {
+    "message": "직접 지정한 날짜와 시간만",
+    "description": "Shown when every preset was removed; the menu then offers only the date picker."
+  },
+  "presetsFull": {
+    "message": "5개입니다. 다른 항목을 추가하려면 하나를 삭제하세요.",
+    "description": "Shown when five reminder times are saved."
+  },
+  "presetsInvalid": {
+    "message": "1분에서 1년 사이로 지정하세요.",
+    "description": "Shown for an out-of-range reminder time."
+  },
+  "presetsDuplicate": {
+    "message": "이미 목록에 있는 시간입니다.",
+    "description": "Shown when adding a reminder time that exists."
+  },
+  "paletteShortcutHelp": {
+    "message": "채팅, 폴더, 동작 찾기",
+    "description": "Help text for the command palette shortcut row."
+  },
+  "whatsappSearchShortcut": {
+    "message": "WhatsApp 검색",
+    "description": "Shortcut row: WhatsApp's own extended search."
+  },
+  "whatsappSearchShortcutHelp": {
+    "message": "WhatsApp 자체 Cmd/Ctrl+K는 이제 Shift와 함께 사용합니다",
+    "description": "Help text: WhatsApp's search shortcut now needs Shift."
+  },
+  "releaseNotes": {
+    "message": "릴리스 노트",
+    "description": "Settings row and dialog title listing what changed in each version."
+  },
+  "releaseNotesAction": {
+    "message": "보기",
+    "description": "Button that opens the release notes."
+  },
+  "releaseNotesInstalled": {
+    "message": "설치됨",
+    "description": "Tag next to the installed version in the release notes."
+  },
+  "restoreSettings": {
+    "message": "이전 설정 복원",
+    "description": "Settings row offering to undo the last reset."
+  },
+  "restoreAction": {
+    "message": "복원",
+    "description": "Button that restores the settings saved before the last reset."
+  },
+  "resetBackupNote": {
+    "message": "현재 설정이 보관되므로 한 번에 복원할 수 있습니다.",
+    "description": "Line in the reset confirmation dialog."
+  },
+  "presetRemoveAria": {
+    "message": "$LABEL$ 삭제",
+    "description": "Accessible name of the button removing a reminder time.",
+    "placeholders": {
+      "label": {
+        "content": "$1",
+        "example": "In 3 minutes"
+      }
+    }
+  },
+  "releaseNotesHelp": {
+    "message": "버전 $VERSION$ · 업데이트별 변경 사항",
+    "description": "Help text under the release notes row.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.5.0"
+      }
+    }
+  },
+  "restoreHelp": {
+    "message": "$WHEN$ 초기화 전에 저장됨",
+    "description": "Help text under the restore row with the date of the reset.",
+    "placeholders": {
+      "when": {
+        "content": "$1",
+        "example": "23 Nov 2026, 14:05"
+      }
+    }
+  },
+  "whatsNew_1_5_0": {
+    "message": "‘알림 설정’ 시간을 직접 정할 수 있습니다. 설정에서 3분, 3일 같은 시간을 최대 5개까지 추가하세요.\n알림 시간이 되면 WhatsApp에 카드가 표시되고, 시스템 알림은 채팅 열기와 다시 알림 버튼과 함께 화면에 남습니다.\n설정에서 테스트 알림을 보내 알림이 제대로 도착하는지 확인하세요.\n명령 팔레트가 단축키로 옮겨졌으며, 사용하는 키도 그곳에 나와 있습니다.\n모든 버전의 릴리스 노트는 설정에서 볼 수 있습니다.\n초기화해도 설정 백업이 남아 한 번에 복원할 수 있습니다.",
+    "description": "Release notes for 1.5.0, one note per line."
   }
 }

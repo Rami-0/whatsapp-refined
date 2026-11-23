@@ -14,7 +14,7 @@
     pinsEnabled: true,
     remindersEnabled: true,
     reminderNotifications: false,
-    paletteEnabled: true,
+    reminderPresets: Object.freeze([60, 180, "tomorrow"]),
     mentionsEnabled: true,
     privacyEnabled: false,
     blurPreviews: true,
@@ -30,6 +30,27 @@
 
   const LANGUAGES = Object.freeze(["auto", "ar", "de", "en", "es", "fr", "hi", "id", "it", "ja", "ko", "nl", "pl", "pt_BR", "pt_PT", "ru", "tr", "vi", "zh_CN", "zh_TW"]);
   const ENUMS = Object.freeze({ folderLayout: ["native", "sidebar"], language: LANGUAGES });
+
+  /* The times offered by "Remind me": minutes from now, or "tomorrow" (09:00
+     the next day). At most five, no repeats, nothing past a year. An empty
+     list is allowed: the menu then offers only the custom date. */
+  const MAX_REMINDER_PRESETS = 5;
+  const MAX_PRESET_MINUTES = 366 * 24 * 60;
+
+  function normalizeReminderPresets(value) {
+    if (!Array.isArray(value)) return [...DEFAULTS.reminderPresets];
+    const seen = new Set();
+    const list = [];
+    for (const item of value) {
+      const preset = item === "tomorrow" ? item : Math.round(Number(item));
+      if (preset !== "tomorrow" && !(Number.isFinite(preset) && preset >= 1 && preset <= MAX_PRESET_MINUTES)) continue;
+      if (seen.has(preset)) continue;
+      seen.add(preset);
+      list.push(preset);
+      if (list.length === MAX_REMINDER_PRESETS) break;
+    }
+    return list;
+  }
 
   function clamp(value, min, max, fallback) {
     const number = Number(value);
@@ -53,6 +74,7 @@
       if (!values.includes(normalized[key])) normalized[key] = DEFAULTS[key];
     }
     normalized.sidebarWidth = clamp(normalized.sidebarWidth, 360, 620, DEFAULTS.sidebarWidth);
+    normalized.reminderPresets = normalizeReminderPresets(normalized.reminderPresets);
     normalized.blurStrength = clamp(normalized.blurStrength, 3, 16, DEFAULTS.blurStrength);
 
     for (const [key, defaultValue] of Object.entries(DEFAULTS)) {
@@ -61,7 +83,7 @@
     return normalized;
   }
 
-  const api = Object.freeze({ DEFAULTS, ENUMS, LANGUAGES, normalizeSettings });
+  const api = Object.freeze({ DEFAULTS, ENUMS, LANGUAGES, MAX_REMINDER_PRESETS, MAX_PRESET_MINUTES, normalizeReminderPresets, normalizeSettings });
   global.WRSettings = api;
   if (typeof module !== "undefined" && module.exports) module.exports = api;
 })(typeof globalThis !== "undefined" ? globalThis : this);

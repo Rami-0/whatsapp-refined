@@ -103,6 +103,7 @@
       reminders = Array.isArray(values[REMINDERS_KEY]) ? values[REMINDERS_KEY] : [];
       collapsed = { pinned: false, snoozed: false, mentions: false, ...(values[COLLAPSED_KEY] || {}) };
       render();
+      scheduleDue();
     }
 
     function savePins(next) {
@@ -118,6 +119,7 @@
       reminders = next;
       write({ [REMINDERS_KEY]: reminders });
       render();
+      scheduleDue();
     }
 
     function onStorageChange(changes) {
@@ -129,6 +131,7 @@
       if (changes[REMINDERS_KEY]) {
         reminders = changes[REMINDERS_KEY].newValue || [];
         changed = true;
+        scheduleDue();
       }
       if (changes[MENTIONS_KEY]) {
         mentions = changes[MENTIONS_KEY].newValue || [];
@@ -302,6 +305,7 @@
     }
 
     function render(force = false) {
+      dropStaleToasts();
       mount();
       if (!root?.isConnected) return;
       root.dataset.searching = String(searching());
@@ -492,13 +496,13 @@
       menu.addEventListener("keydown", (event) => event.stopPropagation());
       menu.setAttribute("role", "menu");
       menu.setAttribute("aria-label", t("remindMe", "Remind me"));
-      const labels = { "1h": t("remindIn1h", "In 1 hour"), "3h": t("remindIn3h", "In 3 hours"), tomorrow: t("remindTomorrow", "Tomorrow") };
-      utils.reminderPresets(new Date()).forEach((preset) => {
+      const language = utils.uiLanguage(settings().language);
+      utils.reminderPresets(new Date(), settings().reminderPresets).forEach((preset) => {
         const option = document.createElement("button");
         option.type = "button";
         option.setAttribute("role", "menuitem");
         option.innerHTML = '<span></span><time></time>';
-        option.firstChild.textContent = labels[preset.key];
+        option.firstChild.textContent = utils.presetLabel(preset, language, t("remindTomorrow", "Tomorrow"));
         option.lastChild.textContent = timeLabel(preset.at);
         option.addEventListener("click", () => {
           remind(name, preset.at);
@@ -718,6 +722,78 @@
       if (!mentions.length) scanMentions();
     }
 
+    /* ---------- due alerts on the page ----------
+       A card on WhatsApp itself when a reminder comes due while the tab is
+       open. It does not depend on system notifications, which the browser or
+       the operating system may block. Only reminders that fall due after the
+       page opened are announced: older ones already wait under Snoozed. */
+    const pageOpenedAt = Date.now();
+    const announced = new Set();
+    let dueTimer = null;
+    let toasts = null;
+
+    function scheduleDue() {
+      window.clearTimeout(dueTimer);
+      dropStaleToasts();
+      if (!settings().enabled || !settings().remindersEnabled) return;
+      const now = Date.now();
+      reminders.filter((item) => item.dueAt <= now && item.dueAt > pageOpenedAt && !announced.has(item.id)).forEach(announce);
+      const next = reminders.reduce((min, item) => (item.dueAt > now ? Math.min(min, item.dueAt) : min), Infinity);
+      /* setTimeout overflows past ~24.8 days; a far reminder re-checks then. */
+      if (Number.isFinite(next)) dueTimer = window.setTimeout(scheduleDue, Math.min(next - now + 250, 2 ** 31 - 1));
+    }
+
+    /* A card whose reminder was done, snoozed or removed (here, in another
+       tab, or from a system notification) has nothing left to act on. */
+    function dropStaleToasts() {
+      if (!toasts) return;
+      const live = new Set(reminders.filter((item) => item.dueAt <= Date.now()).map((item) => item.id));
+      if (!settings().enabled || !settings().remindersEnabled) live.clear();
+      toasts.querySelectorAll(".wr-due-toast").forEach((card) => {
+        if (!live.has(card.dataset.id)) card.remove();
+      });
+    }
+
+    function announce(item) {
+      announced.add(item.id);
+      if (!toasts?.isConnected) {
+        toasts = document.createElement("div");
+        toasts.id = "wr-due-toasts";
+        toasts.setAttribute("aria-live", "polite");
+        document.body.append(toasts);
+      }
+      const language = utils.uiLanguage(settings().language);
+      const card = document.createElement("section");
+      card.className = "wr-due-toast";
+      card.dataset.id = item.id;
+      card.lang = language.replace("_", "-");
+      card.dir = utils.localeDirection(language);
+      card.innerHTML = `<span class="wr-due-icon">${ICONS.bell}</span><div class="wr-due-copy"><b></b><span></span></div><div class="wr-due-actions"></div>`;
+      card.querySelector("b").textContent = t("reminderNotificationTitle", "Reminder");
+      card.querySelector(".wr-due-copy span").textContent = item.name;
+      const dismiss = () => card.remove();
+      const action = (className, label, run) => {
+        const node = document.createElement("button");
+        node.type = "button";
+        node.className = className;
+        node.textContent = label;
+        node.addEventListener("click", () => {
+          dismiss();
+          run();
+        });
+        card.querySelector(".wr-due-actions").append(node);
+      };
+      action("wr-whats-new-primary", t("reminderOpenChat", "Open chat"), () => chats.openChat(item.name));
+      action("wr-whats-new-secondary", t("reminderSnooze1h", "Snooze 1 hour"), () => remind(item.name, Date.now() + 3600000));
+      action("wr-whats-new-secondary", t("reminderDone", "Done"), () => clearReminder(item.name));
+      const close = button("wr-whats-new-close", t("whatsNewClose", "Close"), ICONS.close);
+      close.addEventListener("click", dismiss);
+      card.prepend(close);
+      /* Three at most: a burst of reminders should not cover the chat. */
+      while (toasts.children.length >= 3) toasts.firstElementChild.remove();
+      toasts.append(card);
+    }
+
     function start() {
       load();
       stopRows = chats.observeRows(onRows);
@@ -754,6 +830,8 @@
       stop() {
         stopRows?.();
         window.clearInterval(tick);
+        window.clearTimeout(dueTimer);
+        toasts?.remove();
         root?.remove();
         tools?.remove();
         closeMenu();

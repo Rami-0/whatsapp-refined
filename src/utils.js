@@ -264,7 +264,7 @@
   /* Every version that ships release notes, newest first. Each one has a
      `whatsNew_<major>_<minor>_<patch>` message in every locale (one note per
      line), and `npm run release:check` refuses a tag missing from this list. */
-  const RELEASE_NOTES = Object.freeze(["1.4.0", "1.3.2", "1.3.1"]);
+  const RELEASE_NOTES = Object.freeze(["1.5.0", "1.4.0", "1.3.2", "1.3.1"]);
   const MAX_NOTES_SHOWN = 3;
 
   function compareVersions(a, b) {
@@ -345,15 +345,43 @@
     return changed ? next : list;
   }
 
-  /* Snooze presets, t3code style: in 1 hour, in 3 hours, tomorrow at 09:00
-     local time. `now` is a Date so tests can pin the clock. */
-  function reminderPresets(now = new Date()) {
-    const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 9, 0, 0, 0);
-    return [
-      { key: "1h", at: now.getTime() + 60 * 60 * 1000 },
-      { key: "3h", at: now.getTime() + 3 * 60 * 60 * 1000 },
-      { key: "tomorrow", at: tomorrow.getTime() }
-    ];
+  /* The "Remind me" times, earliest first. `presets` is the user's list from
+     settings: minutes from now, or "tomorrow" for 09:00 the next day. `now`
+     is a Date so tests can pin the clock. */
+  function reminderPresets(now = new Date(), presets = [60, 180, "tomorrow"]) {
+    const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 9, 0, 0, 0).getTime();
+    return (Array.isArray(presets) ? presets : [])
+      .map((preset) => preset === "tomorrow"
+        ? { key: "tomorrow", at: tomorrow }
+        : { key: `m${preset}`, minutes: preset, at: now.getTime() + preset * 60000 })
+      .filter((preset) => Number.isFinite(preset.at))
+      .sort((a, b) => a.at - b.at);
+  }
+
+  /* 90 -> { value: 90, unit: "minute" }, 180 -> 3 hours, 4320 -> 3 days. The
+     largest unit that divides evenly, so a saved time reads the way it was
+     typed. */
+  function presetParts(minutes) {
+    if (minutes % 10080 === 0) return { value: minutes / 10080, unit: "week" };
+    if (minutes % 1440 === 0) return { value: minutes / 1440, unit: "day" };
+    if (minutes % 60 === 0) return { value: minutes / 60, unit: "hour" };
+    return { value: minutes, unit: "minute" };
+  }
+
+  /* "In 3 minutes", "In 2 days": Intl phrases it in every UI language, so
+     a custom time needs no translated string of its own. */
+  function presetLabel(preset, language, tomorrowLabel = "Tomorrow") {
+    const minutes = preset === "tomorrow" || preset?.key === "tomorrow" ? null : Number(preset?.minutes ?? preset);
+    if (minutes === null || !Number.isFinite(minutes)) return tomorrowLabel;
+    const { value, unit } = presetParts(minutes);
+    const locale = String(language || "en").replace("_", "-");
+    let text;
+    try {
+      text = new Intl.RelativeTimeFormat(locale, { numeric: "always" }).format(value, unit);
+    } catch (_error) {
+      text = `in ${value} ${unit}${value === 1 ? "" : "s"}`;
+    }
+    return text.charAt(0).toLocaleUpperCase(locale) + text.slice(1);
   }
 
   /* One reminder per chat: setting a new one replaces the old. */
@@ -447,7 +475,7 @@
     return changed ? Array.from(byName.values()).sort((a, b) => b.seenAt - a.seenAt) : list;
   }
 
-  const api = Object.freeze({ applyPlaceholders, mergeMentions, fuzzyScore, classifyFolders, railOrder, pinChat, unpinChat, movePin, refreshPins, reminderPresets, addReminder, removeReminder, dueReminders, shortDuration, shortcutAction, whatsNewPlan, RELEASE_NOTES, compareVersions, releaseNotesKey, unseenReleases, FOLDER_ALIASES, NATIVE_FOLDER_IDS, normalizeLabel, folderKind, folderKindById, isFolderAction, folderInitial, uniqueFolders, parseFolderTab, desktopPlatform, i18n, loadLocaleOverride, uiLanguage, localeDirection, localeScript });
+  const api = Object.freeze({ applyPlaceholders, mergeMentions, fuzzyScore, classifyFolders, railOrder, pinChat, unpinChat, movePin, refreshPins, reminderPresets, presetParts, presetLabel, addReminder, removeReminder, dueReminders, shortDuration, shortcutAction, whatsNewPlan, RELEASE_NOTES, compareVersions, releaseNotesKey, unseenReleases, FOLDER_ALIASES, NATIVE_FOLDER_IDS, normalizeLabel, folderKind, folderKindById, isFolderAction, folderInitial, uniqueFolders, parseFolderTab, desktopPlatform, i18n, loadLocaleOverride, uiLanguage, localeDirection, localeScript });
   global.WRUtils = api;
 
   if (typeof module !== "undefined" && module.exports) module.exports = api;

@@ -516,6 +516,102 @@ footer i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent
 .footer-links a:hover { color: var(--accent-strong); text-decoration-color: currentColor; }
 .footer-links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
 
+.action-row {
+  min-height: 62px;
+  margin-bottom: 12px;
+  padding: 12px 13px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface-subtle);
+}
+
+.action-row[hidden] { display: none; }
+.action-row > span { min-width: 0; }
+.action-row b { display: block; color: var(--text); font-size: calc(13px * var(--text-scale)); line-height: 1.25; font-weight: 600; }
+.action-row small { display: block; margin-top: 4px; color: var(--muted); font-size: calc(11px * var(--text-scale)); line-height: 1.4; }
+.action-row small[data-state="ok"] { color: var(--accent-strong); }
+.action-row small[data-state="error"] { color: var(--danger); }
+.restore-row { border-color: var(--accent-soft); background: var(--accent-soft); }
+.is-setting-disabled { opacity: .45; }
+.is-setting-disabled button, .is-setting-disabled input, .is-setting-disabled select { pointer-events: none; }
+
+.preset-list {
+  margin: 12px 0 10px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+}
+
+.preset-list li {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 32px;
+  padding: 0 4px 0 12px;
+  color: var(--text);
+  font-size: calc(12.5px * var(--text-scale));
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-subtle);
+}
+
+.preset-list li.preset-empty { padding: 0 12px; color: var(--muted); border-style: dashed; }
+
+.preset-list button {
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.preset-list button:hover { color: var(--danger); background: var(--danger-soft); }
+.preset-list svg, .notes-close svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+
+.preset-add { display: flex; gap: 8px; align-items: center; }
+
+.preset-add input,
+.preset-add select {
+  min-height: 34px;
+  padding: 0 10px;
+  color: var(--text);
+  font: inherit;
+  font-size: calc(12.5px * var(--text-scale));
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--surface);
+}
+
+.preset-add input { width: 64px; }
+.preset-add select { flex: 1; min-width: 0; cursor: pointer; }
+.preset-add input:disabled { opacity: .4; }
+.preset-add input:focus-visible, .preset-add select:focus-visible, .preset-list button:focus-visible, .notes-close:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 1px; }
+.preset-note { display: block; min-height: 1.4em; margin-top: 6px; color: var(--muted); font-size: calc(11px * var(--text-scale)); }
+
+.notes { width: min(420px, calc(100% - 32px)); max-height: calc(100% - 48px); }
+.notes-card { display: flex; flex-direction: column; max-height: calc(100vh - 48px); }
+.notes-head { display: flex; align-items: center; justify-content: space-between; padding: 16px 16px 12px 20px; border-bottom: 1px solid var(--line); }
+.notes-head h2 { margin: 0; font-size: calc(15px * var(--text-scale)); font-weight: 650; }
+.notes-close { width: 30px; height: 30px; padding: 6px; color: var(--muted); border: 0; border-radius: 50%; background: transparent; cursor: pointer; }
+.notes-close:hover { color: var(--text); background: var(--surface-hover); }
+.notes-body { overflow-y: auto; padding: 6px 20px 20px; }
+.notes-body section + section { border-top: 1px solid var(--line); }
+.notes-body h3 { display: flex; align-items: baseline; gap: 8px; margin: 16px 0 8px; color: var(--text); font-size: calc(13px * var(--text-scale)); font-weight: 650; }
+.notes-body h3 span { padding: 1px 8px; color: var(--accent-strong); font-size: calc(10.5px * var(--text-scale)); font-weight: 600; border-radius: 999px; background: var(--accent-soft); }
+.notes-body ul { margin: 0 0 16px; padding-inline-start: 18px; color: var(--muted); font-size: calc(12px * var(--text-scale)); line-height: 1.5; }
+.notes-body li + li { margin-top: 4px; }
+
 .danger-row {
   min-height: 62px;
   padding: 12px 13px;
@@ -562,6 +658,7 @@ footer i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent
 }
 
 .ghost-button:hover { background: var(--surface-hover); }
+.ghost-button:disabled { opacity: .4; cursor: default; background: transparent; }
 
 /* Resetting wipes every choice at once, so it asks first. <dialog> brings the
    focus trap, Escape-to-dismiss and inert background with it. */

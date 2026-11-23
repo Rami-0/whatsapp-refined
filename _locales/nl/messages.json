@@ -598,12 +598,6 @@
   "chatNotFound": {
     "message": "Deze chat is niet gevonden. Misschien is hij hernoemd."
   },
-  "remindIn1h": {
-    "message": "Over 1 uur"
-  },
-  "remindIn3h": {
-    "message": "Over 3 uur"
-  },
   "remindTomorrow": {
     "message": "Morgen"
   },
@@ -697,9 +691,6 @@
   "paletteSetting": {
     "message": "Opdrachtpalet"
   },
-  "paletteSettingHelp": {
-    "message": "Cmd/Ctrl+K opent het Refined-palet; met Shift het zoeken van WhatsApp"
-  },
   "mentionsSetting": {
     "message": "Overzicht vermeldingen"
   },
@@ -714,5 +705,187 @@
   },
   "mentionsEmpty": {
     "message": "Geen ongelezen vermeldingen"
+  },
+  "reminderOpenChat": {
+    "message": "Chat openen",
+    "description": "Button on a due-reminder alert (system notification and in-page card) that opens the chat."
+  },
+  "reminderSnooze1h": {
+    "message": "1 uur uitstellen",
+    "description": "Button on a due-reminder alert that pushes the reminder back by one hour."
+  },
+  "testNotificationBody": {
+    "message": "Meldingen van Refined werken.",
+    "description": "Body of the test notification sent from settings."
+  },
+  "testNotification": {
+    "message": "Meldingen testen",
+    "description": "Settings row title for sending a test notification."
+  },
+  "testNotificationHelp": {
+    "message": "Stuur er nu een om te controleren of meldingen je scherm bereiken",
+    "description": "Help text under the test-notification row."
+  },
+  "testNotificationAction": {
+    "message": "Test sturen",
+    "description": "Button that sends a test notification."
+  },
+  "testNotificationSending": {
+    "message": "Versturen…",
+    "description": "Status while the test notification is being sent."
+  },
+  "testNotificationSent": {
+    "message": "Verzonden.",
+    "description": "Status after the test notification was sent; followed by a hint on where to allow notifications."
+  },
+  "testNotificationHintMac": {
+    "message": "Niets te zien? Open Systeeminstellingen → Meldingen, kies je browser en zet Sta meldingen toe aan.",
+    "description": "macOS hint when a sent test notification did not appear."
+  },
+  "testNotificationHintWindows": {
+    "message": "Niets te zien? Open Instellingen → Systeem → Meldingen en zet ze aan voor je browser.",
+    "description": "Windows hint when a sent test notification did not appear."
+  },
+  "testNotificationHintOther": {
+    "message": "Niets te zien? Sta meldingen van je browser toe in de systeeminstellingen.",
+    "description": "Hint on other systems when a sent test notification did not appear."
+  },
+  "testNotificationChrome": {
+    "message": "Je browser blokkeert de meldingen van Refined. Sta ze toe in de meldingsinstellingen ervan.",
+    "description": "Error when the browser itself denies notifications to the extension."
+  },
+  "testNotificationPermission": {
+    "message": "Zet eerst de meldingen voor herinneringen aan.",
+    "description": "Error when the notification permission is not granted."
+  },
+  "testNotificationFailed": {
+    "message": "De melding kon niet worden verstuurd. Probeer het opnieuw na het herstarten van de browser.",
+    "description": "Generic error for the test notification."
+  },
+  "presetsSetting": {
+    "message": "Herinneringstijden",
+    "description": "Settings block title: the times offered by the Remind me menu."
+  },
+  "presetsSettingHelp": {
+    "message": "Maximaal 5 staan in het menu Herinner me. Verwijder er een om ruimte te maken.",
+    "description": "Help text for the reminder-times block."
+  },
+  "presetAmountAria": {
+    "message": "Aantal",
+    "description": "Accessible name of the number field for a new reminder time."
+  },
+  "presetUnitAria": {
+    "message": "Eenheid",
+    "description": "Accessible name of the unit picker for a new reminder time."
+  },
+  "presetMinutes": {
+    "message": "minuten",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetHours": {
+    "message": "uur",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetDays": {
+    "message": "dagen",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetWeeks": {
+    "message": "weken",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetTomorrow": {
+    "message": "Morgen 9:00",
+    "description": "Option for a reminder time of 09:00 the next day."
+  },
+  "presetAdd": {
+    "message": "Toevoegen",
+    "description": "Button that adds a reminder time."
+  },
+  "presetsEmpty": {
+    "message": "Alleen een eigen datum en tijd",
+    "description": "Shown when every preset was removed; the menu then offers only the date picker."
+  },
+  "presetsFull": {
+    "message": "Dat zijn er 5. Verwijder er een om een andere toe te voegen.",
+    "description": "Shown when five reminder times are saved."
+  },
+  "presetsInvalid": {
+    "message": "Kies een tijd tussen 1 minuut en 1 jaar.",
+    "description": "Shown for an out-of-range reminder time."
+  },
+  "presetsDuplicate": {
+    "message": "Die tijd staat al in de lijst.",
+    "description": "Shown when adding a reminder time that exists."
+  },
+  "paletteShortcutHelp": {
+    "message": "Zoek chats, mappen en acties",
+    "description": "Help text for the command palette shortcut row."
+  },
+  "whatsappSearchShortcut": {
+    "message": "WhatsApp-zoeken",
+    "description": "Shortcut row: WhatsApp's own extended search."
+  },
+  "whatsappSearchShortcutHelp": {
+    "message": "WhatsApps eigen Cmd/Ctrl+K, nu met Shift",
+    "description": "Help text: WhatsApp's search shortcut now needs Shift."
+  },
+  "releaseNotes": {
+    "message": "Release-opmerkingen",
+    "description": "Settings row and dialog title listing what changed in each version."
+  },
+  "releaseNotesAction": {
+    "message": "Bekijken",
+    "description": "Button that opens the release notes."
+  },
+  "releaseNotesInstalled": {
+    "message": "Geïnstalleerd",
+    "description": "Tag next to the installed version in the release notes."
+  },
+  "restoreSettings": {
+    "message": "Vorige instellingen herstellen",
+    "description": "Settings row offering to undo the last reset."
+  },
+  "restoreAction": {
+    "message": "Herstellen",
+    "description": "Button that restores the settings saved before the last reset."
+  },
+  "resetBackupNote": {
+    "message": "Je huidige instellingen blijven bewaard, dus je kunt ze met één klik herstellen.",
+    "description": "Line in the reset confirmation dialog."
+  },
+  "presetRemoveAria": {
+    "message": "$LABEL$ verwijderen",
+    "description": "Accessible name of the button removing a reminder time.",
+    "placeholders": {
+      "label": {
+        "content": "$1",
+        "example": "In 3 minutes"
+      }
+    }
+  },
+  "releaseNotesHelp": {
+    "message": "Versie $VERSION$ · wat er met elke update veranderde",
+    "description": "Help text under the release notes row.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.5.0"
+      }
+    }
+  },
+  "restoreHelp": {
+    "message": "Bewaard vóór het herstellen op $WHEN$",
+    "description": "Help text under the restore row with the date of the reset.",
+    "placeholders": {
+      "when": {
+        "content": "$1",
+        "example": "23 Nov 2026, 14:05"
+      }
+    }
+  },
+  "whatsNew_1_5_0": {
+    "message": "De tijden van Herinner me bepaal je zelf: voeg in de instellingen tijden toe zoals 3 minuten of 3 dagen, tot vijf.\nEen verlopen herinnering toont nu een kaart in WhatsApp, en systeemmeldingen blijven op het scherm met de knoppen Chat openen en Uitstellen.\nStuur een testmelding vanuit de instellingen om te controleren of meldingen bij je aankomen.\nHet opdrachtpalet hoort nu bij Sneltoetsen; daar staan de toetsen.\nRelease-opmerkingen van elke versie staan onder Instellingen.\nHerstellen bewaart een back-up van je instellingen, zodat je ze met één klik terugzet.",
+    "description": "Release notes for 1.5.0, one note per line."
   }
 }
