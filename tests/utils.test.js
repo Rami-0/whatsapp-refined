@@ -357,3 +357,32 @@ test("the rail keeps one order however WhatsApp reshuffles its strip", () => {
   assert.deepEqual(ids(railOrder([{ id: "label_item_5", kind: "custom" }, { id: "label_item_1", kind: "unread" }, { id: "label_item_4", kind: "custom" }])), ["label_item_1", "label_item_4", "label_item_5"]);
   assert.deepEqual(railOrder(undefined), []);
 });
+
+test("reminder times: the user's own list, sorted, labelled in any language", () => {
+  const { reminderPresets, presetParts, presetLabel } = require("../src/utils.js");
+  const now = new Date(2026, 10, 23, 22, 0, 0);
+  const presets = reminderPresets(now, [4320, "tomorrow", 3]);
+  assert.deepEqual(presets.map((preset) => preset.key), ["m3", "tomorrow", "m4320"]);
+  assert.equal(presets[0].at, now.getTime() + 3 * 60000);
+  assert.deepEqual(reminderPresets(now, []), []);
+  assert.deepEqual(presetParts(90), { value: 90, unit: "minute" });
+  assert.deepEqual(presetParts(180), { value: 3, unit: "hour" });
+  assert.deepEqual(presetParts(2880), { value: 2, unit: "day" });
+  assert.deepEqual(presetParts(20160), { value: 2, unit: "week" });
+  assert.equal(presetLabel(presets[0], "en"), "In 3 minutes");
+  assert.equal(presetLabel(presets[1], "en", "Tomorrow"), "Tomorrow");
+  assert.equal(presetLabel(4320, "pt_BR"), "Em 3 dias");
+});
+
+test("settings keep at most five valid reminder times, and reset brings back the three defaults", () => {
+  const { normalizeSettings, normalizeReminderPresets, DEFAULTS } = require("../src/settings.js");
+  assert.deepEqual(normalizeSettings({}).reminderPresets, [60, 180, "tomorrow"]);
+  assert.deepEqual(normalizeReminderPresets([3, "3", 0, -5, "soon", "tomorrow", 1440, 10080, 60, 7]), [3, "tomorrow", 1440, 10080, 60]);
+  assert.deepEqual(normalizeReminderPresets([]), [], "an empty list is a choice, not a reset");
+  assert.deepEqual(normalizeReminderPresets("nope"), [60, 180, "tomorrow"]);
+  assert.deepEqual(normalizeReminderPresets([600000]), [], "nothing past a year");
+  assert.ok(!("paletteEnabled" in normalizeSettings({ paletteEnabled: false })), "the palette follows the shortcuts switch now");
+  const normalized = normalizeSettings(DEFAULTS);
+  normalized.reminderPresets.push(5);
+  assert.deepEqual(DEFAULTS.reminderPresets, [60, 180, "tomorrow"], "normalizing never hands out the shared default list");
+});

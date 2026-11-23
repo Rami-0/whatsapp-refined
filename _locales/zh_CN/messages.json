@@ -598,12 +598,6 @@
   "chatNotFound": {
     "message": "找不到这个聊天，可能已改名。"
   },
-  "remindIn1h": {
-    "message": "1 小时后"
-  },
-  "remindIn3h": {
-    "message": "3 小时后"
-  },
   "remindTomorrow": {
     "message": "明天"
   },
@@ -697,9 +691,6 @@
   "paletteSetting": {
     "message": "命令面板"
   },
-  "paletteSettingHelp": {
-    "message": "Cmd/Ctrl+K 打开 Refined 面板；加 Shift 打开 WhatsApp 搜索"
-  },
   "mentionsSetting": {
     "message": "提及汇总"
   },
@@ -714,5 +705,187 @@
   },
   "mentionsEmpty": {
     "message": "没有未读提及"
+  },
+  "reminderOpenChat": {
+    "message": "打开聊天",
+    "description": "Button on a due-reminder alert (system notification and in-page card) that opens the chat."
+  },
+  "reminderSnooze1h": {
+    "message": "推迟 1 小时",
+    "description": "Button on a due-reminder alert that pushes the reminder back by one hour."
+  },
+  "testNotificationBody": {
+    "message": "Refined 通知正常工作。",
+    "description": "Body of the test notification sent from settings."
+  },
+  "testNotification": {
+    "message": "测试通知",
+    "description": "Settings row title for sending a test notification."
+  },
+  "testNotificationHelp": {
+    "message": "立即发送一条，检查提醒能否显示在屏幕上",
+    "description": "Help text under the test-notification row."
+  },
+  "testNotificationAction": {
+    "message": "发送测试",
+    "description": "Button that sends a test notification."
+  },
+  "testNotificationSending": {
+    "message": "发送中…",
+    "description": "Status while the test notification is being sent."
+  },
+  "testNotificationSent": {
+    "message": "已发送。",
+    "description": "Status after the test notification was sent; followed by a hint on where to allow notifications."
+  },
+  "testNotificationHintMac": {
+    "message": "没有看到？打开“系统设置 → 通知”，选择你的浏览器并开启“允许通知”。",
+    "description": "macOS hint when a sent test notification did not appear."
+  },
+  "testNotificationHintWindows": {
+    "message": "没有看到？打开“设置 → 系统 → 通知”，为你的浏览器开启通知。",
+    "description": "Windows hint when a sent test notification did not appear."
+  },
+  "testNotificationHintOther": {
+    "message": "没有看到？请在系统设置中允许浏览器的通知。",
+    "description": "Hint on other systems when a sent test notification did not appear."
+  },
+  "testNotificationChrome": {
+    "message": "浏览器正在屏蔽 Refined 的通知。请在其通知设置中允许。",
+    "description": "Error when the browser itself denies notifications to the extension."
+  },
+  "testNotificationPermission": {
+    "message": "请先开启提醒通知。",
+    "description": "Error when the notification permission is not granted."
+  },
+  "testNotificationFailed": {
+    "message": "无法发送通知。请重启浏览器后再试。",
+    "description": "Generic error for the test notification."
+  },
+  "presetsSetting": {
+    "message": "提醒时间",
+    "description": "Settings block title: the times offered by the Remind me menu."
+  },
+  "presetsSettingHelp": {
+    "message": "“提醒我”菜单最多显示 5 个。删除一个以腾出位置。",
+    "description": "Help text for the reminder-times block."
+  },
+  "presetAmountAria": {
+    "message": "数量",
+    "description": "Accessible name of the number field for a new reminder time."
+  },
+  "presetUnitAria": {
+    "message": "单位",
+    "description": "Accessible name of the unit picker for a new reminder time."
+  },
+  "presetMinutes": {
+    "message": "分钟",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetHours": {
+    "message": "小时",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetDays": {
+    "message": "天",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetWeeks": {
+    "message": "周",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetTomorrow": {
+    "message": "明天 9:00",
+    "description": "Option for a reminder time of 09:00 the next day."
+  },
+  "presetAdd": {
+    "message": "添加",
+    "description": "Button that adds a reminder time."
+  },
+  "presetsEmpty": {
+    "message": "仅自定义日期和时间",
+    "description": "Shown when every preset was removed; the menu then offers only the date picker."
+  },
+  "presetsFull": {
+    "message": "已有 5 个。删除一个后再添加。",
+    "description": "Shown when five reminder times are saved."
+  },
+  "presetsInvalid": {
+    "message": "请选择 1 分钟到 1 年之间的时间。",
+    "description": "Shown for an out-of-range reminder time."
+  },
+  "presetsDuplicate": {
+    "message": "该时间已在列表中。",
+    "description": "Shown when adding a reminder time that exists."
+  },
+  "paletteShortcutHelp": {
+    "message": "查找聊天、文件夹和操作",
+    "description": "Help text for the command palette shortcut row."
+  },
+  "whatsappSearchShortcut": {
+    "message": "WhatsApp 搜索",
+    "description": "Shortcut row: WhatsApp's own extended search."
+  },
+  "whatsappSearchShortcutHelp": {
+    "message": "WhatsApp 自带的 Cmd/Ctrl+K，现需加 Shift",
+    "description": "Help text: WhatsApp's search shortcut now needs Shift."
+  },
+  "releaseNotes": {
+    "message": "版本说明",
+    "description": "Settings row and dialog title listing what changed in each version."
+  },
+  "releaseNotesAction": {
+    "message": "查看",
+    "description": "Button that opens the release notes."
+  },
+  "releaseNotesInstalled": {
+    "message": "已安装",
+    "description": "Tag next to the installed version in the release notes."
+  },
+  "restoreSettings": {
+    "message": "恢复之前的设置",
+    "description": "Settings row offering to undo the last reset."
+  },
+  "restoreAction": {
+    "message": "恢复",
+    "description": "Button that restores the settings saved before the last reset."
+  },
+  "resetBackupNote": {
+    "message": "当前设置会保留，可一键恢复。",
+    "description": "Line in the reset confirmation dialog."
+  },
+  "presetRemoveAria": {
+    "message": "移除 $LABEL$",
+    "description": "Accessible name of the button removing a reminder time.",
+    "placeholders": {
+      "label": {
+        "content": "$1",
+        "example": "In 3 minutes"
+      }
+    }
+  },
+  "releaseNotesHelp": {
+    "message": "版本 $VERSION$ · 每次更新的变化",
+    "description": "Help text under the release notes row.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.5.0"
+      }
+    }
+  },
+  "restoreHelp": {
+    "message": "重置前已保存于 $WHEN$",
+    "description": "Help text under the restore row with the date of the reset.",
+    "placeholders": {
+      "when": {
+        "content": "$1",
+        "example": "23 Nov 2026, 14:05"
+      }
+    }
+  },
+  "whatsNew_1_5_0": {
+    "message": "“提醒我”的时间由你决定：在设置中添加如 3 分钟或 3 天，最多五个。\n提醒到期时，WhatsApp 中会显示卡片，系统通知会留在屏幕上，并带有“打开聊天”和“推迟”按钮。\n在设置中发送测试通知，检查提醒能否送达。\n命令面板现在归入“快捷键”，按键也列在那里。\n每个版本的说明都在“设置”中。\n重置会保留设置备份，可一键恢复。",
+    "description": "Release notes for 1.5.0, one note per line."
   }
 }

@@ -598,12 +598,6 @@
   "chatNotFound": {
     "message": "Bu sohbet bulunamadı. Adı değişmiş olabilir."
   },
-  "remindIn1h": {
-    "message": "1 saat sonra"
-  },
-  "remindIn3h": {
-    "message": "3 saat sonra"
-  },
   "remindTomorrow": {
     "message": "Yarın"
   },
@@ -697,9 +691,6 @@
   "paletteSetting": {
     "message": "Komut paleti"
   },
-  "paletteSettingHelp": {
-    "message": "Cmd/Ctrl+K Refined paletini açar; Shift eklersen WhatsApp araması"
-  },
   "mentionsSetting": {
     "message": "Bahsetme özeti"
   },
@@ -714,5 +705,187 @@
   },
   "mentionsEmpty": {
     "message": "Okunmamış bahsetme yok"
+  },
+  "reminderOpenChat": {
+    "message": "Sohbeti aç",
+    "description": "Button on a due-reminder alert (system notification and in-page card) that opens the chat."
+  },
+  "reminderSnooze1h": {
+    "message": "1 saat ertele",
+    "description": "Button on a due-reminder alert that pushes the reminder back by one hour."
+  },
+  "testNotificationBody": {
+    "message": "Refined bildirimleri çalışıyor.",
+    "description": "Body of the test notification sent from settings."
+  },
+  "testNotification": {
+    "message": "Bildirimleri test et",
+    "description": "Settings row title for sending a test notification."
+  },
+  "testNotificationHelp": {
+    "message": "Uyarıların ekranına ulaştığını denetlemek için şimdi bir tane gönderin",
+    "description": "Help text under the test-notification row."
+  },
+  "testNotificationAction": {
+    "message": "Test gönder",
+    "description": "Button that sends a test notification."
+  },
+  "testNotificationSending": {
+    "message": "Gönderiliyor…",
+    "description": "Status while the test notification is being sent."
+  },
+  "testNotificationSent": {
+    "message": "Gönderildi.",
+    "description": "Status after the test notification was sent; followed by a hint on where to allow notifications."
+  },
+  "testNotificationHintMac": {
+    "message": "Hiçbir şey görünmedi mi? Sistem Ayarları → Bildirimler’i açın, tarayıcınızı seçin ve Bildirimlere izin ver’i açın.",
+    "description": "macOS hint when a sent test notification did not appear."
+  },
+  "testNotificationHintWindows": {
+    "message": "Hiçbir şey görünmedi mi? Ayarlar → Sistem → Bildirimler’i açın ve tarayıcınız için bildirimleri açın.",
+    "description": "Windows hint when a sent test notification did not appear."
+  },
+  "testNotificationHintOther": {
+    "message": "Hiçbir şey görünmedi mi? Sistem ayarlarından tarayıcınızın bildirimlerine izin verin.",
+    "description": "Hint on other systems when a sent test notification did not appear."
+  },
+  "testNotificationChrome": {
+    "message": "Tarayıcınız Refined bildirimlerini engelliyor. Bildirim ayarlarından izin verin.",
+    "description": "Error when the browser itself denies notifications to the extension."
+  },
+  "testNotificationPermission": {
+    "message": "Önce hatırlatma bildirimlerini açın.",
+    "description": "Error when the notification permission is not granted."
+  },
+  "testNotificationFailed": {
+    "message": "Bildirim gönderilemedi. Tarayıcıyı yeniden başlatıp tekrar deneyin.",
+    "description": "Generic error for the test notification."
+  },
+  "presetsSetting": {
+    "message": "Hatırlatma zamanları",
+    "description": "Settings block title: the times offered by the Remind me menu."
+  },
+  "presetsSettingHelp": {
+    "message": "En fazla 5 tanesi Hatırlat menüsünde görünür. Yer açmak için birini kaldırın.",
+    "description": "Help text for the reminder-times block."
+  },
+  "presetAmountAria": {
+    "message": "Miktar",
+    "description": "Accessible name of the number field for a new reminder time."
+  },
+  "presetUnitAria": {
+    "message": "Birim",
+    "description": "Accessible name of the unit picker for a new reminder time."
+  },
+  "presetMinutes": {
+    "message": "dakika",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetHours": {
+    "message": "saat",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetDays": {
+    "message": "gün",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetWeeks": {
+    "message": "hafta",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetTomorrow": {
+    "message": "Yarın 9:00",
+    "description": "Option for a reminder time of 09:00 the next day."
+  },
+  "presetAdd": {
+    "message": "Ekle",
+    "description": "Button that adds a reminder time."
+  },
+  "presetsEmpty": {
+    "message": "Yalnızca özel tarih ve saat",
+    "description": "Shown when every preset was removed; the menu then offers only the date picker."
+  },
+  "presetsFull": {
+    "message": "5 oldu. Başka eklemek için birini kaldırın.",
+    "description": "Shown when five reminder times are saved."
+  },
+  "presetsInvalid": {
+    "message": "1 dakika ile 1 yıl arasında bir zaman seçin.",
+    "description": "Shown for an out-of-range reminder time."
+  },
+  "presetsDuplicate": {
+    "message": "Bu zaman listede zaten var.",
+    "description": "Shown when adding a reminder time that exists."
+  },
+  "paletteShortcutHelp": {
+    "message": "Sohbetleri, klasörleri ve eylemleri bulun",
+    "description": "Help text for the command palette shortcut row."
+  },
+  "whatsappSearchShortcut": {
+    "message": "WhatsApp araması",
+    "description": "Shortcut row: WhatsApp's own extended search."
+  },
+  "whatsappSearchShortcutHelp": {
+    "message": "WhatsApp’ın kendi Cmd/Ctrl+K’si artık Shift ile",
+    "description": "Help text: WhatsApp's search shortcut now needs Shift."
+  },
+  "releaseNotes": {
+    "message": "Sürüm notları",
+    "description": "Settings row and dialog title listing what changed in each version."
+  },
+  "releaseNotesAction": {
+    "message": "Görüntüle",
+    "description": "Button that opens the release notes."
+  },
+  "releaseNotesInstalled": {
+    "message": "Yüklü",
+    "description": "Tag next to the installed version in the release notes."
+  },
+  "restoreSettings": {
+    "message": "Önceki ayarları geri yükle",
+    "description": "Settings row offering to undo the last reset."
+  },
+  "restoreAction": {
+    "message": "Geri yükle",
+    "description": "Button that restores the settings saved before the last reset."
+  },
+  "resetBackupNote": {
+    "message": "Mevcut ayarlarınız saklanır, böylece tek tıkla geri yükleyebilirsiniz.",
+    "description": "Line in the reset confirmation dialog."
+  },
+  "presetRemoveAria": {
+    "message": "$LABEL$ öğesini kaldır",
+    "description": "Accessible name of the button removing a reminder time.",
+    "placeholders": {
+      "label": {
+        "content": "$1",
+        "example": "In 3 minutes"
+      }
+    }
+  },
+  "releaseNotesHelp": {
+    "message": "Sürüm $VERSION$ · her güncellemede neler değişti",
+    "description": "Help text under the release notes row.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.5.0"
+      }
+    }
+  },
+  "restoreHelp": {
+    "message": "$WHEN$ sıfırlamasından önce kaydedildi",
+    "description": "Help text under the restore row with the date of the reset.",
+    "placeholders": {
+      "when": {
+        "content": "$1",
+        "example": "23 Nov 2026, 14:05"
+      }
+    }
+  },
+  "whatsNew_1_5_0": {
+    "message": "Hatırlat zamanlarını artık siz belirliyorsunuz: ayarlardan 3 dakika veya 3 gün gibi zamanlar ekleyin, en fazla beş.\nZamanı gelen hatırlatma artık WhatsApp’ta bir kart gösteriyor; sistem bildirimleri Sohbeti aç ve Ertele düğmeleriyle ekranda kalıyor.\nUyarıların size ulaştığını denetlemek için ayarlardan test bildirimi gönderin.\nKomut paleti artık Kısayollar’da; tuşları orada listeleniyor.\nHer sürümün notları Ayarlar’da.\nSıfırlama ayarlarınızın yedeğini tutar, böylece tek tıkla geri yükleyebilirsiniz.",
+    "description": "Release notes for 1.5.0, one note per line."
   }
 }

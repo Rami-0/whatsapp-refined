@@ -598,12 +598,6 @@
   "chatNotFound": {
     "message": "Chat non trovata. Forse è stata rinominata."
   },
-  "remindIn1h": {
-    "message": "Tra 1 ora"
-  },
-  "remindIn3h": {
-    "message": "Tra 3 ore"
-  },
   "remindTomorrow": {
     "message": "Domani"
   },
@@ -697,9 +691,6 @@
   "paletteSetting": {
     "message": "Palette comandi"
   },
-  "paletteSettingHelp": {
-    "message": "Cmd/Ctrl+K apre la palette di Refined; con Maiusc la ricerca di WhatsApp"
-  },
   "mentionsSetting": {
     "message": "Riepilogo menzioni"
   },
@@ -714,5 +705,187 @@
   },
   "mentionsEmpty": {
     "message": "Nessuna menzione non letta"
+  },
+  "reminderOpenChat": {
+    "message": "Apri chat",
+    "description": "Button on a due-reminder alert (system notification and in-page card) that opens the chat."
+  },
+  "reminderSnooze1h": {
+    "message": "Rimanda di 1 ora",
+    "description": "Button on a due-reminder alert that pushes the reminder back by one hour."
+  },
+  "testNotificationBody": {
+    "message": "Le notifiche di Refined funzionano.",
+    "description": "Body of the test notification sent from settings."
+  },
+  "testNotification": {
+    "message": "Prova le notifiche",
+    "description": "Settings row title for sending a test notification."
+  },
+  "testNotificationHelp": {
+    "message": "Inviane una ora per verificare che gli avvisi arrivino sullo schermo",
+    "description": "Help text under the test-notification row."
+  },
+  "testNotificationAction": {
+    "message": "Invia prova",
+    "description": "Button that sends a test notification."
+  },
+  "testNotificationSending": {
+    "message": "Invio…",
+    "description": "Status while the test notification is being sent."
+  },
+  "testNotificationSent": {
+    "message": "Inviata.",
+    "description": "Status after the test notification was sent; followed by a hint on where to allow notifications."
+  },
+  "testNotificationHintMac": {
+    "message": "Non è comparso nulla? Apri Impostazioni di Sistema → Notifiche, scegli il browser e attiva Consenti notifiche.",
+    "description": "macOS hint when a sent test notification did not appear."
+  },
+  "testNotificationHintWindows": {
+    "message": "Non è comparso nulla? Apri Impostazioni → Sistema → Notifiche e attivale per il browser.",
+    "description": "Windows hint when a sent test notification did not appear."
+  },
+  "testNotificationHintOther": {
+    "message": "Non è comparso nulla? Consenti le notifiche del browser nelle impostazioni di sistema.",
+    "description": "Hint on other systems when a sent test notification did not appear."
+  },
+  "testNotificationChrome": {
+    "message": "Il browser sta bloccando le notifiche di Refined. Consentile nelle sue impostazioni delle notifiche.",
+    "description": "Error when the browser itself denies notifications to the extension."
+  },
+  "testNotificationPermission": {
+    "message": "Attiva prima le notifiche dei promemoria.",
+    "description": "Error when the notification permission is not granted."
+  },
+  "testNotificationFailed": {
+    "message": "Impossibile inviare la notifica. Riprova dopo aver riavviato il browser.",
+    "description": "Generic error for the test notification."
+  },
+  "presetsSetting": {
+    "message": "Orari dei promemoria",
+    "description": "Settings block title: the times offered by the Remind me menu."
+  },
+  "presetsSettingHelp": {
+    "message": "Fino a 5 compaiono nel menu Ricordamelo. Rimuovine uno per fare spazio.",
+    "description": "Help text for the reminder-times block."
+  },
+  "presetAmountAria": {
+    "message": "Quantità",
+    "description": "Accessible name of the number field for a new reminder time."
+  },
+  "presetUnitAria": {
+    "message": "Unità",
+    "description": "Accessible name of the unit picker for a new reminder time."
+  },
+  "presetMinutes": {
+    "message": "minuti",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetHours": {
+    "message": "ore",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetDays": {
+    "message": "giorni",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetWeeks": {
+    "message": "settimane",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetTomorrow": {
+    "message": "Domani 9:00",
+    "description": "Option for a reminder time of 09:00 the next day."
+  },
+  "presetAdd": {
+    "message": "Aggiungi",
+    "description": "Button that adds a reminder time."
+  },
+  "presetsEmpty": {
+    "message": "Solo data e ora personalizzate",
+    "description": "Shown when every preset was removed; the menu then offers only the date picker."
+  },
+  "presetsFull": {
+    "message": "Sono 5. Rimuovine uno per aggiungerne un altro.",
+    "description": "Shown when five reminder times are saved."
+  },
+  "presetsInvalid": {
+    "message": "Scegli un tempo tra 1 minuto e 1 anno.",
+    "description": "Shown for an out-of-range reminder time."
+  },
+  "presetsDuplicate": {
+    "message": "Quell’orario è già nell’elenco.",
+    "description": "Shown when adding a reminder time that exists."
+  },
+  "paletteShortcutHelp": {
+    "message": "Trova chat, cartelle e azioni",
+    "description": "Help text for the command palette shortcut row."
+  },
+  "whatsappSearchShortcut": {
+    "message": "Ricerca WhatsApp",
+    "description": "Shortcut row: WhatsApp's own extended search."
+  },
+  "whatsappSearchShortcutHelp": {
+    "message": "Il Cmd/Ctrl+K di WhatsApp, ora con Shift",
+    "description": "Help text: WhatsApp's search shortcut now needs Shift."
+  },
+  "releaseNotes": {
+    "message": "Note di rilascio",
+    "description": "Settings row and dialog title listing what changed in each version."
+  },
+  "releaseNotesAction": {
+    "message": "Vedi",
+    "description": "Button that opens the release notes."
+  },
+  "releaseNotesInstalled": {
+    "message": "Installata",
+    "description": "Tag next to the installed version in the release notes."
+  },
+  "restoreSettings": {
+    "message": "Ripristina le impostazioni precedenti",
+    "description": "Settings row offering to undo the last reset."
+  },
+  "restoreAction": {
+    "message": "Ripristina",
+    "description": "Button that restores the settings saved before the last reset."
+  },
+  "resetBackupNote": {
+    "message": "Le impostazioni attuali vengono conservate, così puoi ripristinarle con un clic.",
+    "description": "Line in the reset confirmation dialog."
+  },
+  "presetRemoveAria": {
+    "message": "Rimuovi $LABEL$",
+    "description": "Accessible name of the button removing a reminder time.",
+    "placeholders": {
+      "label": {
+        "content": "$1",
+        "example": "In 3 minutes"
+      }
+    }
+  },
+  "releaseNotesHelp": {
+    "message": "Versione $VERSION$ · cosa cambia a ogni aggiornamento",
+    "description": "Help text under the release notes row.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.5.0"
+      }
+    }
+  },
+  "restoreHelp": {
+    "message": "Salvate prima del ripristino del $WHEN$",
+    "description": "Help text under the restore row with the date of the reset.",
+    "placeholders": {
+      "when": {
+        "content": "$1",
+        "example": "23 Nov 2026, 14:05"
+      }
+    }
+  },
+  "whatsNew_1_5_0": {
+    "message": "Gli orari di Ricordamelo li scegli tu: aggiungi nelle impostazioni tempi come 3 minuti o 3 giorni, fino a cinque.\nUn promemoria in scadenza ora mostra una scheda su WhatsApp, e le notifiche di sistema restano a schermo con i pulsanti Apri chat e Rimanda.\nInvia una notifica di prova dalle impostazioni per verificare che gli avvisi ti arrivino.\nLa palette comandi ora fa parte delle Scorciatoie, dove trovi i suoi tasti.\nLe note di rilascio di ogni versione sono nelle Impostazioni.\nIl ripristino conserva un backup delle impostazioni, così puoi recuperarle con un clic.",
+    "description": "Release notes for 1.5.0, one note per line."
   }
 }

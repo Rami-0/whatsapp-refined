@@ -598,12 +598,6 @@
   "chatNotFound": {
     "message": "このチャットが見つかりません。名前が変わった可能性があります。"
   },
-  "remindIn1h": {
-    "message": "1時間後"
-  },
-  "remindIn3h": {
-    "message": "3時間後"
-  },
   "remindTomorrow": {
     "message": "明日"
   },
@@ -697,9 +691,6 @@
   "paletteSetting": {
     "message": "コマンドパレット"
   },
-  "paletteSettingHelp": {
-    "message": "Cmd/Ctrl+K で Refined のパレット、Shift を加えると WhatsApp の検索"
-  },
   "mentionsSetting": {
     "message": "メンションのまとめ"
   },
@@ -714,5 +705,187 @@
   },
   "mentionsEmpty": {
     "message": "未読のメンションはありません"
+  },
+  "reminderOpenChat": {
+    "message": "チャットを開く",
+    "description": "Button on a due-reminder alert (system notification and in-page card) that opens the chat."
+  },
+  "reminderSnooze1h": {
+    "message": "1時間スヌーズ",
+    "description": "Button on a due-reminder alert that pushes the reminder back by one hour."
+  },
+  "testNotificationBody": {
+    "message": "Refined の通知は正常に動作しています。",
+    "description": "Body of the test notification sent from settings."
+  },
+  "testNotification": {
+    "message": "通知をテスト",
+    "description": "Settings row title for sending a test notification."
+  },
+  "testNotificationHelp": {
+    "message": "今すぐ送信して、通知が画面に届くか確認します",
+    "description": "Help text under the test-notification row."
+  },
+  "testNotificationAction": {
+    "message": "テスト送信",
+    "description": "Button that sends a test notification."
+  },
+  "testNotificationSending": {
+    "message": "送信中…",
+    "description": "Status while the test notification is being sent."
+  },
+  "testNotificationSent": {
+    "message": "送信しました。",
+    "description": "Status after the test notification was sent; followed by a hint on where to allow notifications."
+  },
+  "testNotificationHintMac": {
+    "message": "表示されませんか？システム設定 → 通知を開き、お使いのブラウザを選んで「通知を許可」をオンにしてください。",
+    "description": "macOS hint when a sent test notification did not appear."
+  },
+  "testNotificationHintWindows": {
+    "message": "表示されませんか？設定 → システム → 通知を開き、お使いのブラウザの通知をオンにしてください。",
+    "description": "Windows hint when a sent test notification did not appear."
+  },
+  "testNotificationHintOther": {
+    "message": "表示されませんか？システム設定でブラウザの通知を許可してください。",
+    "description": "Hint on other systems when a sent test notification did not appear."
+  },
+  "testNotificationChrome": {
+    "message": "ブラウザが Refined の通知をブロックしています。ブラウザの通知設定で許可してください。",
+    "description": "Error when the browser itself denies notifications to the extension."
+  },
+  "testNotificationPermission": {
+    "message": "先にリマインドの通知をオンにしてください。",
+    "description": "Error when the notification permission is not granted."
+  },
+  "testNotificationFailed": {
+    "message": "通知を送信できませんでした。ブラウザを再起動してからもう一度お試しください。",
+    "description": "Generic error for the test notification."
+  },
+  "presetsSetting": {
+    "message": "リマインドの時間",
+    "description": "Settings block title: the times offered by the Remind me menu."
+  },
+  "presetsSettingHelp": {
+    "message": "「リマインド」メニューに最大5件表示されます。1件削除して空きを作ってください。",
+    "description": "Help text for the reminder-times block."
+  },
+  "presetAmountAria": {
+    "message": "数値",
+    "description": "Accessible name of the number field for a new reminder time."
+  },
+  "presetUnitAria": {
+    "message": "単位",
+    "description": "Accessible name of the unit picker for a new reminder time."
+  },
+  "presetMinutes": {
+    "message": "分",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetHours": {
+    "message": "時間",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetDays": {
+    "message": "日",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetWeeks": {
+    "message": "週間",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetTomorrow": {
+    "message": "明日 9:00",
+    "description": "Option for a reminder time of 09:00 the next day."
+  },
+  "presetAdd": {
+    "message": "追加",
+    "description": "Button that adds a reminder time."
+  },
+  "presetsEmpty": {
+    "message": "カスタムの日時のみ",
+    "description": "Shown when every preset was removed; the menu then offers only the date picker."
+  },
+  "presetsFull": {
+    "message": "5件です。追加するには1件削除してください。",
+    "description": "Shown when five reminder times are saved."
+  },
+  "presetsInvalid": {
+    "message": "1分から1年の間で指定してください。",
+    "description": "Shown for an out-of-range reminder time."
+  },
+  "presetsDuplicate": {
+    "message": "その時間はすでにリストにあります。",
+    "description": "Shown when adding a reminder time that exists."
+  },
+  "paletteShortcutHelp": {
+    "message": "チャット、フォルダ、操作を検索",
+    "description": "Help text for the command palette shortcut row."
+  },
+  "whatsappSearchShortcut": {
+    "message": "WhatsApp 検索",
+    "description": "Shortcut row: WhatsApp's own extended search."
+  },
+  "whatsappSearchShortcutHelp": {
+    "message": "WhatsApp 本来の Cmd/Ctrl+K は Shift 付きに変わりました",
+    "description": "Help text: WhatsApp's search shortcut now needs Shift."
+  },
+  "releaseNotes": {
+    "message": "リリースノート",
+    "description": "Settings row and dialog title listing what changed in each version."
+  },
+  "releaseNotesAction": {
+    "message": "表示",
+    "description": "Button that opens the release notes."
+  },
+  "releaseNotesInstalled": {
+    "message": "インストール済み",
+    "description": "Tag next to the installed version in the release notes."
+  },
+  "restoreSettings": {
+    "message": "以前の設定を復元",
+    "description": "Settings row offering to undo the last reset."
+  },
+  "restoreAction": {
+    "message": "復元",
+    "description": "Button that restores the settings saved before the last reset."
+  },
+  "resetBackupNote": {
+    "message": "現在の設定は保存されるので、ワンクリックで復元できます。",
+    "description": "Line in the reset confirmation dialog."
+  },
+  "presetRemoveAria": {
+    "message": "$LABEL$を削除",
+    "description": "Accessible name of the button removing a reminder time.",
+    "placeholders": {
+      "label": {
+        "content": "$1",
+        "example": "In 3 minutes"
+      }
+    }
+  },
+  "releaseNotesHelp": {
+    "message": "バージョン $VERSION$ · 各アップデートの変更点",
+    "description": "Help text under the release notes row.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.5.0"
+      }
+    }
+  },
+  "restoreHelp": {
+    "message": "$WHEN$のリセット前に保存",
+    "description": "Help text under the restore row with the date of the reset.",
+    "placeholders": {
+      "when": {
+        "content": "$1",
+        "example": "23 Nov 2026, 14:05"
+      }
+    }
+  },
+  "whatsNew_1_5_0": {
+    "message": "「リマインド」の時間を自由に設定できます。設定で「3分」や「3日」などを最大5件まで追加できます。\n期限になったリマインドは WhatsApp 上にカードで表示され、システム通知は「チャットを開く」と「スヌーズ」ボタン付きで画面に残ります。\n設定からテスト通知を送って、通知が届くか確認できます。\nコマンドパレットはショートカットに移動し、キーもそこに一覧されます。\n全バージョンのリリースノートは設定にあります。\nリセットしても設定のバックアップが残り、ワンクリックで復元できます。",
+    "description": "Release notes for 1.5.0, one note per line."
   }
 }

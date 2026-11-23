@@ -22,7 +22,8 @@
     let recent = [];
     let lastOpen = "";
 
-    const enabled = () => settings().enabled && settings().paletteEnabled;
+    /* Part of Refined's shortcuts: one switch turns every Refined key off. */
+    const enabled = () => settings().enabled && settings().keyboardShortcuts;
     const isMac = () => utils.desktopPlatform(navigator) === "mac";
 
     function storage() {
@@ -94,9 +95,10 @@
         list.push({ group, label: pinned ? t("paletteUnpinOpen", "Unpin this chat") : t("palettePinOpen", "Pin this chat"), hint: open, icon: "pin", run: () => shelf.togglePin(open) });
       }
       if (open && settings().remindersEnabled && shelf) {
-        const labels = { "1h": t("remindIn1h", "In 1 hour"), "3h": t("remindIn3h", "In 3 hours"), tomorrow: t("remindTomorrow", "Tomorrow") };
-        utils.reminderPresets(new Date()).forEach((preset) => {
-          list.push({ group, label: `${t("remindMe", "Remind me")}: ${labels[preset.key]}`, hint: open, icon: "clock", run: () => shelf.remind(open, preset.at) });
+        const language = utils.uiLanguage(settings().language);
+        utils.reminderPresets(new Date(), settings().reminderPresets).forEach((preset) => {
+          const label = utils.presetLabel(preset, language, t("remindTomorrow", "Tomorrow"));
+          list.push({ group, label: `${t("remindMe", "Remind me")}: ${label}`, hint: open, icon: "clock", run: () => shelf.remind(open, preset.at) });
         });
       }
       actions.folders().forEach((folder) => {

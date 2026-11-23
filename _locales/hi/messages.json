@@ -598,12 +598,6 @@
   "chatNotFound": {
     "message": "यह चैट नहीं मिली। शायद इसका नाम बदल गया है।"
   },
-  "remindIn1h": {
-    "message": "1 घंटे में"
-  },
-  "remindIn3h": {
-    "message": "3 घंटे में"
-  },
   "remindTomorrow": {
     "message": "कल"
   },
@@ -697,9 +691,6 @@
   "paletteSetting": {
     "message": "कमांड पैलेट"
   },
-  "paletteSettingHelp": {
-    "message": "Cmd/Ctrl+K Refined पैलेट खोलता है; WhatsApp खोज के लिए Shift जोड़ें"
-  },
   "mentionsSetting": {
     "message": "ज़िक्र सारांश"
   },
@@ -714,5 +705,187 @@
   },
   "mentionsEmpty": {
     "message": "कोई अपठित ज़िक्र नहीं"
+  },
+  "reminderOpenChat": {
+    "message": "चैट खोलें",
+    "description": "Button on a due-reminder alert (system notification and in-page card) that opens the chat."
+  },
+  "reminderSnooze1h": {
+    "message": "1 घंटे के लिए स्थगित करें",
+    "description": "Button on a due-reminder alert that pushes the reminder back by one hour."
+  },
+  "testNotificationBody": {
+    "message": "Refined की सूचनाएँ काम कर रही हैं।",
+    "description": "Body of the test notification sent from settings."
+  },
+  "testNotification": {
+    "message": "सूचनाओं का परीक्षण",
+    "description": "Settings row title for sending a test notification."
+  },
+  "testNotificationHelp": {
+    "message": "अभी एक भेजकर जाँचें कि अलर्ट आपकी स्क्रीन तक पहुँचते हैं",
+    "description": "Help text under the test-notification row."
+  },
+  "testNotificationAction": {
+    "message": "टेस्ट भेजें",
+    "description": "Button that sends a test notification."
+  },
+  "testNotificationSending": {
+    "message": "भेजा जा रहा है…",
+    "description": "Status while the test notification is being sent."
+  },
+  "testNotificationSent": {
+    "message": "भेज दिया गया।",
+    "description": "Status after the test notification was sent; followed by a hint on where to allow notifications."
+  },
+  "testNotificationHintMac": {
+    "message": "कुछ नहीं दिखा? सिस्टम सेटिंग → सूचनाएँ खोलें, अपना ब्राउज़र चुनें और सूचनाओं की अनुमति चालू करें।",
+    "description": "macOS hint when a sent test notification did not appear."
+  },
+  "testNotificationHintWindows": {
+    "message": "कुछ नहीं दिखा? सेटिंग → सिस्टम → सूचनाएँ खोलें और अपने ब्राउज़र के लिए इन्हें चालू करें।",
+    "description": "Windows hint when a sent test notification did not appear."
+  },
+  "testNotificationHintOther": {
+    "message": "कुछ नहीं दिखा? सिस्टम सेटिंग में अपने ब्राउज़र की सूचनाओं की अनुमति दें।",
+    "description": "Hint on other systems when a sent test notification did not appear."
+  },
+  "testNotificationChrome": {
+    "message": "आपका ब्राउज़र Refined की सूचनाएँ रोक रहा है। उसकी सूचना सेटिंग में इन्हें अनुमति दें।",
+    "description": "Error when the browser itself denies notifications to the extension."
+  },
+  "testNotificationPermission": {
+    "message": "पहले रिमाइंडर सूचनाएँ चालू करें।",
+    "description": "Error when the notification permission is not granted."
+  },
+  "testNotificationFailed": {
+    "message": "सूचना नहीं भेजी जा सकी। ब्राउज़र रीस्टार्ट करके दोबारा कोशिश करें।",
+    "description": "Generic error for the test notification."
+  },
+  "presetsSetting": {
+    "message": "रिमाइंडर के समय",
+    "description": "Settings block title: the times offered by the Remind me menu."
+  },
+  "presetsSettingHelp": {
+    "message": "‘याद दिलाएँ’ मेनू में अधिकतम 5 दिखते हैं। जगह बनाने के लिए एक हटाएँ।",
+    "description": "Help text for the reminder-times block."
+  },
+  "presetAmountAria": {
+    "message": "संख्या",
+    "description": "Accessible name of the number field for a new reminder time."
+  },
+  "presetUnitAria": {
+    "message": "इकाई",
+    "description": "Accessible name of the unit picker for a new reminder time."
+  },
+  "presetMinutes": {
+    "message": "मिनट",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetHours": {
+    "message": "घंटे",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetDays": {
+    "message": "दिन",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetWeeks": {
+    "message": "सप्ताह",
+    "description": "Unit option for a new reminder time."
+  },
+  "presetTomorrow": {
+    "message": "कल 9:00",
+    "description": "Option for a reminder time of 09:00 the next day."
+  },
+  "presetAdd": {
+    "message": "जोड़ें",
+    "description": "Button that adds a reminder time."
+  },
+  "presetsEmpty": {
+    "message": "सिर्फ़ कस्टम तारीख़ और समय",
+    "description": "Shown when every preset was removed; the menu then offers only the date picker."
+  },
+  "presetsFull": {
+    "message": "5 हो गए। दूसरा जोड़ने के लिए एक हटाएँ।",
+    "description": "Shown when five reminder times are saved."
+  },
+  "presetsInvalid": {
+    "message": "1 मिनट से 1 साल के बीच का समय चुनें।",
+    "description": "Shown for an out-of-range reminder time."
+  },
+  "presetsDuplicate": {
+    "message": "यह समय सूची में पहले से है।",
+    "description": "Shown when adding a reminder time that exists."
+  },
+  "paletteShortcutHelp": {
+    "message": "चैट, फ़ोल्डर और एक्शन खोजें",
+    "description": "Help text for the command palette shortcut row."
+  },
+  "whatsappSearchShortcut": {
+    "message": "WhatsApp सर्च",
+    "description": "Shortcut row: WhatsApp's own extended search."
+  },
+  "whatsappSearchShortcutHelp": {
+    "message": "WhatsApp का अपना Cmd/Ctrl+K, अब Shift के साथ",
+    "description": "Help text: WhatsApp's search shortcut now needs Shift."
+  },
+  "releaseNotes": {
+    "message": "रिलीज़ नोट्स",
+    "description": "Settings row and dialog title listing what changed in each version."
+  },
+  "releaseNotesAction": {
+    "message": "देखें",
+    "description": "Button that opens the release notes."
+  },
+  "releaseNotesInstalled": {
+    "message": "इंस्टॉल है",
+    "description": "Tag next to the installed version in the release notes."
+  },
+  "restoreSettings": {
+    "message": "पिछली सेटिंग वापस लाएँ",
+    "description": "Settings row offering to undo the last reset."
+  },
+  "restoreAction": {
+    "message": "वापस लाएँ",
+    "description": "Button that restores the settings saved before the last reset."
+  },
+  "resetBackupNote": {
+    "message": "आपकी मौजूदा सेटिंग सुरक्षित रखी जाती हैं, इसलिए एक क्लिक में उन्हें वापस ला सकते हैं।",
+    "description": "Line in the reset confirmation dialog."
+  },
+  "presetRemoveAria": {
+    "message": "$LABEL$ हटाएँ",
+    "description": "Accessible name of the button removing a reminder time.",
+    "placeholders": {
+      "label": {
+        "content": "$1",
+        "example": "In 3 minutes"
+      }
+    }
+  },
+  "releaseNotesHelp": {
+    "message": "वर्ज़न $VERSION$ · हर अपडेट में क्या बदला",
+    "description": "Help text under the release notes row.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.5.0"
+      }
+    }
+  },
+  "restoreHelp": {
+    "message": "$WHEN$ को रीसेट से पहले सहेजा गया",
+    "description": "Help text under the restore row with the date of the reset.",
+    "placeholders": {
+      "when": {
+        "content": "$1",
+        "example": "23 Nov 2026, 14:05"
+      }
+    }
+  },
+  "whatsNew_1_5_0": {
+    "message": "‘याद दिलाएँ’ के समय अब आप तय करते हैं: सेटिंग में 3 मिनट या 3 दिन जैसे समय जोड़ें, अधिकतम पाँच।\nसमय आने पर रिमाइंडर WhatsApp में कार्ड दिखाता है, और सिस्टम सूचनाएँ ‘चैट खोलें’ और ‘स्थगित करें’ बटन के साथ स्क्रीन पर बनी रहती हैं।\nसेटिंग से टेस्ट सूचना भेजकर जाँचें कि अलर्ट आप तक पहुँचते हैं।\nकमांड पैलेट अब शॉर्टकट में है; उसकी कुंजियाँ वहीं दी गई हैं।\nहर वर्ज़न के रिलीज़ नोट्स सेटिंग में मिलेंगे।\nरीसेट आपकी सेटिंग का बैकअप रखता है, ताकि आप एक क्लिक में उन्हें वापस ला सकें।",
+    "description": "Release notes for 1.5.0, one note per line."
   }
 }

@@ -60,8 +60,31 @@
             <label class="switch-row" for="pinsEnabled"><span><b data-i18n="pinsSetting">Unlimited pins</b><small data-i18n="pinsSettingHelp">Pin any chat from its row and drag to reorder</small></span><input id="pinsEnabled" data-setting="pinsEnabled" type="checkbox"><i aria-hidden="true"></i></label>
             <label class="switch-row" for="remindersEnabled"><span><b data-i18n="remindersSetting">Chat reminders</b><small data-i18n="remindersSettingHelp">Snooze a chat and get it back when it is due</small></span><input id="remindersEnabled" data-setting="remindersEnabled" type="checkbox"><i aria-hidden="true"></i></label>
             <label class="switch-row" for="reminderNotifications"><span><b data-i18n="reminderNotificationsSetting">Reminder notifications</b><small data-i18n="reminderNotificationsHelp">Also alert you when WhatsApp is closed</small></span><input id="reminderNotifications" data-setting="reminderNotifications" type="checkbox"><i aria-hidden="true"></i></label>
-            <label class="switch-row" for="paletteEnabled"><span><b data-i18n="paletteSetting">Command palette</b><small data-i18n="paletteSettingHelp">Cmd/Ctrl+K opens Refined's palette; add Shift for WhatsApp's search</small></span><input id="paletteEnabled" data-setting="paletteEnabled" type="checkbox"><i aria-hidden="true"></i></label>
             <label class="switch-row" for="mentionsEnabled"><span><b data-i18n="mentionsSetting">Mentions digest</b><small data-i18n="mentionsSettingHelp">Collect chats where you were @mentioned</small></span><input id="mentionsEnabled" data-setting="mentionsEnabled" type="checkbox"><i aria-hidden="true"></i></label>
+          </div>
+
+          <div class="action-row" id="notificationTest">
+            <span><b data-i18n="testNotification">Test notifications</b><small id="notificationTestStatus" data-i18n="testNotificationHelp">Send one now to check that alerts reach your screen</small></span>
+            <button id="sendTestNotification" type="button" class="ghost-button" data-i18n="testNotificationAction">Send test</button>
+          </div>
+
+          <div class="setting-block preset-block" id="presetBlock">
+            <div class="setting-heading">
+              <div><b data-i18n="presetsSetting">Reminder times</b><small data-i18n="presetsSettingHelp">Up to 5 show in the Remind me menu. Remove one to make room.</small></div>
+            </div>
+            <ul class="preset-list" id="presetList" aria-label="Reminder times" data-i18n-aria-label="presetsSetting"></ul>
+            <div class="preset-add">
+              <input id="presetAmount" type="number" min="1" max="999" step="1" value="30" aria-label="Amount" data-i18n-aria-label="presetAmountAria">
+              <select id="presetUnit" aria-label="Unit" data-i18n-aria-label="presetUnitAria">
+                <option value="minute" data-i18n="presetMinutes">minutes</option>
+                <option value="hour" data-i18n="presetHours">hours</option>
+                <option value="day" data-i18n="presetDays">days</option>
+                <option value="week" data-i18n="presetWeeks">weeks</option>
+                <option value="tomorrow" data-i18n="presetTomorrow">Tomorrow 9:00</option>
+              </select>
+              <button id="presetAdd" type="button" class="ghost-button" data-i18n="presetAdd">Add</button>
+            </div>
+            <small class="preset-note" id="presetNote" role="status"></small>
           </div>
         </section>
 
@@ -98,6 +121,8 @@
           <label class="switch-row standalone-switch" for="keyboardShortcuts"><span><b data-i18n="refinedShortcuts">Refined shortcuts</b><small data-i18n="refinedShortcutsHelp">Active while the WhatsApp tab is focused</small></span><input id="keyboardShortcuts" data-setting="keyboardShortcuts" type="checkbox"><i aria-hidden="true"></i></label>
 
           <div class="shortcut-list" aria-label="Available keyboard shortcuts" data-i18n-aria-label="shortcutListAria">
+            <div class="shortcut-row"><span><b data-i18n="paletteSetting">Command palette</b><small data-i18n="paletteShortcutHelp">Find chats, folders and actions</small></span><span class="shortcut-keys" data-mac="⌘|K" data-other="Ctrl|K"></span></div>
+            <div class="shortcut-row"><span><b data-i18n="whatsappSearchShortcut">WhatsApp search</b><small data-i18n="whatsappSearchShortcutHelp">WhatsApp’s own Cmd/Ctrl+K, moved to Shift</small></span><span class="shortcut-keys" data-mac="⇧|⌘|K" data-other="Ctrl|Shift|K"></span></div>
             <div class="shortcut-row"><span><b data-i18n="focusSearch">Focus search</b><small data-i18n="focusSearchHelp">Jump to WhatsApp search</small></span><span class="shortcut-keys" data-mac="⌥|⌘|K" data-other="Ctrl|Alt|K"></span></div>
             <div class="shortcut-row"><span><b data-i18n="newChat">New chat</b><small data-i18n="newChatHelp">Open WhatsApp’s native new-chat panel</small></span><span class="shortcut-keys" data-mac="⌥|⌘|N" data-other="Ctrl|Alt|N"></span></div>
             <div class="shortcut-row"><span><b data-i18n="folderCycle">Previous / next folder</b><small data-i18n="folderCycleHelp">Cycles native tabs or sidebar folders</small></span><span class="shortcut-keys" data-mac="⌥|⌘|← / →" data-other="Ctrl|Alt|← / →"></span></div>
@@ -137,6 +162,16 @@
             </label>
           </div>
 
+          <div class="action-row">
+            <span><b data-i18n="releaseNotes">Release notes</b><small id="releaseNotesHelp">Version 1.5.0</small></span>
+            <button id="openReleaseNotes" type="button" class="ghost-button" data-i18n="releaseNotesAction">View</button>
+          </div>
+
+          <div class="action-row restore-row" id="restoreRow" hidden>
+            <span><b data-i18n="restoreSettings">Restore previous settings</b><small id="restoreHelp">Saved before your last reset</small></span>
+            <button id="restoreSettings" type="button" class="ghost-button" data-i18n="restoreAction">Restore</button>
+          </div>
+
           <div class="danger-row">
             <span><b data-i18n="resetDefaults">Reset defaults</b><small data-i18n="resetDefaultsHelp">Put every Refined option back the way it shipped</small></span>
             <button id="resetSettings" type="button" class="danger-button" data-i18n="resetAction">Reset</button>
@@ -160,10 +195,22 @@
         </span>
         <h2 id="resetDialogTitle" data-i18n="resetConfirmTitle">Reset every setting?</h2>
         <p data-i18n="resetConfirmBody">All Refined options go back to their defaults. Your WhatsApp account, chats and messages are untouched.</p>
+        <p data-i18n="resetBackupNote">Your current settings are kept, so you can restore them in one click.</p>
         <div class="confirm-actions">
           <button type="submit" value="cancel" class="ghost-button" data-i18n="cancel">Cancel</button>
           <button type="submit" value="reset" class="danger-button" data-i18n="resetAction">Reset</button>
         </div>
+      </form>
+    </dialog>
+    <dialog id="notesDialog" class="confirm notes" aria-labelledby="notesDialogTitle">
+      <form method="dialog" class="notes-card">
+        <header class="notes-head">
+          <h2 id="notesDialogTitle" data-i18n="releaseNotes">Release notes</h2>
+          <button type="submit" value="close" class="notes-close" aria-label="Close" data-i18n-aria-label="whatsNewClose">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17"/></svg>
+          </button>
+        </header>
+        <div class="notes-body" id="notesBody"></div>
       </form>
     </dialog>
     <script src="../src/utils.js"></script>
