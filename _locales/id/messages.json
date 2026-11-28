@@ -887,5 +887,8 @@
   "whatsNew_1_5_0": {
     "message": "Waktu Ingatkan saya kini Anda tentukan sendiri: tambahkan seperti 3 menit atau 3 hari di pengaturan, hingga lima.\nPengingat yang jatuh tempo kini menampilkan kartu di WhatsApp, dan notifikasi sistem tetap di layar dengan tombol Buka chat dan Tunda.\nKirim notifikasi uji dari pengaturan untuk memastikan peringatan sampai kepada Anda.\nPalet perintah kini ada di Pintasan; tombolnya tercantum di sana.\nCatatan rilis setiap versi ada di Pengaturan.\nSetel ulang menyimpan cadangan pengaturan Anda, sehingga bisa dipulihkan dengan satu klik.",
     "description": "Release notes for 1.5.0, one note per line."
+  },
+  "whatsNew_1_5_1": {
+    "message": "Daftar Disematkan, Ditunda, dan Sebutan tidak lagi berkedip saat Cari pesan terbuka."
   }
 }

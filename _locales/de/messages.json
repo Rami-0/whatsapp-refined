@@ -887,5 +887,8 @@
   "whatsNew_1_5_0": {
     "message": "Die Zeiten bei „Erinnern“ legst du selbst fest: Füge in den Einstellungen z. B. 3 Minuten oder 3 Tage hinzu, bis zu fünf.\nEine fällige Erinnerung zeigt jetzt eine Karte in WhatsApp, und Systembenachrichtigungen bleiben mit „Chat öffnen“ und „Später“ auf dem Bildschirm.\nSende in den Einstellungen eine Testbenachrichtigung, um zu prüfen, ob Hinweise bei dir ankommen.\nDie Befehlspalette gehört jetzt zu den Tastenkürzeln; dort stehen ihre Tasten.\nDie Versionshinweise aller Versionen findest du in den Einstellungen.\nBeim Zurücksetzen wird eine Sicherung deiner Einstellungen behalten, die du mit einem Klick wiederherstellen kannst.",
     "description": "Release notes for 1.5.0, one note per line."
+  },
+  "whatsNew_1_5_1": {
+    "message": "Die Listen „Angeheftet“, „Zurückgestellt“ und „Erwähnungen“ flackern nicht mehr, während „Nachrichten durchsuchen“ geöffnet ist."
   }
 }

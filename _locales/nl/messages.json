@@ -887,5 +887,8 @@
   "whatsNew_1_5_0": {
     "message": "De tijden van Herinner me bepaal je zelf: voeg in de instellingen tijden toe zoals 3 minuten of 3 dagen, tot vijf.\nEen verlopen herinnering toont nu een kaart in WhatsApp, en systeemmeldingen blijven op het scherm met de knoppen Chat openen en Uitstellen.\nStuur een testmelding vanuit de instellingen om te controleren of meldingen bij je aankomen.\nHet opdrachtpalet hoort nu bij Sneltoetsen; daar staan de toetsen.\nRelease-opmerkingen van elke versie staan onder Instellingen.\nHerstellen bewaart een back-up van je instellingen, zodat je ze met één klik terugzet.",
     "description": "Release notes for 1.5.0, one note per line."
+  },
+  "whatsNew_1_5_1": {
+    "message": "De lijsten Vastgezet, Uitgesteld en Vermeldingen knipperen niet meer terwijl Berichten zoeken open is."
   }
 }

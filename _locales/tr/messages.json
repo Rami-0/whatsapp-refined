@@ -887,5 +887,8 @@
   "whatsNew_1_5_0": {
     "message": "Hatırlat zamanlarını artık siz belirliyorsunuz: ayarlardan 3 dakika veya 3 gün gibi zamanlar ekleyin, en fazla beş.\nZamanı gelen hatırlatma artık WhatsApp’ta bir kart gösteriyor; sistem bildirimleri Sohbeti aç ve Ertele düğmeleriyle ekranda kalıyor.\nUyarıların size ulaştığını denetlemek için ayarlardan test bildirimi gönderin.\nKomut paleti artık Kısayollar’da; tuşları orada listeleniyor.\nHer sürümün notları Ayarlar’da.\nSıfırlama ayarlarınızın yedeğini tutar, böylece tek tıkla geri yükleyebilirsiniz.",
     "description": "Release notes for 1.5.0, one note per line."
+  },
+  "whatsNew_1_5_1": {
+    "message": "Mesajlarda ara açıkken Sabitlenenler, Ertelenenler ve Bahsetmeler listeleri artık titremiyor."
   }
 }

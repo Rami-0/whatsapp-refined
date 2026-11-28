@@ -942,5 +942,9 @@
   "whatsNew_1_5_0": {
     "message": "Remind me times are yours to set: add ones like 3 minutes or 3 days in settings, and keep up to five.\nA due reminder now shows a card on WhatsApp, and system notifications stay on screen with Open chat and Snooze buttons.\nSend a test notification from settings to check that alerts reach you.\nThe command palette is part of Shortcuts now; its keys are listed there.\nRelease notes for every version are under Settings.\nReset keeps a backup of your settings, so you can restore them in one click.",
     "description": "Release notes for 1.5.0, one note per line."
+  },
+  "whatsNew_1_5_1": {
+    "message": "The Pinned, Snoozed and Mentions lists no longer flicker while Search messages is open.",
+    "description": "Release notes for 1.5.1, one note per line."
   }
 }

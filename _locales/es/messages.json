@@ -887,5 +887,8 @@
   "whatsNew_1_5_0": {
     "message": "Las horas de Recordarme las eliges tú: añade en ajustes opciones como 3 minutos o 3 días, hasta cinco.\nUn recordatorio vencido ahora muestra una tarjeta en WhatsApp, y las notificaciones del sistema se quedan en pantalla con los botones Abrir chat y Posponer.\nEnvía una notificación de prueba desde ajustes para comprobar que los avisos te llegan.\nLa paleta de comandos ahora está en Atajos, donde verás sus teclas.\nLas notas de todas las versiones están en Ajustes.\nRestablecer conserva una copia de tus ajustes, para que puedas restaurarlos con un clic.",
     "description": "Release notes for 1.5.0, one note per line."
+  },
+  "whatsNew_1_5_1": {
+    "message": "Las listas Fijados, Pospuestos y Menciones ya no parpadean mientras Buscar mensajes está abierto."
   }
 }
