@@ -264,7 +264,7 @@
   /* Every version that ships release notes, newest first. Each one has a
      `whatsNew_<major>_<minor>_<patch>` message in every locale (one note per
      line), and `npm run release:check` refuses a tag missing from this list. */
-  const RELEASE_NOTES = Object.freeze(["1.5.0", "1.4.0", "1.3.2", "1.3.1"]);
+  const RELEASE_NOTES = Object.freeze(["1.5.1", "1.5.0", "1.4.0", "1.3.2", "1.3.1"]);
   const MAX_NOTES_SHOWN = 3;
 
   function compareVersions(a, b) {

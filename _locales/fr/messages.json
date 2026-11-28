@@ -887,5 +887,8 @@
   "whatsNew_1_5_0": {
     "message": "Les heures de Me rappeler sont à vous : ajoutez dans les réglages des durées comme 3 minutes ou 3 jours, jusqu’à cinq.\nUn rappel arrivé à échéance affiche désormais une carte dans WhatsApp, et les notifications système restent à l’écran avec les boutons Ouvrir la discussion et Reporter.\nEnvoyez une notification de test depuis les réglages pour vérifier que les alertes vous parviennent.\nLa palette de commandes fait maintenant partie des Raccourcis, où ses touches sont listées.\nLes notes de version de chaque version sont dans les Paramètres.\nLa réinitialisation garde une sauvegarde de vos réglages, que vous restaurez en un clic.",
     "description": "Release notes for 1.5.0, one note per line."
+  },
+  "whatsNew_1_5_1": {
+    "message": "Les listes Épinglées, En attente et Mentions ne clignotent plus quand Rechercher des messages est ouvert."
   }
 }

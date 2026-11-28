@@ -887,5 +887,8 @@
   "whatsNew_1_5_0": {
     "message": "Thời điểm Nhắc tôi do bạn đặt: thêm các mốc như 3 phút hoặc 3 ngày trong cài đặt, tối đa năm mốc.\nLời nhắc đến hạn giờ hiện thẻ trên WhatsApp, và thông báo hệ thống ở lại trên màn hình cùng nút Mở cuộc trò chuyện và Hoãn.\nGửi thông báo thử từ cài đặt để kiểm tra cảnh báo có đến được với bạn.\nBảng lệnh nay nằm trong Phím tắt; các phím được liệt kê ở đó.\nGhi chú phát hành của mọi phiên bản nằm trong Cài đặt.\nĐặt lại vẫn giữ bản sao lưu cài đặt, để bạn khôi phục chỉ với một lần nhấp.",
     "description": "Release notes for 1.5.0, one note per line."
+  },
+  "whatsNew_1_5_1": {
+    "message": "Danh sách Đã ghim, Đã hoãn và Lượt nhắc không còn nhấp nháy khi mở Tìm kiếm tin nhắn."
   }
 }

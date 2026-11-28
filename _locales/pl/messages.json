@@ -887,5 +887,8 @@
   "whatsNew_1_5_0": {
     "message": "Czasy w menu Przypomnij ustawiasz sam: dodaj w ustawieniach np. 3 minuty lub 3 dni, do pięciu.\nWymagalne przypomnienie pokazuje teraz kartę w WhatsApp, a powiadomienia systemowe zostają na ekranie z przyciskami Otwórz czat i Odłóż.\nWyślij z ustawień testowe powiadomienie, aby sprawdzić, czy alerty do Ciebie docierają.\nPaleta poleceń jest teraz w Skrótach; tam znajdziesz jej klawisze.\nInformacje o każdej wersji są w Ustawieniach.\nReset zachowuje kopię ustawień, więc przywrócisz je jednym kliknięciem.",
     "description": "Release notes for 1.5.0, one note per line."
+  },
+  "whatsNew_1_5_1": {
+    "message": "Listy Przypięte, Odłożone i Wzmianki nie migają już, gdy otwarte jest Wyszukiwanie wiadomości."
   }
 }

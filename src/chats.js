@@ -12,10 +12,18 @@
   const OPEN_TIMEOUT_MS = 4000;
 
   /* WhatsApp keeps a second, empty #pane-side on the page; the real list is
-     the one with height. */
+     the one with height. The right-hand drawers (Search messages, contact
+     info) can carry their own #pane-side too, so only the left panel's
+     (#side) counts. Picking by height across both made the shelf jump
+     between them: mounting it shrank one list, which made the other one
+     the taller, and so on. */
   function chatPane() {
     let best = null;
-    document.querySelectorAll("#pane-side").forEach((pane) => {
+    const pick = (selector) => document.querySelectorAll(selector);
+    let candidates = pick("#side #pane-side");
+    if (!candidates.length) candidates = pick('#pane-side[data-scrolltracepolicy="wa.web.chatlist"]');
+    if (!candidates.length) candidates = pick("#pane-side");
+    candidates.forEach((pane) => {
       if (!best || pane.clientHeight > best.clientHeight) best = pane;
     });
     return best && best.clientHeight > 0 ? best : null;
